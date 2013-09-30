@@ -10,9 +10,9 @@
 
 * 關於 leiningen
 
-  lein 已經成為開發 Clojure 程式的必備工具，最近在 GitHub 看到很方便的
-  lein 擴展 [[https://github.com/kumarshantanu/lein-localrepo][lein-localrepo]] ，使用他可以很簡單的將需要的 Java
-  Libraries 加入到本地的 Maven repo
+lein 已經成為開發 Clojure 程式的必備工具，最近在 GitHub 看到很方便的
+lein 擴展 [[https://github.com/kumarshantanu/lein-localrepo][lein-localrepo]] ，使用他可以很簡單的將需要的 Java
+Libraries 加入到本地的 Maven repo
 
 * 來複習一下傳統的作法
 
@@ -20,10 +20,10 @@
 令將 javafx 加入到你本地的 Maven repo, 是不是覺得這個方法很麻煩？
 
 #+BEGIN_SRC sh
-    mvn deploy:deploy-file -DgroupId=local.oracle -DartifactId=javafxrt \
-        -Dversion=2.2.0 -Dpackaging=jar \
-        -Durl=file:${HOME}/.m2/repository \
-        -Dfile=/opt/oracle-jre-bin-1.7.0.17/lib/jfxrt.jar
+  mvn deploy:deploy-file -DgroupId=local.oracle -DartifactId=javafxrt \
+      -Dversion=2.2.0 -Dpackaging=jar \
+      -Durl=file:${HOME}/.m2/repository \
+      -Dfile=/opt/oracle-jre-bin-1.7.0.17/lib/jfxrt.jar
 #+END_SRC
 
 * 使用 lein-localrepo 來簡化這麻煩的步驟
@@ -32,7 +32,7 @@
 加入以下資訊
 
 #+BEGIN_SRC clojure
-    {:user {:plugins [[lein-localrepo "0.5.0"]]}}
+  {:user {:plugins [[lein-localrepo "0.5.0"]]}}
 #+END_SRC
 
 * 猜測 jar 的 Maven coordinates
