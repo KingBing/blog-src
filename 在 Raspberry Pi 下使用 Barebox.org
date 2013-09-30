@@ -1,0 +1,9 @@
+#+TITLE: 在 Raspberry Pi 下使用 Barebox
+#+AUTHOR: coldnew
+#+EMAIL:  coldnew.tw@gmail.com
+#+DATE:   2013/09/30 11:55 下午
+#+LANGUAGE: zh_TW
+#+URL:    68_raspberry_pi_a6f661_barebox
+#+DESCRIPTION:
+#+KEYWORDS:
+#+TAGS:
