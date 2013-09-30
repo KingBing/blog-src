@@ -3,7 +3,8 @@
 #+EMAIL:  coldnew.tw@gmail.com
 #+DATE:   2013/09/30 11:55 下午
 #+LANGUAGE: zh_TW
-#+URL:    68_raspberry_pi_a6f661_barebox
+#+URL:    17_234c8
+http://coldnew.github.io/blog/2013/06/17_234c8.html
 #+DESCRIPTION:
 #+KEYWORDS:
 #+TAGS: barebox raspberry_pi
