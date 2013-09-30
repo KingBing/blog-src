@@ -1,7 +1,7 @@
 #+TITLE: 在 Raspberry Pi 下使用 Barebox
 #+AUTHOR: coldnew
 #+EMAIL:  coldnew.tw@gmail.com
-#+DATE:   2013/09/30 11:55 下午
+#+DATE:   2013/06/17 22:56:00
 #+LANGUAGE: zh_TW
 #+URL:    17_234c8
 http://coldnew.github.io/blog/2013/06/17_234c8.html
