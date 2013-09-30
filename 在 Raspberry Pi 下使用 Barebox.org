@@ -4,7 +4,6 @@
 #+DATE:   2013/06/17 22:56:00
 #+LANGUAGE: zh_TW
 #+URL:    17_234c8
-http://coldnew.github.io/blog/2013/06/17_234c8.html
 #+DESCRIPTION:
 #+KEYWORDS:
 #+TAGS: barebox raspberry_pi
