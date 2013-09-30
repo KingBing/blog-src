@@ -3,7 +3,7 @@
 #+EMAIL:  coldnew.tw@gmail.com
 #+DATE:   2013/01/12 11:41 下午
 #+LANGUAGE: en
-#+URL:    b16f75fb46_arm_3cdd4a93_x-loader
+#+URL:    12_f11d3
 #+DESCRIPTION:
 #+KEYWORDS:
 #+TAGS: arm linux
