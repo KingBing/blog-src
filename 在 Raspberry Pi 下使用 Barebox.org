@@ -6,4 +6,4 @@
 #+URL:    68_raspberry_pi_a6f661_barebox
 #+DESCRIPTION:
 #+KEYWORDS:
-#+TAGS:
+#+TAGS: barebox raspberry_pi
