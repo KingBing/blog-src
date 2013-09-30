@@ -1,7 +1,7 @@
 #+TITLE: 使用 lein 來管理你本地的 Maven repo
 #+AUTHOR: coldnew
 #+EMAIL:  coldnew.tw@gmail.com
-#+DATE:   2013/10/01 12:06 上午
+#+DATE:   2013/06/04 21:01:00
 #+LANGUAGE: en
 #+URL:    04_8dbcf
 #+DESCRIPTION:
