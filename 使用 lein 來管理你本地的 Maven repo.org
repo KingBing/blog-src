@@ -3,7 +3,7 @@
 #+EMAIL:  coldnew.tw@gmail.com
 #+DATE:   2013/10/01 12:06 上午
 #+LANGUAGE: en
-#+URL:    f661_lein_1fcb1156d3ed07_maven_repo
+#+URL:    04_8dbcf
 #+DESCRIPTION:
 #+KEYWORDS:
 #+TAGS:
