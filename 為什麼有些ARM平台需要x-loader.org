@@ -2,7 +2,7 @@
 #+AUTHOR: coldnew
 #+EMAIL:  coldnew.tw@gmail.com
 #+DATE:   2013/01/12 11:41 下午
-#+LANGUAGE: en
+#+LANGUAGE: zh_TW
 #+URL:    12_f11d3
 #+DESCRIPTION:
 #+KEYWORDS:
