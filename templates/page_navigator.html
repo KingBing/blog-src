@@ -1,0 +1,21 @@
+<!-- begin navigator -->
+<div id="header">
+  <div id="header-top">
+    <div id="blog-title">{{MAIN_TITLE}}</div>
+    <div id="blog-sub-title">{{SUB_TITLE}}</div>
+  </div>
+  <div id="nav">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/about.html">About Me</a></li>
+      <li><a href="/rss.xml">RSS</a></li>
+      <li>
+        <form action="/search.html">
+          <input type="text" class="searchbox" name="wd" value="Search..." onblur="if(this.value==''){this.value='Search...';}" onfocus="if(this.value=='Search...'){this.value='';}"/>
+          <input type="image" src="/static/img/google.ico" class="searchbox_submit" value="" />
+        </form>
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- end navigator -->

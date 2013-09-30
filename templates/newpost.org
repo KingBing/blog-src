@@ -1,0 +1,9 @@
+#+TITLE: {{TITLE}}
+#+AUTHOR: {{AUTHOR}}
+#+EMAIL:  {{EMAIL}}
+#+DATE:   {{DATE}}
+#+LANGUAGE: {{LANGUAGE}}
+#+URL:    {{URL}}
+#+DESCRIPTION:
+#+KEYWORDS:
+#+TAGS:
