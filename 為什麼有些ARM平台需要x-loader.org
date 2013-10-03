@@ -5,7 +5,7 @@
 #+LANGUAGE: zh_TW
 #+URL:    12_f11d3
 #+DESCRIPTION: the page description, e.g. for the XHTML meta tag
-#+KEYWORDS:
+#+KEYWORDS: sad
 #+TAGS: arm linux
 
 在開始使用 ARM 的開發平台後，發現到了一件很特別的事情，一般我們都是透過 bootloader
