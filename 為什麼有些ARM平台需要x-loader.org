@@ -1,4 +1,4 @@
-#+TITLE: 為什麼有些 ARM 平台需要 x-loader ?
+#+TITLE: sd
 #+AUTHOR: coldnew
 #+EMAIL:  coldnew.tw@gmail.com
 #+DATE:   2013/01/12 23:05:00
