@@ -4,7 +4,7 @@
 #+DATE:   2013/06/04 21:01:00
 #+LANGUAGE: en
 #+URL:    04_8dbcf
-#+DESCRIPTION:
+#+DESCRIPTION: this is test
 #+KEYWORDS:
 #+TAGS: clojure lein maven
 
