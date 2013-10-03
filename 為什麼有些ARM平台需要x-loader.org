@@ -4,7 +4,7 @@
 #+DATE:   2013/01/12 23:05:00
 #+LANGUAGE: zh_TW
 #+URL:    12_f11d3
-#+DESCRIPTION: asdad
+#+DESCRIPTION: the page description, e.g. for the XHTML meta tag
 #+KEYWORDS:
 #+TAGS: arm linux
 
