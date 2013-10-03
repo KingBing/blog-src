@@ -4,7 +4,7 @@
 #+DATE:   2013/01/12 23:05:00
 #+LANGUAGE: zh_TW
 #+URL:    12_f11d3
-#+DESCRIPTION: thes
+#+DESCRIPTION: thes is
 #+KEYWORDS: sad
 #+TAGS: arm linux
 
