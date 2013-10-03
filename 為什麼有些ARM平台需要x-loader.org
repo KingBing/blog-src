@@ -7,6 +7,7 @@
 #+DESCRIPTION: the page description,
 #+KEYWORDS: sad
 #+TAGS: arm linux
+#+OPTIONS: ':t *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t c:nil
 
 在開始使用 ARM 的開發平台後，發現到了一件很特別的事情，一般我們都是透過 bootloader
 來載入 linux kernel image，但是像 OMAP 系列，除了 uboot 以外，會多出一個 xloader，
