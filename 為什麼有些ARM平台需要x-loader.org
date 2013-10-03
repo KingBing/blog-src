@@ -2,12 +2,11 @@
 #+AUTHOR: coldnew
 #+EMAIL:  coldnew.tw@gmail.com
 #+DATE:   2013/01/12 23:05:00
-#+LANGUAGE: zh_TW
-#+URL:    12_f11d3
 #+DESCRIPTION: the page description, e.g. for the XHTML meta tag
 #+KEYWORDS: sad
 #+TAGS: arm linux
-
+#+LANGUAGE: zh_TW
+#+URL:    12_f11d3
 在開始使用 ARM 的開發平台後，發現到了一件很特別的事情，一般我們都是透過 bootloader
 來載入 linux kernel image，但是像 OMAP 系列，除了 uboot 以外，會多出一個 xloader，
 那 xloader 是做什麼的呢？
