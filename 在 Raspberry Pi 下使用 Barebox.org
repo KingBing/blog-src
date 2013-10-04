@@ -8,7 +8,7 @@
 #+KEYWORDS:
 #+TAGS: barebox raspberry_pi
 #+OPTIONS: num:nil
-
+ (blogit--add-linked-file-to-cache)
 
 * 關於本文
 
