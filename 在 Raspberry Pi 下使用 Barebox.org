@@ -98,5 +98,5 @@ Raspberry Pi 開機 SD 卡上面的 kernel.img (請記得做好備份)，將你�
 Raspberry Pi 重新開機，你就會看到登入 barebox 的畫面了。
 
 #+BEGIN_CENTER
-[[file:1/2/rasp_barebox.png]]
+[[file:files/2013/rasp_barebox.png]]
 #+END_CENTER
