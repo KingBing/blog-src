@@ -7,6 +7,7 @@
 #+DESCRIPTION: the
 #+KEYWORDS:
 #+TAGS: barebox raspberry_pi
+#+OPTIONS: num:nil
 
 * 關於本文
 
