@@ -7,7 +7,7 @@
 #+DESCRIPTION: this is
 #+KEYWORDS:
 #+TAGS: clojure lein maven
-(blogit--build-export-dir nil)
+
 
 * 關於 leiningen
 
