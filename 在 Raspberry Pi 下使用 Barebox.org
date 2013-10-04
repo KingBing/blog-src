@@ -9,6 +9,7 @@
 #+TAGS: barebox raspberry_pi
 #+OPTIONS: num:nil
 
+
 * 關於本文
 
 barebox 是 uboot 的第二代版本，和 u-boot 相比，barebox 的設計和 Linux
@@ -68,7 +69,7 @@ Raspberry Pi 的 toolchain。
   設定存到 .config 裏面。
 
   #+BEGIN_CENTER
-  [[file:files/2013/barebox_menuconfig.png]]
+  [[file:1/2/barebox_menuconfig.png]]
   #+END_CENTER
 
 - 4. 將 SD 卡驅動編譯進去
@@ -97,5 +98,5 @@ Raspberry Pi 開機 SD 卡上面的 kernel.img (請記得做好備份)，將你�
 Raspberry Pi 重新開機，你就會看到登入 barebox 的畫面了。
 
 #+BEGIN_CENTER
-[[file:files/2013/rasp_barebox.png]]
+[[file:1/2/rasp_barebox.png]]
 #+END_CENTER
