@@ -102,6 +102,6 @@ Raspberry Pi 重新開機，你就會看到登入 barebox 的畫面了。
 [[file:files/2013/rasp_barebox.png]]
 #+END_CENTER
 [['file:~/SparkleShare/org/%E6%B8%AC%E8%A9%A6%20asd%20asd.org][asda asdsd]]
-[[file:%E4%BD%BF%E7%94%A8%20lein%20%E4%BE%86%E7%AE%A1%E7%90%86%E4%BD%A0%E6%9C%AC%E5%9C%B0%E7%9A%84%20Maven%20repo.org][file:使用 lein 來管理你本地的 Maven repo.org]]
+[[file:%E4%BD%BF%E7%94%A8%20lein%20%E4%BE%86%E7%AE%A1%E7%90%86%E4%BD%A0%E6%9C%AC%E5%9C%B0%E7%9A%84%20Maven%20repo.org][asd ad]]
 [[file:~/SparkleShare/org/TODO.org]]
 [[file:~/SparkleShare/coldnew.github.io/blog-src/files/2013/do_register_arm.sh]]
