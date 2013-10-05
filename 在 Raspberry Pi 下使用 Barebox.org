@@ -102,6 +102,7 @@ Raspberry Pi 重新開機，你就會看到登入 barebox 的畫面了。
 [[file:files/2013/rasp_barebox.png]]
 #+END_CENTER
 [['file:~/SparkleShare/org/%E6%B8%AC%E8%A9%A6%20asd%20asd.org][asda asdsd]]
-[[file:%E4%BD%BF%E7%94%A8%20lein%20%E4%BE%86%E7%AE%A1%E7%90%86%E4%BD%A0%E6%9C%AC%E5%9C%B0%E7%9A%84%20Maven%20repo.org][asd ad]]
+[[file:%E7%82%BA%E4%BB%80%E9%BA%BC%E6%9C%89%E4%BA%9BARM%E5%B9%B3%E5%8F%B0%E9%9C%80%E8%A6%81x-loader.org][file:為什麼有些 ARM 平台需要 x-loader.org]]
+[[file:%E5%9C%A8%20Raspberry%20Pi%20%E4%B8%8B%E4%BD%BF%E7%94%A8%20Barebox.org][file:在 Raspberry Pi 下使用 Barebox.org]]
 [[file:~/SparkleShare/org/TODO.org]]
 [[file:~/SparkleShare/coldnew.github.io/blog-src/files/2013/do_register_arm.sh]]
