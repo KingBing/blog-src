@@ -1,15 +1,13 @@
 #+TITLE: 在 Raspberry Pi 下使用 Barebox
 #+AUTHOR: coldnew
 #+EMAIL:  coldnew.tw@gmail.com
-#+DATE:   2013/06/17 22:56:00
+#+DATE:   2013-06-17 22:56:00
 #+LANGUAGE: zh_TW
 #+URL:    17_234c8
 #+DESCRIPTION: the
 #+KEYWORDS:
 #+TAGS: barebox raspberry_pi
 #+OPTIONS: num:nil
- (blogit--add-linked-file-to-cache)
-(setq blogit-linked-file-cache nil)
 
 * 關於本文
 
