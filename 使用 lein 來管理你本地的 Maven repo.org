@@ -1,13 +1,12 @@
 #+TITLE: 使用 lein 來管理你本地的 Maven repo
 #+AUTHOR: coldnew
 #+EMAIL:  coldnew.tw@gmail.com
-#+DATE:   2013/06/04 21:01:00
-#+LANGUAGE: en
+#+DATE:   2013-06-04 21:01:00
+#+LANGUAGE: zh_TW
 #+URL:    04_8dbcf
-#+DESCRIPTION: this is
+#+DESCRIPTION:
 #+KEYWORDS:
 #+TAGS: clojure lein maven
-
 
 
 * 關於 leiningen
