@@ -7,7 +7,7 @@
 #+OPTIONS: num:nil
 #+TAGS:
 
-* 關於本文
+* 關於本篇文章
 
 [[http://www.newlisp.org/][newlisp]] 是另外一個我很喜歡的 lisp 方言，他的語法比較接近 Scheme，適合做
 為腳本語言，此外，由於他的程式體積非常輕巧，只有大約 300k 的大小，因此
