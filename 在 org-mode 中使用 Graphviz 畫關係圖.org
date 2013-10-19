@@ -7,7 +7,7 @@
 #+OPTIONS: num:nil
 #+TAGS: emacs org-mode graphviz
 
-* 關於本篇文章 (test)
+* 關於本篇文章
 
 [[http://www.graphviz.org/][Graphviz]] 是一個非常強大的 *關係圖* 繪製軟體，可以透過 dot 語言來描述節點與
 節點之間的關係，來畫出非常漂亮的關係圖。
