@@ -8,3 +8,53 @@
 #+TAGS: emacs gpg
 
 * 關於本篇文章
+
+對於一些和隱私比較相關的文件，總是希望可以加密起來，讓自己可以更加放心。
+
+在 emacs 中，提供了 [[http://www.emacswiki.org/emacs/EasyPG][Easy PG]] 來協助你加密存文字檔案，你只要很簡單的將你的
+檔案副檔名再加上 *.gpg* ，這樣 emacs 就會向你詢問加密用的密碼。
+
+俗話說的好，一圖勝千言:
+
+#+BEGIN_CENTER
+[[file:files/2013/emacs-easypg.gif]]
+#+END_CENTER
+
+* 客製化 Easy PG
+
+即使這樣就可以加密你的文章，有些時候也是會被 Emacs 預設的詢問機制給厭煩
+的，在 EasyPG 下面有兩個常用的變數可以修改 EasyPG 的運作。
+
+- epa-file-select-keys
+
+  這個變數用來控制 *是否彈出選擇密碼類型的視窗* ，他的說明如下
+
+  #+BEGIN_EXAMPLE
+  If t, always asks user to select recipients.
+  If nil, query user only when `epa-file-encrypt-to' is not set.
+  If neither t nor nil, doesn't ask user.  In this case, symmetric
+  encryption is used.
+  #+END_EXAMPLE
+
+  也就是說，如果我們想要加密文件時，使用自己設置的密碼，就將其值設為不
+  是 t 與 nil 的其他值就好，我的設定如下。
+
+  #+BEGIN_SRC emacs-lisp
+    (setq epa-file-select-keys 0)
+  #+END_SRC
+
+  這樣當你把文件的副檔名加上 *.gpg* 以後，emacs 會直接要求你輸入密碼，
+  而不是再彈出一個選單來煩你。
+
+- epa-file-cache-passphrase-for-symmetric-encryption
+
+  emacs 預設不會快取你的密碼，也因此每次儲存文件都時候，他都會再來詢問
+  一次你的密碼，打開這個變數之後，emacs 就不會一直來詢問你密碼這一回事。
+
+  使用快取是否會有危險呢？其實不會，emacs 只會在目前的 session 記住這個
+  密碼，你開一個新的 emacs 再來打開這個文件，emacs 還是會要你再輸入一次密
+  碼的。
+
+  #+BEGIN_SRC emacs-lisp
+    (setq epa-file-cache-passphrase-for-symmetric-encryption t)
+  #+END_SRC
