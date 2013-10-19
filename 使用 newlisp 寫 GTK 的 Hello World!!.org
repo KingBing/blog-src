@@ -3,7 +3,7 @@
 #+EMAIL:  coldnew.tw@gmail.com
 #+DATE:   2013-06-13 00:02:49
 #+LANGUAGE: zh_TW
-#+URL:    f6_newlisp_2_gtk_0_hello_world
+#+URL:    bcb0f
 #+OPTIONS: num:nil
 #+TAGS:
 
