@@ -1,7 +1,7 @@
 #+TITLE: 在 emacs 中使用 EasyPG 加密文章
 #+AUTHOR: coldnew
 #+EMAIL:  coldnew.tw@gmail.com
-#+DATE:   2013-10-19 14:57:45
+#+DATE:   2013-07-13 19:33:45
 #+LANGUAGE: zh_TW
 #+URL:    6_emacs_0f6_easypg_ad19
 #+OPTIONS: num:nil
