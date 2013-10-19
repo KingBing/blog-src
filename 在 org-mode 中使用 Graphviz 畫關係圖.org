@@ -82,7 +82,9 @@ org-mode 有一個 babel 功能，可以讓你對程式碼區塊 (src block) 使
 
 我們產生的圖片檔如下:
 
+#+BEGIN_CENTER
 [[file:files/2013/graphviz-example.png]]
+#+END_CENTER
 
 * 參考連結
 
