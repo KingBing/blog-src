@@ -5,4 +5,4 @@
 #+LANGUAGE: zh_TW
 #+URL:    6_emacs_0f6_easypg_ad19
 #+OPTIONS: num:nil
-#+TAGS:
+#+TAGS: emacs gpg
