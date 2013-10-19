@@ -18,7 +18,9 @@ newlisp 的 FFI (Foreign Function Interface) 來建立 GTK 的視窗。
 
 由於我們要用 C 語言與 newlisp 寫同樣的東西，先來看看最後結果會長怎樣。
 
+#+BEGIN_CENTER
 [[file:files/2013/gtk_hello.png]]
+#+END_CENTER
 
 * C 語言版本
 
