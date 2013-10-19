@@ -1,7 +1,7 @@
 #+TITLE: 在 org-mode 中使用 Graphviz 畫關係圖
 #+AUTHOR: coldnew
 #+EMAIL:  coldnew.tw@gmail.com
-#+DATE:   2013-10-19 16:06:44
+#+DATE:   2013-07-13 22:58:44
 #+LANGUAGE: zh_TW
 #+URL:    07e15
 #+OPTIONS: num:nil
