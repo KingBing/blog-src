@@ -1,0 +1,8 @@
+#+TITLE: 在 org-mode 中顯示圖片
+#+AUTHOR: coldnew
+#+EMAIL:  coldnew.tw@gmail.com
+#+DATE:   2013-10-19 16:01:09
+#+LANGUAGE: zh_TW
+#+URL:    a5b3f
+#+OPTIONS: num:nil
+#+TAGS: org-mode emacs
