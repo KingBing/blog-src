@@ -5,7 +5,7 @@
 #+LANGUAGE: zh_TW
 #+URL:    a5b3f
 #+OPTIONS: num:nil
-#+TAGS: org-mode emacs
+#+TAGS: emacs org-mode
 
 * 關於本篇文章
 
