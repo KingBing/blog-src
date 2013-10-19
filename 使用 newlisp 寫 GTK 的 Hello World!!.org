@@ -5,7 +5,7 @@
 #+LANGUAGE: zh_TW
 #+URL:    bcb0f
 #+OPTIONS: num:nil
-#+TAGS: newlisp gtk c
+#+TAGS: newlisp gtk c lisp
 
 * 關於本篇文章
 
