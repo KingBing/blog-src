@@ -46,8 +46,8 @@ Raspberry Pi 的 toolchain。
   在目前的 shell 就是用於編譯 arm 平台的開發環境了。
 
   #+BEGIN_SRC sh
-     export ARCH=arm
-         export CROSS_COMPILE=armv6j-hardfloat-linux-gnueabi-
+    export ARCH=arm
+    export CROSS_COMPILE=armv6j-hardfloat-linux-gnueabi-
   #+END_SRC
 
 - 2. 設定編譯的對象為 Raspberry Pi
