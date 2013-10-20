@@ -1,0 +1,15 @@
+#+TITLE: Raspberry Pi 很棒的 GPIO 接腳對應表
+#+AUTHOR: coldnew
+#+EMAIL:  coldnew.tw@gmail.com
+#+DATE:   2013-10-20 19:57:28
+#+LANGUAGE: zh_TW
+#+URL:    raspberry_pi_730_gpio_e85c6
+#+OPTIONS: num:nil
+#+TAGS:
+
+最近看到一篇很不錯的 [[https://www.modmypi.com/blog/raspberry-pi-gpio-cheat-sheet][Raspberry Pi GPIO 對應表]]，透過這張圖，Raspberry
+Pi 的 GPIO 一目了然
+
+#+BEGIN_CENTER
+[[file:files/2013/raspberry-pi-gpio-cheat-sheet.jpg]]
+#+END_CENTER
