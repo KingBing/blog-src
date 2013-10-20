@@ -3,7 +3,7 @@
 #+EMAIL:  coldnew.tw@gmail.com
 #+DATE:   2013-06-26 21:29:00
 #+LANGUAGE: zh_TW
-#+URL:    527726
+#+URL:    52726
 #+OPTIONS: num:nil
 #+TAGS: raspberry_pi gpio
 
