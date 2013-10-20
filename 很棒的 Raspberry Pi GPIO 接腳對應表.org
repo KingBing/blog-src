@@ -1,0 +1,16 @@
+#+TITLE: 很棒的 Raspberry Pi GPIO 接腳對應表
+#+AUTHOR: coldnew
+#+EMAIL:  coldnew.tw@gmail.com
+#+DATE:   2013-06-26 21:29:00
+#+LANGUAGE: zh_TW
+#+URL:    52726
+#+OPTIONS: num:nil
+#+TAGS: raspberry_pi gpio
+
+最近看到一篇很不錯的 [[https://www.modmypi.com/blog/raspberry-pi-gpio-cheat-sheet][Raspberry Pi GPIO 對應表]]，透過這張圖，Raspberry
+Pi 的 GPIO 一目了然
+
+#+BEGIN_CENTER
+#+ATTR_HTML: :width 100%
+[[file:files/2013/raspberry-pi-gpio-cheat-sheet.jpg]]
+#+END_CENTER
