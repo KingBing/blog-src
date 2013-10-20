@@ -11,6 +11,6 @@
 Pi 的 GPIO 一目了然
 
 #+BEGIN_CENTER
-#+ATTR_HTML: :width 80%
+#+ATTR_HTML: :width 90%
 [[file:files/2013/raspberry-pi-gpio-cheat-sheet.jpg]]
 #+END_CENTER
