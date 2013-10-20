@@ -5,7 +5,7 @@
 #+LANGUAGE: zh_TW
 #+URL:    raspberry_pi_730_gpio_e85c6
 #+OPTIONS: num:nil
-#+TAGS:
+#+TAGS: raspberry_pi gpio
 
 最近看到一篇很不錯的 [[https://www.modmypi.com/blog/raspberry-pi-gpio-cheat-sheet][Raspberry Pi GPIO 對應表]]，透過這張圖，Raspberry
 Pi 的 GPIO 一目了然
