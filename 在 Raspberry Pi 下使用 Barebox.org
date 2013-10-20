@@ -3,7 +3,7 @@
 #+EMAIL:  coldnew.tw@gmail.com
 #+DATE:   2013-06-17 22:56:15
 #+LANGUAGE: zh_TW
-#+URL:    6_raspberry_pi_af6_barebox
+#+URL:    234c8
 #+OPTIONS: num:nil
 #+TAGS: raspberry_pi barebox linux kernel
 
