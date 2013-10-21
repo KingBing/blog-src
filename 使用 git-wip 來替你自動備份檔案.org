@@ -1,0 +1,158 @@
+#+TITLE: 使用 git-wip 來替你自動備份檔案
+#+AUTHOR: coldnew
+#+EMAIL:  coldnew.tw@gmail.com
+#+DATE:   2013-06-29 08:45:08
+#+LANGUAGE: zh_TW
+#+URL:    dafa8
+#+OPTIONS: num:nil
+#+TAGS: git backup emacs vim
+
+* 關於 git-wip
+
+[[https://github.com/bartman/git-wip][git-wip]] 是一個能夠不斷幫你進行備份檔案的 shell script 程式，會將你正在進行編輯的檔案，
+放置到 wip branch (Work in Process)，這樣假如你不小心滅掉了你的 commit, 或是某天想找尋
+某次被遺忘的修改，你都可以透過 git-wip 很簡單的完成他。
+
+使用過 git-wip 後，你可以在你的 git 紀錄看到像下圖這樣的資訊
+
+#+BEGIN_CENTER
+[[file:files/2013/git-wip.png]]
+#+END_CENTER
+
+git-wip 需要配合文字編輯器才能擁有他最強大的 *備份* 功能，我們將在本
+篇文章說明 git-wip 的設計以及 vim、emacs 使用 git-wip 的方式。
+
+* 安裝 git-wip
+
++ Gentoo Linux
+
+  Gentoo Linux 的使用者可以在 [[https://github.com/coldnew/coldnew-overlay/blob/master/dev-vcs/git-wip/git-wip-0.1.ebuild][coldnew-overlay]] 看到我寫的 git-wip
+  ebuild，將他下載到你本地的 overlay 後，用 emerge 安裝即可。
+
+  : emerge dev-vcs/git-wip
+
++ 其他 Linux
+
+  根據 git-wip 的作者所述，安裝 git-wip 只需要以下兩步就足夠了
+
+  #+BEGIN_EXAMPLE
+      git clone git://github.com/bartman/git-wip.git
+      cp git-wip ~/bin
+  #+END_EXAMPLE
+
+* 在 vim 下使用 git-wip
+
+想要在 vim 下使用 git-wip，你需要將以下幾行加入到你的 vim 設定檔
+
+#+BEGIN_EXAMPLE
+    augroup git-wip
+            autocmd!
+            autocmd BufWritePost * :silent !git wip save "WIP from vim" --editor -- "%"
+    augroup END
+#+END_EXAMPLE
+
+當然，你也可以複製 git-wip 裏面的 vim plugin 到你的 vim plugin 資料夾
+
+: cp vim/plugin/git-wip ~/.vim/plugin/git-wip
+
+* 在 emacs 下使用 git-wip
+
+在 emacs 下我推荐使用 magit 提供的 magit-wip 功能，當你安裝完 magit 後，在你的
+.emacs 添加
+
+#+begin_src emacs-lisp
+  (require 'magit)
+  (require 'magit-wip)
+  (magit-wip-mode 1)
+  (global-magit-wip-save-mode)
+#+end_src
+
+接著還再使用以下方式將 git-wip 加到 git 設定中。
+
+#+BEGIN_SRC sh
+  git config --add magit.extension wip-save  # or
+  git config --global --add magit.extension wip-save
+#+END_SRC
+
+每次你進行存檔時，git-wip 會自動將你的檔案 commit 到 wip branch 下，若你
+有想要回去搜尋的備份，你可以使用後面談到的 git-wip 命令。
+
+* git-wip 分支
+
+git-wip 的分支會有 wip/ 作為前綴, 舉例來說，如果你是在 feature branch 進行修改，
+則 git-wip 會幫你維護 wip/feature 分支。
+
+當你第一次執行 git-wip 的時候，你會自動幫你擷取所有已經被追蹤或是忽略的檔案，並建立
+新的分支。
+
+#+BEGIN_SRC emacs-lisp
+    --- * --- * --- *           <-- topic
+                     \
+                      ,*          <-- wip/topic
+#+END_SRC
+
+當你使用 git wip save 後 (或是用有提供 git wip 功能的文字編輯器儲存後)，
+你會注意到 wip/topic 指向了下一次的 commit。
+
+#+begin_src emacs-lisp
+    --- * --- * --- *          <-- topic
+                     \
+                      ,*
+                       \
+                        ,*       <-- wip/topic
+#+end_src
+
+當你真正遞交了新的 commit，git wip 會指向你新遞交的 commit, 並且新增加 wip branch。
+
+#+begin_src emacs-lisp
+    --- * --- * --- * --- *    <-- topic
+                   \       \
+                    ,*       *   <-- wip/topic
+                     \
+                      ,*
+#+end_src
+
+* git-wip 命令
+
+若你沒有將 git-wip 綁到你的文字編輯器，你可以使用 git-wip 提供的命令
+
++ git wip
+
+  建立一個新的 wip/topic 分支
+
++ git wip save "description"
+
+  用途和 git wip 相同，但是會使用你自訂的 commit message
+
++ git wip log
+
+  顯示 wip 的紀錄，這個命令相當於
+
+  : git log --stat wip/$branch $(git merge-base wip/$branch $branch)
+
+* 使用 git-wip 回復檔案
+
+若要進行回復，首先我們要先找尋我們感興趣的 commit。假設你最近修改的 branch 是 master,
+那你應該可以找到 wip/master 的參考(reference), 你也可以用以下命令列出 wip/master
+上面有哪些 wip branch。
+
+: git reflog show wip/master
+
+git-wip 作者推荐使用以下命令來直接看到每次的修改
+
+: git log -g -p wip/master
+
+一旦你選定好了某次的 commit, 你必須要取得這些檔案。注意到我們不是直接切換到
+這個分支，我們只是要取得檔案。
+
+: git checkout <commit sha1> .
+
+如果你只是要該分支的某個檔案，你只要修正 . 為檔案名稱就好。
+
+都完成後，你可以使用以下命令來察看你取回來的檔案和目前的有什麼差別
+
+: git diff --cached
+
+* 參考連結
+
+~[1]~ [[http://www.jukie.net/~bart/blog/save-everything-with-git-wip][using WIP branches to save every edit]]
