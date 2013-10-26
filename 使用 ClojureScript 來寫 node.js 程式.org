@@ -6,3 +6,166 @@
 #+URL:    82531
 #+OPTIONS: num:nil
 #+TAGS: clojurescript node.js
+
+* 建立開發環境
+
+無論是使用 Clojure 開發還是 ClojureScript 開發， [[https://github.com/technomancy/leiningen][Leiningen]] 都是幫忙
+建立開發環境的好幫手，安裝完  [[https://github.com/technomancy/leiningen][Leiningen]] 後，你需要在
+*~/.lein/profiles.clj* 加上名為 [[https://github.com/emezeske/lein-cljsbuild][lein-cljsbuild]] 的 lein 擴展
+
+#+BEGIN_SRC clojure
+    {:user {:plugins [[lein-cljsbuild "0.3.2"]]}}
+#+END_SRC
+
+此外，你的系統也必須安裝 node.js，Gentoo Linux 的使用者可以使用以下命
+令來安裝
+
+: emerge net-libs/nodejs
+
+* 關於 ClojureScript
+
+[[https://github.com/clojure/clojurescript/wiki/Differences-from-Clojure][ClojureScript]] 是相當於 Clojure 在 javascript 上的實現，由 Clojure 團隊所設
+計出來的 Lisp 方言，他的語法基本上都和 Clojure 相同，也就是說，你
+只要學一個 Clojure 語言，你就很可能可以辦到 Web Server 用 Clojure，
+Web Frontend 使用 ClojureScript 來開發的情況。
+
+ClojureScript 的編譯器使用 Clojure 來撰寫，並使用 [[https://developers.google.com/closure/compiler/?hl=zh-TW][Google Closure
+Compiler]] 來將編譯出來的 javascript 程式進行最佳化，對於喜歡 Lisp 又想體
+驗 node.js 的開發者，這是一個非常有吸引力的語言。想了解 ClojureScript
+更多，你可以參考[[http://www.infoq.com/cn/news/2011/08/clojurescript][ ClojureScript 通過 Javascript 將 Clojure 引入到瀏覽
+器端]] 一文。
+
+為什麼我要使用 ClojureScript 來開發 node.js 的程式呢？用 javascript 不
+好嗎？對於這樣的問題，我只能用以下兩點來回答
+
+1. 我討厭 javascript
+
+2. 我討厭 javascript
+
+為什麼我討厭 javascript，我倒想問問為什麼有人會喜歡 javascript?其他
+語法不說，單純就語言的結尾來看，我們假設這個程式被嵌套了非常多層，那
+Lisp 和 javascript 的結尾會變成下面這樣。
+
+#+BEGIN_EXAMPLE
+    Lisp 語言的結尾
+
+    ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) )
+
+    javascript 的結尾
+
+    }); }); }); }); }); }); }); }); }); }); });
+#+END_EXAMPLE
+
+好了，你喜歡上面的還是下面的？ 一目了然.....，而且從這個例子來看，我
+更無法理解為什麼一堆人抱怨 Lisp 有一堆的括號，而卻能怡然自得的使用
+javascript。(結尾要大括號又要括號又要分號，這是什麼神祕的語言阿)
+
+當然，我不喜歡 javascript 還有許多原因，但追根究底，或許是因為
+javascript 不是用 S 表達式吧，node.js 還是很棒的東西的。
+
+* 建立新的 ClojureScript 專案
+
+我們首先建立一個開發環境，就叫他為 ~cljs-hello~ 好了
+
+: lein new cljs-hello
+
+* 加入 cljsbuild 到你的專案
+
+接下來，你必須編輯 ~project.clj~ 檔案，將他變成像下面這樣
+
+#+BEGIN_SRC clojure
+    (defproject cljs-hello "0.1.0-SNAPSHOT"
+      :description "ClojureScript hello World for node.js"
+      :url "http://example.com/FIXME"
+      :license {:name "Eclipse Public License"
+                :url "http://www.eclipse.org/legal/epl-v10.html"}
+      :cljsbuild {
+                  :builds [{
+                            :source-paths ["src"]
+                            :compiler {
+                                       :target :nodejs
+                                       :optimizations :advanced
+                                       :pretty-print false}}]}
+      :dependencies [[org.clojure/clojure "1.5.1"]])
+#+END_SRC
+
+在這個設定中，我們只需要關注和 cljsbuild 有關的地方，也就是下面這一
+段
+
+#+BEGIN_SRC clojure
+          :cljsbuild {
+                      :builds [{
+                                :source-paths ["src"]
+                                :compiler {
+                                           :target :nodejs
+                                           :optimizations :advanced
+                                           :pretty-print false}}]}
+#+END_SRC
+
+在 ~:source-paths~ 裏面指派了 cljs 程式碼的路徑，由於我們這邊不會放置
+任何 Clojure 的程式碼，因此維持 src 這個名稱。
+
+若是 Clojure + ClojureScript 的專案，通常都用 *src-cljs* 來代表
+clojurescript 的程式碼目錄。
+
+在 ~:compiler~ 裏面的設置中，可以看到我們設定了
+
+#+BEGIN_SRC clojure
+       :target :nodejs
+#+END_SRC
+
+這是因為我們希望編譯出來的檔案可以給 node.js 使用，所以加上了這個設
+置。
+
+剩下的兩行則是 [[https://developers.google.com/closure/compiler/?hl=zh-TW][Google Closure Compiler]] 的設置，我們設定最佳化的方法
+為 *advanced* 並且輸出的檔案移除掉不需要的空格，來最簡化編譯出來的 javascript。
+
+* 來寫個 ClojureScript 版的 Hello World
+
+來到了寫程式的時間，我們切換到 ~src~ 目錄，將 core.clj 砍掉，並建立
+一個名為 core.cljs 的檔案，內容如下
+
+#+BEGIN_SRC clojurescript
+    (ns cljs-hello.core)
+
+    (defn -main [& args]
+      (println "Hello, World!"))
+
+    (set! *main-cli-fn* -main)
+#+END_SRC
+
+裏面的內容基本上都和 Clojure 程式是相同的，唯一要注意的是下面這一行
+
+: (set! *main-cli-fn* -main)
+
+在 [[https://github.com/clojure/clojurescript/wiki/Quick-Start][Running ClojureScript on Node.js]] 裏面說到了你必須設定一個進入點
+(enter point) 讓 node.js 知道主程式在哪，因此這個設定目的就是告訴
+node.js 知道說我們主要執行的函式就是 ~-main~ 函式。
+
+* 編譯你的程式碼
+
+要編譯很簡單，輸入
+
+: lein cljsbuild once
+
+接下來你就會看到多了 ~target/cljsbuild-main.js~ 這個檔案，這個就是編
+譯出來的 javascript 程式。
+
+* 執行程式
+
+因為 ClojureScript 編譯出來的檔案是 javascript 檔案，所以執行程式的方式
+就和使用 node.js 一樣
+
+: node  target/cljsbuild-main.js
+
+接著就會看到 *Hello, World!* 顯示在你的終端機上了
+
+* 參考連結
+
+~[1]~ [[https://github.com/clojure/clojurescript/][ClojureScript GitHub]]
+
+~[2]~ [[http://www.infoq.com/cn/news/2011/08/clojurescript][ClojureScript 通過 Javascript 將 Clojure 引入到瀏覽器端]]
+
+~[3]~ [[https://developers.google.com/closure/compiler/?hl=zh-TW][Google Closure Compiler]]
+
+~[4]~ [[https://github.com/emezeske/lein-cljsbuild][lein-cljsbuild GitHub]]
