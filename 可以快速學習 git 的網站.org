@@ -6,3 +6,28 @@
 #+URL:    cdbc85e6e177db691e_git_074be9bc0
 #+OPTIONS: num:nil
 #+TAGS:
+
+git 是非常強大的版本管理系統，但是要能夠良好的駕馭他，除了大量的實作經驗外，
+有更好的學習輔助也是必須的，在此列出兩個學習 git 非常棒的網站。
+
+* Learn Git Branching
+
+http://pcottle.github.com/learnGitBranching/
+
+這個網站除了外觀非常漂亮以外，也可以讓你在短時間內能夠更加理解 git。
+
+#+BEGIN_CENTER
+#+ATTR_HTML: :width 70%
+[[file:files/2013/learngit1.png]]
+#+END_CENTER
+
+* Git Ready
+
+http://gitready.com/
+
+這個網站收錄的許多使用 git 很棒的技巧，如果你使用 git 遇到了問題卡關，可以來這邊看看。
+
+#+BEGIN_CENTER
+#+ATTR_HTML: :width 60%
+[[file:files/2013/learngit2.png]]
+#+END_CENTER
