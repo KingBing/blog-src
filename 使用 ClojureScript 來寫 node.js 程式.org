@@ -1,0 +1,8 @@
+#+TITLE: 使用 ClojureScript 來寫 node.js 程式
+#+AUTHOR: coldnew
+#+EMAIL:  coldnew.tw@gmail.com
+#+DATE:   2013-10-26 14:07:30
+#+LANGUAGE: zh_TW
+#+URL:    f69614_clojurescript_1f5299_nodejs_60f8bd
+#+OPTIONS: num:nil
+#+TAGS:
