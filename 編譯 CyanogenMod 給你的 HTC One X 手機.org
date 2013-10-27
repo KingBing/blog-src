@@ -6,3 +6,9 @@
 #+URL:    46ac36
 #+OPTIONS: num:nil
 #+TAGS: android cyanogenmod htc_one_x endeavoru
+
+* 後記
+
+最近一直在嘗試移植 Firefox OS 給我的 HTC One X 使用，為了能更加了解整
+個編譯流程，以及確認我改的 manifest 是否正確，因此我是從 CyanogenMod 開始
+來研究整個移植的步驟，此篇文章僅紀錄這整個流程。
