@@ -149,9 +149,8 @@
 
 
 若你的 HTC 手機裡面已經將 recovery 更改為 TWRP 或是 CWM 的話，你可以直
-接複製 =out/target/product/endeavoru/cm*-endeavoru.zip= 檔案到你的手機裡面，並使用這些 recovery tool 來安裝
-新的 image (HBOOT 要先降版本)
-
+接複製 =out/target/product/endeavoru/cm*-endeavoru.zip= 檔案到你的手機
+裡面，並使用這些 recovery tool 來安裝新的 image (HBOOT 要先降版本)。
 
 除此之外，你也可以使用 fastboot 命令來燒錄新的 image，以下是操作流程
 
