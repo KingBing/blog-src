@@ -42,9 +42,6 @@ CyanogenMod 是目前最為風行的 Android 第三方改版，原本由 Steve K
 
 - Gentoo Linux
 
-  Gentoo Linux 在安裝的時候已經滿足大部分的編譯需求，但是以下幾個套件
-  若沒有安裝，仍需進行安裝。
-
   #+BEGIN_SRC sh
     emerge schedtool cmake bison curl flex git gperf dev-java/sun-jdk \
         git gnupg flex bison gperf libsdl squashfs-tools curl \
