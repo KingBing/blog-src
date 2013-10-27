@@ -4,7 +4,7 @@
 #+DATE:   2013-10-27 10:36:44
 #+LANGUAGE: zh_TW
 #+URL:    46ac36
-#+OPTIONS: num:nil
+#+OPTIONS: num:nil ^:nil
 #+TAGS: android cyanogenmod htc_one_x endeavoru
 
 * 關於 CyanogenMod
@@ -14,27 +14,127 @@
 要能夠編譯 CyanogenMod, 首先要先把開發環境建立好，才能夠在編譯的過程中
 順順利利的，以下列出幾個常用的 Linux 建立編譯環境所需要額外安裝的套件。
 
-注意到為了能夠正確編譯你的
+#+HTML: <div class="alert alert-warning">
+*注意*
 
-- Debian Linux
+為了能夠正確編譯你的 CyanogenMod 或是 Android，請使用 *64-bit*
+的 Linux 系統。
+#+HTML: </div>
 
+- Debian /Ubuntu Linux
 
 - Gentoo Linux
 
   #+BEGIN_SRC sh
     emerge schedtool cmake bison curl flex git gperf dev-java/icedtea-bin:6 \
         git gnupg flex bison gperf libsdl squashfs-tools curl \
-        ncurses zlib schedtool perl-Switch zip unzip \
+        ncurses zlib schedtool perl-Switch zip unzip wxGTK    \
         emul-linux-x86-baselibs emul-linux-x86-compat emul-linux-x86-cpplib
   #+END_SRC
 
 * 取得必須的原始碼
 
+#+HTML: <div class="alert alert-warning">
+*注意*
+
+本篇文章所編譯的為 CM9 的版本，相對應的版本為 Android 4.0 (ICS)，由於目
+前的 HTC One X 幾乎都升級到 Android 4.2 (JB) 的版本，要使用 CM9 你必須知道
+如何將 HBOOT 降版，或是將本篇文章編譯的版本改成 CM-10.2。
+#+HTML: </div>
+
+- 下載程式碼
+
+  #+BEGIN_SRC sh
+    repo sync
+  #+END_SRC
+
+- 取得預先編譯好的 app
+
+  #+BEGIN_SRC sh
+    cd vendor/cm && ./get-prebuilts
+  #+END_SRC
+
+- 取得 HTC One X kernel 和其他可能需要的原始碼
+
+  #+BEGIN_SRC sh
+    source build/envsetup.sh
+    breakfast endeavoru
+  #+END_SRC
+
 * 取得官方提供的二進制檔案
 
-* 編譯 CyanogenMod
+- 下載別人整理好的二進制檔案
 
+  在 Github 上可以找到一些已經整理好 HTC One X 二進制檔的 repo，
+  修改 =.repo/local_manifest.xml= ，讓他變成下面這樣
+
+  #+BEGIN_SRC xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <manifest>
+      <project name="CyanogenMod/android_device_htc_endeavoru" path="device/htc/endeavoru" remote="github" revision="ics" />
+      <project name="coldnew/android_vendor_htc_endeavoru" path="vendor/htc/endeavoru" remote="github" revision="ics" />
+    </manifest>
+  #+END_SRC
+
+  接著再使用 repo 命令來取得原始碼
+
+  #+BEGIN_SRC sh
+    repo sync
+  #+END_SRC
+
+- 直接從手機裡面取得二進制檔案
+
+  #+BEGIN_SRC sh
+    cd device/htc/endeavoru && ./extract-files.sh
+  #+END_SRC
+
+* 編譯 CyanogenMod
 * 下載到 HTC One X
+
+本篇文章所編譯的 CyanogenMod 版本為 =CM9= ，實際上相對應的 Android 版本
+即為 *Android 4.0 (ICS)* ，因為 HTC 在 Android 4.1 以及 4.2 上面的 HBOOT 有差
+異，你必須將你的 HBOOT 降版，才能夠將 CM9 裝到你的手機，並成功開機。
+
+
+若你的 HTC 手機裡面已經將 recovery 更改為 TWRP 或是 CWM 的話，你可以直
+接複製 out/cm*-.zip 檔案到你的手機裡面，並使用這些 recovery tool 來安裝
+新的 image (HBOOT 要先降版本)
+
+
+除此之外，你也可以使用 fastboot 命令來燒錄新的 image，以下是操作流程
+
+- 1. 重新開機到 bootloader
+
+  #+BEGIN_SRC sh
+    adb reboot-bootloader
+  #+END_SRC
+
+- 2. 查看是否有找到裝置
+
+  #+BEGIN_SRC sh
+    fastboot devices
+  #+END_SRC
+
+- 3. 燒錄你的新的 image
+
+  #+BEGIN_SRC sh
+    fastboot flash boot boot.img
+    fastboot flash system system.img
+  #+END_SRC
+
+- 4. 清除 cache 和 user-data
+
+  #+BEGIN_SRC sh
+    fastboot erase userdata
+    fastboot erase cache
+  #+END_SRC
+
+- 5. 重新啟動你的手機
+
+  #+BEGIN_SRC sh
+    fastboot reboot
+  #+END_SRC
+
 
 * 後記
 
