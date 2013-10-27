@@ -151,13 +151,21 @@
                           ^
   #+END_EXAMPLE
 
-  解決的方案如下
+  解決的方案:
 
   + 1. 檢查你使用的 java-vm 是否為 =sun-jdk=
 
     如果你是使用 openjdk 或是 icedtea，是有可能編譯不過的。
 
-  + 2.
+  + 2. 確認你的環境變數
+
+    在我的 Gentoo 系統上，我遇到這個編譯問題時，是因為環境變數指向
+    java-vm 的位置錯誤，因此我修改了環境變數如下
+
+    #+BEGIN_SRC sh
+      export JAVA_HOME="/usr/lib/jvm/sun-jdk-1.6"
+      export PATH="${JAVA_HOME}/bin:$PATH"
+    #+END_SRC
 
 * 後記
 
