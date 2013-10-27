@@ -143,6 +143,8 @@
 
 - 編譯 =doclava= 時，被告之以下錯誤訊息
 
+  若你編譯時，遇到 doclava 出現以下錯誤
+
   #+BEGIN_EXAMPLE
     xternal/doclava/src/com/google/doclava/ClassInfo.java:20: package com.sun.javadoc does not exist
     import com.sun.javadoc.ClassDoc;
