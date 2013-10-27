@@ -12,8 +12,6 @@
 CyanogenMod 是目前最為風行的 Android 第三方改版，原本由 Steve Kondik 創
 辦開發，並加入了許多 xda 社群的改版，該團隊也在最近成立了公司 CyanogenMod Inc.
 
-
-
 * 建立你的開發環境
 
 要能夠編譯 CyanogenMod, 首先要先把開發環境建立好，才能夠在編譯的過程中
