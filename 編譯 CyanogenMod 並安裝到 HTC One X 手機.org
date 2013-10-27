@@ -68,7 +68,7 @@
 如何將 HBOOT 降版，或是將本篇文章編譯的版本改成 CM-10.2。
 #+HTML: </div>
 
-- 建立編譯用的目錄 =cm-9=
+- 建立編譯用的目錄 =cm-9= 並切換進去
 
   #+BEGIN_SRC sh
     mkdir cm-9 && cd cm-9
