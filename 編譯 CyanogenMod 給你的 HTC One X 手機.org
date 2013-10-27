@@ -11,6 +11,9 @@
 
 * 建立你的開發環境
 
+- Debian Linux
+
+
 - Gentoo Linux
 
   #+BEGIN_SRC sh
