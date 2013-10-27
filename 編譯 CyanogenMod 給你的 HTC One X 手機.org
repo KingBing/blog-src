@@ -23,8 +23,6 @@
 順順利利的，以下列出幾個常用的 Linux 建立編譯環境所需要額外安裝的套件。
 
 #+HTML: <div class="alert alert-warning">
-*注意*
-
 為了能夠正確編譯你的 CyanogenMod 或是 Android，請使用 *64-bit*
 的 Linux 系統。
 #+HTML: </div>
