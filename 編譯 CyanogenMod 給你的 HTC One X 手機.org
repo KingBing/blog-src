@@ -26,7 +26,7 @@
 - Gentoo Linux
 
   #+BEGIN_SRC sh
-    emerge schedtool cmake bison curl flex git gperf dev-java/icedtea-bin:6 \
+    emerge schedtool cmake bison curl flex git gperf dev-java/sun-jdk \
         git gnupg flex bison gperf libsdl squashfs-tools curl \
         ncurses zlib schedtool perl-Switch zip unzip wxGTK    \
         emul-linux-x86-baselibs emul-linux-x86-compat emul-linux-x86-cpplib
