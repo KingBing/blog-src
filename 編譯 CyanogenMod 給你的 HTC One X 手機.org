@@ -60,7 +60,7 @@
 #+BEGIN_SRC sh
   curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
   chmod a+x ~/bin/repo
-  export PATH=${PATH}:~/bin
+  export PATH="${PATH}:~/bin"
 #+END_SRC
 
 * 取得必須的原始碼
