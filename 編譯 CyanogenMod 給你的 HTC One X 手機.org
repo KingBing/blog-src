@@ -61,6 +61,10 @@
 
 - 建立編譯用的目錄 =cm-9=
 
+  #+BEGIN_SRC sh
+    mkdir cm-9
+  #+END_SRC
+
 - 取得 manifest
 
   #+BEGIN_SRC sh
