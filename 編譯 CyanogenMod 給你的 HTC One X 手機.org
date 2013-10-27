@@ -12,6 +12,9 @@
 CyanogenMod 是目前最為風行的 Android 第三方改版，原本由 Steve Kondik 創
 辦開發，並加入了許多 xda 社群的改版，該團隊也在最近成立了公司 CyanogenMod Inc.
 
+本篇文章的編譯紀錄，以 =CyanogenMod 9= (簡稱 CM9) 為主，並使用 HTC One
+X (Endeavoru) 作為編譯的目標機型
+
 * 建立你的開發環境
 
 要能夠編譯 CyanogenMod, 首先要先把開發環境建立好，才能夠在編譯的過程中
