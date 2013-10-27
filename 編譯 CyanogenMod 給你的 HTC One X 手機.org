@@ -49,7 +49,6 @@
         emul-linux-x86-baselibs emul-linux-x86-compat emul-linux-x86-cpplib
   #+END_SRC
 
-
 * 取得 repo 工具
 
 不論你是要編譯 Android、CyanogenMod 或是 Firefox OS、Ubuntu Touch，你都
