@@ -32,20 +32,20 @@ CyanogenMod 是目前最為風行的 Android 第三方改版，原本由 Steve K
 - Debian /Ubuntu Linux
 
   #+BEGIN_SRC sh
-    sudo apt-get install \
+    sudo apt-get install                                            \
         build-essential pkg-config zlib1g-dev libusb-dev libqt4-dev \
-        autoconf libtool git-core gnupg sun-java6-jdk flex bison \
-        gperf libsdl-dev libesd0-dev libwxgtk2.6-dev zip curl \
-        libncurses5-dev ia32-libs lib32z1-dev lib32ncurses5-dev \
+        autoconf libtool git-core gnupg sun-java6-jdk flex bison    \
+        gperf libsdl-dev libesd0-dev libwxgtk2.6-dev zip curl       \
+        libncurses5-dev ia32-libs lib32z1-dev lib32ncurses5-dev     \
         gcc-multilib g++-multilib
   #+END_SRC
 
 - Gentoo Linux
 
   #+BEGIN_SRC sh
-    sudo emerge schedtool cmake bison curl flex git gperf dev-java/sun-jdk \
-        git gnupg flex bison gperf libsdl squashfs-tools curl \
-        ncurses zlib schedtool perl-Switch zip unzip wxGTK    \
+    sudo emerge schedtool cmake bison curl flex git gperf sun-jdk \
+        git gnupg flex bison gperf libsdl squashfs-tools curl     \
+        ncurses zlib schedtool perl-Switch zip unzip wxGTK        \
         emul-linux-x86-baselibs emul-linux-x86-compat emul-linux-x86-cpplib
   #+END_SRC
 
