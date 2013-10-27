@@ -39,4 +39,4 @@
 
 * 參考資料
 
-[1]
+[1] [[http://wiki.cyanogenmod.org/w/Build_for_endeavoru][How To Build CyanogenMod Android for HTC One X ("endeavoru") ]]
