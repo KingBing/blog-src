@@ -59,6 +59,12 @@
 如何將 HBOOT 降版，或是將本篇文章編譯的版本改成 CM-10.2。
 #+HTML: </div>
 
+- 取得 manifest
+
+  #+BEGIN_SRC sh
+
+  #+END_SRC
+
 - 下載程式碼
 
   #+BEGIN_SRC sh
