@@ -7,7 +7,7 @@
 #+OPTIONS: num:nil ^:nil
 #+TAGS: android cyanogenmod htc_one_x endeavoru
 
-* 關於 CyanogenMod 與本篇文章
+* 關於本篇文章
 
 [[http://www.cyanogenmod.org/][CyanogenMod]] 是目前最為風行的 Android 第三方改版，原本由 Steve Kondik 創
 辦開發，並加入了許多 xda 社群的改版，該團隊也在最近成立了公司 CyanogenMod Inc.
