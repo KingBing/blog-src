@@ -5,7 +5,7 @@
 #+LANGUAGE: zh_TW
 #+URL:    e8542
 #+OPTIONS: num:nil
-#+TAGS:
+#+TAGS: git learning
 
 git 是非常強大的版本管理系統，但是要能夠良好的駕馭他，除了大量的實作經驗外，
 有更好的學習輔助也是必須的，在此列出兩個學習 git 非常棒的網站。
