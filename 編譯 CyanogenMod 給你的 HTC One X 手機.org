@@ -68,7 +68,7 @@
 - 取得 manifest
 
   #+BEGIN_SRC sh
-
+    repo init -u git://github.com/CyanogenMod/android.git -b cm-9.1.0
   #+END_SRC
 
 - 下載程式碼
