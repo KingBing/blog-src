@@ -31,6 +31,15 @@ X (Endeavoru) 作為編譯的目標機型。由於目前的 HTC One X 所安裝�
 
 - Debian /Ubuntu Linux
 
+  #+BEGIN_SRC sh
+    sudo apt-get install \
+        build-essential pkg-config zlib1g-dev libusb-dev libqt4-dev \
+        autoconf libtool git-core gnupg sun-java6-jdk flex bison \
+        gperf libsdl-dev libesd0-dev libwxgtk2.6-dev zip curl \
+        libncurses5-dev ia32-libs lib32z1-dev lib32ncurses5-dev \
+        gcc-multilib g++-multilib
+  #+END_SRC
+
 - Gentoo Linux
 
   Gentoo Linux 在安裝的時候已經滿足大部分的編譯需求，但是以下幾個套件
