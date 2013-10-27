@@ -148,7 +148,7 @@
 #+HTML: </div>
 
 
-若你的 HTC 手機裡面已經將 recovery 更改為 [[http://teamw.in/project/twrp2/99][TWRP]] 或是 CWM 的話，你可以直
+若你的 HTC 手機裡面已經將 recovery 更改為 [[http://teamw.in/project/twrp2/95][TWRP]] 或是 CWM 的話，你可以直
 接複製編譯好的 ROM 檔案到你的手機裡面，並使用這些 recovery tool 來
 安裝新的 image (HBOOT 要先降版本)，具體的檔案路徑如下:
 
