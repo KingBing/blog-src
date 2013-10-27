@@ -229,7 +229,6 @@
   編輯 =frameworks/compile/slang/Android.mk= 將 =-Werror= 移除掉並重新
   編譯即可。
 
-
 * 後記
 
 最近一直在嘗試移植 Firefox OS 給我的 HTC One X 使用，為了能更加了解整
