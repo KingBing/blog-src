@@ -7,6 +7,11 @@
 #+OPTIONS: num:nil
 #+TAGS: android cyanogenmod htc_one_x endeavoru
 
+* 關於 CyanogenMod
+
+* 建立你的開發環境
+
+
 * 後記
 
 最近一直在嘗試移植 Firefox OS 給我的 HTC One X 使用，為了能更加了解整
