@@ -114,6 +114,7 @@ CyanogenMod 是目前最為風行的 Android 第三方改版，原本由 Steve K
 異，你必須將你的 HBOOT 降版，才能夠將 CM9 裝到你的手機，並成功開機。
 #+HTML: </dev>
 
+
 若你的 HTC 手機裡面已經將 recovery 更改為 TWRP 或是 CWM 的話，你可以直
 接複製 out/cm*-.zip 檔案到你的手機裡面，並使用這些 recovery tool 來安裝
 新的 image (HBOOT 要先降版本)
