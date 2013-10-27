@@ -63,8 +63,6 @@
 * 取得必須的原始碼
 
 #+HTML: <div class="alert alert-warning">
-*注意*
-
 本篇文章所編譯的為 CM9 的版本，相對應的版本為 Android 4.0 (ICS)，由於目
 前的 HTC One X 幾乎都升級到 Android 4.2 (JB) 的版本，要使用 CM9 你必須知道
 如何將 HBOOT 降版，或是將本篇文章編譯的版本改成 CM-10.2。
