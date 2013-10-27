@@ -15,6 +15,9 @@
 
 * 取得官方提供的二進制檔案
 
+* 編譯 CyanogenMod
+
+* 下載到 HTC One X
 
 * 後記
 
