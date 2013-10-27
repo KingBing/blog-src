@@ -35,10 +35,6 @@
         emul-linux-x86-baselibs emul-linux-x86-compat emul-linux-x86-cpplib
   #+END_SRC
 
-  若遇到編譯 =doclava= 時，被告之以下錯誤訊息
-  #+BEGIN_EXAMPLE
-
-  #+END_EXAMPLE
 
 
 * 取得必須的原始碼
@@ -143,6 +139,15 @@
   #+BEGIN_SRC sh
     fastboot reboot
   #+END_SRC
+* 可能會遇到的編譯問題
+
+- 編譯 =doclava= 時，被告之以下錯誤訊息
+
+  #+BEGIN_EXAMPLE
+    xternal/doclava/src/com/google/doclava/ClassInfo.java:20: package com.sun.javadoc does not exist
+    import com.sun.javadoc.ClassDoc;
+                          ^
+  #+END_EXAMPLE
 
 
 * 後記
