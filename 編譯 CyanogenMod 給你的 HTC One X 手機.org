@@ -1,0 +1,8 @@
+#+TITLE: 編譯 CyanogenMod 給你的 HTC One X 手機
+#+AUTHOR: coldnew
+#+EMAIL:  coldnew.tw@gmail.com
+#+DATE:   2013-10-27 10:36:44
+#+LANGUAGE: zh_TW
+#+URL:    46ac36
+#+OPTIONS: num:nil
+#+TAGS:
