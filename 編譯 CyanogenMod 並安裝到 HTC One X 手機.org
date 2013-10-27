@@ -132,7 +132,7 @@
 
 * 編譯 CyanogenMod
 
-要編譯 CyanogenMod，你只需要在下額外命令，並等待你的 ROM 編譯好即可
+要編譯 CyanogenMod，你只需要再下以下命令，並等待你的 ROM 編譯好即可
 
 #+BEGIN_SRC sh
   croot
