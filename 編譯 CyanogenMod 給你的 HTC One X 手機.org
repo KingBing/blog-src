@@ -52,7 +52,6 @@ X (Endeavoru) 作為編譯的目標機型。由於目前的 HTC One X 所安裝�
         emul-linux-x86-baselibs emul-linux-x86-compat emul-linux-x86-cpplib
   #+END_SRC
 
-
 * 取得必須的原始碼
 
 #+HTML: <div class="alert alert-warning">
