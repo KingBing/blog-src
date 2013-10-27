@@ -217,6 +217,11 @@
       export PATH="${JAVA_HOME}/bin:$PATH"
     #+END_SRC
 
+- 編譯 llvm 時出錯
+
+
+
+
 * 後記
 
 最近一直在嘗試移植 Firefox OS 給我的 HTC One X 使用，為了能更加了解整
