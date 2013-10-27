@@ -35,6 +35,11 @@
         emul-linux-x86-baselibs emul-linux-x86-compat emul-linux-x86-cpplib
   #+END_SRC
 
+  若遇到編譯 =doclava= 時，被告之以下錯誤訊息
+  #+BEGIN_EXAMPLE
+
+  #+END_EXAMPLE
+
 
 * 取得必須的原始碼
 
