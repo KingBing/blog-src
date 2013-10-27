@@ -219,7 +219,7 @@
 
 - 編譯 llvm 時出錯
 
-  若遇到以下錯誤
+  若在編譯 llvm 時遇到以下錯誤
 
   #+BEGIN_EXAMPLE
     external/llvm/include/llvm/ADT/PointerUnion.h:56:10: error: comparison between ‘ enum llvm::PointerLikeTypeTraits<clang::QualifiedTemplateName*>::<anonymous>’ and ‘ enum llvm::PointerLikeTypeTraits<clang::DependentTemplateName*>::<anonymous>’ [-Werror=enum-compare]
