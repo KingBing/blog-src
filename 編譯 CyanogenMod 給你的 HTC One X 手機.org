@@ -55,6 +55,8 @@
 不論你是要編譯 Android、CyanogenMod 或是 Firefox OS、Ubuntu Touch，你都
 會需要 =repo= 這個命令，因此若你沒有這個命令的話，趕快安裝他吧 :)
 
+下面的指令會將 repo 放到 =~/bin= 下
+
 #+BEGIN_SRC sh
   curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
   chmod a+x ~/bin/repo
