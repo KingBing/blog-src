@@ -65,6 +65,14 @@
     mkdir cm-9 && cd cm-9
   #+END_SRC
 
+- 取得 repo tool
+
+  #+BEGIN_SRC sh
+    curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+    chmod a+x ~/bin/repo
+    export PATH=${PATH}:~/bin
+  #+END_SRC
+
 - 取得 manifest
 
   #+BEGIN_SRC sh
