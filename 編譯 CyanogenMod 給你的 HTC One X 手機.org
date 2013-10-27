@@ -147,8 +147,7 @@
 異，你必須將你的 HBOOT 降版，才能夠將 CM9 裝到你的手機，並成功開機。
 #+HTML: </div>
 
-
-若你的 HTC 手機裡面已經將 recovery 更改為 [[http://teamw.in/project/twrp2/95][TWRP]] 或是 CWM 的話，你可以直
+若你的 HTC 手機裡面已經將 recovery 更改為 [[http://teamw.in/project/twrp2/95][TWRP]] 或是 [[http://www.clockworkmod.com/rommanager][CWM]] 的話，你可以直
 接複製編譯好的 ROM 檔案到你的手機裡面，並使用這些 recovery tool 來
 安裝新的 image (HBOOT 要先降版本)，具體的檔案路徑如下:
 
