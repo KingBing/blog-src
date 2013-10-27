@@ -226,6 +226,8 @@
     external/llvm/include/llvm/ADT/PointerUnion.h:56:10: error: enumeral mismatch in conditional expression: ‘ llvm::PointerLikeTypeTraits<clang::QualifiedTemplateName*>::<anonymous enum>’ vs ‘ llvm::PointerLikeTypeTraits<clang::DependentTemplateName*>::<anonymous enum>’ [-Werror=enum-compare]
   #+END_EXAMPLE
 
+  這種錯誤可能跟系統的 gcc 參數、配置等有關，比較簡單的解決方案為：
+
   編輯 =frameworks/compile/slang/Android.mk= 將 =-Werror= 移除掉並重新
   編譯即可。
 
