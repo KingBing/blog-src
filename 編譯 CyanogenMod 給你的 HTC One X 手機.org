@@ -110,7 +110,7 @@ CyanogenMod 是目前最為風行的 Android 第三方改版，原本由 Steve K
 
 #+HTML: <div class="alert alert-info">
 本篇文章所編譯的 CyanogenMod 版本為 *CM9* ，實際上相對應的 Android 版本
-即為 *Android 4.0 (ICS)* ，因為 HTC 在 Android 4.0 以及 4.2 上面的 HBOOT 有差
+即為 *Android 4.0 (ICS)* ，因為 HTC 在 Android 4.0 與 4.2 上面的 HBOOT 有差
 異，你必須將你的 HBOOT 降版，才能夠將 CM9 裝到你的手機，並成功開機。
 #+HTML: </div>
 
