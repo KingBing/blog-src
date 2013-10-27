@@ -205,7 +205,7 @@
 
   解決的方案:
 
-  + 1. 檢查你使用的 java-vm 是否為 =sun-jdk= (jdk 6)
+  + 1. 檢查你使用的 java-vm 是否為 =sun-jdk (jdk 6)=
 
     如果你是使用 openjdk 或是 icedtea，是有可能編譯不過的。
 
