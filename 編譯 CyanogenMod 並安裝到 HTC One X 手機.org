@@ -219,7 +219,14 @@
 
 - 編譯 llvm 時出錯
 
+  若遇到以下錯誤
 
+  #+BEGIN_EXAMPLE
+
+  #+END_EXAMPLE
+
+  編輯 =frameworks/compile/slang/Android.mk= 將 =-Werror= 移除掉並重新
+  編譯即可。
 
 
 * 後記
