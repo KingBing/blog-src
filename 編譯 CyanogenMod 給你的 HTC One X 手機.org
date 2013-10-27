@@ -12,8 +12,7 @@
 CyanogenMod 是目前最為風行的 Android 第三方改版，原本由 Steve Kondik 創
 辦開發，並加入了許多 xda 社群的改版，該團隊也在最近成立了公司 CyanogenMod Inc.
 
-本篇文章以 =CyanogenMod 9= (簡稱 CM9) 為主，並使用 HTC One
-X (Endeavoru) 作為編譯的目標機型。由於目前的 HTC One X 所安裝的 HBOOT 僅
+本篇文章以 =CyanogenMod 9= (簡稱 =CM9=) 為主，並使用 =HTC One X (Endeavoru)= 作為編譯的目標機型。由於目前的 HTC One X 所安裝的 HBOOT 僅
 適用於 Android 4.2 以上的版本，若想要依據本篇文章的方式編譯 CM9，你同時
 需要將你的 HTC One X 進行 HBOOT 降級的動作。
 
