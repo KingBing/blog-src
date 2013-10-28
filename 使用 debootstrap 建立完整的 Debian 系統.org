@@ -32,6 +32,23 @@ debootstrap 是 Debian 提供用於建立迷你 Debian 系統的方案，使用�
     sudo emerge debootstrap
   #+END_SRC
 
+* 在 x86/amd64 環境下建立 x86/amd64 的 Debian 系統
+
+要建立和主系統相同架構下的 Debian 系統，首先我們先創建一個
+=debian-rootfs= 目錄。
+
+#+BEGIN_SRC sh
+  mkdir debian-rootfs
+#+END_SRC
+
+接著使用 debootstrap 命令
+
+#+BEGIN_SRC sh
+  sudo debootstrap --arch i386 sid /rootfs-debian http://debian.linux.org.tw/debian
+#+END_SRC
+
+
+
 * 參考連結
 
 ~[1]~ [[http://rediceli.blogspot.tw/2006/08/debootstrapdebian.html][通過 debootstrap 安裝 Debian]]
