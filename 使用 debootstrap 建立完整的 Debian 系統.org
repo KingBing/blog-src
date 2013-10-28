@@ -15,3 +15,8 @@
 debootstrap 是 Debian 提供用於建立迷你 Debian 系統的方案，使用他可以在你
 所指定的目錄下安裝一個基本的 Debian 系統，除了一些配置以外，其內容與
 使用 Debian 安裝光碟第一階段安裝的內容基本相同。
+
+
+* 參考連結
+
+~[1]~ [[http://rediceli.blogspot.tw/2006/08/debootstrapdebian.html][通過 debootstrap 安裝 Debian]]
