@@ -73,7 +73,7 @@ debootstrap 是 Debian 提供用於建立迷你 Debian 系統的方案，使用�
 
   http://ftp.tw.debian.org/debian/
 
-
+* 建立 ARM 平台的 Debian 系統
 * 參考連結
 
 ~[1]~ [[http://rediceli.blogspot.tw/2006/08/debootstrapdebian.html][通過 debootstrap 安裝 Debian]]
