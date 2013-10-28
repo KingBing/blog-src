@@ -53,6 +53,25 @@ debootstrap 是 Debian 提供用於建立迷你 Debian 系統的方案，使用�
   debootstrap --arch <ARCH> <VERSION> <DIRECTORY>  <MIRROR>
 #+END_SRC
 
+- ARCH
+
+  ARCH 代表目標系統的 CPU 架構，常用的有 i386、amd64、armel、armhf 等。
+
+- VERSION
+
+  VERSION 代表 Debian 的版本，你可以使用目前的穩定版本 *wheezy* ，或是
+  永遠的測試版 *sid* ，當然你也可以選擇更不穩定的 testing，詳細版本名
+  稱請見 Debian 官網。
+
+- DIRECTORY
+
+  安裝的目錄，這個根據自己的需求設定即可
+
+- MIRROR
+
+  下載 Debian 套件的伺服器，通常選擇該使用者區域內的服務器，以下為台灣的 Debian Mirror
+
+  http://ftp.tw.debian.org/debian/
 
 
 * 參考連結
