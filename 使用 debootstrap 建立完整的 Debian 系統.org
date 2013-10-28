@@ -38,10 +38,10 @@ debootstrap 是 Debian 提供用於建立迷你 Debian 系統的方案，使用�
 =debian-rootfs= 目錄。
 
 #+BEGIN_SRC sh
-  mkdir debian-rootfs
+  sudo mkdir /rootfs-debian
 #+END_SRC
 
-接著使用 debootstrap 命令
+接著使用下面這行 debootstrap 命令，Debian 就會安裝到 /rootfs-deebian 下了
 
 #+BEGIN_SRC sh
   sudo debootstrap --arch i386 sid /rootfs-debian http://debian.linux.org.tw/debian
