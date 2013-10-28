@@ -1,0 +1,8 @@
+#+TITLE: 使用 debootstrap 建立完整的 Debian 系統
+#+AUTHOR: coldnew
+#+EMAIL:  coldnew.tw@gmail.com
+#+DATE:   2013-10-28 21:05:24
+#+LANGUAGE: zh_TW
+#+URL:    f69614
+#+OPTIONS: num:nil ^:nil
+#+TAGS: debian debootstrap bootstrap
