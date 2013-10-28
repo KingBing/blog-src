@@ -47,8 +47,11 @@ debootstrap 是 Debian 提供用於建立迷你 Debian 系統的方案，使用�
   sudo debootstrap --arch i386 sid /rootfs-debian http://debian.linux.org.tw/debian
 #+END_SRC
 
-整個 debootstrapau
+整個 debootstrap 的命令架構如下
 
+#+BEGIN_SRC sh
+  debootstrap --arch <ARCH> <VERSION> <DIRECTORY>  <MIRROR>
+#+END_SRC
 
 
 
