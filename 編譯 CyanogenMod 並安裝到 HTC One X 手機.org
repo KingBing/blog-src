@@ -152,7 +152,7 @@
 安裝新的 image (HBOOT 要先降版本)，具體的檔案路徑如下:
 
 #+BEGIN_EXAMPLE
-  out/target/product/endeavoru/cm*-endeavoru.zip
+  out/target/product/endeavoru/cm-9-20131027-UNOFFICIAL-endeavoru.zip
 #+END_EXAMPLE
 
 除此之外，你也可以使用 fastboot 命令來燒錄新的 image，以下是操作流程
