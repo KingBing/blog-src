@@ -73,7 +73,7 @@ debootstrap 是 Debian 提供用於建立迷你 Debian 系統的方案，使用�
 
   http://ftp.tw.debian.org/debian/
 
-* 修改你的 debian rootfs
+* 修改你的 Debian rootfs
 
 剛建立好的 Debian Rootfs 還是有一些需要你去修改的檔案，比如說
 =/etc/fstab= 、 =/etc/inittab= 等。如果你使用 debootstrap 建立 Debian
@@ -88,6 +88,7 @@ rootfs 的目的是進行 chroot，你只需要修改 =/etc/apt/source.list= 即
   deb-src http://ftp.tw.debian.org/debian unstable main contrib
 #+END_SRC
 
+* 將你的 Debian 安裝到 USB 隨身碟
 * 建立 ARM 平台的 Debian 系統
 * 參考連結
 
