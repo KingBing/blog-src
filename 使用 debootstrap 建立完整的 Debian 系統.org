@@ -117,8 +117,12 @@ rootfs 的目的是進行 chroot，你只需要修改 =/etc/apt/source.list= 即
 
 - 3. 掛載系統資訊，並 chroot 進去
 
-  #+BEGIN_SRC sh
+  假設你的 usb 隨身碟掛載於系統的 /mnt/usbdisk 上，則你需要再掛載一些
+  系統目錄以方便使用 chroot
 
+  #+BEGIN_SRC sh
+    mount -t proc none /mnt/usbdisk/proc
+    mount -o bind dev /mnt/usbdisk/dev
   #+END_SRC
 
 
