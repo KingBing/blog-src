@@ -115,6 +115,12 @@ rootfs 的目的是進行 chroot，你只需要修改 =/etc/apt/source.list= 即
     proc       /proc     proc none     0 0
   #+END_SRC
 
+- 3. 掛載系統資訊，並 chroot 進去
+
+  #+BEGIN_SRC sh
+
+  #+END_SRC
+
 
 * 建立 ARM 平台的 Debian 系統
 * 參考連結
