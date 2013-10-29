@@ -21,6 +21,9 @@ debootstrap 是 Debian 提供用於建立迷你 Debian 系統的方案，使用�
 
 * 安裝 debootstrap
 
+debootstrap 在任何 Debian 系列的 Linux 皆可隨手取得，若您是 Gentoo Linux 的
+用戶，您也可以在 Portage 系統中找到 debootstrap 的 ebuild。
+
 - Debian / Ubuntu
 
   #+BEGIN_SRC sh
