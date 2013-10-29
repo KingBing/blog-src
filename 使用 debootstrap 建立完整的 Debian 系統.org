@@ -38,7 +38,7 @@ debootstrap 在任何 Debian 系列的 Linux 皆可隨手取得，若您是 Gent
 
 * 建立 x86/amd64 的 Debian 系統
 
-要建立和主系統相同架構下的 Debian 系統，首先我們先創建一個
+要建立和主系統相同架構下的 Debian 系統，是非常簡單的事情。首先我們先創建一個
 =rootfs-debian= 目錄。
 
 #+BEGIN_SRC sh
