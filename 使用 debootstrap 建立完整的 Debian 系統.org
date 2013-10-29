@@ -89,6 +89,10 @@ rootfs 的目的是進行 chroot，你只需要修改 =/etc/apt/source.list= 即
 #+END_SRC
 
 * 將你的 Debian 安裝到 USB 隨身碟
+
+如果你使用 debootstrap 的目的，是建立一個輕巧的 Debian 隨身碟，則除了
+將剛剛所產生的檔案移到隨身碟下，你同時還要進行以下步驟。
+
 * 建立 ARM 平台的 Debian 系統
 * 參考連結
 
