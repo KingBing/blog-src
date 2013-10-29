@@ -102,6 +102,20 @@ rootfs 的目的是進行 chroot，你只需要修改 =/etc/apt/source.list= 即
 如果你使用 debootstrap 的目的，是建立一個輕巧的 Debian 隨身碟，則除了
 將剛剛所產生的檔案移到隨身碟下，你同時還要進行以下步驟。
 
+- 1. 產生基本的 Debian Root File System
+
+  請參照前面說明產生 Debian RootFS 到你的隨身碟上
+
+- 2. 修改 /etc/fstab
+
+  根據你的需求修改 /etc/fstab 檔案，以下為範例
+
+  #+BEGIN_SRC sh
+    /dev/sda1  /         etx4 defaults 0 1
+    proc       /proc     proc none     0 0
+  #+END_SRC
+
+
 * 建立 ARM 平台的 Debian 系統
 * 參考連結
 
