@@ -73,7 +73,7 @@ debootstrap 是 Debian 提供用於建立迷你 Debian 系統的方案，使用�
 
   http://ftp.tw.debian.org/debian/
 
-* 修改你的 Debian rootfs
+* 修改你的 Debian 系統
 
 剛建立好的 Debian Rootfs 還是有一些需要你去修改的檔案，比如說
 =/etc/fstab= 、 =/etc/inittab= 等。如果你使用 debootstrap 建立 Debian
