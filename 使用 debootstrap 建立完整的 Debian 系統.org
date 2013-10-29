@@ -139,7 +139,7 @@ rootfs 的目的是進行 chroot，你只需要修改 =/etc/apt/source.list= 即
 
   #+BEGIN_SRC sh
     apt-get update
-    apt-get install linux-image-
+    apt-get install linux-image-generic
     apt-get install grub
   #+END_SRC
 
