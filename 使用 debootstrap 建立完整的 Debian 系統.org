@@ -103,7 +103,7 @@ rootfs 的目的是進行 chroot，你只需要修改 =/etc/apt/source.list= 即
 將剛剛所產生的檔案移到隨身碟下，你同時還要進行以下步驟。
 
 #+HTML: <div class="alert alert-info">
-為了簡化說明，這裡假設你的 USB disk 只切割成一區。
+為了簡化說明，這裡假設你的 USB disk 只切割成一個分割區。
 #+HTML: </div>
 
 - 1. 產生基本的 Debian Root File System
