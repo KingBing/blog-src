@@ -143,6 +143,7 @@ rootfs 的目的是進行 chroot，你只需要修改 =/etc/apt/source.list= 即
 
 - 6. 完成收工
 
+
 * 建立 ARM 平台的 Debian 系統
 * 參考連結
 
