@@ -145,6 +145,8 @@ rootfs 的目的是進行 chroot，你只需要修改 =/etc/apt/source.list= 即
 
 - 5. 將 grub 裝到 MBR 上
 
+- 6. 進行一些其他雜七雜八的設定
+
 - 7. 完成收工
 
 * 建立 ARM 平台的 Debian 系統
