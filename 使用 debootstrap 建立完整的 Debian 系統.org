@@ -148,3 +148,4 @@ rootfs 的目的是進行 chroot，你只需要修改 =/etc/apt/source.list= 即
 * 參考連結
 
 ~[1]~ [[http://rediceli.blogspot.tw/2006/08/debootstrapdebian.html][通過 debootstrap 安裝 Debian]]
+~[2]~ [[http://rd-life.blogspot.tw/2009/08/debootstrap-debian-usb.html][使用 debootstrap 安裝 Debian 於 USB 大拇哥]]
