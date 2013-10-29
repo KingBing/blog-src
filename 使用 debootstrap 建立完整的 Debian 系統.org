@@ -79,8 +79,9 @@ debootstrap 是 Debian 提供用於建立迷你 Debian 系統的方案，使用�
 =/etc/fstab= 、 =/etc/inittab= 等。如果你使用 debootstrap 建立 Debian
 rootfs 的目的是進行 chroot，你只需要修改 =/etc/apt/source.list= 即可。
 
-
-
+一開始 debootstrap 建立出來的 =/etc/apt/source.list= 是一個空白檔案，你
+需要自己去添加自己想要的 debian mirror，debian mirror 取得的方式可以參
+考
 
 * 建立 ARM 平台的 Debian 系統
 * 參考連結
