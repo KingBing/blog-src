@@ -47,13 +47,13 @@ debootstrap 在任何 Debian 系列的 Linux 皆可隨手取得，若您是 Gent
 =rootfs-debian= 目錄。
 
 #+BEGIN_SRC sh
-  sudo mkdir /rootfs-debian
+  mkdir /rootfs-debian
 #+END_SRC
 
 接著使用下面這行 debootstrap 命令，Debian 就會安裝到 /rootfs-deebian 下了
 
 #+BEGIN_SRC sh
-  sudo debootstrap --arch i386 sid /rootfs-debian http://debian.linux.org.tw/debian
+  debootstrap --arch i386 sid /rootfs-debian http://debian.linux.org.tw/debian
 #+END_SRC
 
 整個 debootstrap 的命令架構如下
