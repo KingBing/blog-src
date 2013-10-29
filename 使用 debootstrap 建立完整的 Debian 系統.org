@@ -131,6 +131,13 @@ rootfs 的目的是進行 chroot，你只需要修改 =/etc/apt/source.list= 即
     chroot /mnt/usbdisk
   #+END_SRC
 
+- 4. 更新系統，安裝 grub 與 kernel image
+
+  #+BEGIN_SRC sh
+    apt-get update
+    apt-get install linux-image-
+    apt-get install grub
+  #+END_SRC
 
 * 建立 ARM 平台的 Debian 系統
 * 參考連結
