@@ -125,6 +125,12 @@ rootfs 的目的是進行 chroot，你只需要修改 =/etc/apt/source.list= 即
     mount -o bind dev /mnt/usbdisk/dev
   #+END_SRC
 
+  接著使用 chroot 切換到 Debian 系統上
+
+  #+BEGIN_SRC sh
+    chroot /mnt/usbdisk
+  #+END_SRC
+
 
 * 建立 ARM 平台的 Debian 系統
 * 參考連結
