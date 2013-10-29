@@ -81,7 +81,7 @@ rootfs 的目的是進行 chroot，你只需要修改 =/etc/apt/source.list= 即
 
 一開始 debootstrap 建立出來的 =/etc/apt/source.list= 是一個空白檔案，你
 需要自己去添加自己想要的 debian mirror，debian mirror 取得的方式可以參
-考
+考 [[http://debgen.simplylinux.ch/][Debian Source List Generator]] 。
 
 * 建立 ARM 平台的 Debian 系統
 * 參考連結
