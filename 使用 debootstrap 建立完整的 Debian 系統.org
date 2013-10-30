@@ -8,6 +8,7 @@
 #+TAGS: debian debootstrap bootstrap
 #+TYPE: draft
 
+
 在製作嵌入式系統的過程中，常常會儘可能精簡整個系統，因此將 gdb、strace
 等除錯的好幫手拿掉。如果精簡的 Linux 系統出了問題，要怎進行除錯呢？
 =debootstrap + chroot= 是我最常用的組合。
