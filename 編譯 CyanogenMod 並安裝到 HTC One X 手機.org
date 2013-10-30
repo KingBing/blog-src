@@ -41,10 +41,11 @@
 - Gentoo Linux
 
   #+BEGIN_SRC sh
-    emerge schedtool cmake bison curl git sun-jdk             \
-           gnupg flex bison gperf libsdl squashfs-tools       \
-           ncurses zlib perl-Switch zip unzip wxGTK           \
-           emul-linux-x86-baselibs emul-linux-x86-compat emul-linux-x86-cpplib
+    emerge -v                                              \
+        schedtool cmake bison curl git sun-jdk             \
+        gnupg flex bison gperf libsdl squashfs-tools       \
+        ncurses zlib perl-Switch zip unzip wxGTK           \
+        emul-linux-x86-baselibs emul-linux-x86-compat emul-linux-x86-cpplib
   #+END_SRC
 
 * 取得 repo 工具
