@@ -5,7 +5,7 @@
 #+LANGUAGE: zh_TW
 #+URL:    1f0563
 #+OPTIONS: num:nil ^:nil
-#+TAGS: emacs eshell
+#+TAGS: emacs eshell elisp
 
 eshell 是 emacs 下一個非常特殊的終端機 (terminal) 模擬軟體，和一般的
 xterm、konsole、gnome terminal 相比，eshell 完全使用 emacs-lisp 實現，因
