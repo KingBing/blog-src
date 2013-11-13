@@ -1,0 +1,23 @@
+#+TITLE: [emacs] 替你的 eshell prompt 上色
+#+AUTHOR: coldnew
+#+EMAIL:  coldnew.tw@gmail.com
+#+DATE:   2013-11-13 22:18:38
+#+LANGUAGE: zh_TW
+#+URL:    1f0563
+#+OPTIONS: num:nil ^:nil
+#+TAGS: emacs eshell
+
+eshell 是 emacs 下一個非常特殊的終端機 (terminal) 模擬軟體，和一般的
+xterm、konsole、gnome terminal 相比，eshell 完全使用 emacs-lisp 實現，因
+此可以非常完整的和 emacs 結合。
+
+若任何軟體都要舉出其缺點的話，eshell 我覺得有以下兩個缺點:
+
+- 1. 不能夠使用 ncurse 的軟體
+
+  像是 htop 等使用到 ncurse 的軟體，很可惜無法在 eshell 中使用。
+
+- 2. 預設的 terminal prompt 太醜
+
+  身為 Gentoo 的使用者，對於 shell 的 prompt 是非常講究的，預設的 eshell 的
+  prompt 沒有色彩
