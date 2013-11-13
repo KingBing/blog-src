@@ -20,13 +20,11 @@ xterm、konsole、gnome terminal 相比，eshell 完全使用 emacs-lisp 實現�
 - 2. 預設的 terminal prompt 太醜
 
   身為 Gentoo 的使用者，對於 shell 的 prompt 是非常講究的，預設的 eshell 的
-  prompt 沒有色彩
+  prompt 沒有色彩，這點讓我難以接受。
 
 
 為了讓 eshell 更貼近我的日常使用，我使用 emacs-lisp 修改的 eshell 的 prompt
 樣式，並讓他增加色彩，結果如下圖:
-
-
 
 #+BEGIN_CENTER
 [[file:files/2013/eshell-color-prompt.png]]
