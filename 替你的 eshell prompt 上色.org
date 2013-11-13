@@ -29,3 +29,47 @@ xterm、konsole、gnome terminal 相比，eshell 完全使用 emacs-lisp 實現�
 #+BEGIN_CENTER
 [[file:files/2013/eshell-color-prompt.png]]
 #+END_CENTER
+
+要讓你的 eshell 長得像我這樣，你必須使用以下兩組 emacs-lisp 設定
+
+* 將 eshell 的 prompt 設定成和 bash 一樣
+
+我知道很多人都說 zsh 比 bash 更好用，不過我還是習慣於 bash 的 prompt 方式，下
+面這一組讓你的 eshell prompt 設定的和 bash 相同，變成 =user@directory= 的
+形式。
+
+#+begin_src emacs-lisp
+  (setq eshell-prompt-function
+        '(lambda ()
+           (concat
+            user-login-name "@" system-name " "
+            (if (search (directory-file-name (expand-file-name (getenv "HOME"))) (eshell/pwd))
+                (replace-regexp-in-string (expand-file-name (getenv "HOME")) "~" (eshell/pwd))
+              (eshell/pwd))
+            (if (= (user-uid) 0) " # " " $ "))))
+#+end_src
+
+
+* 替 eshell 的 prompt 上色
+
+設定好 eshell 的 prompt 後，接著就是透過 emacs-lisp 的正規表達式以及 overlay
+功能，尋找符合的格式進行上色。透過這兩個步驟，你也可以擁有好看的 eshell prompt。
+
+#+begin_src emacs-lisp
+  (defun colorfy-eshell-prompt ()
+    (let* ((mpoint)
+           (user-string-regexp (concat "^" user-login-name "@" system-name)))
+      (save-excursion
+        (goto-char (point-min))
+        (while (re-search-forward (concat user-string-regexp ".*[$#]") (point-max) t)
+          (setq mpoint (point))
+          (overlay-put (make-overlay (point-at-bol) mpoint) 'face '(:foreground "dodger blue")))
+        (goto-char (point-min))
+        (while (re-search-forward user-string-regexp (point-max) t)
+          (setq mpoint (point))
+          (overlay-put (make-overlay (point-at-bol) mpoint) 'face '(:foreground "green3"))
+          ))))
+
+  ;; Make eshell prompt more colorful
+  (add-to-list 'eshell-output-filter-functions 'colorfy-eshell-prompt)
+  #+end_src
