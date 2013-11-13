@@ -35,8 +35,7 @@ xterm、konsole、gnome terminal 相比，eshell 完全使用 emacs-lisp 實現�
 * 將 eshell 的 prompt 設定成和 bash 一樣
 
 我知道很多人都說 zsh 比 bash 更好用，不過我還是習慣於 bash 的 prompt 方式，下
-面這一組讓你的 eshell prompt 設定的和 bash 相同，變成 =user@directory= 的
-形式。
+面這一組讓你的 eshell prompt 設定的和 bash 相同，變成 =user@hostname directory $= 的形式。
 
 #+begin_src emacs-lisp
   (setq eshell-prompt-function
