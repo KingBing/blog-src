@@ -26,6 +26,8 @@ xterm、konsole、gnome terminal 相比，eshell 完全使用 emacs-lisp 實現�
 為了讓 eshell 更貼近我的日常使用，我使用 emacs-lisp 修改的 eshell 的 prompt
 樣式，並讓他增加色彩，結果如下圖:
 
+
+
 #+BEGIN_CENTER
 [[file:files/2013/eshell-color-prompt.png]]
 #+END_CENTER
