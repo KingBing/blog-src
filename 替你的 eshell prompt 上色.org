@@ -55,6 +55,7 @@ xterm、konsole、gnome terminal 相比，eshell 完全使用 emacs-lisp 實現�
 
 #+begin_src emacs-lisp
   (defun colorfy-eshell-prompt ()
+    "Colorfy eshell prompt according to `user@hostname' regexp."
     (let* ((mpoint)
            (user-string-regexp (concat "^" user-login-name "@" system-name)))
       (save-excursion
