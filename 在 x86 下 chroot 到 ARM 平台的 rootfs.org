@@ -7,7 +7,7 @@
 #+OPTIONS: num:nil ^:nil
 #+TAGS: arm chroot qemu
 
-QEMU 除了是很棒的虛擬機以外，在 Linux 下我們也可以透過他來進行 chroot 到 ARM 平台
+既然我們是要使用 QEMU 除了是很棒的虛擬機以外，在 Linux 下我們也可以透過他來進行 chroot 到 ARM 平台
 的環境，這樣當你要針對某個 ARM 平台下的執行檔進行測試的時候，你不必複
 製他到 ARM 的開發板下，直接在本機就可以做測試了。
 
