@@ -6,3 +6,180 @@
 #+URL:    dc09c
 #+OPTIONS: num:nil ^:nil
 #+TAGS: arm chroot qemu
+
+QEMU 除了是很棒的虛擬機以外，在 Linux 下我們也可以透過他來進行 chroot 到 ARM 平台
+的環境，這樣當你要針對某個 ARM 平台下的執行檔進行測試的時候，你不必複
+製他到 ARM 的開發板下，直接在本機就可以做測試了。
+
+*注意: 在這篇文章的範例，都必須以 root 權限運行*
+
+* 預先準備
+
+要能夠在 x86/amd64 環境下透過 QEMU 進行 chroot, 必須要有具有 binfmt_misc 的
+linux 系統，如果沒有的話，則必須重新編譯 kernel，並將 kernel 加入以
+下設定。
+
+#+BEGIN_EXAMPLE
+    Executable file formats / Emulations  --->
+                              <M> Kernel support for MISC binaries
+#+END_EXAMPLE
+
+* 安裝 QEMU
+
+既然我們是要使用 QEMU 來幫我們摹擬 ARM 平台的環境，當然 QEMU 也是必備的囉~
+
+#+ATTR_HTML: :class table table-hover
+| Linux Distro    | Install Commands          |
+|-----------------+---------------------------|
+| Debian / Ubuntu | apt-get install qemu      |
+| Redhat / Fedora | yum install qemu          |
+| Gentoo          | emerge app-emulation/qemu |
+| ArchLinux       | pacman -S qemu            |
+
+* 安裝 qemu-user
+
+qemu-user 是讓 QEMU 能夠透過 binfmt_misc 進行 chroot 所額外需要的程式。
+
+請使用各家 Linux 套件所提供的方法來安裝 qemu-user，
+若自己編譯的話要記得將 qemu-user 編譯成 static link.
+
+#+ATTR_HTML: :class table table-hover
+| Linux Distro    | Install Commands               |
+|-----------------+--------------------------------|
+| Debian / Ubuntu | apt-get install qemu-user      |
+| RedHat / Fedora | yum install qemu-user          |
+| Gentoo          | emerge app-emulation/qemu-user |
+| ArchLinux       | pacman -S qemu                 |
+
+若你不想要自己編譯，你可以下載我預先編譯好的 static 檔案。
+
+#+HTML: <div class="row "><div class="span4 offset2">
+
+#+ATTR_HTML: :class btn btn-danger
+[[file:files/2013/qemu-static-arm-x86.tar.gz][qemu-user for x86]]
+
+#+HTML: </div><div class="span4 ">
+
+#+ATTR_HTML: :class btn btn-info
+[[file:files/2013/qemu-static-arm-amd64.tar.gz][qemu-user for amd64]]
+
+#+HTML: </div> </div>
+
+* 載入 binfmt_misc 模組並註冊 ARM 平台的資訊到系統
+
+我們要先將 binfmt_misc 模組載入到系統後，並掛載 binfmt_misc 模組，這樣
+才可以使用他
+
+#+BEGIN_EXAMPLE
+  modprobe binfmt_misc
+  mount binfmt_misc -t binfmt_misc /proc/sys/fs/binfmt_misc
+#+END_EXAMPLE
+
+接著要註冊 ARM 平台的資訊到 binfmt_misc 中，關於註冊資訊的意義，可以參
+考我之前寫的文章: [[http://coldnew.github.io/blog/2013/03/20_17398.html][透過 binfmt_misc 讓 Linux 可以執行不同格式的執行檔]]
+
+#+begin_src sh
+  echo ':arm:M::\x7fELF\x01\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02\x00\x28\x00:\xff\xff\xff\xff\xff\xff\xff\x00\xff\xff\xff\xff\xff\xff\xff\xff\xfe\xff\xff\xff:/usr/bin/qemu-static-arm-binfmt:P' > /proc/sys/fs/binfmt_misc/register
+#+end_src
+
+如果你是 Gentoo 的使用者，在你安裝完 qemu-user 後，你可以看到
+~/etc/init.d~ 下多了一個 qemu-binfmt 檔案，直接使用
+
+: /etc/init.d/qemu-binfmt start
+
+這樣就可以將以上的資訊註冊到 binfmt_misc 中。
+
+* 檢查是否有註冊資訊成功
+
+你可以使用以下命令來確認你是否有成功註冊 arm 命令到 binfmt 裏面。
+
+: cat /proc/sys/fs/binfmt_misc/arm
+
+若註冊正確，你應該會得到以下結果
+
+#+BEGIN_EXAMPLE
+  enabled
+  interpreter /usr/bin/qemu-static-arm-binfmt
+  flags: P
+  offset 0
+  magic 7f454c4601010100000000000000000002002800
+  mask ffffffffffffff00fffffffffffffffffeffffff
+#+END_EXAMPLE
+
+* 複製 qemu-user 檔案到 ARM 平台的 root file system  裡
+
+為了讓這個 ARM 平台的 Root File System 能夠透過 QEMU 進行 chroot，
+還需要將 qemu-static-arm 以及 qemu-static-arm-binfmt 複製到該 Root File System
+的 ~/usr/bin~ 底下。
+
+我們假設你要 chroot 的對象被定義在 *${ARM_ROOTFS}* ，則用以下方式
+將需要的 qemu-static-arm* 檔案複製過去。
+
+若你是使用套件安裝 qemu-user 的話，你的二進制文件應該位於 ~/usr/bin/~ 下。
+
+#+begin_src sh
+  cp /usr/bin/qemu-static-arm ${ARM_ROOTFS}/usr/bin/
+  cp /usr/bin/qemu-static-arm-binfmt ${ARM_ROOTFS}/usr/bin/
+#+end_src
+
+* chroot 到 ARM 平台的 Root File System
+
+在 chroot 到 ARM 平台的 Root File System 之前，你必須先掛載以下幾個
+資料夾
+
+#+BEGIN_SRC sh
+  mount -o bind /dev     ${ARM_ROOTFS}/dev
+  mount -o bind /dev/pts ${ARM_ROOTFS}/dev/pts
+  mount -o bind /proc    ${ARM_ROOTFS}/proc
+  mount -o bind /sys     ${ARM_ROOTFS}/sys
+  cp /etc/resolv.conf    ${ARM_ROOTFS}/etc/resolv.conf
+#+END_SRC
+
+接著你就可以直接使用以下命令進行 chroot
+
+#+BEGIN_SRC sh
+  chroot ${ARM_ROOTFS}  /bin/bash
+#+END_SRC
+
+如果你想要執行的 ARM 程式具有圖形介面，則你可以在你的系統使用
+
+: xhost +
+
+這樣會允許你的 X-Server 運行任意來源的視窗程式
+
+* 使用預先做好的腳本
+
+如果你覺得每次都要手動進行註冊 ARM 資訊到 QEMU、掛載系統很麻煩，你可以
+試試我寫好的腳本
+
+#+HTML: <div class="row "><div class="span3 offset1">
+註冊 ARM 資訊到 QEMU
+
+#+ATTR_HTML: :class btn btn-danger
+[[file:files/2013/do_register_arm.sh][do_register_arm.sh]]
+
+#+HTML: </div><div class="span3 ">
+
+掛載 /dev/ 等資訊到 ROOTFS
+
+#+ATTR_HTML: :class btn btn-info
+[[file:files/2013/do_mount.sh][do_mount.sh]]
+
+#+HTML: </div><div class="span3 ">
+
+解除掛載 /dev/ 等資訊到 ROOTFS
+
+#+ATTR_HTML: :class btn btn-info
+[[file:files/2013/do_umount.sh][do_umount.sh]]
+
+#+HTML: </div> </div>
+
+* 參考連結
+
+~[1]~ [[http://wiki.sabayon.org/index.php?title%3DHitchhikers_Guide_to_the_BeagleBone_(and_ARMv7a)][Sabayon Wiki - Hitchhikers Guide to the BeagleBone (and ARMv7a)]]
+
+~[2]~ [[http://dev.gentoo.org/~armin76/arm/beaglebone/install.xml][Gentoo on the Beaglebone]]
+
+~[3]~ [[http://www.gentoo.org/proj/en/base/embedded/handbook/index.xml][Gentoo Embedded Handbook]]
+
+~[4]~ [[http://cvpcs.org/projects/android/gendroid#embedded_gentoo_for_android][Embedded Gentoo for Android]]
