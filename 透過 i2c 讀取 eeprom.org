@@ -115,7 +115,9 @@ Raspberry Pi 對於剛接觸嵌入式系統開發的人而言，無疑是一個�
 你可以使用以下命令來察看目前的系統有多少個 i2c bus，以我手上的
 Raspberry Pi 為例
 
-: i2cdetect -l
+#+BEGIN_EXAMPLE
+ pi@raspberrypi:/home/pi$ i2cdetect -l
+#+END_EXAMPLE
 
 會得到
 
