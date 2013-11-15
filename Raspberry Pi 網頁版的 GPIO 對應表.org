@@ -6,3 +6,16 @@
 #+URL:    3102a
 #+OPTIONS: num:nil ^:nil
 #+TAGS: raspberry_pi gpio
+
+
+這是網頁板的 Raspberry Pi GPIO 對應表，原始連結在這: http://pi.gadgetoid.com/pinout
+
+#+BEGIN_CENTER
+#+BEGIN_HTML
+  <object data=http://pi.gadgetoid.com/pinout width="1000" height="900">
+    <embed src=http://pi.gadgetoid.com/pinout width="1000" height="900">
+    </embed>
+    Error: Embedded data could not be displayed.
+  </object>
+#+END_HTML
+#+END_CENTER
