@@ -11,7 +11,9 @@ Raspberry Pi 提供了許多的 GPIO 讓使用者可以配合電路來做出許�
 本篇文章使用 Raspbian 作為 Raspberry Pi 的系統，並透過 Python、C
 語言與 newlisp 幾種類型的範例，來展示如何在 Raspberry Pi 下透過 GPIO 來操作 GPIO。
 
+#+HTML: <div class="alert alert-info">
 *注意: 在這篇文章的範例，都必須以 root 權限運行*
+#+HTML: </div>
 
 * 使用設備
 
