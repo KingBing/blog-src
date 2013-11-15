@@ -1,0 +1,8 @@
+#+TITLE: Raspberry Pi 網頁版的 GPIO 對應表
+#+AUTHOR: coldnew
+#+EMAIL:  coldnew.tw@gmail.com
+#+DATE:   2013-06-29 21:45:40
+#+LANGUAGE: zh_TW
+#+URL:    3102a
+#+OPTIONS: num:nil ^:nil
+#+TAGS: raspberry_pi gpio
