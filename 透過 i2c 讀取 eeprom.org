@@ -116,7 +116,7 @@ Raspberry Pi 對於剛接觸嵌入式系統開發的人而言，無疑是一個�
 Raspberry Pi 為例
 
 #+BEGIN_EXAMPLE
- pi@raspberrypi:/home/pi$ i2cdetect -l
+ pi@raspberrypi:/home/pi$ sudo i2cdetect -l
 #+END_EXAMPLE
 
 會得到
@@ -133,7 +133,9 @@ rev.2 版本，則都改成使用 i2c-1 作為 i2c bus。
 
 知道你要查詢的 I²C bus 後，我們可以使用
 
-: i2cdetect -y 1
+#+BEGIN_EXAMPLE
+ pi@raspberrypi:/home/pi$ sudo si2cdetect -y 1
+#+END_EXAMPLE
 
 來查詢 i2c-1 bus 上的所有設備，所得到的結果如下
 
