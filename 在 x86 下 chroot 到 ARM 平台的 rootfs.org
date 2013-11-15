@@ -1,4 +1,4 @@
-#+TITLE: 在 x86 下 chroot 到 ARM 平台的 rootfs
+#+TITLE: [qemu] 在 x86 下 chroot 到 ARM 平台的 rootfs
 #+AUTHOR: coldnew
 #+EMAIL:  coldnew.tw@gmail.com
 #+DATE:   2013-06-27 21:34:00
@@ -53,7 +53,7 @@ qemu-user 是讓 QEMU 能夠透過 binfmt_misc 進行 chroot 所額外需要的�
 
 若你不想要自己編譯，你可以下載我預先編譯好的 static 檔案。
 
-#+HTML: <div class="row "><div class="span4 offset2">
+#+HTML: <div class="row "><div class="col-md-4 col-md-offset-2">
 
 #+ATTR_HTML: :class btn btn-danger
 [[file:files/2013/qemu-static-arm-x86.tar.gz][qemu-user for x86]]
@@ -152,20 +152,20 @@ qemu-user 是讓 QEMU 能夠透過 binfmt_misc 進行 chroot 所額外需要的�
 如果你覺得每次都要手動進行註冊 ARM 資訊到 QEMU、掛載系統很麻煩，你可以
 試試我寫好的腳本
 
-#+HTML: <div class="row "><div class="span3 offset1">
+#+HTML: <div class="row "><div class="col-md-3 col-md-offset-1">
 註冊 ARM 資訊到 QEMU
 
 #+ATTR_HTML: :class btn btn-danger
 [[file:files/2013/do_register_arm.sh][do_register_arm.sh]]
 
-#+HTML: </div><div class="span3 ">
+#+HTML: </div><div class="col-md-3 ">
 
 掛載 /dev/ 等資訊到 ROOTFS
 
 #+ATTR_HTML: :class btn btn-info
 [[file:files/2013/do_mount.sh][do_mount.sh]]
 
-#+HTML: </div><div class="span3 ">
+#+HTML: </div><div class="col-md-3 ">
 
 解除掛載 /dev/ 等資訊到 ROOTFS
 

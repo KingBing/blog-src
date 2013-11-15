@@ -7,23 +7,6 @@
 #+OPTIONS: num:nil
 #+TAGS: clojurescript node.js
 
-* 建立開發環境
-
-無論是使用 Clojure 開發還是 ClojureScript 開發， [[https://github.com/technomancy/leiningen][Leiningen]] 都是幫忙
-建立開發環境的好幫手，安裝完  [[https://github.com/technomancy/leiningen][Leiningen]] 後，你需要在
-*~/.lein/profiles.clj* 加上名為 [[https://github.com/emezeske/lein-cljsbuild][lein-cljsbuild]] 的 lein 擴展
-
-#+BEGIN_SRC clojure
-    {:user {:plugins [[lein-cljsbuild "0.3.2"]]}}
-#+END_SRC
-
-此外，你的系統也必須安裝 node.js，Gentoo Linux 的使用者可以使用以下命
-令來安裝
-
-: emerge net-libs/nodejs
-
-* 關於 ClojureScript
-
 [[https://github.com/clojure/clojurescript/wiki/Differences-from-Clojure][ClojureScript]] 是相當於 Clojure 在 javascript 上的實現，由 Clojure 團隊所設
 計出來的 Lisp 方言，他的語法基本上都和 Clojure 相同，也就是說，你
 只要學一個 Clojure 語言，你就很可能可以辦到 Web Server 用 Clojure，
@@ -32,7 +15,7 @@ Web Frontend 使用 ClojureScript 來開發的情況。
 ClojureScript 的編譯器使用 Clojure 來撰寫，並使用 [[https://developers.google.com/closure/compiler/?hl=zh-TW][Google Closure
 Compiler]] 來將編譯出來的 javascript 程式進行最佳化，對於喜歡 Lisp 又想體
 驗 node.js 的開發者，這是一個非常有吸引力的語言。想了解 ClojureScript
-更多，你可以參考[[http://www.infoq.com/cn/news/2011/08/clojurescript][ ClojureScript 通過 Javascript 將 Clojure 引入到瀏覽
+更多，你可以參考 [[http://www.infoq.com/cn/news/2011/08/clojurescript][ClojureScript 通過 Javascript 將 Clojure 引入到瀏覽
 器端]] 一文。
 
 為什麼我要使用 ClojureScript 來開發 node.js 的程式呢？用 javascript 不
@@ -62,6 +45,21 @@ javascript。(結尾要大括號又要括號又要分號，這是什麼神祕的
 
 當然，我不喜歡 javascript 還有許多原因，但追根究底，或許是因為
 javascript 不是用 S 表達式吧，node.js 還是很棒的東西的。
+
+* 建立開發環境
+
+無論是使用 Clojure 開發還是 ClojureScript 開發， [[https://github.com/technomancy/leiningen][Leiningen]] 都是幫忙
+建立開發環境的好幫手，安裝完  [[https://github.com/technomancy/leiningen][Leiningen]] 後，你需要在
+*~/.lein/profiles.clj* 加上名為 [[https://github.com/emezeske/lein-cljsbuild][lein-cljsbuild]] 的 lein 擴展
+
+#+BEGIN_SRC clojure
+    {:user {:plugins [[lein-cljsbuild "0.3.2"]]}}
+#+END_SRC
+
+此外，你的系統也必須安裝 node.js，Gentoo Linux 的使用者可以使用以下命
+令來安裝
+
+: emerge net-libs/nodejs
 
 * 建立新的 ClojureScript 專案
 
