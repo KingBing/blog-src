@@ -71,7 +71,9 @@ Raspberry Pi 對於剛接觸嵌入式系統開發的人而言，無疑是一個�
 
   Raspberry Pi 預設沒有載入 i2c 模組，因此我們必須手動載入他
 
-  : sudo modprobe i2c-dev
+  #+BEGIN_EXAMPLE
+    pi@raspberrypi:/home/pi$ sudo modprobe i2c-dev
+  #+END_EXAMPLE
 
   如果你覺得每次都要手動載入很麻煩，可以修改 /etc/modules，將
   i2c-dev 加入到檔案裏面，這樣重開之後，Raspberry Pi 會自動載入該載入
