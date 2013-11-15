@@ -92,7 +92,9 @@ Raspberry Pi 對於剛接觸嵌入式系統開發的人而言，無疑是一個�
 我們在這邊使用最常用的 i2c-tools，因為這個套件並沒有被預先安裝，因此你
 必須自己安裝
 
-: sudo apt-get install i2c-tools
+#+BEGIN_EXAMPLE
+ pi@raspberrypi:/home/pi$ sudo apt-get install i2c-tools
+#+END_EXAMPLE
 
 安裝完後，你會增加以下幾個命令
 
