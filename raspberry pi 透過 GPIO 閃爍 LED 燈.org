@@ -32,13 +32,13 @@ Raspberry Pi 提供了許多的 GPIO 讓使用者可以配合電路來做出許�
 下面的硬體線路使用 [[http://fritzing.org/][Fritzing]] 軟體來繪製， 我們連接 Raspberry Pi 的 GPIO4
 (Pin 7) 到 LED 的陽極並加上一個保護 LED 用的限流電阻 220 Ω。([[file:files/2013/rpi_simpleled.fzz][下載設計檔案]])
 
-#+HTML: <div class="row "><div class="span7 ">
+#+HTML: <div class="row "><div class="col-md-7 ">
 
 *麵包板連線*
 
 [[file:files/2013/rpi_simpleled_bb.png]]
 
-#+HTML: </div><div class="span4">
+#+HTML: </div><div class="col-md-4">
 
 *電路連接*
 
