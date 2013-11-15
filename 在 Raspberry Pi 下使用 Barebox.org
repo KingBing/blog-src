@@ -66,7 +66,7 @@ Raspberry Pi 的 toolchain。
   設定存到 .config 裏面。
 
   #+BEGIN_CENTER
-  [[file:files/2013/barebox_menuconfig.png]]
+    [[file:files/2013/barebox_menuconfig.png]]
   #+END_CENTER
 
 - 4. 將 SD 卡驅動編譯進去
