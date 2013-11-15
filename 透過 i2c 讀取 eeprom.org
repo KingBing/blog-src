@@ -83,8 +83,8 @@ Raspberry Pi 對於剛接觸嵌入式系統開發的人而言，無疑是一個�
   備節點
 
   #+BEGIN_EXAMPLE
-       root@raspberrypi:/home/pi# ls /dev/i2c*
-       /dev/i2c-0  /dev/i2c-1
+    pi@raspberrypi:/home/pi$ ls /dev/i2c*
+    /dev/i2c-0  /dev/i2c-1
   #+END_EXAMPLE
 
 * 安裝 i2c-tools
