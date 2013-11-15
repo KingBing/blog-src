@@ -6,3 +6,305 @@
 #+URL:    1aced
 #+OPTIONS: num:nil ^:nil
 #+TAGS: raspberry_pi gpio python newlisp c
+
+Raspberry Pi 提供了許多的 GPIO 讓使用者可以配合電路來做出許多不同的設計，
+本篇文章使用 Raspbian 作為 Raspberry Pi 的系統，並透過 Python、C
+語言與 newlisp 幾種類型的範例，來展示如何在 Raspberry Pi 下透過 GPIO 來操作 GPIO。
+
+*注意: 在這篇文章的範例，都必須以 root 權限運行*
+
+* 使用設備
+
+要完成本篇文章所描述的部份，你需要以下幾種器材
+
+- 1. Raspberry Pi
+
+- 2. LED
+
+- 3. 電阻 220 Ω 或其他適合阻值
+
+- 4. 麵包板
+
+- 5. 單蕊線
+
+* 硬體線路
+
+下面的硬體線路使用 [[http://fritzing.org/][Fritzing]] 軟體來繪製， 我們連接 Raspberry Pi 的 GPIO4
+(Pin 7) 到 LED 的陽極並加上一個保護 LED 用的限流電阻 220 Ω。([[file:files/2013/rpi_simpleled.fzz][下載設計檔案]])
+
+#+HTML: <div class="row "><div class="span7 ">
+
+*麵包板連線*
+
+[[file:files/2013/rpi_simpleled_bb.png]]
+
+#+HTML: </div><div class="span4">
+
+*電路連接*
+
+[[file:files/2013/rpi_simpleled_schem.png]]
+#+HTML: </div> </div>
+
+* 使用 Linux Kernel 提供的 sysfs 來控制 GPIO
+
+在要寫程式之前，我們先來使用 Linux Kernel 提供的 sysfs 來控制 GPIO。
+
+- 1. 首先先將 GPIO4 設定成可以用 sysfs 控制
+
+     : echo 4 > /sys/class/gpio/export
+
+- 2. 設定 GPIO4 為輸出腳
+
+     : echo out > /sys/class/gpio/gpio4/direction
+
+- 3. 設定 GPIO4 輸出值為 1 (0: 低電位, 1: 高電位)
+
+     : echo 1 > /sys/class/gpio/gpio4/value
+
+- 4. 設定 GPIO4 輸出值為 0 (0: 低電位, 1: 高電位)
+
+     : echo 0 > /sys/class/gpio/gpio4/value
+
+- 5. 取消建立出來的 GPIO4 node
+
+     : echo 4 > /sys/class/gpio/unexport
+
+在你執行以上第 3 步的時候，你可以看到 LED 亮了起來，直到第 4 步時，才又變
+回原本的狀態。
+
+若想要使用 Bash 來控制 GPIO，則可以採用此種方式。
+
+* 使用 debugfs 來觀看目前的 GPIO 設定
+
+我們可以使用 debugfs 來察看目前的 GPIO 設定，首先掛載 debugfs
+
+: mount -t debugfs debug /d
+
+接著就可以使用
+
+: cat /d/gpio
+
+來取得目前 GPIO 的狀況
+
+#+BEGIN_EXAMPLE
+  root@raspberrypi:/home/pi# cat /d/gpio
+  GPIOs 0-53, bcm2708_gpio:
+   gpio-4  (sysfs                ) out hi
+#+END_EXAMPLE
+
+* 使用 C 語言控制 GPIO (不使用外部函式庫)
+
+C 語言因為提供了指標，可以任意的去修改記憶體的某個部份，因此我們也可
+以透過修改記憶體區塊的方式，來設定我們的 GPIO。
+
+以下程式修改自 [[http://elinux.org/RPi_Low-level_peripherals][elinux]] 的範例，首先點亮 GPIO4 上的 LED 一秒後，再關閉。
+
+#+BEGIN_SRC c
+  /* Modified from http://elinux.org/RPi_Low-level_peripherals */
+  #include <stdio.h>
+  #include <stdlib.h>
+  #include <fcntl.h>
+  #include <sys/mman.h>
+  #include <unistd.h>
+
+  #define BCM2708_PERI_BASE        0x20000000
+  #define GPIO_BASE                (BCM2708_PERI_BASE + 0x200000) /* GPIO controller */
+
+  #define PAGE_SIZE  (4 * 1024)
+  #define BLOCK_SIZE (4 * 1024)
+
+  int  mem_fd;
+  void *gpio_map;
+
+  /* I/O access */
+  volatile unsigned *gpio;
+
+  /* GPIO setup macros. Always use INP_GPIO(x) before using OUT_GPIO(x) or SET_GPIO_ALT(x,y) */
+  #define INP_GPIO(g) *(gpio+((g)/10)) &= ~(7<<(((g)%10)*3))
+  #define OUT_GPIO(g) *(gpio+((g)/10)) |=  (1<<(((g)%10)*3))
+  #define SET_GPIO_ALT(g,a) *(gpio+(((g)/10))) |= (((a)<=3?(a)+4:(a)==4?3:2)<<(((g)%10)*3))
+
+  #define GPIO_SET *(gpio+7)   /* sets   bits which are 1 ignores bits which are 0 */
+  #define GPIO_CLR *(gpio+10)  /* clears bits which are 1 ignores bits which are 0 */
+
+  /**
+   ,* Set up a memory regions to access GPIO
+   ,*
+   ,*/
+  void setup_io()
+  {
+          /* open /dev/mem */
+          if ((mem_fd = open("/dev/mem", O_RDWR|O_SYNC) ) < 0) {
+                  printf("can't open /dev/mem \n");
+                  exit(-1);
+          }
+
+          /* mmap GPIO */
+          gpio_map = mmap(
+                  NULL,             /* Any adddress in our space will do */
+                  BLOCK_SIZE,       /* Map length */
+                  PROT_READ|PROT_WRITE, /* Enable reading & writting to mapped memory */
+                  MAP_SHARED,       /* Shared with other processes */
+                  mem_fd,           /* File to map */
+                  GPIO_BASE         /* Offset to GPIO peripheral */
+                  );
+
+          close(mem_fd); /* No need to keep mem_fd open after mmap */
+
+          if (gpio_map == MAP_FAILED) {
+                  printf("mmap error %d\n", (int)gpio_map); /* errno also set! */
+                  exit(-1);
+          }
+
+          /* Always use volatile pointer! */
+          gpio = (volatile unsigned *)gpio_map;
+  }
+
+  int main(int argc, char **argv)
+  {
+          /* Set up gpi pointer for direct register access */
+          setup_io();
+
+          /* Must use INP_GPIO before we can use OUT_GPIO */
+          INP_GPIO(g);
+          OUT_GPIO(g);
+
+          /* Set GPIO4 to 1 */
+          GPIO_SET = 1 << 4;
+          sleep(1);
+
+          /* Clear GPIO 4 */
+          GPIO_CLR = 1 << 4;
+          sleep(1);
+
+          return 0;
+  }
+
+#+END_SRC
+
+* 使用 C 語言控制 GPIO (使用 BCM2835 函式庫)
+
+[[http://www.airspayce.com/mikem/bcm2835/][BCM2835 C library]] 是針對 BCM2835 CPU 用的 C 語言函式庫，透過他你可以輕鬆
+的使用 C 語言去控制 Raspberry Pi 的 GPIO、I²C 等裝置，第一次使用這個函式庫
+時，需要自己下載來編譯。
+
+#+BEGIN_EXAMPLE
+  wget http://www.airspayce.com/mikem/bcm2835/bcm2835-1.25.tar.gz
+  tar zxvf bcm2835-1.25.tar.gz
+  cd bcm2835-1.25
+  ./configure
+  make
+  sudo make install
+#+END_EXAMPLE
+
+接著我們就可以寫如下的 C 語言程式來閃爍我們的 LED。
+
+#+BEGIN_SRC c
+  /* Compile with: gcc blink.c -o blink -l bcm2835 */
+
+  #include <bcm2835.h>
+
+  /* Blinks on RPi pin 7 */
+  #define PIN RPI_GPIO_P1_7
+
+  int main(int argc, char **argv) {
+
+          if ( !bcm2835_init() ) {
+                  perror("Error");
+                  return 1;
+          }
+
+          /* Set the pin to be an output */
+          bcm2835_gpio_fsel(PIN, BCM2835_GPIO_FSEL_OUTP);
+
+          /* Blink LED */
+          while (1) {
+                  /* Turn on LED */
+                  bcm2835_gpio_write(PIN, HIGH);
+                  /* Delay 500ms */
+                  delay(500);
+                  /* Turn off LED */
+                  bcm2835_gpio_write(PIN, LOW);
+                  /* Delay 500ms */
+                  delay(500);
+          }
+
+          return 0;
+  }
+#+END_SRC
+
+* 使用 Python 控制 GPIO
+
+在 Raspbian 發行版當中，已經預先將 RPi.GPIO 模組包入，因此你可以直接
+寫以下的 python 程式來控制 GPIO4，要注意的是，RPi.GPIO 設定的 GPIO 是採
+用 Pin number，也就是說若我要修改 GPIO4 (Pin 7)，則實際上呼叫 Rpi.GPIO
+的號碼為 *7* ，而不是 *4* 。
+
+#+BEGIN_SRC python
+  import RPi.GPIO as GPIO
+  import time
+
+  # blinking function
+  def blink(pin):
+          GPIO.output(pin,GPIO.HIGH)
+          time.sleep(1)
+          GPIO.output(pin,GPIO.LOW)
+          time.sleep(1)
+          return
+
+  # to use Raspberry Pi board pin numbers
+  GPIO.setmode(GPIO.BOARD)
+
+  # set up GPIO output channel, we set GPIO4 (Pin 7) to OUTPUT
+  GPIO.setup(7, GPIO.OUT)
+
+  # blink GPIO4 (Pin 7) 50 times
+  for i in range(0,50):
+          blink(7)
+
+  GPIO.cleanup()
+#+END_SRC
+
+* 使用 newlisp 控制 GPIO
+
+newlisp 是屬於 script language，若不透過他的 FFI (Foreign Function
+Interface)，則要在 newlisp 下控制 GPIO 的最好方法就是更改 sysfs 下的 GPIO
+資訊。
+
+我們可以使用 [[https://github.com/marchildmann/raspi-gpio-newlisp][raspi-gpio]] 模組來簡化 nwelisp 下修改 GPIO 資訊的步驟，首先
+先下載 raspi-gpio.lsp
+
+: wget https://raw.github.com/marchildmann/raspi-gpio-newlisp/master/raspi-gpio.lsp
+
+接著你就可以寫以下的 newlisp 程式來閃爍 LED
+
+#+BEGIN_SRC newlisp
+  #!/usr/bin/env newlisp
+
+  (load "raspi-gpio.lsp")
+
+  (define (blink gpio)
+    ;; Make GPIO to 1
+    (GPIO:digital-write gpio GPIO:high)
+    ;; delay 500ms
+    (sleep 500)
+    ;; Make GPIO to 0
+    (GPIO:digital-write gpio GPIO:low)
+    ;; delay 500ms
+    (sleep 500))
+
+  ;; Enable use GPIO4
+  (GPIO:enable-pin 4)
+
+  ;; Set GPIO4 as output
+  (GPIO:pin-mode 4 GPIO:out)
+
+  ;; Blink GPIO4 50 times
+  (dotimes (x 50) (blink 4))
+
+  ;; Disable use GPIO4
+  (GPIO:disable-pin 4)
+
+  ;; End of Application
+  (exit)
+#+END_SRC
