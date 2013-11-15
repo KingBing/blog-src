@@ -1,0 +1,8 @@
+#+TITLE: [Raspberry Pi] 透過 GPIO 閃爍 LED 燈
+#+AUTHOR: coldnew
+#+EMAIL:  coldnew.tw@gmail.com
+#+DATE:   2013-06-27 00:59:00
+#+LANGUAGE: zh_TW
+#+URL:    1aced
+#+OPTIONS: num:nil ^:nil
+#+TAGS: raspberry_pi gpio python newlisp c
