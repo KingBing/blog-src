@@ -269,11 +269,7 @@ i2cget 命令格式如下
       Append p for SMBus PEC
 #+END_EXAMPLE
 
-因此，若我們要察看剛剛所設定的 0x12 暫存器，則可以用
-
-: i2cget -y 1 0x50 0x12
-
-可以得到該暫存器的數值為 0x05
+因此，若我們要察看剛剛所設定的 0x12 暫存器，則可以用以下方式得到該暫存器的數值
 
 #+BEGIN_EXAMPLE
     root@raspberrypi:/home/pi# i2cget  -y 1 0x50 0x12
