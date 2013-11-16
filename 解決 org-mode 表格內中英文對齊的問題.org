@@ -1,4 +1,4 @@
-#+TITLE: [emacs] 解決 org-mode 表格內中英文對齊的問題
+#+TITLE: 解決 org-mode 表格內中英文對齊的問題
 #+AUTHOR: coldnew
 #+EMAIL:  coldnew.tw@gmail.com
 #+DATE:   2013-11-16 19:02:33
