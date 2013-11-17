@@ -20,10 +20,11 @@
 要能夠編譯 CyanogenMod, 首先要先把開發環境建立好，才能夠在編譯的過程中
 順順利利的，以下列出幾個常用的 Linux 建立編譯環境所需要額外安裝的套件。
 
-#+HTML: <div class="alert alert-warning">
+#+ATTR_HTML: :class alert-warning
+#+BEGIN_ALERT
 為了能夠正確編譯你的 CyanogenMod 或是 Android，請使用 *64-bit*
 的 Linux 系統。
-#+HTML: </div>
+#+END_ALERT
 
 - Debian /Ubuntu Linux
 
@@ -61,11 +62,12 @@
 
 * 取得必須的原始碼
 
-#+HTML: <div class="alert alert-warning">
+#+ATTR_HTML: :class alert-warning
+#+BEGIN_ALERT
 本篇文章所編譯的為 CM9 的版本，相對應的版本為 Android 4.0 (ICS)，由於目
 前的 HTC One X 幾乎都升級到 Android 4.2 (JB) 的版本，要使用 CM9 你必須知道
 如何將 HBOOT 降版，或是將本篇文章編譯的版本改成 CM-10.2。
-#+HTML: </div>
+#+END_ALERT
 
 - 建立編譯用的目錄 =cm-9= 並切換進去
 
