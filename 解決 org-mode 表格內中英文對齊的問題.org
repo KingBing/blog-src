@@ -91,6 +91,7 @@ org-mode 中使用表格非常簡潔明快，唯一的缺點是在表格中，�
 
   (defun set-font (english chinese size-pair)
     "Setup emacs English and Chinese font on x window-system."
+
     (if (font-exist-p english)
         (set-frame-font (format "%s:pixelsize=%d" english (car size-pair)) t))
 
