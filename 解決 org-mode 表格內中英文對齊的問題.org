@@ -99,7 +99,11 @@ org-mode 中使用表格非常簡潔明快，唯一的缺點是在表格中，�
         (dolist (charset '(kana han symbol cjk-misc bopomofo))
           (set-fontset-font (frame-parameter nil 'font) charset
                             (font-spec :family chinese :size (cdr size-pair))))))
+#+END_SRC
 
+*set-font* 函式完成後，我們可以來設定預設的中英字體與大小了。
+
+#+BEGIN_SRC emacs-lisp
   ;; Setup font size based on emacs-font-size-pair
   (set-font emacs-english-font emacs-cjk-font emacs-font-size-pair)
 #+END_SRC
