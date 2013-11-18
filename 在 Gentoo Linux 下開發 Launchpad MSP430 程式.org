@@ -26,7 +26,7 @@ msp430-gcc 似乎可以在 TI 的網站上找到與下載，如果你也是 Gent
 
 我最喜歡 Gentoo Linux 的一點就是他有一套非常強大的 toolchain 建立系統
 =crossdev=, 使用 crossdev，可以很輕鬆的就建立出不同平台需要的 toolchain，
-比如說我們想見產生 msp430 的 gcc，則只要這樣做:
+比如說我們想產生 msp430 的 gcc，則只要這樣做:
 
 #+BEGIN_EXAMPLE
   Rosia msp430 # crossdev -S -s4 -t msp430
