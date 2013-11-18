@@ -5,7 +5,7 @@
 #+LANGUAGE: zh_TW
 #+URL:    686_g
 #+OPTIONS: num:nil ^:nil
-#+TAGS: msp430 launchpad gentoo
+#+TAGS: msp430 launchpad gentoo linux
 
 Launchpad MSP430 是德州儀器 TI 所推出的 8-bit 微控器開發版，和知名的
 Arduino 相比，Launchpad 價錢相對便宜 (約 NT $300)，並且可以自由更換板子
