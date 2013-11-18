@@ -5,7 +5,7 @@
 #+LANGUAGE: zh_TW
 #+URL:    46ac36
 #+OPTIONS: num:nil ^:nil
-#+TAGS: android cyanogenmod htc_one_x endeavoru
+#+TAGS: android cyanogenmod htc_one_x endeavorusf
 
 [[http://www.cyanogenmod.org/][CyanogenMod]] 是目前最為風行的 Android 第三方改版，原本由 Steve Kondik 創
 辦開發，並加入了許多 [[http://www.xda-developers.com][xda]] 社群的改版，該團隊也在最近成立了公司 CyanogenMod Inc.
@@ -231,6 +231,33 @@
 
   編輯 =frameworks/compile/slang/Android.mk= 將 =-Werror= 移除掉並重新
   編譯即可。
+
+- 編譯 dalvik 時出錯
+
+  若出現如以下錯誤
+
+  #+BEGIN_SRC sh
+    dalvik/vm/native/dalvik_system_Zygote.cpp: In function ‘ int setrlimitsFromArray(ArrayObject*)’:
+    dalvik/vm/native/dalvik_system_Zygote.cpp:199:19: error: aggregate ‘ setrlimitsFromArray(ArrayObject*)::rlimit rlim ’ has incomplete type and cannot be defined
+         struct rlimit rlim;
+                       ^
+  #+END_SRC
+
+  這個參數似乎也是和系統比較相關，修正方式很簡單，請參考以下 patch
+
+  #+BEGIN_SRC diff
+    diff --git a/dalvik/vm/native/dalvik_system_Zygote.cpp b/dalvik/vm/native/dalvik_system_Zygote.cpp
+    --- a/dalvik/vm/native/dalvik_system_Zygote.cpp
+    +++ b/dalvik/vm/native/dalvik_system_Zygote.cpp
+    @@ -19,3 +19,4 @@
+      ,*/
+     #include "Dalvik.h"
+     #include "native/InternalNativePriv.h"
+    +#include <sys/resource.h>
+
+     #include
+     #if (__GNUC__ == 4 && __GNUC_MINOR__ == 7)
+  #+END_SRC
 
 * 後記
 
