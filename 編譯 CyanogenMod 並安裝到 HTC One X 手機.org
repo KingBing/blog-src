@@ -265,6 +265,13 @@
     build/core/java.mk:20: *** dalvik/dexgen: Invalid LOCAL_SDK_VERSION '4' Choices are: current .  Stop.
   #+END_SRC
 
+  遇到此種問題的時候，首先先移除你的 prebuilt 資料夾，並重新下載
+
+  #+BEGIN_EXAMPLE
+    rm -rf prebuilt
+    repo sync prebuilt
+  #+END_EXAMPLE
+
 * 後記
 
 最近一直在嘗試移植 Firefox OS 給我的 HTC One X 使用，為了能更加了解整
