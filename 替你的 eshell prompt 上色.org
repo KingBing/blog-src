@@ -19,7 +19,7 @@ xterm、konsole、gnome terminal 相比，eshell 完全使用 emacs-lisp 實現�
 
 - 2. 預設的 terminal prompt 太醜
 
-  身為 Gentoo 的使用者，對於 shell 的 prompt 是非常講究的，預設的 eshell 的
+  身為 Gentoo Linux 的使用者，對於 shell 的 prompt 是非常講究的，預設的 eshell 的
   prompt 沒有色彩，這點讓我難以接受。
 
 
