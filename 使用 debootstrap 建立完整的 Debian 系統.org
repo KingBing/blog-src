@@ -8,7 +8,6 @@
 #+TAGS: debian debootstrap bootstrap
 #+TYPE: draft
 
-
 在製作嵌入式系統的過程中，常常會儘可能精簡整個系統，因此將 gdb、strace
 等除錯的好幫手拿掉。如果精簡的 Linux 系統出了問題，要怎進行除錯呢？
 =debootstrap + chroot= 是我最常用的組合。
@@ -158,4 +157,4 @@ rootfs 的目的是進行 chroot，你只需要修改 =/etc/apt/source.list= 即
 
 ~[1]~ [[http://rediceli.blogspot.tw/2006/08/debootstrapdebian.html][通過 debootstrap 安裝 Debian]]
 ~[2]~ [[http://rd-life.blogspot.tw/2009/08/debootstrap-debian-usb.html][使用 debootstrap 安裝 Debian 於 USB 大拇哥]]
-~[3]~ https://wiki.debian.org/EmDebian/CrossDebootstrap
+~[3]~ [[https://wiki.debian.org/EmDebian/CrossDebootstrap][EmDebian/CrossDebootstrap - Debian Wiki]]
