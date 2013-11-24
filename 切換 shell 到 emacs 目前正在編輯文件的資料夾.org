@@ -5,7 +5,7 @@
 #+LANGUAGE: zh_TW
 #+URL:    d67d4
 #+OPTIONS: num:nil ^:nil
-#+TAGS:
+#+TAGS: emacs bash
 
 有些時候我們切換到 console 下操作，想要快速切換目前的資料夾到 emacs 正在編
 輯的文件所在的資料夾，你可以將以下程式加入到你的 ~/.bashrc
