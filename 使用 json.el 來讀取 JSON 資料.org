@@ -1,0 +1,8 @@
+#+TITLE: 使用 json.el 來讀取 JSON 資料
+#+AUTHOR: coldnew
+#+EMAIL:  coldnew.tw@gmail.com
+#+DATE:   2013-11-25 00:32:33
+#+LANGUAGE: zh_TW
+#+URL:    f6961
+#+OPTIONS: num:nil ^:nil
+#+TAGS:
