@@ -1,0 +1,8 @@
+#+TITLE: 將螢幕錄影後的影片轉換成 GIF 動畫
+#+AUTHOR: coldnew
+#+EMAIL:  coldnew.tw@gmail.com
+#+DATE:   2013-11-25 00:37:27
+#+LANGUAGE: zh_TW
+#+URL:    a84bb
+#+OPTIONS: num:nil ^:nil
+#+TAGS:
