@@ -1,8 +1,19 @@
 #+TITLE: 切換 shell 到 emacs 目前正在編輯文件的資料夾
 #+AUTHOR: coldnew
 #+EMAIL:  coldnew.tw@gmail.com
-#+DATE:   2013-11-25 00:38:55
+#+DATE:   2013-06-16 23:55:55
 #+LANGUAGE: zh_TW
 #+URL:    edb96
 #+OPTIONS: num:nil ^:nil
 #+TAGS:
+
+有些時候我們切換到 console 下操作，想要快速切換目前的資料夾到 emacs 正在編
+輯的文件所在的資料夾，你可以將以下程式加入到你的 ~/.bashrc
+
+#+BEGIN_SRC sh
+    alias jm='cd $(emacsclient -e "(with-current-buffer (window-buffer (frame-selected-window))
+                                          default-directory)" | '"sed -E 's/(^\")|(\"$)//g')"
+#+END_SRC
+
+這樣一來，當你身處在 bash 下的時候，使用 *jm* 就可以快速切換到 emacs 正在
+編輯文件的資料夾下了。
