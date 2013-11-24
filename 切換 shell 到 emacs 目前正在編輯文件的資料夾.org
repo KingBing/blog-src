@@ -3,7 +3,7 @@
 #+EMAIL:  coldnew.tw@gmail.com
 #+DATE:   2013-06-16 23:55:55
 #+LANGUAGE: zh_TW
-#+URL:    edb96
+#+URL:    d67d4
 #+OPTIONS: num:nil ^:nil
 #+TAGS:
 
