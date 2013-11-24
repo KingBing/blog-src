@@ -7,9 +7,7 @@
 #+OPTIONS: num:nil ^:nil
 #+TAGS:
 
-CLOSED: [2013-06-29 Sat 13:49]
-
-*** 關於 JSON
+* 關於 JSON
 
 JSON (JavaScript Object Notation) 是一種輕量級的資料交換語言。隨著
 web 變得越來越重要以及 node.js 的興起，JSON 已經變成現在非常重要的資料格
@@ -54,7 +52,7 @@ JSON 格式的話，則會變成這樣
 
 若你有興趣想更加理解 JSON 格式，可以參考: [[http://blog.wu-boy.com/2011/04/%E4%BD%A0%E4%B8%8D%E5%8F%AF%E4%B8%8D%E7%9F%A5%E7%9A%84-json-%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%B4%B9/][你不可不知的 JSON 基本介紹]]
 
-*** 使用 json.el
+* 使用 json.el
 
 emacs 已經內建 json.el 函式庫，你只需要將他載入就可以用相關的函式了
 
@@ -105,7 +103,7 @@ JSON 的複合類型則是陣列 (array) 與字典 (dictionary)
     (json-encode '(:foo 1 :bar 2 :baz 3))   ; => "{\"foo\":1, \"bar\":2, \"baz\":3}"
 #+end_src
 
-*** In Lisp, code is data
+* In Lisp, code is data
 
 看完上面將 JSON 轉換成 emacs lisp 的介紹，讓我們看看 Lisp 下面是否需要這
 樣的數據格式，答案是不需要。
@@ -168,7 +166,7 @@ JSON 的複合類型則是陣列 (array) 與字典 (dictionary)
       (cdr (assoc '"first-name" data)))     ; => "John"
 #+end_src
 
-*** 後記
+* 後記
 
 即使 javascript、JSON 再怎樣盛行，在這當中我只看到了一個又一個 Lisp 的
 克隆 (唯一成功的地方是語法，讓初學者看到會想學，但我覺得 Lisp 去掉
@@ -176,7 +174,7 @@ S-exp 就不再是 Lisp 了)，從這篇文章 裡使用 json.el 將 JSON 資料
 Lisp 資料更可以體會何謂 *In Lisp, code is data* ，對於 Lisp 而言，
 是不需要這種奇怪的資料格式的，這也是我如此喜歡 Lisp 的理由之一。
 
-*** 參考連結
+* 參考連結
 
 ~[1]~ [[http://stereolambda.com/2010/03/19/why-is-json-so-popular-developers-want-out-of-the-syntax-business/][Why is JSON so popular? Developers want out of the syntax business.]]
 
