@@ -1,0 +1,8 @@
+#+TITLE: 切換 shell 到 emacs 目前正在編輯文件的資料夾
+#+AUTHOR: coldnew
+#+EMAIL:  coldnew.tw@gmail.com
+#+DATE:   2013-11-25 00:38:55
+#+LANGUAGE: zh_TW
+#+URL:    edb96
+#+OPTIONS: num:nil ^:nil
+#+TAGS:
