@@ -3,7 +3,7 @@
 #+EMAIL:  coldnew.tw@gmail.com
 #+DATE:   2013-05-20 19:38:11
 #+LANGUAGE: zh_TW
-#+URL:    fcb56
+#+URL:    5cbb7
 #+OPTIONS: num:nil ^:nil
 #+TAGS: emacs
 
