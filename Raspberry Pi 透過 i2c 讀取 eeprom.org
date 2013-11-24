@@ -51,8 +51,8 @@ Raspberry Pi 對於剛接觸嵌入式系統開發的人而言，無疑是一個�
 - 1. 將 i2c 模組從黑名單中移除
 
   雖然我不清楚為什麼 i2c 模組並不會預設被 Raspberry Pi 載入，但是如果沒
-  有將這個模組從黑名單中移除的話，你是無法使用 modeprobe 載入 i2c 模組
-  的，移除的方式如下，首先編輯
+  有將這個模組從黑名單中移除的話，你是無法使用 =modeprobe= 這個命令載
+  入 i2c 模組的，移除的方式如下，首先編輯
 
   : /etc/modprobe.d/raspi-blacklist.conf
 
@@ -153,8 +153,7 @@ rev.2 版本，則都改成使用 i2c-1 作為 i2c bus。
 #+END_EXAMPLE
 
 這樣代表共有兩個裝置掛在 i2c-1 上，其中標示為 *UU* 的代表該設備有被
-偵測到，但是因為某些原因無法得知其位址，常見的情況是該設備被 kernel
-driver 使用著。而在這邊顯示 *0x50* 的就是我們所使用的 EEPROM。
+偵測到並正在被 kernel driver 使用著，而在這邊顯示 *0x50* 的就是我們所使用的 EEPROM。
 
 * 使用 i2cdump 查詢設備內所有暫存器
 
@@ -203,7 +202,7 @@ driver 使用著。而在這邊顯示 *0x50* 的就是我們所使用的 EEPROM�
     f0: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff    ................
 #+END_EXAMPLE
 
-這邊 EEPROM 內的資訊都是 0xFF，這是出廠時的預設狀況，我們可以使用
+這邊 EEPROM 內的資訊都是 =0xFF= ，這是出廠時的預設狀況，我們可以使用
 i2cset 來修改他的數值。
 
 * 使用 i2cset 修改設備暫存器數值
