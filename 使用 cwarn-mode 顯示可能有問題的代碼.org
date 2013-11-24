@@ -5,7 +5,7 @@
 #+LANGUAGE: zh_TW
 #+URL:    f6961
 #+OPTIONS: num:nil ^:nil
-#+TAGS: emacs
+#+TAGS: emacs c
 
 CLOSED: [2013-05-11 Sat 13:11]
 
