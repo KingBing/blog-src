@@ -1,13 +1,13 @@
 #+TITLE: 使用 gnupg 加密你的 org-mode 文章
 #+AUTHOR: coldnew
 #+EMAIL:  coldnew.tw@gmail.com
-#+DATE:   2013-11-25 00:30:48
+#+DATE:   2013-07-13 20:09:48
 #+LANGUAGE: zh_TW
 #+URL:    f6961
 #+OPTIONS: num:nil ^:nil
 #+TAGS: emacs org@mode gnupg
 
-** DONE [emacs] 使用 gnupg 加密你的 org-mode 文章           :emacs:org@mode:
+
 CLOSED: [2013-07-13 Sat 20:09]
 
 *** 關於本篇文章
