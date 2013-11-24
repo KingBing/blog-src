@@ -1,7 +1,7 @@
 #+TITLE: 設定某些 Mode 預設不顯示行號
 #+AUTHOR: coldnew
 #+EMAIL:  coldnew.tw@gmail.com
-#+DATE:   2013-11-25 00:29:16
+#+DATE:   2012-12-15 00:29:16
 #+LANGUAGE: zh_TW
 #+URL:    2663f
 #+OPTIONS: num:nil ^:nil
