@@ -1,7 +1,7 @@
 #+TITLE: 可以快速學習 git 的網站
 #+AUTHOR: coldnew
 #+EMAIL:  coldnew.tw@gmail.com
-#+DATE:   2013-03-13 12:27:58
+#+DATE:   2013-04-13 12:27:58
 #+LANGUAGE: zh_TW
 #+URL:    e8542
 #+OPTIONS: num:nil
