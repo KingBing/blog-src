@@ -1,0 +1,8 @@
+#+TITLE: [emacs] 使用 Generic Mode 輕鬆建立新語言的語法上色
+#+AUTHOR: coldnew
+#+EMAIL:  coldnew.tw@gmail.com
+#+DATE:   2012-12-15 00:23:58
+#+LANGUAGE: zh_TW
+#+URL:    2b30d
+#+OPTIONS: num:nil ^:nil
+#+TAGS: emacs elisp
