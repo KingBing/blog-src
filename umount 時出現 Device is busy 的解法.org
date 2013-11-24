@@ -5,10 +5,7 @@
 #+LANGUAGE: zh_TW
 #+URL:    umoun
 #+OPTIONS: num:nil ^:nil
-#+TAGS:
-
-
-* 關於此篇文章
+#+TAGS: linux
 
 在 Linux 下，有時候對 deviec 進行 umount 的時候，會出現 *Device is busy*
 的情況，出現這個狀況的原因，可能是你有某個 shell 還停留在掛載這個設備
