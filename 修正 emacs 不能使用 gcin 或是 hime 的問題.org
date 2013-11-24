@@ -6,3 +6,17 @@
 #+URL:    636b2
 #+OPTIONS: num:nil ^:nil
 #+TAGS: emacs linux
+
+如果你用的 emacs 無法使用 gcin/hime 輸入法，試著在 /etc/X11/xorg.conf
+加入
+
+#+begin_src sh
+  Section "Files"
+      FontPath        "built-ins"
+      FontPath        "/usr/share/fonts/TTF/"
+      FontPath        "/usr/share/fonts/100dpi/"
+      FontPath        "/usr/share/fonts/75dpi/"
+  EndSection
+#+end_src
+
+之後重新啟動 XServer 試試。
