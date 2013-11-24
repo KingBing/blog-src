@@ -1,8 +1,189 @@
 #+TITLE: 使用 json.el 來讀取 JSON 資料
 #+AUTHOR: coldnew
 #+EMAIL:  coldnew.tw@gmail.com
-#+DATE:   2013-11-25 00:32:33
+#+DATE:   2013-06-29 13:49:33
 #+LANGUAGE: zh_TW
 #+URL:    f6961
 #+OPTIONS: num:nil ^:nil
 #+TAGS:
+
+CLOSED: [2013-06-29 Sat 13:49]
+
+*** 關於 JSON
+
+JSON (JavaScript Object Notation) 是一種輕量級的資料交換語言。隨著
+web 變得越來越重要以及 node.js 的興起，JSON 已經變成現在非常重要的資料格
+式了。
+
+JSON 格式到底有什麼好的呢？這要從 XML 開始說起了，在 XML 當中對於資
+料會寫成以下的形式
+
+#+BEGIN_SRC nxml
+    <person first-name="John" last-name="Smith"/>
+#+END_SRC
+
+或是
+
+#+BEGIN_SRC nxml
+    <person>
+       <first-name>John</first-name>
+       <last-name>Smith</last-name>
+    </person>
+#+END_SRC
+
+你也可以寫成這樣
+
+#+BEGIN_SRC nxml
+    <object type="Person">
+       <property name="first-name">John</property>
+       <property name="last-name">Smith</property>
+    </object>
+#+END_SRC
+
+當然你也可以寫成其他你喜歡的 XML 格式。如果我們將這樣的資料轉換成
+JSON 格式的話，則會變成這樣
+
+#+BEGIN_SRC js
+    {
+       "first-name" : "John",
+       "last-name" : "Smith"
+    }
+#+END_SRC
+
+有沒有注意到原本很複雜的資料格式，突然變成清爽多了?
+
+若你有興趣想更加理解 JSON 格式，可以參考: [[http://blog.wu-boy.com/2011/04/%E4%BD%A0%E4%B8%8D%E5%8F%AF%E4%B8%8D%E7%9F%A5%E7%9A%84-json-%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%B4%B9/][你不可不知的 JSON 基本介紹]]
+
+*** 使用 json.el
+
+emacs 已經內建 json.el 函式庫，你只需要將他載入就可以用相關的函式了
+
+#+begin_src emacs-lisp
+    (require 'json)
+#+end_src
+
+JSON 的原始數據類型 (primitive values) 是字串、數值、關鍵字 true、
+false 以及 null。
+
+#+begin_src emacs-lisp
+    (json-read-from-string "true")          ; => t
+    (json-encode t)                         ; => "true"
+    (json-read-from-string "4.5")           ; => 4.5
+    (json-read-from-string "\"foo\"")       ; => "foo"
+#+end_src
+
+JSON 的複合類型則是陣列 (array) 與字典 (dictionary)
+
+#+begin_src emacs-lisp
+    (json-read-from-string "[true, 4.5]")       ; => [t 4.5]
+    (json-read-from-string "{\"foo\": true}")   ; => ((foo . t))
+#+end_src
+
+注意到我們從 JSON 陣列讀回的格式是向量 (Vector)，而從 JSON 字典讀回來的
+格式則是關聯串列 (alist, Association Lists)。
+
+我們可以用 json.el 自由修改我們想讀回來的資料型態，比如說
+
++ 從 dictionary 讀回 plist (Property Lists)
+
+  #+begin_src emacs-lisp
+      (let ((json-object-type 'plist))
+        (json-read-from-string "{\"foo\": true}")) ; => (:foo t)
+  #+end_src
+
++ 使用 key 讀回字串 (string)
+
+  #+begin_src emacs-lisp
+      (let ((json-key-type 'string))
+        (json-read-from-string "{\"foo\": true}")) ; => (("foo" . t))
+  #+end_src
+
+我們也可以將 Lisp 數據透過 json.el 轉成 JSON 數據格式
+
+#+begin_src emacs-lisp
+    (json-encode '(1 2 3))                  ; => "[1, 2, 3]"
+    (json-encode '(:foo 1 :bar 2 :baz 3))   ; => "{\"foo\":1, \"bar\":2, \"baz\":3}"
+#+end_src
+
+*** In Lisp, code is data
+
+看完上面將 JSON 轉換成 emacs lisp 的介紹，讓我們看看 Lisp 下面是否需要這
+樣的數據格式，答案是不需要。
+
+*對 Lisp 語言而言，程式碼就是數據* ，舉例來說，我們有以下的程式碼
+
+#+begin_src emacs-lisp
+    (message "hello emacs")
+#+end_src
+
+將他當作數據使用的話，只要使用 ' 或是用 quote 包住即可
+
+#+begin_src emacs-lisp
+    '(message "hello emacs")
+    ;; or
+    (quote (message "hello emacs"))
+#+end_src
+
+我們可以用 eval 來將 lisp 數據變回程式碼
+
+#+begin_src emacs-lisp
+    (eval '(message "hello emacs"))         ; => hello emacs
+#+end_src
+
+以這樣的規則來看，前面所說的 JSON 轉換成 Lisp 差不多式如下的形式
+
+#+HTML: <div class="row show-grid"><div class="span5 ">
+*JSON*
+
+#+BEGIN_SRC js
+    {
+        "first-name" : "John",
+        "last-name" : "Smith"
+    }
+#+END_SRC
+
+#+HTML: </div><div class="span6 ">
+
+*Lisp*
+
+#+begin_src emacs-lisp
+    (
+     :first-name "John"
+     :last-name "Smith"
+    )
+#+end_src
+#+HTML: </div> </div>
+
+根據你用的 Lisp 方言類型不同，你可以轉換成的形式也不同，像在本範例中，
+你可以用 emacs lisp 的 cons cell 來替代 JSON 資料
+
+#+begin_src emacs-lisp
+    (("first-name" . "John") ("last-name" . "Smith"))
+#+end_src
+
+比如我們要取得 John，則可以這樣
+
+#+begin_src emacs-lisp
+    (let ((data '(("first-name" . "John") ("last-name" . "Smith"))))
+      (cdr (assoc '"first-name" data)))     ; => "John"
+#+end_src
+
+*** 後記
+
+即使 javascript、JSON 再怎樣盛行，在這當中我只看到了一個又一個 Lisp 的
+克隆 (唯一成功的地方是語法，讓初學者看到會想學，但我覺得 Lisp 去掉
+S-exp 就不再是 Lisp 了)，從這篇文章 裡使用 json.el 將 JSON 資料轉換成
+Lisp 資料更可以體會何謂 *In Lisp, code is data* ，對於 Lisp 而言，
+是不需要這種奇怪的資料格式的，這也是我如此喜歡 Lisp 的理由之一。
+
+*** 參考連結
+
+~[1]~ [[http://stereolambda.com/2010/03/19/why-is-json-so-popular-developers-want-out-of-the-syntax-business/][Why is JSON so popular? Developers want out of the syntax business.]]
+
+~[2]~ [[https://zh.wikipedia.org/wiki/JSON][JSON - 維基百科]]
+
+~[3]~ [[http://edward.oconnor.cx/2006/03/json.el][Introduction json.el]]
+
+~[4]~ [[http://blog.wu-boy.com/2011/04/%E4%BD%A0%E4%B8%8D%E5%8F%AF%E4%B8%8D%E7%9F%A5%E7%9A%84-json-%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%B4%B9/][你不可不知的 JSON 基本介紹]]
+
+~[5]~ [[http://jsonlint.com/][檢查 JSON 資料格式的網站]]
