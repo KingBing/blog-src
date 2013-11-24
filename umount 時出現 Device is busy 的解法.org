@@ -1,0 +1,8 @@
+#+TITLE: umount 時出現 Device is busy 的解法
+#+AUTHOR: coldnew
+#+EMAIL:  coldnew.tw@gmail.com
+#+DATE:   2013-11-25 00:35:50
+#+LANGUAGE: zh_TW
+#+URL:    umoun
+#+OPTIONS: num:nil ^:nil
+#+TAGS:
