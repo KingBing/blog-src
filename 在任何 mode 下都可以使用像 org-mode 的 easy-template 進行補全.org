@@ -1,0 +1,8 @@
+#+TITLE: [emacs] 在任何 mode 下都可以使用像 org-mode 的 easy-template 進行補全
+#+AUTHOR: coldnew
+#+EMAIL:  coldnew.tw@gmail.com
+#+DATE:   2013-11-25 00:41:19
+#+LANGUAGE: zh_TW
+#+URL:    6860d
+#+OPTIONS: num:nil ^:nil
+#+TAGS:
