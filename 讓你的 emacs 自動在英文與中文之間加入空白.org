@@ -1,0 +1,8 @@
+#+TITLE: 讓你的 emacs 自動在英文與中文之間加入空白
+#+AUTHOR: coldnew
+#+EMAIL:  coldnew.tw@gmail.com
+#+DATE:   2013-11-25 00:34:11
+#+LANGUAGE: zh_TW
+#+URL:    fcb56
+#+OPTIONS: num:nil ^:nil
+#+TAGS:
