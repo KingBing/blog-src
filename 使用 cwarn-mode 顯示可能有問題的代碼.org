@@ -5,4 +5,51 @@
 #+LANGUAGE: zh_TW
 #+URL:    f6961
 #+OPTIONS: num:nil ^:nil
-#+TAGS:
+#+TAGS: emacs
+
+CLOSED: [2013-05-11 Sat 13:11]
+
+cwarn-mode 會顯示出 C/++ 下面一些致命的錯誤，以下面的程式碼來說
+
+#+begin_src c :tangle no
+  void test ()
+  {
+          if (x = y);
+                 printf("This is error example\n");
+  }
+#+end_src
+
+這段程式碼包含了兩種致命的錯誤。第一個是 *=* 只有在指派變數的值時才會
+使用到，而不會存在於判斷式裏面，這邊應該要修改成 *==* 。
+
+另外一個問題是，這邊多添加了不必要的分號在 if 判斷式的尾巴，這會讓 if
+判斷式出錯，拿掉就沒問題了。
+
+簡單的來說，cwarn-mode 包含以下幾種語法檢查:
+
+  - Semicolons right after conditions and loops
+
+    #+BEGIN_SRC c :tangle no
+      if (x == y);
+    #+END_SRC
+
+  - Assignments in tests
+
+    #+BEGIN_SRC c :tangle no
+      void test() {
+              if (a = b) foo();
+      }
+    #+END_SRC
+
+  - Functions with reference parameters
+
+    #+begin_src c++ :tangle no
+      void funct(string &p) {
+    #+end_src
+
+cwarn-mode 預設只會作用在 c-mode 以及 c++-mode 裏面，因此你可以用以下
+方式來將 cwarn-mode 全域性打開。
+
+#+begin_src emacs-lisp
+  (global-cwarn-mode 1)
+#+end_src
