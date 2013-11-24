@@ -1,8 +1,58 @@
 #+TITLE: umount 時出現 Device is busy 的解法
 #+AUTHOR: coldnew
 #+EMAIL:  coldnew.tw@gmail.com
-#+DATE:   2013-11-25 00:35:50
+#+DATE:   2013-06-12 23:16:50
 #+LANGUAGE: zh_TW
 #+URL:    umoun
 #+OPTIONS: num:nil ^:nil
 #+TAGS:
+
+
+* 關於此篇文章
+
+在 Linux 下，有時候對 deviec 進行 umount 的時候，會出現 *Device is busy*
+的情況，出現這個狀況的原因，可能是你有某個 shell 還停留在掛載這個設備
+的資料夾下，也有可能是這個設備正在進行檔案儲存等狀況，那遇到這個狀況
+時要怎麼辦呢？
+
+* 使用 fuser 找出佔用的程式
+
+假設我們掛載設備的路徑為 /media/share，則你可以使用 fuser 來對他進行查
+詢
+
+: fuser -m /media/share
+
+使用這個命令後，你會看到如下的顯示
+
+: /media/share: 25023c
+
+這代表 process 25023(pid)有使用到此目錄，後面的 c 的意思可以參照下表
+
+#+BEGIN_EXAMPLE
+    c: current directory.
+    e: executable being run.
+    f: open file. f is omitted in default display mode.
+    F: open file for writing. F is omitted in default display mode.
+    r: root directory.
+    m: mmap'ed file or shared library.
+#+END_EXAMPLE
+
+* 釋放被佔用的資源
+
+要釋放被佔用的資源，我們可以使用傳統的 kill 命令
+
+#+BEGIN_SRC sh
+    kill -9 25023 # 25023 is the process ID
+#+END_SRC
+
+或是再使用 fuser 命令
+
+: fuser -m -v -i -k /media/share
+
+你會看到如下的訊息，選擇 *y* 就可以將該 process 移除
+
+#+BEGIN_EXAMPLE
+                   USER      PID   ACCESS COMMAND
+    /meida/share: root      25023 ..c..  bash
+    Kill process 25023 ? (y/N) y
+#+END_EXAMPLE
