@@ -7,11 +7,6 @@
 #+OPTIONS: num:nil ^:nil
 #+TAGS: emacs org@mode gnupg
 
-
-CLOSED: [2013-07-13 Sat 20:09]
-
-*** 關於本篇文章
-
 org-mode 除了可以讓你自由自在的寫筆記、文章以外，有些時候我們的筆記某
 些區域會希望是能夠進行加密的，這時候透過 emacs 的 [[http://www.emacswiki.org/emacs/EasyPG][Easy PG]] 功能，可以很方
 便的只對文章的某個區域進行加/解密的動作，本文將描述如何在 emacs 下對
@@ -23,7 +18,7 @@ org-mode 文件進行加密。
 [[file:files/2013/org-gpg.gif]]
 #+END_CENTER
 
-*** 環境配置
+* 環境配置
 
 在使用本文章的資訊之前，你必須確保你的系統安裝有 gnupg，以下列出幾個常見
 的 Linux 系統的安裝方式，在大多數的情況下，你不需要自行安裝這些軟體。
@@ -35,7 +30,7 @@ org-mode 文件進行加密。
 | Redhat / Fedora | yum install gnupg      |
 | Gentoo          | emerge app-crypt/gnupg |
 
-*** .emacs 配置
+* .emacs 配置
 
 要使用這個功能，你必須在你的 .emacs (emacs 設定文件) 下加入以下資訊。
 
@@ -60,7 +55,7 @@ org-mode 文件進行加密。
   (setq org-crypt-key nil)
 #+end_src
 
-*** 配置說明
+* 配置說明
 
 + 當被加密的部份要存入硬碟時，自動加密回去
 
@@ -110,7 +105,7 @@ org-mode 文件進行加密。
     (setq org-crypt-key nil)
   #+END_SRC
 
-*** 在 org-mode 裡面進行加/解密
+* 在 org-mode 裡面進行加/解密
 
 - 加密某個項目
 
