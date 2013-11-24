@@ -1,0 +1,44 @@
+#+TITLE: 設定某些 Mode 預設不顯示行號
+#+AUTHOR: coldnew
+#+EMAIL:  coldnew.tw@gmail.com
+#+DATE:   2013-11-25 00:29:16
+#+LANGUAGE: zh_TW
+#+URL:    2663f
+#+OPTIONS: num:nil ^:nil
+#+TAGS: emacs elisp
+
+在 emacs 中，因為行號顯示並不是透過 elisp 核心來進行處理，所以顯示
+速度相對的比較慢，此外，很多時候我們並不需要顯示行號，比如在使用
+eshell 或是 term 時，顯示行號反而變得怪怪的。
+
+那要怎樣才能讓 emacs 在特定的模式下不顯示行號呢？
+
+首先，我們先定義一個負責存放不顯示行號的 Mode 的列表
+
+#+begin_src emacs-lisp
+  (setq inhibit-linum-mode-alist
+        '(
+          eshell-mode
+          shell-mode
+          term-mode
+          ))
+#+end_src
+
+接著，透過 elisp advice 的功能，當 emacs 呼叫 linum-mode 顯示時，
+先檢查該 major-mode 是否有在 inhibit-linum-mode-alist 裡面，
+如果有的話，則不啟用 linum-mode。
+
+#+begin_src emacs-lisp
+  (defadvice linum-on (around inhibit-for-modes activate)
+    "Stop turing linum-mode if it is in the inhibit-linum-mode-alist."
+    (unless (member major-mode inhibit-linum-mode-alist)
+      ad-do-it))
+#+end_src
+
+最後，當然就是讓 emacs 全域性的啟用 linum-mode 了
+
+#+begin_src emacs-lisp
+  (global-linum-mode 1)
+#+end_src
+
+這樣，emacs 預設是會顯示行號的，僅有在被設定的模式中，會停止行號的顯示。
