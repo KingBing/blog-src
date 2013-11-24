@@ -1,8 +1,164 @@
 #+TITLE: [emacs] 使用 Generic Mode 輕鬆建立新語言的語法上色
 #+AUTHOR: coldnew
 #+EMAIL:  coldnew.tw@gmail.com
-#+DATE:   2012-12-15 00:23:58
+#+DATE:   2012-12-15 14:56:58
 #+LANGUAGE: zh_TW
 #+URL:    2b30d
 #+OPTIONS: num:nil ^:nil
 #+TAGS: emacs elisp
+
+是否有遇到新的程式語言、設定檔卻苦無語法上色的困擾呢？用 emacs 就對了！！
+
+emacs 裡面的 generic-mode 是一個可以輕鬆建立新的語言 Mode 的輔助工具，
+舉例來說，如果我們有一個新的語言叫作 u 語言，其定義如下:
+
+#+begin_example
+  /* this is comments */
+  // this still is comment
+
+  Name = Jimmy
+  Tel  = 012333333
+  Password = xxxxx
+#+end_example
+
+那我們要怎樣替這個模式上色呢？ 首先我們先定義這個模式的名稱
+叫作 u-mode，並且知道他的註解有兩種，分別是 ~//~ 與  ~/* */~ 。
+此外，我們另外知道他具有三種關鍵字：Name、Tel、Password，則可以定義如下：
+
+#+begin_src emacs-lisp
+  (require 'generic-x)
+
+  (define-generic-mode 'u-mode
+    ;; comments
+    '(("//")  ("/*" . "*/"))
+    ;; keywords
+    '("Name" "Tel" "Password")
+    ;; other syntax
+    nil
+    ;; filetype
+    '("\\.u$")
+    ;; init func
+    nil
+    "a emacs major-mode for u-language")
+#+end_src
+
+定義好了，使用 M-x eval-buffer，然後再打開你的 u 語言檔案看看:
+
+#+begin_src u
+  /* this is comments */
+  // this still is comment
+
+  Name = Jimmy
+  Tel  = 012333333
+  Password = xxxxx
+#+end_src
+
+上色成功！！！ 用 emacs 真簡單 : )
+
+好，炫燿文結束了，該好好說說怎樣使用 generic-mode 來定義新的語言。
+
+
+設定檔的最初位置，我們要載入依賴的套件，因為 generic-mode 是定義在
+generic-x 檔案裡面，所以用 emacs 載入套件的函數 require 來載入：
+
+#+begin_src emacs-lisp
+  (require 'generic-x)
+#+end_src
+
+我們使用 define-generic-mode 來定義新的模式，他的格式如下：
+
+#+begin_src emacs-lisp
+   (define-generic-mode MODE
+          COMMENT-LIST
+          KEYWORD-LIST
+          FONT-LOCK-LIST
+          AUTO-MODE-LIST
+          FUNCTION-LIST
+          &optional DOCSTRING)
+#+end_src
+
+所以這邊我們要定義 u 語言的模式為 u-mode，就寫成
+#+begin_src emacs-lisp
+   (define-generic-mode 'u-mode
+#+end_src
+
+接著要定義註解，必須寫成 list 的形式。在 u 語言裏面，註解的方式和 C 語言相同，
+可分為單行註解，以及區域註解。
+
+#+begin_src c
+  // 後面都是註解
+
+  /* 這個區域
+
+     都是註解 */
+#+end_src
+
+知道規則後，註解到底要怎樣加入 generic-mode 呢？首先我們先加入單行註解
+
+#+begin_src emacs-lisp
+    "//"
+#+end_src
+
+單行註解這樣就完成了，那區塊式的註解怎辦呢？
+遇到區塊式的註解則要寫成 cons cell 的形式，如下：
+
+#+begin_src emacs-lisp
+  ("/*" . "*/")
+#+end_src
+
+都好了以後，把兩個併在一起，放入到 generic-mode 中
+
+#+begin_src emacs-lisp
+  (define-generic-mode 'u-mode
+    '("//" ("/*" . "*/"))
+#+end_src
+
+在 define-generic-mode 裡面，第三個參數是這個 Mode 的所有 Keyword (關鍵字)，
+也是要傳送一個 list 給他，那現在我們知道共有 3 個關鍵字，分別是
+Name、Tel、Password，所以寫成以下 list
+
+#+begin_src emacs-lisp
+  ("Name" "Tel" "Password")
+#+end_src
+
+第四個參數則是其他的語法高亮的定義，在這邊我們先不定義，所以傳送 nil 給他。
+
+第五個參數則是定義 auto-mode-alist，在 emacs 中，會根據 auto-mode-alist 裡面所定義的
+正規表達式來找尋相對應的模式，所以第五個參數就是要告訴 generic-mode 說，當檔案的副檔名
+為怎樣時，預設就進入到 u-mode。
+
+在本例中，我們定義 123.u 或是 aaa.u 這一類檔案其結尾都是 .u 的為 u 語言的檔案，則
+寫成這樣：
+
+#+begin_src emacs-lisp
+  ("\\.u$")
+#+end_src
+
+終於快結束了，讓我們把剩下兩個參數搞定吧 : )
+
+第六個參數為其他雜七雜八的設定，在這邊也先不定義，傳送 nil 給他。
+
+最後一個參數為這個 mode 的文檔，注意到在 emacs 裡面，任何 mode 其實都是
+function，所以都可以用 C-h f 或是 M-x describe-function 來找尋他的文件，
+找到的資訊就是這最後一個參數。
+
+由於最後一個參數是可選的，所以你可以傳給他，也可以不填寫也沒關係。
+
+把前面所有的東西和在一起，終於，我們的 u-mode 完成了!!
+
+#+begin_src emacs-lisp
+  (require 'generic-x)
+
+  (define-generic-mode 'u-mode
+    ;; comments
+    '(("//")  ("/*" . "*/"))
+    ;; keywords
+    '("Name" "Tel" "Password")
+    ;; other syntax
+    nil
+    ;; filetype
+    '("\\.u$")
+    ;; init func
+    nil
+    "a emacs major-mode for u-language")
+#+end_src
