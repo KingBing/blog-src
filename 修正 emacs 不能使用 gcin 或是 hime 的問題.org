@@ -5,4 +5,4 @@
 #+LANGUAGE: zh_TW
 #+URL:    636b2
 #+OPTIONS: num:nil ^:nil
-#+TAGS: emacs
+#+TAGS: emacs linux
