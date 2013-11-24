@@ -1,8 +1,90 @@
 #+TITLE: 將螢幕錄影後的影片轉換成 GIF 動畫
 #+AUTHOR: coldnew
 #+EMAIL:  coldnew.tw@gmail.com
-#+DATE:   2013-11-25 00:37:27
+#+DATE:   2013-07-19 22:44:27
 #+LANGUAGE: zh_TW
 #+URL:    a84bb
 #+OPTIONS: num:nil ^:nil
-#+TAGS:
+#+TAGS: linux
+
+在我寫的文章中，常常會有需要弄的簡易動畫作為示範的情況在，在進行螢幕錄
+影的時候，我最常用的工具就是 [[http://recordmydesktop.sourceforge.net/about.php][recordMyDesktop]] 。這個程式具有文字命令、
+GTK 圖形介面以及 QT 圖形介面，會將你在螢幕上進行的動作錄製成為 *.ogv 檔案。
+
+既然是簡易影片，還要特地上傳到 Youtube 等影片分享網站就顯得沒有必要，因
+此，我特別使用以下腳本來幫我產生 GIF 動畫檔案。
+
+* ogv 轉 gif 流程
+
+整個 ogv 轉換成 gif 檔案的流程，是使用 mplayer 將影片檔案轉換成一張一張的圖
+片後，再透過 imagemagick 來將所有圖片整合回 GIF 檔案，但是由於這樣做出來的
+GIF 檔案很大，因此再使用一次 imagemagick 來幫忙將 GIF 檔案縮小，整個流程如
+下:
+
+- 1. 將 out.ogv 轉換成一張一張圖片
+
+  使用以下命令使 mplayer 將 out.ogv 檔案變成一張一張圖片，圖片將存放在
+  output 資料夾下。
+
+  #+BEGIN_SRC sh
+    mplayer -ao null out.ogv -vo jpeg:outdir=output
+  #+END_SRC
+
+- 2. 將 output 資料夾下的圖片轉成 output.gif 檔案
+
+  透過 imagemagick 的 convert 命令，直接將 output 資料夾下的所有圖片轉換成
+  output.gif 檔。
+
+  #+BEGIN_SRC sh
+    convert output/* output.gif
+  #+END_SRC
+
+- 3. 壓縮 output.gif 成 optimised.gif
+
+  由於原本產生出來的 gif 圖片檔案太大了，因此再使用下面命令處理，若你覺
+  得產生出來的 gif 檔案顏色不夠好看，試著調整 *10%* 的數值看看。
+
+  #+BEGIN_SRC sh
+    convert output.gif -fuzz 10% -layers Optimize optimised.gif
+  #+END_SRC
+
+* 完整轉換腳本
+
+下面是我在使用的轉換腳本 ([[file:files/2013/ogv2blog.sh][點我下載]])，整個暫存檔案都會在 /tmp 底下運作，完成後，會
+在你想要轉換的 input.ogv 檔案的目錄下產生同名的 .gif 檔案。
+
+注意到這個腳本並不會將你輸入的 .ogv 檔案移除，你必須自己移除他。
+
+#+BEGIN_SRC sh :tangle files/2013/ogv2blog.sh
+  #!/bin/sh
+
+  FILE="$1"
+  OUTPUT_DIR="/tmp/ogv2gif.$$"
+  OUTPUT_GIF="${FILE/.ogv/.gif}"
+
+  FUZZ="10%"
+
+  # remove OUTPUT_DIR after script finish
+  trap "rm -rf $OUTPUT_DIR > /dev/null 2>&1" exit
+
+  # check if argv 1 is valid
+  if [ -z $FILE ]; then
+      echo "USAGE:"
+      echo "      ogv2gif <filename>"
+      echo
+      exit
+  fi
+
+  echo "Convert $FILE to $OUTPUT_GIF"
+
+  # convert input video to tmp dir
+  mplayer -ao null $FILE -vo jpeg:outdir=$OUTPUT_DIR > /dev/null 2>&1
+
+  # use imagemagick to convert images to gif
+  convert ${OUTPUT_DIR}/*.jpg ${OUTPUT_DIR}/${OUTPUT_GIF}
+
+  # optimize gif to reduce size
+  convert ${OUTPUT_DIR}/${OUTPUT_GIF} -fuzz $FUZZ -layers Optimize $OUTPUT_GIF
+
+  echo "Finish: $OUTPUT_GIF created."
+#+END_SRC
