@@ -5,7 +5,7 @@
 #+LANGUAGE: zh_TW
 #+URL:    3102a
 #+OPTIONS: num:nil ^:nil
-#+TAGS:
+#+TAGS: emacs elisp json
 
 * 關於 JSON
 
