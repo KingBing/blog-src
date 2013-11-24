@@ -5,4 +5,4 @@
 #+LANGUAGE: zh_TW
 #+URL:    6860d
 #+OPTIONS: num:nil ^:nil
-#+TAGS:
+#+TAGS: emacs org@mode
