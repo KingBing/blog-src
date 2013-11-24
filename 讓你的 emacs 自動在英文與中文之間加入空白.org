@@ -5,20 +5,18 @@
 #+LANGUAGE: zh_TW
 #+URL:    fcb56
 #+OPTIONS: num:nil ^:nil
-#+TAGS:
-** DONE [emacs] 自動在英文與中文之間加入空白                         :emacs:
-CLOSED: [2013-05-20 Mon 19:38]
+#+TAGS: emacs
 
-*** 操作截圖
+* 操作截圖
 
 [[file:files/2013/pangu-spacing.gif]]
 
-*** 關於 pangu-spacing
+* 關於 pangu-spacing
 
 [[https://github.com/coldnew/pangu-spacing][pangu-spacing]] 是 emacs 上的一個 minor-mode, 啟用他後，他會在英文與中文
 之間自動加入空白符號，讓你使用 emacs 在閱讀文章的時候能夠非常舒適 :)
 
-*** 名稱由來
+* 名稱由來
 
 pangu-spacing 名稱來自於 [[https://github.com/gibuloto/paranoid-auto-spacing][paranoid-auto-spacing]] 的 README \\
 
@@ -40,7 +38,7 @@ pangu-spacing 名稱來自於 [[https://github.com/gibuloto/paranoid-auto-spacin
 
 #+end_example
 
-*** 安裝方式
+* 安裝方式
 
 這個套件已經被 [[http://melpa.milkbox.net/][melpa]] 所收錄，所以你只要很開心的將以下程式加入到你的
 .emacs
@@ -52,7 +50,7 @@ pangu-spacing 名稱來自於 [[https://github.com/gibuloto/paranoid-auto-spacin
 
 再使用 M-x package-install pangu-spacing，就可以完成安裝。
 
-*** 啟用 pangu-spacing
+* 啟用 pangu-spacing
 
 在你的 .emacs 加入以下幾行，可以讓 pangu-spacing 全域性執行
 
@@ -64,7 +62,7 @@ pangu-spacing 名稱來自於 [[https://github.com/gibuloto/paranoid-auto-spacin
 如果你不想全域性執行，則使用 M-x pangu-spacing-mode 就可只在目前的緩
 衝區上加上空格。
 
-*** pangu-spacing 設定
+* pangu-spacing 設定
 
 在預設的情況下，pangu-spacing 插入的空白符號並不會真的加入到檔案裏面，
 而只是顯示在 emacs 上，如果你希望他是真的將空白符號加入到你的檔案，則
