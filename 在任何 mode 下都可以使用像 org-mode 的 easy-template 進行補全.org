@@ -1,8 +1,56 @@
 #+TITLE: [emacs] 在任何 mode 下都可以使用像 org-mode 的 easy-template 進行補全
 #+AUTHOR: coldnew
 #+EMAIL:  coldnew.tw@gmail.com
-#+DATE:   2013-11-25 00:41:19
+#+DATE:   2013-04-25 13:01:19
 #+LANGUAGE: zh_TW
 #+URL:    6860d
 #+OPTIONS: num:nil ^:nil
 #+TAGS: emacs org@mode
+
+org-mode 的 easy-template 提供使用者輸入 <e 再按下 TAB 就可以進行自動補全的功能,
+為了在任意模式下都可以辦到如同 org-mode 的 easy template 的功能,
+首先先將以下程式碼加入你的 .emacs 設定後，
+
+#+begin_src emacs-lisp
+  (defadvice yas-expand (around coldnew/major-mode-expand activate)
+    "Try to complete a structure template before point like org-mode does.
+  This looks for strings like \"<e\" on an otherwise empty line and
+  expands them.
+
+  Before use this function, you must setup `major-mode-name'-expand-alist variable.
+  Take emacs-lisp-mode as example, if you wand to use <r to expand your snippet `require'
+  in yasnippet, you muse setup the emacs-lisp-mode-expand-alist variable.
+
+  (setq emacs-lisp-expand-alist '((\"r\" . \"require\")))
+
+  "
+    (let* ((l (buffer-substring (point-at-bol) (point)))
+           (expand-symbol (intern (concat (symbol-name major-mode) "-expand-alist")))
+           (expand-alist (if (boundp expand-symbol) (symbol-value expand-symbol) nil))
+           a)
+      (when (and (looking-at "[ \t]*$")
+                 (string-match "^[ \t]*<\\([a-zA-Z]+\\)$" l)
+                 (setq a (assoc (match-string 1 l) expand-alist)))
+        (backward-delete-char (1+ (length (car-safe a))))
+        (if (symbolp (cdr-safe a))
+            (funcall (cdr-safe a))
+          (insert (cdr-safe a)))
+        t)
+      ad-do-it))
+#+end_src
+
+假如希望在 emacs-lisp-mode 輸入 <r 再按下 TAB 就可以使用 yasnippet 展開
+require 的 snippet, 則添加以下程式
+
+#+begin_src emacs-lisp
+ (setq emacs-lisp-mode-expand-alist '(("r" . "require")))
+#+end_src
+
+注意到 major-mode 是什麼，則添加相對應的 *major-mode-expand-alist*,
+比如 major-mode 是 c-mode 則加入
+
+#+begin_src emacs-lisp
+ (setq c-mode-expand-alist '(("i" . "include")))
+#+end_src
+
+其他以此類推
