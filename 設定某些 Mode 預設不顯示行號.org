@@ -3,7 +3,7 @@
 #+EMAIL:  coldnew.tw@gmail.com
 #+DATE:   2012-12-15 23:00:16
 #+LANGUAGE: zh_TW
-#+URL:    2663f
+#+URL:    6842d
 #+OPTIONS: num:nil ^:nil
 #+TAGS: emacs elisp
 
