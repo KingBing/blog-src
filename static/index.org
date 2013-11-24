@@ -1,0 +1,10 @@
+#+TITLE: coldnew's blog
+#+AUTHOR: coldnew
+#+EMAIL:  coldnew.tw@gmail.com
+#+DATE:   2013-11-24 16:39:55
+#+LANGUAGE: zh_TW
+#+URL:    index
+#+OPTIONS: num:nil ^:nil
+#+TAGS:
+#+BLOGIT_TYPE: static
+#+BLOGIT_TEMPLATE: index.html
