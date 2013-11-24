@@ -7,8 +7,6 @@
 #+OPTIONS: num:nil ^:nil
 #+TAGS: emacs c
 
-CLOSED: [2013-05-11 Sat 13:11]
-
 cwarn-mode 會顯示出 C/++ 下面一些致命的錯誤，以下面的程式碼來說
 
 #+begin_src c :tangle no
