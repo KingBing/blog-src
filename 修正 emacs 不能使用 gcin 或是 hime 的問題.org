@@ -1,0 +1,8 @@
+#+TITLE: 修正 emacs 不能使用 gcin 或是 hime 的問題
+#+AUTHOR: coldnew
+#+EMAIL:  coldnew.tw@gmail.com
+#+DATE:   2012-12-15 14:43:38
+#+LANGUAGE: zh_TW
+#+URL:    ea9b6
+#+OPTIONS: num:nil ^:nil
+#+TAGS:
