@@ -6,7 +6,7 @@
 #+URL:    f69614
 #+OPTIONS: num:nil ^:nil
 #+TAGS: debian debootstrap bootstrap
-#+TYPE: draft
+#+BLOGIT_TYPE: draft
 
 在製作嵌入式系統的過程中，常常會儘可能精簡整個系統，因此將 gdb、strace
 等除錯的好幫手拿掉。如果精簡的 Linux 系統出了問題，要怎進行除錯呢？
@@ -47,13 +47,13 @@ debootstrap 在任何 Debian 系列的 Linux 皆可隨手取得，若您是 Gent
 =rootfs-debian= 目錄。
 
 #+BEGIN_SRC sh
-  mkdir /rootfs-debian
+  mkdir rootfs-debian
 #+END_SRC
 
 接著使用下面這行 debootstrap 命令，Debian 就會安裝到 /rootfs-deebian 下了
 
 #+BEGIN_SRC sh
-  debootstrap --arch i386 sid /rootfs-debian http://debian.linux.org.tw/debian
+  debootstrap --arch i386 sid rootfs-debian http://debian.linux.org.tw/debian
 #+END_SRC
 
 整個 debootstrap 的命令架構如下
@@ -64,12 +64,12 @@ debootstrap 在任何 Debian 系列的 Linux 皆可隨手取得，若您是 Gent
 
 - ARCH
 
-  ARCH 代表目標系統的 CPU 架構，常用的有 i386、amd64、armel、armhf 等。
+  目標系統的 CPU 架構，常用的有 i386、amd64、armel、armhf 等。
 
 - VERSION
 
-  VERSION 代表 Debian 的版本，你可以使用目前的穩定版本 *wheezy* ，或是
-  永遠的測試版 *sid* ，當然你也可以選擇更不穩定的 testing，詳細版本名
+  Debian 的版本，你可以使用目前的穩定版本 *wheezy* ，或是
+  永遠的測試版 *sid* ，當然你也可以選擇更不穩定的 *testing* ，詳細版本名
   稱請見 Debian 官網。
 
 - DIRECTORY
@@ -85,8 +85,10 @@ debootstrap 在任何 Debian 系列的 Linux 皆可隨手取得，若您是 Gent
 * 修改你的 Debian 系統
 
 剛建立好的 Debian Rootfs 還是有一些需要你去修改的檔案，比如說
-=/etc/fstab= 、 =/etc/inittab= 等。如果你使用 debootstrap 建立 Debian
-rootfs 的目的是進行 chroot，你只需要修改 =/etc/apt/source.list= 即可。
+=/etc/fstab= 、 =/etc/inittab= 等。
+
+如果你使用 debootstrap 建立 Debian rootfs 的目的是進行 chroot，
+你只需要修改 =/etc/apt/source.list= 即可。
 
 一開始 debootstrap 建立出來的 =/etc/apt/source.list= 是一個空白檔案，你
 需要自己去添加自己想要的 debian mirror，debian mirror 取得的方式可以參
@@ -156,5 +158,7 @@ rootfs 的目的是進行 chroot，你只需要修改 =/etc/apt/source.list= 即
 * 參考連結
 
 ~[1]~ [[http://rediceli.blogspot.tw/2006/08/debootstrapdebian.html][通過 debootstrap 安裝 Debian]]
+
 ~[2]~ [[http://rd-life.blogspot.tw/2009/08/debootstrap-debian-usb.html][使用 debootstrap 安裝 Debian 於 USB 大拇哥]]
+
 ~[3]~ [[https://wiki.debian.org/EmDebian/CrossDebootstrap][EmDebian/CrossDebootstrap - Debian Wiki]]
