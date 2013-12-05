@@ -6,3 +6,10 @@
 #+URL:    f6961
 #+OPTIONS: num:nil ^:nil
 #+TAGS: diy microchip pic16f84a relay
+
+
+
+
+#+BEGIN_CENTER
+[[file:files/2013/rebooter_top.png]]
+#+END_CENTER
