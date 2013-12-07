@@ -1,0 +1,39 @@
+#+TITLE: 使用 PIC16F84A 打造自動斷路裝置
+#+AUTHOR: coldnew
+#+EMAIL:  coldnew.tw@gmail.com
+#+DATE:   2013-12-05 23:09:51
+#+LANGUAGE: zh_TW
+#+URL:    f6961
+#+OPTIONS: num:nil ^:nil
+#+TAGS: diy microchip pic16f84a relay
+
+
+對於新的產品，由於無法知道使用者會如何使用，因此需要進行一些簡單的測試，
+重開機測試 (reboot test) 就是其中一環。
+
+
+最近一直在測試 Linux kernel 的 UBI Fastmap 功能，這是一
+種透過建立 Checkpoint 來加速 ubifs 開機速度的功能，實際測試可以減少 2
+~ 4 秒的開機時間。然而，該功能尚未被 Linux Kernel 認定為穩定，也因此即
+使到了 Linux Kernel 3.12，UBI Fastmap 仍然被定位為測試用的功能
+(Experimental Feature) 。
+
+
+為了能夠確定我所修改的 UBI Fastmap 功能能夠不影響我的機器的穩定度，進
+行隨機斷電、軟體重開機等測試是必要的。軟體版的重開機測試可以透過簡單的
+Shell Script 進行運作，可是隨機斷電這種測試若沒有設備就需要自己手動進
+行，除了乏味又更浪費時間，也因此讓我想要製作一個這樣的裝置。
+
+
+若有 Raspberry Pi 等開發版，實際上只要製作簡單的繼電器模組即可，但是我
+一直很想要有一個裝置是專門用來進行斷電測試的，剛好手邊還有剩下許多
+PIC16F84A，也因此就用他來製作這整個裝置，順便複習一下久未使用的 PIC 微
+控器開發。
+
+#+BEGIN_CENTER
+#+ATTR_HTML: :width 45%
+[[file:files/2013/rebooter_top.png]]
+#+END_CENTER
+
+
+若您有興趣想看怎樣自己製作一個自動斷路裝置，請參考我的筆記版本: [[file:~/SparkleShare/blog-src/note/%E4%BD%BF%E7%94%A8%20PIC16F84A%20%E6%89%93%E9%80%A0%E8%87%AA%E5%8B%95%E6%96%B7%E8%B7%AF%E8%A3%9D%E7%BD%AE.org][使用 PIC16F84A 打造自動斷路裝置]]
