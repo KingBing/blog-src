@@ -111,7 +111,7 @@ org-mode 中使用表格非常簡潔明快，唯一的缺點是在表格中，�
 * 使用 C-= 或是 C-- 來調整字體大小
 
 能夠設定字體後，接著我們必須根據我們設定字體的規則，另外定義一個改變字
-體的函式，這個函式將根據 *emacs-font-size-pair-list* 去找尋下一個/前一
+體的函式，這個函式將根據 *emacs-font-size-pair-list* 去找尋前一個/後一
 個字體，並調用 *set-font* 函式去調整字體。
 
 #+BEGIN_SRC emacs-lisp
