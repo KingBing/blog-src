@@ -102,13 +102,13 @@ Raspberry Pi 對於剛接觸嵌入式系統開發的人而言，無疑是一個�
 
 這些命令的用途如下:
 
-- 1. i2cdetect  --  用來列舉 I2C bus 和上面所有的裝置
+- i2cdetect  --  用來列舉 I2C bus 和上面所有的裝置
 
-- 2. i2cdump    --  顯示裝置上所有暫存器 (register) 數值
+- i2cdump    --  顯示裝置上所有暫存器 (register) 數值
 
-- 3. i2cget     --  讀取裝置上某個暫存器值
+- i2cget     --  讀取裝置上某個暫存器值
 
-- 4. i2cset     --  修改裝置上的暫存器數值
+- i2cset     --  修改裝置上的暫存器數值
 
 * 使用 i2cdetect 察看目前有多少個 i2c bus
 
