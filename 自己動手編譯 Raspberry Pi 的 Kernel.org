@@ -10,7 +10,10 @@
 
 * 動手編譯給 Raspberry Pi 用的 toolchain
 
-*
+* 下載 Linux Kernel
+
+: git clone https://github.com/raspberrypi/linux
+
 
 * 編譯 Raspberry Pi 的 Linux Kernel
 
