@@ -16,6 +16,13 @@
 
 * 編譯 Raspberry Pi 的 Linux Kernel
 
+如果你手邊有 Raspberry Pi，可以登入他並使用以下方式取得目前 Raspberry Pi
+的 Kernel Config。
+
+#+BEGIN_EXAMPLE
+ pi@raspberrypi:/home/pi$ zcat /proc/config.gz > rpi-config
+#+END_EXAMPLE
+
 
 * 參考連結
 
