@@ -23,6 +23,12 @@
  pi@raspberrypi:/home/pi$ zcat /proc/config.gz > rpi-config
 #+END_EXAMPLE
 
+若想要直接使用 Linux Kernel 裡面的 Raspberry Pi config, 則這樣做
+
+#+BEGIN_EXAMPLE
+
+#+END_EXAMPLE
+
 
 * 參考連結
 
