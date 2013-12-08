@@ -6,3 +6,6 @@
 #+URL:    c8cab
 #+OPTIONS: num:nil ^:nil
 #+TAGS: kernel raspberry_pi
+
+
+* 動手編譯給 Raspberry Pi 用的 toolchain
