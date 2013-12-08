@@ -1,0 +1,8 @@
+#+TITLE: 自己動手編譯 Raspberry Pi 的 Kernel
+#+AUTHOR: coldnew
+#+EMAIL:  coldnew.tw@gmail.com
+#+DATE:   2013-12-08 14:38:00
+#+LANGUAGE: zh_TW
+#+URL:    c8cab
+#+OPTIONS: num:nil ^:nil
+#+TAGS:
