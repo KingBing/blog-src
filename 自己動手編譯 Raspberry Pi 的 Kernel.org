@@ -26,7 +26,7 @@
 若想要直接使用 Linux Kernel 裡面的 Raspberry Pi config, 則這樣做
 
 #+BEGIN_EXAMPLE
-
+  coldnew@Rosia ~/rpi/linux $ make bcmrpi_defconfig
 #+END_EXAMPLE
 
 
