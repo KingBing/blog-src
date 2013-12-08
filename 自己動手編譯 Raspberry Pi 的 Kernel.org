@@ -5,4 +5,4 @@
 #+LANGUAGE: zh_TW
 #+URL:    c8cab
 #+OPTIONS: num:nil ^:nil
-#+TAGS:
+#+TAGS: kernel raspberry_pi
