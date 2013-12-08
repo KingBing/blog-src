@@ -29,6 +29,13 @@
   coldnew@Rosia ~/rpi/linux $ make bcmrpi_defconfig
 #+END_EXAMPLE
 
+#+ATTR_HTML: :class alert-info
+#+BEGIN_ALERT
+*注意*
+
+我們在前面時已經修改了 *ARCH* 以及 *CROSS_COMPILE* 這兩個環境變數。
+#+END_ALERT
+
 
 * 參考連結
 
