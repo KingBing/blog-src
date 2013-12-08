@@ -9,3 +9,14 @@
 
 
 * 動手編譯給 Raspberry Pi 用的 toolchain
+
+*
+
+* 編譯 Raspberry Pi 的 Linux Kernel
+
+
+* 參考連結
+
+~[1]~ [[http://elinux.org/RPi_Kernel_Compilation][RPi Kernel Compilation - eLinux.org]]
+
+~[2]~ [[http://bkdragonker.blogspot.tw/2013/03/dvb-module-for-raspberry-pi.html][BrokenDragon's Notes: Raspberry Pi Kernel Compilation]]
