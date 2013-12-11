@@ -15,7 +15,7 @@ Kernel 給你的 Raspberry Pi 使用。
 
 若要進行跨平台編譯，相對應的 toolchain 是必要的，讓我們來說說如何取得 toolchain。
 
-若你是 Gentoo Linux 的使用者，你也可以透過 crossdev 建立專用的
+若你是 Gentoo Linux 的使用者，你可以透過 crossdev 建立專用的
 toolchain，更完整的資訊，請參考 [[http://wiki.gentoo.org/wiki/Raspberry_Pi][Raspberry Pi - Gentoo Wiki]] 。
 
 #+BEGIN_EXAMPLE
