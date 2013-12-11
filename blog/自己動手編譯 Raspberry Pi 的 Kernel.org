@@ -169,7 +169,8 @@ firmware binaries。
 
   要更換 SD 卡上面的遇編譯好的 firmware，要進行以下兩個步驟
 
-  + 將 firmware/boot 資料夾內的以下幾個檔案複製到你的 SD 卡 (boot 資料夾)
+  + 將 firmware/boot 資料夾內的以下幾個檔案複製到你的 SD 卡 (boot 資料
+    夾或是第一個分割區)
 
     - bootcode.bin
     - fixup.dat
