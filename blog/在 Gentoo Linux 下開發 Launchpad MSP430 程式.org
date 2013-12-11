@@ -184,22 +184,22 @@ Launcpad 上面提供了兩個可操作的 LED 讓使用者自行控制，即為
 完成 Makefile 後，我們整個開發所需要記住的命令就變成下面這樣了，是不是
 簡單多了 ~
 
-- 1. 編譯程式碼
+- 編譯程式碼
 
   : coldnew@Rosia ~/Workspace/msp430 $ make
 
-- 2. 清除 MSP430 裡面的程式
+- 清除 MSP430 裡面的程式
 
   : coldnew@Rosia ~/Workspace/msp430 $ make erase
 
-- 3. 更新 MSP430 裡面的程式
+- 更新 MSP430 裡面的程式
 
   : coldnew@Rosia ~/Workspace/msp430 $ make upload
 
-- 4. 查看編譯出來的檔案大小
+- 查看編譯出來的檔案大小
 
   : coldnew@Rosia ~/Workspace/msp430 $ make size
 
-- 5. 清空編譯出來的檔案
+- 清空編譯出來的檔案
 
   : coldnew@Rosia ~/Workspace/msp430 $ make clean
