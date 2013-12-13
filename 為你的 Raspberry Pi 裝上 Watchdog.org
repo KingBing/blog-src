@@ -7,23 +7,20 @@
 #+OPTIONS: num:nil ^:nil
 #+TAGS: raspberry_pi watchdog linux
 
-
 你是否遇過 Raspberry Pi 異常死掉呢? 我遇過，而且非常多次
 
-
 會造成 Raspberry Pi 當掉的原因有很多，比如電源供電不足、電源線阻抗
-太大，造成提供的電壓不夠、有零件故障、瑕疵品......等，可能的原因很多，
-有興趣的話使用 *Raspberry Pi freeze* 這樣的關鍵字去收尋，就可找到非常
-多的討論串。
-
+太大，造成提供的電壓不夠、有零件故障、瑕疵品......等，當然也有可能是
+Raspberry Pi 在台灣水土不服所導致，有興趣的話使用
+*Raspberry Pi freeze* 這樣的關鍵字去收尋，就可找到非常多的討論串。
 
 那既然手邊的 Raspberry Pi 會當掉，那要怎辦呢？總不能一旦他掛掉，就手動
 重新啟動吧? 這時候就是 =watchdog= 出馬的時候啦 ~
 
-Watchdog，中文譯為看門狗，這是一種用於判斷系統是否有正常運作的程式，每
+Watchdog，中文譯為 =看門狗= ，這是一種用於判斷系統是否有正常運作的程式，每
 隔固定的間隔就會運作，若系統異常，則重啟系統。
 
-Raspberry Pi 使用的 BCM2708 SOC 內建有硬體版的 watchdog 模組，我們可以透
+Raspberry Pi 使用的 BCM2708 內建有硬體版的 watchdog 模組，我們可以透
 過 Linux Kernel 的 =bcm2708_wdog= 模組來控制 Raspberry Pi 的 watchdog，
 達到當機後進行重新開機的功能。
 
@@ -49,3 +46,86 @@ Raspberry Pi 使用的 BCM2708 SOC 內建有硬體版的 watchdog 模組，我�
 #+BEGIN_EXAMPLE
   root@raspberrypi:/home/pi# modprobe bcm2708_wdog
 #+END_EXAMPLE
+
+* 安裝使用 watchdog 的程式
+
+接下來則是要安裝和 watchdog 相關的程式。
+
+疑？前面不是說過 Raspberry Pi 具有
+硬體的 watchdog 模組，為何還要安裝程式呢？事實上這個 userspace 的程式是用
+來定時向 watchdog 模組匯報目前的狀況，好讓 watchdog 知道不需要將系統進行重
+啟的動作。
+
+#+BEGIN_EXAMPLE
+  root@raspberrypi:/home/pi# apt-get install watchdog
+#+END_EXAMPLE
+
+* 設定 watchdog 程式
+
+安裝完 watchdog 程式之後，我們必須修改一下 =/etc/watchdog.conf= 這個設定
+檔，並將以下註解取消
+
+#+BEGIN_SRC sh
+  watchdog-device        = /dev/watchdog
+#+END_SRC
+
+這個設定是用來設定 =watchdog= 這個軟體程式要監控的 device node，好讓程
+式可以知道要向誰進行回報，在 Raspberry Pi 裡面，預設的就是 =/dev/watchdog= 。
+
+除了這項設定外，在 =/etc/watchdog.conf= 還有許多有用的設定，大體如下
+
+- 監控系統負載
+
+  我們可以監控系統的 loadavg，假設系統負載過高，則透過 watchdog 將系統重
+  啟。
+
+  #+BEGIN_SRC sh
+    # Uncomment to enable test. Setting one of these values to '0' disables it.
+    # These values will hopefully never reboot your machine during normal use
+    # (if your machine is really hung, the loadavg will go much higher than 25)
+    max-load-1             = 24
+    max-load-5             = 18
+    max-load-15            = 12
+  #+END_SRC
+
+- 監控系統溫度
+
+  我們可以透過 =/sys/class/thermal/thermal_zone0/temp= 去監控 Raspberry
+  Pi 的溫度，如以下設定，假如溫度超過 75ᵒC，則進行重啟。
+
+  #+BEGIN_SRC sh
+    # Defaults compiled into the binary
+    temperature-device     = /sys/class/thermal/thermal_zone0/temp
+    max-temperature        = 75000
+  #+END_SRC
+
+  而之所以會在 =max-temperature= 欄位設定成 75000，這是因為在
+  =/sys/class/thermal/thermal_zone0/temp= 裡面紀錄的溫度，單位為 =千分
+  之一攝氏度= ，所以設定為 75000 則代表 75ᵒC。
+
+
+
+* 讓系統啟動時自動執行 watchdog
+
+除了讓 kernel 載入 =bcm2708_wdog= 模組外，我們也需要記得在開機的時候，
+自動啟動 watchdog 程式，這時候就可以透過 Debian 標準的方式，將 watchdog
+程式加入到 init 程式裡面
+
+#+BEGIN_EXAMPLE
+  root@raspberrypi:/home/pi# update-rc.d watchdog defaults
+  update-rc.d: using dependency based boot sequencing
+#+END_EXAMPLE
+
+相同的，若你希望現在開始就啟動 watchdog，則這樣作
+
+#+BEGIN_EXAMPLE
+  root@raspberrypi:/home/pi# /etc/inid.d/watchdog start
+  [ ok ] Stopping watchdog keepalive daemon....
+  [ ok ] Starting watchdog daemon....
+#+END_EXAMPLE
+
+* 參考連結
+
+~[1]~ [[http://geekpi.cn/blog/2013/01/2173][給 raspberry pi 安裝看門狗程序讓它永不死機]]
+
+~[2]~ [[http://blog.ricardoarturocabral.com/2013/01/auto-reboot-hung-raspberry-pi-using-on.html][ Auto-reboot a hung Raspberry Pi using the on-board watchdog timer ]]
