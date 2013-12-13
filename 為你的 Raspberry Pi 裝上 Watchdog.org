@@ -29,9 +29,8 @@ Raspberry Pi 使用的 BCM2708 SOC 內建有硬體版的 watchdog 模組，我�
 
 * 開機後自動載入 watchdog 模組
 
-#+BEGIN_EXAMPLE
-  root@raspberrypi:/home/pi# vim /etc/modules
-#+END_EXAMPLE
+要啟用 watchdog 功能，首先要記得載入相對應的 kernel module，因此我們編
+輯 =/etc/modules= ，並將裡面內容修改成如下
 
 #+BEGIN_SRC sh
   modprobe bcm2708_wdog
