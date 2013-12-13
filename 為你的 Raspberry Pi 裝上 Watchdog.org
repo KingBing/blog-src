@@ -33,5 +33,19 @@ Raspberry Pi 使用的 BCM2708 SOC 內建有硬體版的 watchdog 模組，我�
 輯 =/etc/modules= ，並將裡面內容修改成如下
 
 #+BEGIN_SRC sh
-  modprobe bcm2708_wdog
+  # /etc/modules: kernel modules to load at boot time.
+  #
+  # This file contains the names of kernel modules that should be loaded
+  # at boot time, one per line. Lines beginning with "#" are ignored.
+  # Parameters can be specified after the module name.
+
+  snd-bcm2835
+  bcm2708_wdog
 #+END_SRC
+
+當然如果希望馬上就啟用 watchdog，而不是等到下次重開機後才有用的話，則要
+記得手動載入模組
+
+#+BEGIN_EXAMPLE
+  root@raspberrypi:/home/pi# modprobe bcm2708_wdog
+#+END_EXAMPLE
