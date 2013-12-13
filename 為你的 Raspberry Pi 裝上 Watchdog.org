@@ -1,0 +1,12 @@
+#+TITLE: 為你的 Raspberry Pi 裝上 Watchdog
+#+AUTHOR: coldnew
+#+EMAIL:  coldnew.tw@gmail.com
+#+DATE:   2013-12-13 22:28:00
+#+LANGUAGE: zh_TW
+#+URL:    b1756
+#+OPTIONS: num:nil ^:nil
+#+TAGS: raspberry_pi watchdog linux
+
+
+Watchdog，中文譯為看門狗，這是一種用於判斷系統是否有正常運作的程式，每
+隔固定的間隔就會運作，若系統異常，則重啟系統。
