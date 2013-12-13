@@ -74,8 +74,8 @@ org-mode 文件進行加密。
 + 設定要加密的 tag 標籤
 
   在 org-mode 裏面，針對會自動進行加密的區域皆是使用 tags 來進行辨認，在
-  這邊我設定加密用的 tag 為 *secret* ，這樣當 org-mode 看到目前的項目
-  tag 為 secret 時，會自動針對他進行加密的動作。
+  這邊我設定加密用的 tag 為 =secret= ，這樣當 org-mode 看到目前的項目
+  tag 為 =secret= 時，會自動針對他進行加密的動作。
 
   #+begin_src emacs-lisp
     ;; 設定要加密的 tag 標籤為 secret
