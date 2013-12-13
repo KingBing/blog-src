@@ -8,7 +8,7 @@
 #+TAGS: raspberry_pi watchdog linux
 
 
-你是否遇過 Raspberry Pi 異常死掉呢? 我遇過，而且非常多次 = =
+你是否遇過 Raspberry Pi 異常死掉呢? 我遇過，而且非常多次
 
 會造成 Raspberry Pi 當掉的原因有很多，比如你的電源供電不足、電源線阻抗
 太大，造成提供的電壓不夠、有零件故障、瑕疵品......等，可能的原因很多，
