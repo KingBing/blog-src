@@ -23,4 +23,4 @@ Watchdog，中文譯為看門狗，這是一種用於判斷系統是否有正常
 隔固定的間隔就會運作，若系統異常，則重啟系統。
 
 Raspberry Pi 使用的 BCM2708 SOC 內建有硬體版的 watchdog 模組，我們可以透
-過
+過 Linux Kernel 的 bcm2708_wdog 模組
