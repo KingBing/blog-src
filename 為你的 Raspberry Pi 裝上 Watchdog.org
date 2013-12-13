@@ -29,5 +29,5 @@ Raspberry Pi 使用的 BCM2708 SOC 內建有硬體版的 watchdog 模組，我�
 * 開機後自動載入 watchdog 模組
 
 #+BEGIN_EXAMPLE
-
+  root@raspberrypi:/home/pi# vim /etc/modules
 #+END_EXAMPLE
