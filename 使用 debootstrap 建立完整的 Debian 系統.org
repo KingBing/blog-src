@@ -162,3 +162,5 @@ debootstrap 在任何 Debian 系列的 Linux 皆可隨手取得，若您是 Gent
 ~[2]~ [[http://rd-life.blogspot.tw/2009/08/debootstrap-debian-usb.html][使用 debootstrap 安裝 Debian 於 USB 大拇哥]]
 
 ~[3]~ [[https://wiki.debian.org/EmDebian/CrossDebootstrap][EmDebian/CrossDebootstrap - Debian Wiki]]
+
+~[4]~ [[http://staff.blog.ui.ac.id/jp/2012/09/28/debootstrap-blankberry-pada-gentoo/][Debootstrap BlankBerry pada Gentoo]]
