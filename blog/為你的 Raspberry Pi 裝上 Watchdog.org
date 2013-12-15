@@ -129,3 +129,5 @@ Raspberry Pi 使用的 BCM2708 內建有硬體版的 watchdog 模組，我們可
 ~[1]~ [[http://geekpi.cn/blog/2013/01/2173][給 raspberry pi 安裝看門狗程序讓它永不死機]]
 
 ~[2]~ [[http://blog.ricardoarturocabral.com/2013/01/auto-reboot-hung-raspberry-pi-using-on.html][ Auto-reboot a hung Raspberry Pi using the on-board watchdog timer ]]
+
+~[3]~ [[http://elinux.org/R-Pi_Troubleshooting][elinux - R-Pi Troubleshooting]]
