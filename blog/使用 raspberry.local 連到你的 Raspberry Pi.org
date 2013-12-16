@@ -62,7 +62,7 @@ iPhone 上面找到 Apple TV。
                     <type>_ssh._tcp</type>
                     <port>22</port>
             </service>
-     <service>
+            <service>
                     <type>_http._tcp</type>
                     <port>80</port>
             </service>
