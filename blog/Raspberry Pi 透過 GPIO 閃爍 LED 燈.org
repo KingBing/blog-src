@@ -276,7 +276,7 @@ Interface)，則要在 newlisp 下控制 GPIO 的最好方法就是更改 sysfs 
 我們可以使用 [[https://github.com/marchildmann/raspi-gpio-newlisp][raspi-gpio]] 模組來簡化 nwelisp 下修改 GPIO 資訊的步驟，首先
 先下載 raspi-gpio.lsp
 
-: wget https://raw.github.com/marchildmann/raspi-gpio-newlisp/master/raspi-gpio.lsp
+: wget https://raw.github.com/gatesphere/raspi-gpio-newlisp/master/raspi-gpio.lsp
 
 接著你就可以寫以下的 newlisp 程式來閃爍 LED
 
