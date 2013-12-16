@@ -1,0 +1,92 @@
+#+TITLE: 使用 raspberry.local 連到你的 Raspberry Pi
+#+AUTHOR: coldnew
+#+EMAIL:  coldnew.tw@gmail.com
+#+DATE:   2013-12-15 18:32:33
+#+LANGUAGE: zh_TW
+#+URL:    f6961
+#+OPTIONS: num:nil ^:nil
+#+TAGS: raspberry_pi
+
+在測試 [[http://googlecreativelab.github.io/coder/][Google Coder]] 的時候，我發現到他預先建立好的 SD Card 映像檔可以
+直接使用瀏覽器透過 http://coder.local 連線進去，這到底是怎麼辦到的？
+
+經過了一些資料的收集，原來這就是 [[http://en.wikipedia.org/wiki/Zero-configuration_networking][Zeroconf]] 。大約在 2008 年
+前後，Gentoo Linux 突然增加了 zeroconf 與 avahi 的 USE flag，當時一直
+無法理解這兩個 flag 的用途，現今終於豁然開朗。
+
+[[http://en.wikipedia.org/wiki/Avahi_%2528software%2529][Avahi]] 是開源的 [[http://en.wikipedia.org/wiki/Zero-configuration_networking][Zeroconf]] 協定的實現，Zeroconf 全名為 Zero configuration
+networking，是一種用於自動生成可用 IP 地址的網路技術，最簡單的實例，就
+是當你的 iPhone 和 Apple TV 位於同一個網域內的時候，你可以直接在
+iPhone 上面找到 Apple TV。
+
+使用這項功能有什麼好處呢？目前我想到的就是，我可以讓我的 Raspberry Pi
+維持在使用 DHCP 連線的模式上面，這樣我可以攜帶一台 Raspberry Pi，並且到處用 DHCP
+連線，再透過 raspberrypi.local 對他進行連線，而不需透過 RS232 去確認目
+前我的 Raspberry Pi 所獲取到的 IP 位址。
+
+聽起來好像很方便，那要怎樣去辦到這樣的事情呢？
+
+- 安裝 avahi-daemon
+
+  要能夠使用 zeroconf 協議，我們需要安裝他的開源實現 - avahi
+
+  : root@raspberrypi:/home/pi# apt-get install avahi-daemon
+
+- 將 avahi-daemon 加入到開機時會自動執行的啟動程式裡面
+
+  為了要讓下一次開機的時候，還是可以直接用 raspberrypi.local 連線到
+  Raspberry Pi 上面，因此要將 avahi-daemon 加入到開機腳本中，你可以使
+  用以下指令完成這個目的
+
+  : root@raspberrypi:/home/pi# insserv avahi-daemon
+
+  或是 (用於舊版本的 Debian)
+
+  : root@raspberrypi:/home/pi# update-rc.d avahi-daemon defaults
+
+- 加上設定檔
+
+  修改 =/etc/avahi/services/multiple.service= ，加上如以下的設定檔案
+
+  #+BEGIN_SRC nxml
+    <?xml version="1.0" standalone='no'?>
+    <!DOCTYPE service-group SYSTEM "avahi-service.dtd">
+    <service-group>
+            <name replace-wildcards="yes">%h</name>
+            <service>
+                    <type>_device-info._tcp</type>
+                    <port>0</port>
+                    <txt-record>model=RackMac</txt-record>
+            </service>
+            <service>
+                    <type>_ssh._tcp</type>
+                    <port>22</port>
+            </service>
+     <service>
+                    <type>_http._tcp</type>
+                    <port>80</port>
+            </service>
+    </service-group>
+  #+END_SRC
+
+  若你不想要重新開機後才生效，可以手動去重啟 avahi-daemon
+
+  : root@raspberrypi:/home/pi# /etc/init.d/avahi-daemon restart
+
+- 測試是否可以連線到 raspberrypi.local
+
+  現在你可以嘗試去 ping 看看 raspberrypi.local 或是使用瀏覽器去瀏覽
+  http://raspberrypi.local 了
+
+  #+BEGIN_EXAMPLE
+    coldnew@Rosia ~ $ ping raspberrypi.local
+    PING raspberrypi.local (192.168.2.104): 56 data bytes
+    64 bytes from 192.168.2.104: icmp_seq=0 ttl=64 time=14.750 ms
+    64 bytes from 192.168.2.104: icmp_seq=1 ttl=64 time=1.417 ms
+  #+END_EXAMPLE
+
+  #+ATTR_HTML: :class alert-info
+  #+BEGIN_ALERT
+  raspberrypi.local 裡面的 raspberrypi 實際上是你的 hostname，所以若你
+  Raspberry Pi 的 hostname 不是 raspberrypi，請將 raspberrypi.local 修改為 *hostname*.local
+  #+END_ALERT
