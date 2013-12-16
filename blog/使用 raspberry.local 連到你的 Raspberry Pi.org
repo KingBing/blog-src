@@ -5,7 +5,7 @@
 #+LANGUAGE: zh_TW
 #+URL:    f6961
 #+OPTIONS: num:nil ^:nil
-#+TAGS: raspberry_pi
+#+TAGS: raspberry_pi linux
 
 在測試 [[http://googlecreativelab.github.io/coder/][Google Coder]] 的時候，我發現到他預先建立好的 SD Card 映像檔可以
 直接使用瀏覽器透過 http://coder.local 連線進去，這到底是怎麼辦到的？
