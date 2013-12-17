@@ -7,7 +7,6 @@
 #+OPTIONS: num:nil ^:nil
 #+TAGS: org-mode emacs elisp
 
-
 使用 org-mode 產生 HTML 網頁的時候，偶而會看到中文字中間會夾雜著一個空
 白符號，其狀況如下圖，這到底是怎麼一回事?
 
@@ -22,5 +21,21 @@
 defadvice 功能，來 =修正= 一下這個問題吧，請在你的 .emacs 加上
 
 #+BEGIN_SRC emacs-lisp
+  (defadvice org-html-paragraph (before org-html-paragraph-advice
+                                        (paragraph contents info) activate)
+    "Join consecutive Chinese lines into a single long line without
+  unwanted space when exporting org-mode to html."
+    (let* ((origin-contents (ad-get-arg 1))
+           (fix-regexp "[[:multibyte:]]")
+           (fixed-contents
+            (replace-regexp-in-string
+             (concat
+              "\\(" fix-regexp "\\) *\n *\\(" fix-regexp "\\)") "\\1\\2" origin-contents)))
 
+      (ad-set-arg 1 fixed-contents)))
 #+END_SRC
+
+這樣使用 org-mode 輸出 HTML 的時候，就不會再出現多餘的空格了 :)
+
+這個問題實際上是網友 [[http://jerrypeng.me/2013/10/remove-org-html-useless-spaces/][Jerry]] 告訴我我才注意到的，最近因為將整個部若格產
+生器改用自己撰寫的 [[http://github.com/coldnew/emacs-blogit][emacs-blogit]] 來產生，才又再次重視這個問題。
