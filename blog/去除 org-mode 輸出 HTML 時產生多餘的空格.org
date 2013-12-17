@@ -8,6 +8,11 @@
 #+TAGS: org-mode emacs elisp
 
 
-
+使用 org-mode 產生 HTML 網頁的時候，偶而會看到中文字中間會夾雜著一個空
+白符號，其狀況如下圖，這到底是怎麼一回事?
 
 [[file:files/2013/org-multibyte-problem.png]]
+
+會出現這個問題，是因為在 org-mode 中啟用了 auto-fill-mode，會自動將一
+行控制在 80 的文字以內，而換行符則會在 org-mode 轉換成 HTML 的過程中，
+被置換為空白符號。
