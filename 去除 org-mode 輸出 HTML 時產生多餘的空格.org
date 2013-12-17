@@ -1,0 +1,8 @@
+#+TITLE: 去除 org-mode 輸出 HTML 時產生多餘的空格
+#+AUTHOR: coldnew
+#+EMAIL:  coldnew.tw@gmail.com
+#+DATE:   2013-12-17 21:27:57
+#+LANGUAGE: zh_TW
+#+URL:    03349
+#+OPTIONS: num:nil ^:nil
+#+TAGS: org-mode emacs elisp
