@@ -13,7 +13,7 @@
 [[file:files/2013/org-multibyte-problem.png]]
 
 會出現這個問題，是因為在 org-mode 中啟用了 auto-fill-mode，會自動將一
-行控制在 80 的文字以內，而換行符則會在 org-mode 轉換成 HTML 的過程中，
+行控制在 80 的文字以內，而換行符號則會在 org-mode 轉換成 HTML 的過程中，
 被置換為空白符號。這個空格在英文中並不是問題，但是在非英語系的語言中，
 可能就會產生令人討厭的感覺。
 
