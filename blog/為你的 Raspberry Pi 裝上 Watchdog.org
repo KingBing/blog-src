@@ -7,6 +7,7 @@
 #+OPTIONS: num:nil ^:nil
 #+TAGS: raspberry_pi watchdog linux
 
+
 你是否遇過 Raspberry Pi 異常死掉呢? 我遇過，而且非常多次
 
 會造成 Raspberry Pi 當掉的原因有很多，比如電源供電不足、電源線阻抗
