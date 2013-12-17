@@ -273,7 +273,7 @@ newlisp 是屬於 script language，若不透過他的 FFI (Foreign Function
 Interface)，則要在 newlisp 下控制 GPIO 的最好方法就是更改 sysfs 下的 GPIO
 資訊。
 
-我們可以使用 [[https://github.com/marchildmann/raspi-gpio-newlisp][raspi-gpio]] 模組來簡化 nwelisp 下修改 GPIO 資訊的步驟，首先
+我們可以使用 [[https://github.com/gatesphere/raspi-gpio-newlisp][raspi-gpio]] 模組來簡化 nwelisp 下修改 GPIO 資訊的步驟，首先
 先下載 raspi-gpio.lsp
 
 : wget https://raw.github.com/gatesphere/raspi-gpio-newlisp/master/raspi-gpio.lsp
