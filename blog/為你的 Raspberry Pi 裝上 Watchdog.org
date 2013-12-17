@@ -7,7 +7,6 @@
 #+OPTIONS: num:nil ^:nil
 #+TAGS: raspberry_pi watchdog linux
 
-
 你是否遇過 Raspberry Pi 異常死掉呢? 我遇過，而且非常多次
 
 會造成 Raspberry Pi 當掉的原因有很多，比如電源供電不足、電源線阻抗
@@ -103,7 +102,6 @@ Raspberry Pi 使用的 BCM2708 內建有硬體版的 watchdog 模組，我們可
   而之所以會在 =max-temperature= 欄位設定成 75000，這是因為在
   =/sys/class/thermal/thermal_zone0/temp= 裡面紀錄的溫度，單位為 =千分
   之一攝氏度= ，所以設定為 75000 則代表 75ᵒC。
-
 
 * 讓系統啟動時自動執行 watchdog
 
