@@ -5,5 +5,5 @@
 #+LANGUAGE: zh_TW
 #+URL:    686_g
 #+OPTIONS: num:nil ^:nil
-#+TAGS:
+#+TAGS: stm32 stm32f4
 #+BLOGIT_TYPE: draft
