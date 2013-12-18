@@ -1,0 +1,8 @@
+#+TITLE: 在 Gentoo Linux 下開發 STM32f4 Discovery 程式
+#+AUTHOR: coldnew
+#+EMAIL:  coldnew.tw@gmail.com
+#+DATE:   2013-12-18 22:10:05
+#+LANGUAGE: zh_TW
+#+URL:    686_g
+#+OPTIONS: num:nil ^:nil
+#+TAGS:
