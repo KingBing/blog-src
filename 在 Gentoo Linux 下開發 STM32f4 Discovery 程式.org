@@ -5,5 +5,6 @@
 #+LANGUAGE: zh_TW
 #+URL:    686_g
 #+OPTIONS: num:nil ^:nil
-#+TAGS: stm32 stm32f4
+#+TAGS: stm32 stm32f4 gentoo linux
+
 #+BLOGIT_TYPE: draft
