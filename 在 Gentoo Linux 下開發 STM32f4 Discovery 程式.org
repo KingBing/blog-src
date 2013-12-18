@@ -8,3 +8,13 @@
 #+TAGS: stm32 stm32f4 gentoo linux
 
 #+BLOGIT_TYPE: draft
+
+* 使用 crossdev 建立 ARM 微控器開發環境
+
+* 參考連結
+
+~[1]~ [[http://hackaday.com/2011/10/17/how-to-develop-for-stm32-discovery-boards-using-linux/][How to develop for STM32 discovery boards using linux]]
+
+~[2]~ [[http://descent-incoming.blogspot.tw/2013/04/for-stm32f4discovery-0-linux.html][作業系統之前的程式 for stm32f4discovery (0) - 打造 linux 開發環境]]
+
+~[3]~ [[http://liviube.wordpress.com/2013/04/22/blink-for-stm32f4-discovery-board-on-linux-with-makefile/][Blink for stm32f4-discovery board on Linux with Makefile]]
