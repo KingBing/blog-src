@@ -6,3 +6,4 @@
 #+URL:    686_g
 #+OPTIONS: num:nil ^:nil
 #+TAGS:
+#+BLOGIT_TYPE: draft
