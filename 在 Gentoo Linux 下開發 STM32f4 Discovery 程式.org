@@ -42,14 +42,14 @@ Embedded Processors]] 下載現成的 toolchain。
 
 * 參考連結
 
-~[1]~  [[http://tw.myblog.yahoo.com/chamberplus-taiwan/article?mid%3D-2&prev%3D4343&l%3Df&fid%3D25][US $0.4 ARM .VS. 8051]]
+~[1]~ [[http://tw.myblog.yahoo.com/chamberplus-taiwan/article?mid%3D-2&prev%3D4343&l%3Df&fid%3D25][US $0.4 ARM .VS. 8051]]
 
-~[1]~ [[http://hackaday.com/2011/10/17/how-to-develop-for-stm32-discovery-boards-using-linux/][How to develop for STM32 discovery boards using linux]]
+~[2]~ [[http://hackaday.com/2011/10/17/how-to-develop-for-stm32-discovery-boards-using-linux/][How to develop for STM32 discovery boards using linux]]
 
-~[2]~ [[http://descent-incoming.blogspot.tw/2013/04/for-stm32f4discovery-0-linux.html][作業系統之前的程式 for stm32f4discovery (0) - 打造 linux 開發環境]]
+~[3]~ [[http://descent-incoming.blogspot.tw/2013/04/for-stm32f4discovery-0-linux.html][作業系統之前的程式 for stm32f4discovery (0) - 打造 linux 開發環境]]
 
-~[3]~ [[http://liviube.wordpress.com/2013/04/22/blink-for-stm32f4-discovery-board-on-linux-with-makefile/][Blink for stm32f4-discovery board on Linux with Makefile]]
+~[4]~ [[http://liviube.wordpress.com/2013/04/22/blink-for-stm32f4-discovery-board-on-linux-with-makefile/][Blink for stm32f4-discovery board on Linux with Makefile]]
 
-~[4]~ [[https://github.com/texane/stlink/blob/master/doc/tutorial/tutorial.pdf?raw%3Dtrue][Using STM32 discovery kits with open source tools (PDF)]]
+~[5]~ [[https://github.com/texane/stlink/blob/master/doc/tutorial/tutorial.pdf?raw%3Dtrue][Using STM32 discovery kits with open source tools (PDF)]]
 
-~[5]~ [[http://www.triplespark.net/elec/pdev/arm/stm32.html][Programming STM32 F2, F4 ARMs under Linux: A Tutorial from Scratch]]
+~[6]~ [[http://www.triplespark.net/elec/pdev/arm/stm32.html][Programming STM32 F2, F4 ARMs under Linux: A Tutorial from Scratch]]
