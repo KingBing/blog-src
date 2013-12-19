@@ -1,0 +1,139 @@
+#+TITLE: 如何訂閱 Linux Kernel mailing-list
+#+AUTHOR: coldnew
+#+EMAIL:  coldnew.tw@gmail.com
+#+DATE:   2013-12-19 20:17:22
+#+LANGUAGE: zh_TW
+#+URL:    76c4a
+#+OPTIONS: num:nil ^:nil
+#+TAGS: linux kernel
+
+身為 Linux Kernel 開發者，趕流行是很重要的，在 mailing-list 上面可以看到
+很多 Linux Kernel 新的改進、修正資訊，但是 Linux Kernel mailing-list 的
+訂閱方式並未像 GNU 專案的 mailing-list 那樣直覺，對於初學者可能會覺得摸
+不著邊。
+
+本文將實例介紹 Linux Kernel mailing-list 的訂閱方式，除了 Linux Kernel
+以外，本文的作法亦可以套用在 [[http://vger.kernel.org/vger-lists.html][Majordomo lists at VGER.KERNEL.ORG]] 上面
+所列的和 Linux Kernel 相關的 mailing-list 上。
+
+- 1. 請求訂閱 Linux Kernel mailing-list
+
+  使用你的 email 帳號發信到 [[mailto:majordomo@vger.kernel.org][majordomo@vger.kernel.org]] ，並在
+  文章內容加上 *subscribe linux-kernel* ，標題可以自訂。
+
+  下面是我申請的範例:
+
+  #+BEGIN_EXAMPLE
+    From: coldnew <coldnew.tw@gmail.com>
+    To: majordomo@vger.kernel.org
+    Subject: hello
+    --text follows this line--
+
+    subscribe linux-kernel
+  #+END_EXAMPLE
+
+- 2. 發送確認訊息
+
+  如果你傳送出去的訊息沒有問題，過了不久就會收到從
+  [[mailto:Majordomo@vger.kernel.org][majordomo@vger.kernel.org]] 寄來的確認信件，內容如下
+
+  #+BEGIN_EXAMPLE
+    From: Majordomo@vger.kernel.org
+    To: coldnew
+    Subject: Confirmation for subscribe linux-kernel
+    Flags: seen
+    Date: Wed Dec 18 18:04:37 2013
+    Maildir: /Gmail/INBOX
+
+     Someone (possibly you) has requested that your email address be added
+    to or deleted from the mailing list "linux-kernel@vger.kernel.org".
+
+    If you really want this action to be taken, please send the following
+    commands (exactly as shown) back to "Majordomo@vger.kernel.org":
+
+            auth 53fefc94 subscribe linux-kernel coldnew.tw@gmail.com
+
+    If you do not want this action to be taken, simply ignore this message
+    and the request will be disregarded.
+
+    If your mailer will not allow you to send the entire command as a single
+    line, you may split it using backslashes, like so:
+
+            auth 53fefc94 subscribe linux-kernel \
+            coldnew.tw@gmail.com
+
+    If you have any questions about the policy of the list owner, please
+    contact "linux-kernel-approval@vger.kernel.org".
+
+    Thanks!
+  #+END_EXAMPLE
+
+  照著信件上面所說的，回覆一封信到  [[mailto:majordomo@vger.kernel.org][majordomo@vger.kernel.org]] 並在內容
+  裡面添加剛剛收到信件所敘述的檢查碼，以我這邊的情況為例，我回復的訊息
+  如下:
+
+  #+BEGIN_EXAMPLE
+    From: coldnew <coldnew.tw@gmail.com>
+    To: majordomo@vger.kernel.org
+    Subject: hello
+    --text follows this line--
+
+    auth 53fefc94 subscribe linux-kernel coldnew.tw@gmail.com
+  #+END_EXAMPLE
+
+- 3. 收到 *Welcome to linux-kernel* 信件
+
+  一旦你請求加入 Linux Kernel mailing-list 被核准了，你會收到一封標題為
+  *Welcome to linux-kernel* 的信件。之後，你就可以在你的信箱收到 Linux
+  Kernel mailing-list 囉。 (*注意*: Linux Kernel mailing-list 每天的信
+  件非常多，請選用容量較大的 email 來接收)
+
+  收到成功的信件如下:
+
+  #+BEGIN_EXAMPLE
+    From: Majordomo@vger.kernel.org
+    To: coldnew
+    Subject: Welcome to linux-kernel
+    Flags: seen
+    Date: Wed Dec 18 19:04:37 2013
+    Maildir: /Gmail/INBOX
+
+    Welcome to the linux-kernel mailing list!
+
+    Please save this message for future reference.  Thank you.
+
+    If you ever want to remove yourself from this mailing list,
+    you can send mail to <Majordomo@vger.kernel.org> with the following
+    command in the body of your email message:
+
+        unsubscribe linux-kernel
+
+    or from another account, besides coldnew.tw@gmail.com:
+
+        unsubscribe linux-kernel coldnew.tw@gmail.com
+
+    If you ever need to get in contact with the owner of the list,
+    (if you have trouble unsubscribing, or have questions about the
+    list itself) send email to <owner-linux-kernel@vger.kernel.org> .
+    This is the general rule for most mailing lists when you need
+    to contact a human.
+
+     Here's the general information for the list you've subscribed to,
+     in case you don't already have it:
+
+    This is the Linux kernel development discussion and bug reporting
+    mailing list.  Volume is VERY high, 200-300 messages per day!
+    FAQ:   http://www.tux.org/lkml/
+
+
+    Archives:
+      http://marc.info/?l=linux-kernel
+                    (Since -97)
+      http://www.cs.helsinki.fi/linux/linux-kernel/
+                    (1997-2004)
+      http://lkml.indiana.edu/hypermail/linux/kernel/
+                    (Since -95)
+      http://lkml.org/
+                    (since -96)
+      http://www.spinics.net/lists/kernel/
+  #+END_EXAMPLE
