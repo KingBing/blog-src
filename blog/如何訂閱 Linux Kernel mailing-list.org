@@ -86,7 +86,7 @@
   一旦你請求加入 Linux Kernel mailing-list 被核准了，你會收到一封標題為
   *Welcome to linux-kernel* 的信件。之後，你就可以在你的信箱收到 Linux
   Kernel mailing-list 囉。 (*注意*: Linux Kernel mailing-list 每天的信
-  件非常多，請選用容量較大的 email 來接收)
+  件非常多，請選用容量較大的 email 信箱來接收)
 
   收到成功的信件如下:
 
