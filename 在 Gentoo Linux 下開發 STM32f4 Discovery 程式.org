@@ -25,7 +25,9 @@ ARM 微控器用的 toolchain。
 Embedded Processors]] 下載現成的 toolchain。
 
 除了 toolchain 外，我們亦需要可以在 Linux 下與 STM32 Discovery 開發版溝通
-用的程式 [[https://github.com/texane/stlink][stlink]]，。
+用的程式 [[https://github.com/texane/stlink][stlink]] ，若你是 Gentoo Linux 的使用者，你可以透過
+[[https://github.com/coldnew/coldnew-overlay/blob/master/dev-vcs/git-wip/git-wip-0.1.ebuild][coldnew-overlay]] 來安裝 [[https://github.com/texane/stlink][stlink]] ，或是從 GitHub 上下載原始碼自己編譯、安
+裝 。
 
 
 * 參考連結
