@@ -25,7 +25,7 @@ ARM 微控器用的 toolchain。
 Embedded Processors]] 下載現成的 toolchain。
 
 除了 toolchain 外，我們亦需要可以在 Linux 下與 STM32 Discovery 開發版溝通
-用的程式，在 Launchpad MSP430 下是 mspdebug，在 STM32 下則是 [[https://github.com/texane/stlink][stlink]]。
+用的程式 [[https://github.com/texane/stlink][stlink]]。
 
 
 * 參考連結
