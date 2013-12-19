@@ -9,7 +9,7 @@
 
 #+BLOGIT_TYPE: draft
 
-* 使用 crossdev 建立 ARM 微控器開發環境
+* 建立 ARM 微控器開發環境
 
 身為一個死忠的 Gentoo Linux 使用者，遇到需要新的 toolchain 的時候，自
 然就是 =crossdev= 一下了，在 Gentoo Linux 中你可以直接用以下方式建立給
