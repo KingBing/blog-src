@@ -10,7 +10,7 @@
 #+BLOGIT_TYPE: draft
 
 在過去，常見的微控器大概就是 8051、AVR、PIC 這幾款 8-bit 微控器，然而，
-隨著 ARM 的崛起，也開始用來愈多廠商投入 32-bit ARM 微控器的市場
+隨著 ARM 的崛起，也開始越來愈多廠商投入 32-bit ARM 微控器的市場。
 
 更多關於 8-bit MCU 和 32-bit MCU 的資訊，請參考 [[http://tw.myblog.yahoo.com/chamberplus-taiwan/article?mid%3D-2&prev%3D4343&l%3Df&fid%3D25][US $0.4 ARM .VS. 8051]]。
 
