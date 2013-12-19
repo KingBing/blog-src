@@ -41,7 +41,7 @@ Embedded Processors]] 下載現成的 toolchain。
 
 * 參考連結
 
-~[1]~ [[http://tw.myblog.yahoo.com/chamberplus-taiwan/article?mid%3D-2&prev%3D4343&l%3Df&fid%3D25][US $0.4 ARM .VS. 8051]]
+~[1]~  [[http://tw.myblog.yahoo.com/chamberplus-taiwan/article?mid%3D5340&prev%3D5370&next%3D5336&l%3Da&fid%3D25][意法發佈低成本 32 位元 MCU 產品，攻 8 位元市場]]
 
 ~[2]~ [[http://hackaday.com/2011/10/17/how-to-develop-for-stm32-discovery-boards-using-linux/][How to develop for STM32 discovery boards using linux]]
 
