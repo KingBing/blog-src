@@ -9,6 +9,11 @@
 
 #+BLOGIT_TYPE: draft
 
+在過去，常見的微控器大概就是 8051、AVR、PIC 這幾款 8-bit 微控器，然而，
+隨著 ARM 的崛起，也開始用來愈多廠商投入 32-bit ARM 微控器的市場
+
+
+
 * 建立 ARM 微控器開發環境
 
 身為一個死忠的 Gentoo Linux 使用者，遇到需要新的 toolchain 的時候，自
