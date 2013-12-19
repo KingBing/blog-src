@@ -30,7 +30,7 @@ Embedded Processors]] 下載現成的 toolchain。
 裝 。
 
 安裝完 [[https://github.com/texane/stlink][stlink]] 後，記得還要安裝 [[http://openocd.sourceforge.net/][OpenOCD]] ，這是一個開源的調適器，可以協
-助你更好的除錯你的 STM32 微空器， [[http://openocd.sourceforge.net/][OpenOCD]] 以被各大 Linux 發行版所收錄，使
+助你更好的除錯你的 STM32 微空器，[[http://openocd.sourceforge.net/][OpenOCD]] 以被各大 Linux 發行版所收錄，使
 用你習慣的安裝方式安裝即可。
 
 
