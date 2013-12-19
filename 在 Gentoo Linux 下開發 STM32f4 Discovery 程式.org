@@ -43,3 +43,5 @@ Embedded Processors]] 下載現成的 toolchain。
 ~[3]~ [[http://liviube.wordpress.com/2013/04/22/blink-for-stm32f4-discovery-board-on-linux-with-makefile/][Blink for stm32f4-discovery board on Linux with Makefile]]
 
 ~[4]~ [[https://github.com/texane/stlink/blob/master/doc/tutorial/tutorial.pdf?raw%3Dtrue][Using STM32 discovery kits with open source tools (PDF)]]
+
+~[5]~ [[http://www.triplespark.net/elec/pdev/arm/stm32.html][Programming STM32 F2, F4 ARMs under Linux: A Tutorial from Scratch]]
