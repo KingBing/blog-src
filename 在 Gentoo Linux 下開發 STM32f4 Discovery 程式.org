@@ -14,7 +14,6 @@
 
 更多關於 8-bit MCU 和 32-bit MCU 的資訊，請參考 [[http://tw.myblog.yahoo.com/chamberplus-taiwan/article?mid%3D-2&prev%3D4343&l%3Df&fid%3D25][US $0.4 ARM .VS. 8051]]。
 
-
 * 建立 ARM 微控器開發環境
 
 身為一個死忠的 Gentoo Linux 使用者，遇到需要新的 toolchain 的時候，自
