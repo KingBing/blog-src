@@ -21,7 +21,8 @@ ARM 微控器用的 toolchain。
 
 若有需要建立 GDB，則再加上 =--ex-gdb= 這組參數。
 
-如果你懶得使用 crossdev 編譯 toolchain，則可以到
+如果你懶得使用 crossdev 編譯 toolchain，則可以到 [[https://launchpad.net/gcc-arm-embedded][GNU Tools for ARM
+Embedded Processors]] 下載現成的 toolchain。
 
 
 * 參考連結
