@@ -29,7 +29,7 @@ Embedded Processors]] 下載現成的 toolchain。
 [[https://github.com/coldnew/coldnew-overlay/blob/master/dev-vcs/git-wip/git-wip-0.1.ebuild][coldnew-overlay]] 來安裝 [[https://github.com/texane/stlink][stlink]] ，或是從 GitHub 上下載原始碼自己編譯、安
 裝 。
 
-安裝完  [[https://github.com/texane/stlink][stlink]] 後，記得還要安裝
+安裝完  [[https://github.com/texane/stlink][stlink]] 後，記得還要安裝 [[http://openocd.sourceforge.net/][openocd]]
 
 
 * 參考連結
