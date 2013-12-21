@@ -23,21 +23,21 @@
 
   下面是我申請的範例:
 
-  #+BEGIN_EXAMPLE
+  #+BEGIN_SRC mail
     From: coldnew <coldnew.tw@gmail.com>
     To: majordomo@vger.kernel.org
     Subject: hello
     --text follows this line--
 
     subscribe linux-kernel
-  #+END_EXAMPLE
+  #+END_SRC
 
 - 2. 發送確認訊息
 
   如果你傳送出去的訊息沒有問題，過了不久就會收到從
   [[mailto:Majordomo@vger.kernel.org][majordomo@vger.kernel.org]] 寄來的確認信件，內容如下
 
-  #+BEGIN_EXAMPLE
+  #+BEGIN_SRC mail
     From: Majordomo@vger.kernel.org
     To: coldnew
     Subject: Confirmation for subscribe linux-kernel
@@ -66,20 +66,20 @@
     contact "linux-kernel-approval@vger.kernel.org".
 
     Thanks!
-  #+END_EXAMPLE
+  #+END_SRC
 
   照著信件上面所說的，回覆一封信到  [[mailto:majordomo@vger.kernel.org][majordomo@vger.kernel.org]] 並在內容
   裡面添加剛剛收到信件所敘述的檢查碼，以我這邊的情況為例，我回復的訊息
   如下:
 
-  #+BEGIN_EXAMPLE
+  #+BEGIN_SRC mail
     From: coldnew <coldnew.tw@gmail.com>
     To: majordomo@vger.kernel.org
     Subject: hello
     --text follows this line--
 
     auth 53fefc94 subscribe linux-kernel coldnew.tw@gmail.com
-  #+END_EXAMPLE
+  #+END_SRC
 
 - 3. 收到 *Welcome to linux-kernel* 信件
 
@@ -90,7 +90,7 @@
 
   收到成功的信件如下:
 
-  #+BEGIN_EXAMPLE
+  #+BEGIN_SRC mail
     From: Majordomo@vger.kernel.org
     To: coldnew
     Subject: Welcome to linux-kernel
@@ -136,4 +136,4 @@
       http://lkml.org/
                     (since -96)
       http://www.spinics.net/lists/kernel/
-  #+END_EXAMPLE
+  #+END_SRC

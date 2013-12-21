@@ -1,7 +1,7 @@
 #+TITLE: 在 Gentoo Linux 下開發 STM32f4 Discovery 程式
 #+AUTHOR: coldnew
 #+EMAIL:  coldnew.tw@gmail.com
-#+DATE:   2013-12-18 22:10:05
+#+DATE:   2013-12-21 22:10:05
 #+LANGUAGE: zh_TW
 #+URL:    686_g
 #+OPTIONS: num:nil ^:nil
@@ -9,12 +9,11 @@
 
 #+BLOGIT_TYPE: draft
 
-在過去，常見的微控器大概就是 8051、AVR、PIC 這幾款 8-bit 微控器，然而，
-隨著 ARM 的崛起，也開始越來愈多廠商投入 32-bit ARM 微控器的市場。
+STM32f4 Discovery 是 STMicro 所推出的 32-bit ARM Cortex-M4 基礎開發板，
+市面上售價約為 NT $700 元左右。為何要選用 32-bit ARM 微控器來進行開發，
 
-更多關於 8-bit MCU 和 32-bit MCU 的資訊，請參考 [[http://tw.myblog.yahoo.com/chamberplus-taiwan/article?mid%3D5340&prev%3D5370&next%3D5336&l%3Da&fid%3D25][意法發佈低成本 32 位元 MCU 產品，攻 8 位元市場]]。
 
-* 建立 ARM 微控器開發環境
+* 建立 STM32 微控器 toolchain
 
 身為一個死忠的 Gentoo Linux 使用者，遇到需要新的 toolchain 的時候，自
 然就是 =crossdev= 一下了，在 Gentoo Linux 中你可以直接用以下方式建立給
@@ -29,26 +28,121 @@ ARM 微控器用的 toolchain。
 如果你懶得使用 crossdev 編譯 toolchain，則可以到 [[https://launchpad.net/gcc-arm-embedded][GNU Tools for ARM
 Embedded Processors]] 下載現成的 toolchain。
 
+* 取得 stlink
+
 除了 toolchain 外，我們亦需要可以在 Linux 下與 STM32 Discovery 開發版溝通
 用的程式 [[https://github.com/texane/stlink][stlink]] ，若你是 Gentoo Linux 的使用者，你可以透過
 [[https://github.com/coldnew/coldnew-overlay/blob/master/dev-vcs/git-wip/git-wip-0.1.ebuild][coldnew-overlay]] 來安裝 [[https://github.com/texane/stlink][stlink]] ，或是從 GitHub 上下載原始碼自己編譯、安
 裝 。
 
-安裝完 [[https://github.com/texane/stlink][stlink]] 後，記得還要安裝 [[http://openocd.sourceforge.net/][OpenOCD]] ，這是一個開源的調適器，可以協
-助你更好的除錯你的 STM32 微空器，[[http://openocd.sourceforge.net/][OpenOCD]] 以被各大 Linux 發行版所收錄，使
-用你習慣的安裝方式安裝即可。
+#+BEGIN_EXAMPLE
+  git clone https://github.com/texane/stlink.git
+#+END_EXAMPLE
+
+* 建立 Linker Script
+
+Linker Script (LD Script) 目的是提供 Linker 針對編譯後的 Object 檔案進行
+記憶體位置安排的設定
+
+
+實際上在 STM32 Firmware 裡面已經包含現成可以使用的 linker 腳本了，但是
+為了能更好理解整個開發流程，這邊就讓我們自己來建立這個腳本吧。首先建立
+名為 =stm32.ld= 的檔案，並添加以下內容：
+
+#+BEGIN_SRC ld-script
+  /* This will work with STM32 type of microcontrollers.    *
+   ,* The sizes of RAM and flash are specified smaller than  *
+   ,* what most of the STM32 provide to ensure that the demo *
+   ,* program will run on ANY STM32.                         */
+  MEMORY
+  {
+          RAM (rwx) : ORIGIN = 0x20000000, LENGTH = 20K
+          ROM (rx)  : ORIGIN = 0x00000000, LENGTH = 128K
+  }
+
+  SECTIONS
+  {
+          .  = 0x0;         /* From 0x00000000 */
+          .text :
+          {
+                  ,*(vectors)    /* Vector table */
+                  ,*(.text)      /* Program code */
+                  ,*(.rodata)    /* Read only data */
+          } >ROM
+
+          .  = 0x20000000;  /* From 0x20000000 */
+          .data :
+          {
+                  ,*(.data)      /* Data memory */
+          } >RAM AT > ROM
+
+          .bss :
+          {
+                  ,*(.bss)       /* Zero-filled run time allocate data memory */
+          } >RAM AT > ROM
+  }
+#+END_SRC
+
+要怎樣了解這個 Linker Script 呢? 首先我們先來看 MEMORY 這個區段
+
+#+BEGIN_SRC ld-script
+  MEMORY
+  {
+          RAM (rwx) : ORIGIN = 0x20000000, LENGTH = 20K
+          ROM (rx)  : ORIGIN = 0x00000000, LENGTH = 128K
+  }
+#+END_SRC
+
+MEMORY 區段告訴了 linker 說我要把
+
+
+
+- data (資料區段)
+
+  我們指定 data section 的位址為 0x20000000，該區段放置了程式裡面所有
+
+  #+BEGIN_SRC ld-script
+    .  = 0x20000000;  /* From 0x20000000 */
+    .data :
+    {
+            ,*(.data)      /* Data memory */
+    } >RAM AT > ROM
+  #+END_SRC
+
+  在 data 區段末有一個 *>RAM AT >ROM* 描述，這是告訴 linker 說要先把編
+  譯好的 data，
+
+- bss (未初始化資料區段)
+
+  #+BEGIN_SRC ld-script
+    .bss :
+    {
+            ,*(.bss)       /* Zero-filled run time allocate data memory */
+    } >RAM AT > ROM
+  #+END_SRC
+
 
 
 * 參考連結
 
-~[1]~  [[http://tw.myblog.yahoo.com/chamberplus-taiwan/article?mid%3D5340&prev%3D5370&next%3D5336&l%3Da&fid%3D25][意法發佈低成本 32 位元 MCU 產品，攻 8 位元市場]]
+~[1]~ [[http://hackaday.com/2011/10/17/how-to-develop-for-stm32-discovery-boards-using-linux/][How to develop for STM32 discovery boards using linux]]
 
-~[2]~ [[http://hackaday.com/2011/10/17/how-to-develop-for-stm32-discovery-boards-using-linux/][How to develop for STM32 discovery boards using linux]]
+~[2]~ [[http://descent-incoming.blogspot.tw/2013/04/for-stm32f4discovery-0-linux.html][作業系統之前的程式 for stm32f4discovery (0) - 打造 linux 開發環境]]
 
-~[3]~ [[http://descent-incoming.blogspot.tw/2013/04/for-stm32f4discovery-0-linux.html][作業系統之前的程式 for stm32f4discovery (0) - 打造 linux 開發環境]]
+~[3]~ [[http://liviube.wordpress.com/2013/04/22/blink-for-stm32f4-discovery-board-on-linux-with-makefile/][Blink for stm32f4-discovery board on Linux with Makefile]]
 
-~[4]~ [[http://liviube.wordpress.com/2013/04/22/blink-for-stm32f4-discovery-board-on-linux-with-makefile/][Blink for stm32f4-discovery board on Linux with Makefile]]
+~[4]~ [[https://github.com/texane/stlink/blob/master/doc/tutorial/tutorial.pdf?raw%3Dtrue][Using STM32 discovery kits with open source tools (PDF)]]
 
-~[5]~ [[https://github.com/texane/stlink/blob/master/doc/tutorial/tutorial.pdf?raw%3Dtrue][Using STM32 discovery kits with open source tools (PDF)]]
+~[5]~ [[http://www.triplespark.net/elec/pdev/arm/stm32.html][Programming STM32 F2, F4 ARMs under Linux: A Tutorial from Scratch]]
 
-~[6]~ [[http://www.triplespark.net/elec/pdev/arm/stm32.html][Programming STM32 F2, F4 ARMs under Linux: A Tutorial from Scratch]]
+~[6]~ [[http://www.wolinlabs.com/blog/linux.stm32.discovery.gcc.html][STM32 Discovery Development On Linux]]
+
+~[7]~ [[http://jeremyherbert.net/get/stm32f4_getting_started][Getting Started with the STM32F4 and GCC]]
+
+~[8]~ [[http://xenyinzen.wikidot.com/os-dev:ldscript][心映真的空間 - ldscript 腳本知識]]
+
+~[9]~ [[http://developers.stf12.net/cpp-demo/gcc-linker-script-and-stm32-a-tutorial][ GCC linker script and STM32 (a tutorial) ]]
+
+~[10]~ [[http://fun-tech.se/stm32/index.php][STM32/ARM Cortex-M3 HOWTO: Development under Ubuntu (Debian)]]
+
+~[11]~ [[http://home.educities.edu.tw/fushiyun2000/index.htm][司徒的教學網站]]
