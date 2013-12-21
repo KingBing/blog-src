@@ -41,8 +41,8 @@ Embedded Processors]] 下載現成的 toolchain。
 
 * 建立 Linker Script
 
-Linker Script (LD Script) 目的是提供 Linker 針對編譯後的 Object 檔案進行
-記憶體位置安排的設定
+Linker Script (LD Script) 目的是提供 Linker 針對編譯後的 Object 檔案
+進行記憶體位置安排的設定、整合各 Object 檔案不同的區段等運作
 
 
 實際上在 STM32 Firmware 裡面已經包含現成可以使用的 linker 腳本了，但是
