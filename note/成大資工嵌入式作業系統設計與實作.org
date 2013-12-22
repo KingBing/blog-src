@@ -169,5 +169,6 @@ LED 閃爍這種狀況，是否在另外增加了 GUI 來實現這種情況呢�
 
 [[file:files/2013/ncku_embedded_course/blink_led.png]]
 
-原來所謂的閃爍 LED 實際上是在 console 裡面告訴你目前 LED 的狀態，這種方式
-也不錯啦 :)
+原來所謂的閃爍 LED 實際上是在 console 裡面告訴你目前 LED 的狀態。
+
+** 執行範例程式 button
