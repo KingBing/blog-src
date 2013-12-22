@@ -173,6 +173,8 @@ LED 閃爍這種狀況，是否在另外增加了 GUI 來實現這種情況呢�
 
 ** 執行範例程式 button
 
+button 這個範例則是要模擬當使用者按下按鈕後，關閉 LED 的狀況
+
 執行方式如下
 
 #+BEGIN_EXAMPLE
@@ -180,3 +182,5 @@ LED 閃爍這種狀況，是否在另外增加了 GUI 來實現這種情況呢�
 #+END_EXAMPLE
 
 執行結果
+
+[[file:files/2013/ncku_embedded_course/button.png]]
