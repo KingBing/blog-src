@@ -196,3 +196,5 @@ Console 裡面輸入 =sendkey b= 來告訴 QEMU 你按下了 button。
 #+END_EXAMPLE
 
 執行結果
+
+[[file:files/2013/ncku_embedded_course/uart_echo.png]]
