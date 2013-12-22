@@ -18,7 +18,7 @@
 
 * 使用 QEMU 模擬 STM32 MCU 程式開發
 
-這是取自於 [[http://wiki.csie.ncku.edu.tw/embedded/Lab1][Lab1: QEMU Modeling]] 的資訊，本人是使用 Gentoo Linux 系統，
+這是取自於 [[http://wiki.csie.ncku.edu.tw/embedded/Lab1][Lab1: QEMU Modeling]] 的資訊，本人 Gentoo Linux 系統的使用者，
 因此很偷懶的直接先安裝 QEMU，這樣 Gentoo Linux 就會幫我把編譯
 [[https://github.com/beckus/qemu_stm32][qemu_stm32]] 所需要的函式庫都裝到系統裡面，這樣我就可以很直接的編譯
 [[https://github.com/beckus/qemu_stm32][qemu_stm32]] ，而不用擔心依賴的問題。
