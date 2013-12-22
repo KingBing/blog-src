@@ -151,3 +151,5 @@ MEMORY 區段告訴了 linker 說我要把
 ~[10]~ [[http://fun-tech.se/stm32/index.php][STM32/ARM Cortex-M3 HOWTO: Development under Ubuntu (Debian)]]
 
 ~[11]~ [[http://home.educities.edu.tw/fushiyun2000/index.htm][司徒的教學網站]]
+
+~[12]~ 一步一步写嵌入式操作系统--ARM编程的方法与实践
