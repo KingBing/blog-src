@@ -12,6 +12,9 @@
 
 * 將 i2c 編進 Raspberry Pi kernel 裡面
 
+由於我們希望可以在開機過程中能夠使用 i2c 協定取得 eeprom 裡面的資訊，因
+此要將 i2c 的驅動邊進 Linux Kernel 中。
+
 #+BEGIN_EXAMPLE
   <*> I2C support  --->
       <*>   I2C device interface
