@@ -171,3 +171,6 @@
 #+BEGIN_EXAMPLE
   coldnew@Rosia ~/Workspace $ make blink_flash_QEMURUN
 #+END_EXAMPLE
+
+
+[[file:../files/2013/ncku_embedded_course/blink_led.png]]
