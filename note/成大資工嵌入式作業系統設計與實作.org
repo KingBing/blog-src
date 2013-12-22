@@ -141,7 +141,7 @@ blog 的可能。
       uint32_t result=0;
 
   -   __ASM volatile ("strexb %0, %2, [%1]" : "=r" (result) : "r" (addr), "r" (value) );
-  +   __ASM volatile ("strexb %0, %2, [%1]" : "=&r" (result) : "r" (addr), "r" (value) );^M
+  +   __ASM volatile ("strexb %0, %2, [%1]" : "=&r" (result) : "r" (addr), "r" (value) );
       return(result);
    }
 
@@ -150,7 +150,7 @@ blog 的可能。
       uint32_t result=0;
 
   -   __ASM volatile ("strexh %0, %2, [%1]" : "=r" (result) : "r" (addr), "r" (value) );
-  +   __ASM volatile ("strexh %0, %2, [%1]" : "=&r" (result) : "r" (addr), "r" (value) );^M
+  +   __ASM volatile ("strexh %0, %2, [%1]" : "=&r" (result) : "r" (addr), "r" (value) );
       return(result);
    }
 #+END_SRC
