@@ -176,7 +176,7 @@ LED 閃爍這種狀況，是否在另外增加了 GUI 來實現這種情況呢�
 執行方式如下
 
 #+BEGIN_EXAMPLE
-  coldnew@Rosia ~/Workspace/stm32_p103_demos $ make blink_flash_QEMURUN
+  coldnew@Rosia ~/Workspace/stm32_p103_demos $ make button_QEMURUN
 #+END_EXAMPLE
 
 執行結果
