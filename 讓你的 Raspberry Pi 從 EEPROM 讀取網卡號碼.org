@@ -6,3 +6,11 @@
 #+URL:    fcb56
 #+OPTIONS: num:nil ^:nil
 #+TAGS: raspberry_pi kernel linux
+
+#+BLOGIT_TYPE: draft
+
+#+BEGIN_EXAMPLE
+  <*> I2C support  --->
+
+    <*>   I2C device interface
+#+END_EXAMPLE
