@@ -188,3 +188,11 @@ Console 裡面輸入 =sendkey b= 來告訴 QEMU 你按下了 button。
 [[file:files/2013/ncku_embedded_course/button.png]]
 
 ** 執行範例程式 uart_echo
+
+執行方式如下
+
+#+BEGIN_EXAMPLE
+  coldnew@Rosia ~/Workspace/stm32_p103_demos $ make uart_echo_QEMURUN
+#+END_EXAMPLE
+
+執行結果
