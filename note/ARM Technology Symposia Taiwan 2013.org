@@ -249,7 +249,7 @@ Compile to
 
 ** No Longer...
 
-[[file:files/arm/mem_nolonger.jpg]]
+[[file:files/2013/arm/mem_nolonger.jpg]]
 
 ** Today's systems
 
@@ -309,7 +309,7 @@ before being accessed?
 
 ** Going superscalar
 
-[[file:files/arm/mem_going_superscalar.png]]
+[[file:files/2013/arm/mem_going_superscalar.png]]
 
 - Instructions can be
 
@@ -594,25 +594,25 @@ Use Load and Store Exclusive to provide proper protection to critical sections.
 
 ** In summary
 
-[[file:files/arm/mem_summary.jpg]]
+[[file:files/2013/arm/mem_summary.jpg]]
 
 * big.LITTLE Software Made Easy
 
 ** Demand For Performance and Battery Life
 
-[[file:files/arm/demand_for.jpg]]
+[[file:files/2013/arm/demand_for.jpg]]
 
 ** The Right Processor for the Right Job
 
-[[file:files/arm/right_processor.jpg]]
+[[file:files/2013/arm/right_processor.jpg]]
 
 ** DVFS profiles from leading Dual Cortex-A9 Smartphone
 
-[[file:files/arm/dvfs.jpg]]
+[[file:files/2013/arm/dvfs.jpg]]
 
 ** big.LITTLE Software Models - Progression over Time
 
-[[file:files/arm/big_little.jpg]]
+[[file:files/2013/arm/big_little.jpg]]
 
 ** CPU Migration - Extending DVFS
 
@@ -642,11 +642,11 @@ Use Load and Store Exclusive to provide proper protection to critical sections.
 
 ** GTS in Action
 
-[[file:files/arm/gts_in_action.jpg]]
+[[file:files/2013/arm/gts_in_action.jpg]]
 
 ** Big.LITTLE MP Kernel in Action
 
-[[file:files/arm/kernel_in_action.jpg]]
+[[file:files/2013/arm/kernel_in_action.jpg]]
 
 ** Global Task Scheduling
 
