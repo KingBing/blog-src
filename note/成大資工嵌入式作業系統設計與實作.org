@@ -157,8 +157,9 @@ blog 的可能。
 ** 執行範例程式 blink_flash
 
 第一個範例就是 LED 閃爍程式，一開始我很好奇 QEMU 是如何模擬周邊裝置、
-LED 閃爍這種狀況，是否在另外增加了 GUI 來實現這種情況呢，實際上運作結
-果請參見後面圖片....
+LED 閃爍這種狀況，是否在另外增加了 GUI 來實現這種情況呢，事實上在 qemu_stm32
+console 裡面告訴你目前 LED 的狀態。
+
 
 執行方式如下
 
@@ -170,7 +171,7 @@ LED 閃爍這種狀況，是否在另外增加了 GUI 來實現這種情況呢�
 
 [[file:files/2013/ncku_embedded_course/blink_led.png]]
 
-原來所謂的閃爍 LED 實際上是在 console 裡面告訴你目前 LED 的狀態。
+原來所謂的閃爍 LED 實際上
 
 ** 執行範例程式 button
 
