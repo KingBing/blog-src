@@ -43,7 +43,9 @@ Embedded Processors]] 下載現成的 toolchain。
 
 Linker Script (LD Script) 是用來提供 Linker 針對編譯後的 Object 檔案
 進行記憶體位置安排的設定、整合各 Object 檔案不同的區段，並產生執行檔。
-若是在電腦上直接執行 GCC，沒有指定 Linker Script 的情況下，系統會使用預設
+
+有些人可能會有疑問，平常在使用 GCC 的時候，並不需要自己建立 Linker Script
+啊?事實上，在電腦上直接執行 GCC，沒有指定 Linker Script 的情況下，系統會使用預設
 的 Linker Script 來進行編譯，也因此在平常的時候我們不會需要自定義 Linker Script。
 
 實際上在 STM32 Firmware 裡面已經包含現成可以使用的 linker 腳本了，但是
