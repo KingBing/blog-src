@@ -1,0 +1,8 @@
+#+TITLE: 讓你的 Raspberry Pi 從 EEPROM 讀取網卡號碼
+#+AUTHOR: coldnew
+#+EMAIL:  coldnew.tw@gmail.com
+#+DATE:   2013-12-22 14:05:39
+#+LANGUAGE: zh_TW
+#+URL:    fcb56
+#+OPTIONS: num:nil ^:nil
+#+TAGS: raspberry_pi kernel linux
