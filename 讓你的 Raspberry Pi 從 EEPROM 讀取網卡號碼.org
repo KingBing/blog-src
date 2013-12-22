@@ -11,6 +11,7 @@
 
 #+BEGIN_EXAMPLE
   <*> I2C support  --->
-
-    <*>   I2C device interface
+      <*>   I2C device interface
+            I2C Hardware Bus support  --->
+                <*> BCM2708 BSC
 #+END_EXAMPLE
