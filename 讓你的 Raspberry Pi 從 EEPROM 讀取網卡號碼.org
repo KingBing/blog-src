@@ -10,7 +10,7 @@
 #+BLOGIT_TYPE: draft
 
 
-* 將
+* 將 i2c 編進 Raspberry Pi kernel 裡面
 
 #+BEGIN_EXAMPLE
   <*> I2C support  --->
