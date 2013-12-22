@@ -132,24 +132,25 @@ blog 的可能。
 請參考 [[http://www.cesareriva.com/tag/core_cm3-s826-error-registers-may-not-be-the-same-strexb-r3/][這篇文章]] 的資訊進行修正，如下，修正完成後你應該就可以正常編譯了。
 
 #+BEGIN_SRC diff
-  diff -aurN a/libraries/CMSIS/CM3/CoreSupport/core_cm3.c b/libraries/CMSIS/CM3/CoreSupport/core_cm3.c
-  --- a/libraries/CMSIS/CM3/CoreSupport/core_cm3.c      2013-12-22 17:06:23.760000000 +0800
-  +++ b/libraries/CMSIS/CM3/CoreSupport/core_cm3.c      2013-12-22 17:07:41.150000000 +0800
-  @@ -733,7 +733,7 @@
+  diff --git a/libraries/CMSIS/CM3/CoreSupport/core_cm3.c b/libraries/CMSIS/CM3/CoreSupport/core_cm3.c
+  index 56fddc5..0e8c3c4 100644
+  --- a/libraries/CMSIS/CM3/CoreSupport/core_cm3.c
+  +++ b/libraries/CMSIS/CM3/CoreSupport/core_cm3.c
+  @@ -733,7 +733,7 @@ uint32_t __STREXB(uint8_t value, uint8_t *addr)
    {
       uint32_t result=0;
 
   -   __ASM volatile ("strexb %0, %2, [%1]" : "=r" (result) : "r" (addr), "r" (value) );
-  +   __ASM volatile ("strexb %0, %2, [%1]" : "=&r" (result) : "r" (addr), "r" (value) );
+  +   __ASM volatile ("strexb %0, %2, [%1]" : "=&r" (result) : "r" (addr), "r" (value) );^M
       return(result);
    }
 
-  @@ -750,7 +750,7 @@
+  @@ -750,7 +750,7 @@ uint32_t __STREXH(uint16_t value, uint16_t *addr)
    {
       uint32_t result=0;
 
   -   __ASM volatile ("strexh %0, %2, [%1]" : "=r" (result) : "r" (addr), "r" (value) );
-  +   __ASM volatile ("strexh %0, %2, [%1]" : "=&r" (result) : "r" (addr), "r" (value) );
+  +   __ASM volatile ("strexh %0, %2, [%1]" : "=&r" (result) : "r" (addr), "r" (value) );^M
       return(result);
    }
 #+END_SRC
