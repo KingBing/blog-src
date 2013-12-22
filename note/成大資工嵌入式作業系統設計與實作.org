@@ -189,6 +189,10 @@ Console 裡面輸入 =sendkey b= 來告訴 QEMU 你按下了 button。
 
 ** 執行範例程式 uart_echo
 
+uart_echo 這個範例是建立一個 baud rate 為 9600 的 UART，並回傳使用者輸入的
+訊息，你要在 QEMU 下面使用 =Ctrl-Alt 2= 切換到 Serieal 視窗，若要切換回
+QEMU Console 的話，則使用 =Ctrl-Alt 1= 。
+
 執行方式如下
 
 #+BEGIN_EXAMPLE
