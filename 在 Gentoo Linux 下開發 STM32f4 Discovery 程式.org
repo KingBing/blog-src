@@ -148,7 +148,7 @@ MEMORY 區段告訴了 linker 說我要把
 
 ~[8]~ [[http://xenyinzen.wikidot.com/os-dev:ldscript][心映真的空間 - ldscript 腳本知識]]
 
-~[9]~ [[http://developers.stf12.net/cpp-demo/gcc-linker-script-and-stm32-a-tutorial][ GCC linker script and STM32 (a tutorial) ]]
+~[9]~ [[http://developers.stf12.net/cpp-demo/gcc-linker-script-and-stm32-a-tutorial][GCC linker script and STM32 (a tutorial)]]
 
 ~[10]~ [[http://fun-tech.se/stm32/index.php][STM32/ARM Cortex-M3 HOWTO: Development under Ubuntu (Debian)]]
 
