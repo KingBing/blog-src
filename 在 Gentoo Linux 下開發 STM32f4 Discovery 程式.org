@@ -101,6 +101,8 @@ Linker Script。在嵌入式系統下，大部分整合開發環境 (IDE) 會提
 MEMORY 區段告訴了 linker 說我要把
 
 
+了解了 MEMORY 區段後，讓我們來看看 SECTION 區段是做什麼的。
+
 
 - data (資料區段)
 
