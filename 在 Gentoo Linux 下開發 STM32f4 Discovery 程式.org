@@ -50,6 +50,7 @@ Linker Script (LD Script) 是用來提供 Linker 針對編譯後的 Object 檔�
 Linker Script。在嵌入式系統下，大部分整合開發環境 (IDE) 會提供你預先製
 作好的 LD Script，讓你只要點選編譯按鈕，程式就直接產生。
 
+
 實際上在 STM32 Firmware 裡面已經包含現成可以使用的 linker 腳本了，但是
 為了能更好理解整個開發流程，這邊就讓我們自己來建立這個腳本吧。首先建立
 名為 =stm32.ld= 的檔案，並添加以下內容：
