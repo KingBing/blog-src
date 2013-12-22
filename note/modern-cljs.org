@@ -247,7 +247,7 @@ html、javscript、css 等。
 打開瀏覽器並瀏覽你本地端的 =simple.html= . 如果你沒有做錯任何步驟，你
 會看到 "Hello, ClojureScript!"。
 
-[[file:files/modern_cljs/hellocljs.png]]
+[[file:files/2013/modern_cljs/hellocljs.png]]
 
 ** License
 
