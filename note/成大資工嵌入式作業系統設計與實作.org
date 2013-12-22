@@ -1,0 +1,173 @@
+#+TITLE: 成大資工 - 嵌入式作業系統設計與實作
+#+AUTHOR: coldnew
+#+EMAIL:  coldnew.tw@gmail.com
+#+DATE:   2013-12-22 13:28:44
+#+LANGUAGE: zh_TW
+#+URL:    ncku_embedded_system_course
+#+OPTIONS: num:nil ^:nil
+#+BLOGIT_TYPE: note
+
+#+ATTR_HTML: :class alert-info
+#+BEGIN_ALERT
+這是我研讀 [[http://wiki.csie.ncku.edu.tw/embedded/schedule][成大資工 - 嵌入式作業系統設計與實作]] 課程/實驗課的筆記，由於
+本人並非該校的學生，此筆記只紀錄些我遇到的問題、想紀錄在這的資訊而已。
+
+當然本篇文章也有被移除，或是整合進我個人的 blog 的機會，因此連結有可能
+會被變更/移除。
+#+END_ALERT
+
+* 使用 QEMU 模擬 STM32 MCU 程式開發
+
+這是取自於 [[http://wiki.csie.ncku.edu.tw/embedded/Lab1][Lab1: QEMU Modeling]] 的資訊，本人是使用 Gentoo Linux 系統，
+因此很偷懶的直接先安裝 QEMU，這樣 Gentoo Linux 就會幫我把編譯
+[[https://github.com/beckus/qemu_stm32][qemu_stm32]] 所需要的函式庫都裝到系統裡面，這樣我就可以很直接的編譯
+[[https://github.com/beckus/qemu_stm32][qemu_stm32]] ，而不用擔心依賴的問題。
+
+** 編譯 qemu_stm32
+
+使用 git 下載 [[https://github.com/beckus/qemu_stm32][qemu_stm32]]
+
+#+BEGIN_EXAMPLE
+  coldnew@Rosia ~/Workspace $ git clone git://github.com/beckus/qemu_stm32.git
+  Cloning into 'qemu_stm32'...
+  remote: Counting objects: 161833, done.
+  remote: Compressing objects: 100% (33754/33754), done.
+  remote: Total 161833 (delta 127553), reused 161833 (delta 127553)
+  Receiving objects: 100% (161833/161833), 57.99 MiB | 578.00 KiB/s, done.
+  Resolving deltas: 100% (127553/127553), done.
+  Checking connectivity... done.
+#+END_EXAMPLE
+
+進入 qemu_stm32 資料夾並進行編譯
+
+#+BEGIN_SRC sh
+  cd qemu_stm32
+  ./configure --disable-werror --enable-debug   \
+      --target-list="arm-softmmu"               \
+      --extra-cflags=-DDEBUG_CLKTREE            \
+      --extra-cflags=-DDEBUG_STM32_RCC          \
+      --extra-cflags=-DDEBUG_STM32_UART         \
+      --extra-cflags=-DSTM32_UART_NO_BAUD_DELAY \
+      --extra-cflags=-DSTM32_UART_ENABLE_OVERRUN
+  make
+#+END_SRC
+
+如果你編譯的時候，遇到如以下的問題
+
+#+BEGIN_EXAMPLE
+  coldnew@Rosia ~/Workspace/qemu_stm32 $ make
+    CC    arm-softmmu/device_tree.o
+  In file included from /usr/include/libfdt.h:55:0,
+                   from /home/coldnew/Workspace/qemu_stm32/device_tree.c:28:
+  /usr/include/fdt.h:58:2: error: unknown type name 'fdt32_t'
+    fdt32_t magic;    /* magic word FDT_MAGIC */
+    ^
+  /usr/include/fdt.h:59:2: error: unknown type name 'fdt32_t'
+    fdt32_t totalsize;   /* total size of DT block */
+    ^
+  /usr/include/fdt.h:60:2: error: unknown type name 'fdt32_t'
+    fdt32_t off_dt_struct;   /* offset to structure */
+#+END_EXAMPLE
+
+請參考這份 [[http://lists.gnu.org/archive/html/qemu-devel/2013-05/msg00856.html][mailing-list]] 上面的方式進行修正，如下面這樣，重新編譯後應
+該就不會有問題了。
+
+#+BEGIN_SRC diff
+  diff -aurN a/include/libftd_env.h b/include/libftd_env.h
+  --- a/include/libfdt_env.h        2013-12-22 16:59:08.670000000 +0800
+  +++ b/include/libfdt_env.h        2013-12-22 16:26:31.460000000 +0800
+  @@ -21,6 +21,18 @@
+
+   #include "qemu/bswap.h"
+
+  +#ifdef __CHECKER__
+  +#define __force __attribute__((force))
+  +#define __bitwise __attribute__((bitwise))
+  +#else
+  +#define __force
+  +#define __bitwise
+  +#endif
+  +
+  +typedef uint16_t __bitwise fdt16_t;
+  +typedef uint32_t __bitwise fdt32_t;
+  +typedef uint64_t __bitwise fdt64_t;
+  +
+   #ifdef HOST_WORDS_BIGENDIAN
+   #define fdt32_to_cpu(x)  (x)
+   #define cpu_to_fdt32(x)  (x)
+#+END_SRC
+
+** 編譯 stm32_p103_demos
+
+使用 git 下載 [[https://github.com/beckus/stm32_p103_demos][stm32_p103_demo]]
+
+#+BEGIN_EXAMPLE
+  coldnew@Rosia ~/Workspace $ git clone https://github.com/beckus/stm32_p103_demos.git
+  Cloning into 'stm32_p103_demos'...
+  remote: Counting objects: 661, done.
+  remote: Compressing objects: 100% (346/346), done.
+  remote: Total 661 (delta 299), reused 652 (delta 293)
+  Receiving objects: 100% (661/661), 982.43 KiB | 411.00 KiB/s, done.
+  Resolving deltas: 100% (299/299), done.
+  Checking connectivity... done.
+#+END_EXAMPLE
+
+進入 stm32_p103 資料夾並編譯程式碼
+
+#+BEGIN_SRC sh
+  cd stm32_p103_demos
+  make all
+#+END_SRC
+
+如果你遇到如下面這樣的錯誤
+
+#+BEGIN_EXAMPLE
+  coldnew@Rosia ~/Workspace/stm32_p103_demos $ make all
+  /tmp/ccapFI0K.s: Assembler messages:
+  /tmp/ccapFI0K.s:752: Error: registers may not be the same -- `strexb r3,r2,[r3]'
+  /tmp/ccapFI0K.s:797: Error: registers may not be the same -- `strexh r3,r2,[r3]'
+  make: *** [demos/blink_flash/main.elf] Error 1
+#+END_EXAMPLE
+
+請參考 [[http://www.cesareriva.com/tag/core_cm3-s826-error-registers-may-not-be-the-same-strexb-r3/][這篇文章]] 的資訊進行修正，如下，修正完成後你應該就可以正常編譯了。
+
+#+BEGIN_SRC diff
+  diff -aurN a/libraries/CMSIS/CM3/CoreSupport/core_cm3.c b/libraries/CMSIS/CM3/CoreSupport/core_cm3.c
+  --- a/libraries/CMSIS/CM3/CoreSupport/core_cm3.c      2013-12-22 17:06:23.760000000 +0800
+  +++ b/libraries/CMSIS/CM3/CoreSupport/core_cm3.c      2013-12-22 17:07:41.150000000 +0800
+  @@ -733,7 +733,7 @@
+   {
+      uint32_t result=0;
+
+  -   __ASM volatile ("strexb %0, %2, [%1]" : "=r" (result) : "r" (addr), "r" (value) );
+  +   __ASM volatile ("strexb %0, %2, [%1]" : "=&r" (result) : "r" (addr), "r" (value) );
+      return(result);
+   }
+
+  @@ -750,7 +750,7 @@
+   {
+      uint32_t result=0;
+
+  -   __ASM volatile ("strexh %0, %2, [%1]" : "=r" (result) : "r" (addr), "r" (value) );
+  +   __ASM volatile ("strexh %0, %2, [%1]" : "=&r" (result) : "r" (addr), "r" (value) );
+      return(result);
+   }
+#+END_SRC
+** 執行範例程式
+
+在 [[http://wiki.csie.ncku.edu.tw/embedded/Lab1][Lab1: QEMU Modeling]] 裡面，提及到執行 stm32_p103_demos 共有以下三個
+範例
+
+- blink_flash
+- button
+- uart_echo
+
+我們一個一個範例來看，第一個就是 LED 閃爍程式，一開始我很好奇 QEMU 是如何
+模擬周邊裝置、LED 閃爍這種狀況，是否在另外增加了 GUI 來實現這種情況呢，
+實際上請參見後面圖片....
+
+執行方式如下
+
+#+BEGIN_EXAMPLE
+  coldnew@Rosia ~/Workspace $ make blink_flash_QEMURUN
+#+END_EXAMPLE

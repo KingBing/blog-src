@@ -1,0 +1,100 @@
+#+TITLE: Linux 筆記
+#+AUTHOR: coldnew
+#+EMAIL:  coldnew.tw@gmail.com
+#+DATE:   2013-12-06 17:09:51
+#+LANGUAGE: zh_TW
+#+URL:    linux
+#+OPTIONS: num:nil ^:nil
+#+BLOGIT_TYPE: note
+
+* 透過 sysfs 控制 CPU
+
+- 關閉/打開 CPU
+
+  #+BEGIN_SRC sh
+    # this urns the cpu core with id 1 off
+    echo 0 > /sys/devices/system/cpu/cpu1/online
+
+    # this turns the core back on
+    echo 1 > /sys/devices/system/cpu/cpu1/online
+  #+END_SRC
+
+- 取得目前 CPU 的頻率
+
+  #+BEGIN_SRC sh
+    # reads the current frequency of core 0
+    cat /sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_cur_freq
+  #+END_SRC
+
+- 調整 CPU 最大的頻率
+
+  #+BEGIN_SRC sh
+    # set maximum cpu core frequency to 792 MHz
+    echo 792000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+
+    # set maximum cpu core frequency to 996 MHz
+    echo 996000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+  #+END_SRC
+
+* 讓你的 ssh 免密碼登入                                                 :ssh:
+
+** 建立不用密碼的金鑰
+
+#+begin_src sh
+  ssh-keygen -t rsa
+#+end_src
+
+** 將你的免密碼金鑰複製到遠端機器
+
+假設你的免密碼金鑰是 =~/.ssh/id_rsa.pub= ，遠端帳號是 =account= ，伺服
+器是 =server.com= ，使用下列指令可以複製你的免密碼金鑰到遠端伺服器。
+
+#+begin_src sh
+  cat ~/.ssh/id_rsa.pub | ssh account@server.com 'cat >> ~/.ssh/authorized_keys'
+#+end_src
+
+** 上述指令無法運作的狀況
+
+假如你使用上述指令仍舊無法直接登入遠端伺服器，則有可能是 ssh 版本的問題，請再試試下面的方法。
+
+#+begin_src sh
+  cat ~/.ssh/id_rsa.pub | ssh account@server.com 'cat >> ~/.ssh/authorized_keys2'
+#+end_src
+
+登入到遠端伺服器，並且
+
+#+begin_src sh
+  chmod 700 ~/.ssh
+  chmod 640 ~/.ssh/authorized_keys2
+#+end_src
+** 使用 ssh-copy-id 簡化上面步驟
+
+#+BEGIN_EXAMPLE
+  coldnew@Rosia ~ $ ssh-copy-id -i ~/.ssh/id_rsa.pub pi@192.168.1.21
+#+END_EXAMPLE
+
+* 檢查 glibc 的相容狀況
+
+若要檢查 glibc 可以相容的版本，可以透過以下命令取得
+
+#+BEGIN_EXAMPLE
+   coldnew@Rosia ~ $ strings /lib/libc.so.6 | grep GLIBC_
+
+   GLIBC_2.2.5
+   GLIBC_2.2.6
+   GLIBC_2.3
+   GLIBC_2.3.2
+   GLIBC_2.3.3
+   GLIBC_2.3.4
+   GLIBC_2.4
+   GLIBC_2.5
+   GLIBC_2.6
+   GLIBC_2.7
+   GLIBC_2.8
+   GLIBC_2.9
+   GLIBC_2.10
+   GLIBC_2.11
+   GLIBC_PRIVATE
+#+END_EXAMPLE
+
+從上面的例子，可以看到我測試用的這台機器，glibc 最多只支援到 2.11 版。

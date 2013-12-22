@@ -1,0 +1,115 @@
+h#+TITLE: KiCAD 中文教學
+#+AUTHOR: coldnew
+#+EMAIL:  coldnew.tw@gmail.com
+#+DATE:   2013-12-07 10:09:51
+#+LANGUAGE: zh_TW
+#+URL:    kicad_tutorial_zhTW
+#+OPTIONS: num:nil ^:nil
+#+BLOGIT_TYPE: note
+
+#+ATTR_HTML: :class alert-danger
+#+BEGIN_ALERT
+This document is still under development.
+#+END_ALERT
+
+#+ATTR_HTML: :class alert-info
+#+BEGIN_ALERT
+在 2011 年時，我曾經因為擔任實驗課助教，而寫了一份 [[http://zh.scribd.com/doc/59333237/kicad%25E6%2595%2599%25E5%25AD%25B8-ver-0-1][KiCAD 教學 ver 0.1]] ，這份
+筆記算是他的重製 or 延伸版本。
+#+END_ALERT
+
+# 封面
+#+BEGIN_LaTeX
+  \thispagestyle{empty}
+  \pagenumbering{roman}
+  \vspace*{4cm}
+  \begin{center}
+    \includegraphics[width=60mm]{./pict/kicad_logo.png} \\
+    \noindent \textsf{\textbf{\Huge KiCAD 正體中文教學}}{\Large \par}
+    \vspace{1cm}
+    \noindent {\large Copyright \copyright \ 2012 Yen-Chin, Lee <coldnew>}
+    \noindent \vspace{0.8cm}
+    \noindent \vspace{1.0cm}
+  \end{center}
+  \newpage{}
+#+END_LaTeX
+
+# 版權宣告
+#+BEGIN_LaTeX
+  \noindent
+  \textsf{\textbbf{\Large Copyright Notice}}{\Huge \par} \\
+  \noindent Copyright \copyright \ 2011-2012, by Yen-Chin, Lee <coldnew.tw@gmail.com> \\
+  Permission is granted to copy, distribute and/or modify this document
+  under the terms of the GNU Free Documentation License, Version 1.3 or
+  any later version published by the Free Software Foundation; with no
+  Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+  Modified versions of this document will include the current version date
+  and all the prior version dates on which the document is based,
+  immediately following the copyright notice. A copy of the license is
+  available from the GNU project website at the following URL.
+  http://www.gnu.org/licenses/fdl.html
+#+END_LaTeX
+
+# 版本號與更新時間
+#+BEGIN_LaTeX
+  \vspace{2cm}
+  \noindent Version: 0.2 \\
+  \noindent Publication date: \today \\
+  \noindent Language: Traditional Chinese
+  \newpage{}
+#+END_LaTeX
+
+# 目錄
+#+BEGIN_LaTeX
+  \renewcommand\contentsname{目錄}
+  \tableofcontents{...}
+  \addtocontents{toc}{~\hfill\textbf{頁碼}\par}
+  \newpage{}
+  \pagenumbering{arabic}
+#+END_LaTeX
+
+
+一直以來，我都是使用 [[http://www.geda-project.org][gEDA]]  來製作我的電路圖，和 [[http://www.kicad-pcb.org][KiCAD]] 相比，gEDA 算是陽
+春了許多，使用上難度也比較高，但是我一直都用得很順手。然而，gEDA 在
+Linux 下比較容易安裝，Windows 或是 Mac OSX 的版本並不常見，對於上課學
+生普遍使用 Windows 系統的狀況，強制要他們使用 gEDA 並不是很好的選擇。
+
+
+多數學校都有和 Cadence 合作，因此都可以在計算機中心下載到 [[http://www.cadence.com/products/orcad/pages/default.aspx][OrCAD]] 等 EDA
+軟體，碰巧我的學校剛好沒有，並且我非常強烈不認同讓學生使用 *備份* 版本
+的軟體。於是我決定使用跨平台性更高的 KiCAD 進行教學，也因此衍生出了
+[[http://zh.scribd.com/doc/59333237/kicad%25E6%2595%2599%25E5%25AD%25B8-ver-0-1][KiCAD 教學 ver 0.1]] 這份文件。
+
+* 關於 KiCAD
+
+** KiCAD 是什麼
+
+KiCAD 是一款開源的 EDA 軟體，使用 C++ 以及 wxWidget 圖形庫進行開發，
+能運行於各大主流作業系統 如 Wind、MMMacOSX 以及 Linux。
+
+在進行 PCB 電路圖的佈局時，有許多知名的軟體可以使用，比如 eagle 和
+protel，但是這些軟體 不是價格昂貴，就是免費版的有限定能佈局的電路圖大
+小，因此比較不適合學生使用。
+
+** 如何取得 KiCAD
+
+** 安裝 KiCAD 於 Windows 7
+** 安裝 KiCAD 於 MacOS X
+** 安裝 KiCAD 於 Ubuntu Linux
+** 安裝 KiCAD (使用原始碼)
+
+
+* 幾個不錯的 KiCAD lib 下載點
+
+~[1]~ [[http://www.kicadlib.org/]]
+
+~[2]~ http://www.reniemarquet.cjb.net/bibliotecas_en.html
+
+~[3]~ http://www.kicadlib.org/Fichiers/Ludek_libraries.html
+
+~[4]~ http://smisioto.no-ip.org/elettronica/kicad/kicad-en.htm
+
+* COMMENT 本文件的特殊設定
+# Local Variables:
+# org-export-latex-title-command: ""
+# End:

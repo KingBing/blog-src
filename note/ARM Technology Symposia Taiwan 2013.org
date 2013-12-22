@@ -1,0 +1,786 @@
+#+TITLE: ARM Technology Symposia Taiwan 2013
+#+AUTHOR: coldnew
+#+EMAIL:  coldnew.tw@gmail.com
+#+DATE:   2013-12-04 23:28:44
+#+LANGUAGE: zh_TW
+#+URL:    arm_technology_symposia_taiwan_2013
+#+OPTIONS: num:nil
+#+BLOGIT_TYPE: note
+
+#+ATTR_HTML: :class alert-info
+#+BEGIN_ALERT
+This is my note taken from [[http://armtechforum.com.tw/][ARM Technology Symposia Taiwan 2013]]
+speaker's presentation, some pictures are slides screenshot.
+#+END_ALERT
+
+* The Feature: A View from Linaro's CTO
+
+** Industry design
+
++ Today - our entire industry is being disrupted
+
++ One size no longer fits all
+
++ One vendor alone cannot compete
+
++ ARM's business model, their partners and software ecosystem are key
+
++ Dont't forget - disruptuoin brings opportunity
+
+** Mobile / Tablet
+
+- Consolidtion and polishing phase
+
+- Technical cahllenges remaining
+
+  + mobile hub device
+
+  + thru voice / gesture interactions
+
+  + power management
+
+  + security
+
+** Power Management
+
+- Is mainstream and interesting
+
+- 10 hout battery life a challenge, especially as functionality rises
+
+- Innovative technologies such as big.LITTLE
+
+- mobile is influencing the linux kernel maintainers
+
+- power matters everywhere, it's not just a scheduler problem
+
+** Lnaro and mobile
+
+- Condolidation work on armv7
+
+- Working together on armv8
+
+- Toolchain
+
+- Power management
+
+- Android tuning
+
+** Digital Home
+
+- content sonsumption on mobile devices
+
+- seamless link from STB/Gateway to multiple screens
+
+- fragmented encosystem, especially round Linux
+
+- linaro ideally placed to help collabloration here
+
+** Security
+
+- New linaro security working group
+
+- supports all marker segments
+
+- aims
+
+ + support a standard boot architecture for armv8
+
+ + reduce fragmentation (align on APIs, kernel driver, etc)
+
+ + reference designs
+
+ + key storage and management
+
+- DRM/EME decode
+
+** The impact of big date
+
+- where's the data coming from?
+
+  + today - mobiles, tablets, social media
+
+  + tomorrow- smart object
+
+- what does big data mean?
+
+- many, many device generating data and interacting with each other
+  and the cloud
+
+- mobile device as a communications hub/ gateway
+
+- Cloud based data mining of information
+
+- Security - who has access to this data and can it be kept dafe?
+
+** Big data needs big servers
+
+- Organizations such as open compite are driving open standards
+
+- Enterprise is different
+
+  + standard boot arch
+
+  + standard distributions / management
+
+- Merging of server and networking in the control plane
+
+- ARM
+
+  + Initially, niches such as data storage, micro-server, then
+    everywhere
+
+** Linaro Enterprise Group
+
+- Standard boot architecture
+
+- Optimizations
+
+  + profiled LAMP, PHP, Python
+
+- HipHop VM
+
+- OpenStack
+
+- OpenJDK
+
+** Gig data needs big networks
+
+- Data plane separating from control plane
+
+- Plenty of room for platform innovation
+
+  + Specialized acceleration hardware
+
+- Flexible software framework
+
+- Open data plane
+
+- Linux kernel
+
+  + Real time tuning / patch sets
+
+  + Deterministic support for ODP
+
+** IoT and Linux
+
+- Where does linux fit
+
+  + Edge / Gateway networks
+
+  + The cloud
+
+- Where doesn't linux fie
+
+  + Embedded linux isn't embedded enough
+
+  + Could it coexist with mainstream (if not, don't do it)
+
+  + Embedded Android
+
+- IoT will be dominated by 'thin' embedded Oss
+
+* Memory Access Ordering in Complex Embedded Systems
+
+** It used to be so easy
+
+- Single-core
+
+- In-order singleoissue, no speculation
+
+  + dumb peripherals
+
+- No dma, gpu
+
+- Simple operationg system
+
+- Sequential execution model
+
+** Volatile is all you need
+
+#+HTML: <div class="row "><div class="col-md-5">
+
+#+BEGIN_SRC c
+  int f (int *p)
+  {
+          return (*p == *p);
+  }
+#+END_SRC
+
+#+HTML: </div><div class="col-md-2">
+
+Compile to
+
+#+HTML: </div><div class="col-md-5">
+
+#+BEGIN_SRC asm
+  f
+          MOV r0, #1
+          BX lr
+#+END_SRC
+
+#+HTML: </div></div>
+
+#+HTML: <div class="row "><div class="col-md-5">
+
+#+BEGIN_SRC c
+  int f (volatile int *p)
+  {
+          return (*p == *p);
+  }
+#+END_SRC
+
+#+HTML: </div><div class="col-md-2">
+
+Compile to
+
+#+HTML: </div><div class="col-md-5">
+
+#+BEGIN_SRC asm
+  f
+          LDR r1, [r0]
+          LDR r0, [r0]
+          CMP r1, [r0]
+          MOVNE r0, #0
+          MOVEQ r0, #1
+          BX lr
+#+END_SRC
+
+#+HTML: </div></div>
+
+** No Longer...
+
+[[file:files/arm/mem_nolonger.jpg]]
+
+** Today's systems
+
+- Multi-core processors
+
+- Speculative multi-issue out-of-order pipelines
+
+- Multiple levels of cache
+
+- Hardwre cache coherency management
+
+- Memory access merging
+
+- Multi-layered bus
+
+- Multiple bus masters
+
+  + All of this is avaliable today's =mobile phones=
+
+- And that's before looking how compulers have changed
+
+** Liits of volatility
+
+#+BEGIN_SRC c
+  volatile unit32 control;        /* write register to reset device */
+  volatile unit32 status;         /*  read reg to access status */
+
+  unit32 x;
+
+  control = 1;
+
+  x = status;
+  while((x &1) ! =1) {
+          x = status;
+  }
+#+END_SRC
+
+Does this sequence guarantee that the device is reset properly
+before being accessed?
+
+** Devices are not the only volatile...
+
+#+BEGIN_SRC c
+  main ()
+  {
+          status = 1;
+          while (status == 1) {
+                  // do
+          }
+  }
+
+  irq ()
+  {
+          status;
+  }
+#+END_SRC
+
+** Going superscalar
+
+[[file:files/arm/mem_going_superscalar.png]]
+
+- Instructions can be
+
+  + Issued out of order
+
+  + Completed out of order
+
+  + Retired out of order
+
+** Execution order
+
+#+HTML: <div class="row "><div class="col-md-4">
+
+*Source code*
+
+#+BEGIN_SRC asm
+  add r0, r0, #4
+  mul r2, r2, r3
+  str r2, [r0]
+  ldr r4, [r1]
+  sub r1, r4, r2
+  bx lr
+#+END_SRC
+
+#+HTML: </div><div class="col-md-4">
+
+*In-order processor*
+
+#+BEGIN_SRC asm
+  Cycle    Instruction
+
+  0        addr r0, r0, #4
+  1        mul r2, r2, r3
+  2        *stall*
+  3        str, r2, [r0]
+  4        ldr r4, [r1]
+  5        *stall*
+  6        sub r1, r4, r2
+  7        bx lr
+#+END_SRC
+
+#+HTML: </div><div class="col-md-4">
+
+*Superscalar processor*
+
+#+BEGIN_SRC asm
+  Cycle    Instruction
+
+  0        mul r2, r2, r3
+  1        ldr r4, [r1]
+  2        str r2, [r0]
+  3        sub r1, r4, r2
+  4        bx lr
+#+END_SRC
+
+#+HTML: </div> </div>
+
+Does the order of these instrucetions need to ve preserved ?
+
+
+If so, how do we do that ?
+
+** ARM Memory Types
+
+- Normal
+
+  + No side-effects
+
+  + Speculative accesses allowed
+
+  + Can ve merged, re-ordered, re-sized, repeated, cached, buffered
+
+  + Most memory is =Normal=
+
+  + Instuction memory *must* be normal
+
+- Device
+
+  + Memory with side-effect
+
+  + Size, order, number must be preserved
+
+  + Access cannot ve repeated and speculative accesses are not
+    permitted
+
+  + Cannot ve cached
+
+  + Intended for memory-mapped peripherals and some system registers
+
+- Strongly-ordered
+
+  + Nasty stuff
+
+** Memory Barriers
+
+#+HTML: <div class="row "><div class="col-md-6 ">
+
+#+BEGIN_SRC asm
+  add r0, r0, #4
+  mul r2, r2, r3
+  str r2, [r0]
+  dmb
+  ldr r4, [r1]
+  sub r1, r4, r2
+  bx lr
+#+END_SRC
+
+#+HTML: </div><div class="col-md-6 ">
+
+DMB is a memory barrier instruction.
+
+
+It ensures that the STR above it completes before the LDR below it.
+
+#+HTML: </div></div>
+
+#+ATTR_HTML: :class table table-hover
+| DMB | All previous accesses must complete before any subsequent access    |
+| DSB | Processor stalls until all outstanding memory accesses are complete |
+| ISB | Force pipeline to be flushed and refilled                           |
+
+** Barriers and interrupts
+
+#+BEGIN_SRC asm
+  str r1, [r0]                    ; write interrupt clear register
+  dsb                             ; ensure operation complere
+  rfe sp!
+#+END_SRC
+
+- Without the arrier, the handler could exit before interrupts are
+  cleared
+
+- The system would then be immediately interrupted again
+
+** Barriers and memory context
+
+#+BEGIN_SRC asm
+  ldr f0, #REMAP
+  str r1, [REMAP]                 ; reconfigured address map
+  dsb                             ; ensure write has completed
+  isb
+  b NewCode
+#+END_SRC
+
+- Without the barriers
+  + The program could continue before the address map is changed
+  + Instruction from NewCode would have been fetched in the wrong
+    address context
+
+#+BEGIN_SRC asm
+  str r11, [r1]                   ; update page table
+  dsb                             ; ensure write has completed
+  tlbimva r10                     ; invalidate affeted WLS address
+  bpiall                          ; flush branch predictor
+  dsb                             ; sensure completion of both operations
+  isb                             ; sunchronize instruction context
+#+END_SRC
+
+- The maintenance operations ensure that
+  + The TLB context is invalidated
+  + Branch predictor contents are cleard
+
+** Multi-processing
+
+#+HTML: <div class="row "><div class="col-md-4">
+#+HTML: </div><div class="col-md-4 ">
+
+#+ATTR_HTML: :class table table-hover
+| Processor 1 | Processor 2 |
+|             |             |
+| Update X    | Read Y      |
+| Update Y    | Read X      |
+
+#+HTML: </div><div class="col-md-4 ">
+#+HTML: </div></div>
+
+#+HTML: <div class="row "><div class="col-md-6 ">
+
+- Processor 2 might see
+  + New X and New Y
+  + Old Y and New X
+  + Old X and Old Y
+
+#+HTML: </div><div class="col-md-6 ">
+
+- But never
+
+  + New Y and Old X
+
+#+HTML: </div></div>
+
+=This assumption is no longer true in multi-processing systems=
+
+** Someone's changing my data
+
+- In which order are A and B loaded from memory ?
+
+  #+BEGIN_SRC asm
+    LDR r0, [A]
+    LDR r1, [B]
+    ADD r2, r0, r1
+    STR r3, [C]
+  #+END_SRC
+
+- The answer is =We don't know!=
+
+  + If B is cached and A is not, it may be loaded first(or not at all)
+  + If the two values are being updated by another processor, this can
+    cause a problem
+
+So...fon't cache it and protect critical sections...
+
+** Locks for critical sections
+
+- We might write a lock to protect critical sections
+
+  #+BEGIN_SRC asm
+    LDR r0, [S]
+    ADD r2, r1, #1
+    STR r2, [S]
+    MOV r3, #0
+    STR r3, [LOCK]
+  #+END_SRC
+
+  + But this =lock= doesn't work
+  + It assumes that S is updated before LOCK
+  + Write buffers and caches can break that assumption
+  + And then =someone else= can sneak in
+  + We need a =better= lock
+
+** Load and Stroe Exclusive
+
+- LDREX
+
+  Loads from an address and reserves it for exclusive access
+
+- STREX
+
+  Stores to an address and returns =success= if the address was
+  reserved.
+
+  (and then clears the reservation)
+
+- CLEARX
+
+  Clear any outstanding reservations
+
+** A proper lock
+
+#+HTML: <div class="row "><div class="col-md-6 ">
+
+#+BEGIN_SRC asm
+  ;  void lock(lock_t * addr)
+  lock
+          LDREX r1, [r0]          ; check lock
+          CMP   r1, #LOCKED       ; locked ?
+          SEQ   lock              ; try again
+
+          MOV   r1, #LOCKED
+          STREX r1, r2 [r0]
+          CMP   r2, #0            ; store failed?
+          BNE   lock              ; try again
+
+          DMB
+          BX LR
+#+END_SRC
+
+#+HTML: </div><div class="col-md-6 ">
+
+#+BEGIN_SRC asm
+  ;  void unlock(lock_t * addr)
+  unlock
+          DMB
+          MOV  r1, #UNLOCKED
+          STR  r1, [r0]
+          BX   lr
+#+END_SRC
+
+#+HTML: </div></div>
+
+Use Load and Store Exclusive to provide proper protection to critical sections.
+
+** In summary
+
+[[file:files/arm/mem_summary.jpg]]
+
+* big.LITTLE Software Made Easy
+
+** Demand For Performance and Battery Life
+
+[[file:files/arm/demand_for.jpg]]
+
+** The Right Processor for the Right Job
+
+[[file:files/arm/right_processor.jpg]]
+
+** DVFS profiles from leading Dual Cortex-A9 Smartphone
+
+[[file:files/arm/dvfs.jpg]]
+
+** big.LITTLE Software Models - Progression over Time
+
+[[file:files/arm/big_little.jpg]]
+
+** CPU Migration - Extending DVFS
+
+- Logical CPU compised of big.LITTLE CPU pair
+
+- DVFS algorithm monitors load
+
+- Low load handled by LITTLE processor
+
+- High load handled by big processor
+
+- One processor in pair is active
+
+- One processor in pair powered down
+
+- Whole cluster powered down if inactive
+
+** CPU Migration
+
+- Simple to tune -a an extension to DVFS
+
+- SImple to intefrate into an OS
+
+  + Only power management code needs to be tuned
+
+  + Expected for any productionn system
+
+** GTS in Action
+
+[[file:files/arm/gts_in_action.jpg]]
+
+** Big.LITTLE MP Kernel in Action
+
+[[file:files/arm/kernel_in_action.jpg]]
+
+** Global Task Scheduling
+
+- Scales across all cores in the system
+
+  + Any thread ca run on any CPU
+
+  + Idle CPUs or clusters can be switched off
+
+- Supports non-symmertrical big.LITTLE systems
+
+- Fine grain Tasks allocation
+
+- Fast Scheduling
+
+** Software Avaliability
+
+- CPU Migration
+
+  + =In kernel Switcher=
+
+- Global Task Scheduling
+
+  + big.LITTLE MP
+
+  + Latest release lsk-android-13.09
+
+  + Hosted in Linaro git trees. Developed by ARM
+
+** Lessons Learnt
+
+- Cortex-A7 is very capable! use Cortex-A15 for peak performance
+
+- Move all interrupts to Cortex-A7
+
+- Start RT tasks on Cortex-A7
+
+- Check wake up sources on Cortex-A15:
+
+  + Timers, watchdogs, bounded workqueues
+
+- Snooping into a slow cluster can affect performance
+
+** Summary big.LITTLE Software is Available Now
+
+- CPU Migration
+
+  + big and LITTLE cores are paired
+
+  + Built on proven DVFS knowledge and frameworks
+
+  + Simple power/performance tuing
+
+- GLobal Task scheduling
+
+  + Higher Peak Performance
+
+  + Faster switching
+
+  + Asymmetric topology support
+
+  + Finger-grained selection of cores
+
+* Optiomizing for the Modern Web on the ARM Architecture
+
+** From Browser to OS Platform
+
+- Web App are now
+
+  + Offline first
+  + Out of browser
+  + Rich and immersive
+  + > 1000,000 lines of Javascript
+  + Providing access to device peripherals
+
+** What Web App performance really means
+
+- Benchmarking is irrenlevant!
+- Neigher Google or Mozilla care that much
+- What matters is end-user experience
+- Dropped frames are the currency of performance
+- https://wiki.mozilla.org/Project_Eideticker
+- http://jankfree.org
+
+** Building the new Smartphone OS
+
+- Tizen
+- Firefox OS
+- 阿里雲
+
+** Javascript: The Assembly Language for the Web
+
+- Google Web Toolkit
+  + Java -> Google GWT Compiler -> Javascript
+
+- Mozilla emscripten
+  + C/C++ -> LLVM -> Javascript
+
+** Javascript Improvements
+
+- Single Page Apps (SPA) exceed 1000,000 lines of Javascript
+
+- Google Web Apps spend 5--70% of their time in V8 javascript Engine
+
+- ARM working on Google V8 javascript Engine for 3 years
+
+  + 2010: Cortex-A9 was 35% slower than Atom on V8 benchmark
+  + 2013: Cortex-A9 is 25% faster than Atom on B8 benchmark
+  + 2012-2013 Javascript on Desktop improved 24% and 57% in Mobile
+    - Cotex-A15 optimizations to V8 made thsi possible
+
+- ARM Team now has Commit Rights to V8 JavaScript codebase
+
+** Profiling Javascript HTML5 Execution
+
+- ARM created an extension to Mozilla and Webkit Browsers
+  + Developers can see hotspot analysis while specific Javascript is
+    executing
+  + You can zero-in on key areas to optimize in your browser engine
+    for web Apps
+  + You can find bootlenecks in specific web Apps
+
+** Firefox Mobile OS: A True Web-based Platform
+
+- Firefox Mobile OS uses Android Kernel
+- ARM has integrated Streamline
+- Fill profiling of Firefox Mobile OS from Web Apps to Kernel
+
+** LLVM for Native Web Apps
+
+- Portable Native Client (PNaCL)
+  + Compiles C/++ code to LLVM gitcode
+    - Some restrictions on constructs
+- Bitcode is xlated on device native code
+- Runs in browser sandbox on device
+- Better than 80% of natice performance
+- PNaCl will hit the stable channel with Chrome 31

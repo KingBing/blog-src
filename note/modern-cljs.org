@@ -1,0 +1,277 @@
+#+TITLE: Modern CLJS 中文
+#+AUTHOR: coldnew
+#+EMAIL:  coldnew.tw@gmail.com
+#+DATE:   2013-12-04 23:28:44
+#+LANGUAGE: zh_TW
+#+URL:    modern_cljs
+#+OPTIONS: num:nil ^:nil
+#+BLOGIT_TYPE: note
+
+#+LINK: CLJS               https://github.com/clojure/clojurescript.git
+#+LINK: clojurescript      https://github.com/clojure/clojurescript.git
+#+LINK: leinigen           https://github.com/technomancy/leiningen
+#+LINK: lein-cljsbuild     https://github.com/emezeske/lein-cljsbuild.git
+
+#+ATTR_HTML: :class alert-info
+#+BEGIN_ALERT
+這是我在學習 [[https://github.com/magomimmo/modern-cljs][Modern CLJS]] 過程中所進行的翻譯，Modern CLJS 是目前
+[[clojurescript][Clojurescript]] 最好的學習資源之一，原文以 Markdown 的形式撰寫並架設在 GitHub
+上面，我使用我的方式翻譯這篇文章，並改用 org-mode 進行撰寫，若翻譯有所
+偏頗或不流暢，請不吝指教，謝謝。
+#+END_ALERT
+
+* 教學 01 - 基礎篇
+
+在第一篇的教學裡面，你將使用 [[https://github.com/technomancy/leiningen][leinigen 2]] 和 [[https://github.com/emezeske/lein-cljsbuild.git][lein-cljsbuild]] 建立並配置一
+個非常簡單的 [[https://github.com/clojure/clojurescript.git][CLJS]] 專案。
+
+[[leinigen][Leinigen]] 是 [[CLJS][CLJS]] 的專案管理系統， [[lein-cljsbuild][lein-cljsbuild]] 則是 leinigen 用來管理
+CLJS 專案用的擴展。
+
+** 建立一個 Clojure (CLJ) 專案
+
+如果您還沒有安裝 [[leinigen][Leinigen]] ，請先安裝他並建立一個名為 =modern-cljs= 的
+專案。
+
+: lein new modern-cljs
+
+請記得將 =lein= 加入到你的 =$PATH= 環境變數中。
+
+** 修改專案的結構
+
+建立資料夾來存放 CLJ 和 CLJS 程式碼並修改 leinigen 產生的
+=src/modern_cljs= 資料夾來符合新的資料夾結構。
+
+#+BEGIN_SRC sh
+  cd modern-cljs
+  mkdir -p src/{clj,cljs/modern_cljs}
+  mv src/modern_cljs/ src/clj
+#+END_SRC
+
+#+ATTR_HTML: :class alert-warning
+#+BEGIN_ALERT
+- 因為 [[http://docs.oracle.com/javase/specs/jls/se7/html/jls-6.html][JAVA 的限制]] ，我們很難去使用包含 "-" 或是特殊符號的套件
+  名稱，請將他們改為 =_= 來符合相對應的資料夾名稱。
+
+- 在這個時刻我們不去理會 =test= 這個資料夾的用途，這部份將在之後的章節講到。
+#+END_ALERT
+
+建立資料夾去存放這個專案和網頁相關的靜態資源 (static resources)，比如:
+html、javscript、css 等。
+
+: mkdir -p resources/public/{js,css}
+
+到目前為止，你的資料夾結構應該像這樣
+
+#+BEGIN_EXAMPLE
+  ├── LICENSE
+  ├── README.md
+  ├── doc
+  │   └── intro.md
+  ├── project.clj
+  ├── resources
+  │   └── public
+  │       ├── css
+  │       └── js
+  ├── src
+  │   ├── clj
+  │   │   └── modern_cljs
+  │   │       └── core.clj
+  │   └── cljs
+  │       └── modern_cljs
+  └── test
+      └── modern_cljs
+          └── core_test.clj
+
+  12 directories, 6 files
+#+END_EXAMPLE
+
+** 編輯 project.clj
+
+接下來你必須編輯 =project.clj= 並作以下的改變：
+
+- 更新 CLJ 程式碼的 =source-paths=
+- 在 =project.clj= 增加 [[lein-cljsbuild][lein-cljsbuild]] 這個 plugin
+
+下面這是原本由 leinigen 產生的 =project.clj=
+
+#+BEGIN_SRC clojure
+  (defproject modern-cljs "0.1.0-SNAPSHOT"
+    :description "FIXME: write description"
+    :url "http://example.com/FIXME"
+    :license {:name "Eclipse Public License"
+              :url "http://www.eclipse.org/legal/epl-v10.html"}
+    :dependencies [[org.clojure/clojure "1.5.1"]])
+#+END_SRC
+
+在經過增加了 [[lein-cljsbuild][lein-cljsbuild]] 這個 plugin 以及修改了 =:cljsbuild= 和
+=:source-paths= 後，你的 =project.clj= 將變成成如下
+
+#+BEGIN_SRC clojure
+  (defproject modern-cljs "0.1.0-SNAPSHOT"
+    :description "FIXME: write description"
+    :url "http://example.com/FIXME"
+    :license {:name "Eclipse Public License"
+              :url "http://www.eclipse.org/legal/epl-v10.html"}
+
+    ;; CLJ AND CLJS source code path
+    :source-paths ["src/clj" "src/cljs"]
+    :dependencies [[org.clojure/clojure "1.5.1"]]
+
+    ;; lein-cljsbuild plugin to build a CLJS project
+    :plugins [[lein-cljsbuild "1.0.0"]]
+
+    ;; cljsbuild options configuration
+    :cljsbuild {:builds
+                [{;; CLJS source code path
+                  :source-paths ["src/cljs"]
+
+                  ;; Google Closure (CLS) options configuration
+                  :compiler {;; CLS generated JS script filename
+                             :output-to "resources/public/js/modern.js"
+
+                             ;; minimal JS optimization directive
+                             :optimizations :whitespace
+
+                             ;; generated JS code prettyfication
+                             :pretty-print true}}]})
+#+END_SRC
+
+#+ATTR_HTML: :class alert-warning
+#+BEGIN_ALERT
+細心的讀者會發現到 =:source-paths= 選項重複出現在 leinigen 產生出來的
+檔案，以及 =:cljsbuild= 的欄位。
+
+這是因為 =cljsbuild= 並不會自動加入到這個專案的 =classpath= 裡，CLJS 的路
+徑使用他自己的 =:source-paths= 進行設定。
+
+這是幾乎被隱藏的需求，如果沒被滿足，很可能會產生一些不易被查到的臭蟲。
+
+非常感謝 [[https://github.com/swannodette][David Nolen]] 和 [[https://groups.google.com/forum/#!topic/clojurescript/CT0aDLgLxW8][Chas Emerick]] 向我指出 [[https://groups.google.com/forum/#!topic/clojurescript/CT0aDLgLxW8][這個問題]] 。
+#+END_ALERT
+
+** 建立一個 CLJS 程式檔
+
+設定完 =project.clj= 後，在 =src/cljs/modern_cljs/= 資料夾建立一個名為
+=modern.cljs= 的檔案，添加以下資料後並儲存。
+
+#+BEGIN_SRC clojurescript
+  (ns modern-cljs.modern)
+
+  (.write js/document "Hello, ClojureScript")
+#+END_SRC
+
+#+ATTR_HTML: :class alert-info
+#+BEGIN_ALERT
+請注意到這個檔案的副檔名是 *cljs* 而不是 clj。
+#+END_ALERT
+
+** 建立 HTML 頁面
+
+在 =resources/public= 資料夾內建立一個簡單的 HTML 檔案，命名為
+=simple.html= 。該檔案包含了一個 =script= 標籤來載入 =project.clj=
+裡面 =:output-to= 關鍵字所產生的 javascript 檔案。
+
+#+BEGIN_SRC html
+  <!doctype html>
+  <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <title>Simple CLJS</title>
+      <!--[if lt IE 9]>
+          <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
+    </head>
+    <body>
+      <!-- pointing to cljsbuild generated js file -->
+      <script src="js/modern.js"></script>
+    </body>
+  </html>
+#+END_SRC
+
+** 編譯 CLJS
+
+要將 CLJS 檔案編譯成 JS 檔案，使用 =cljsbuild= 提供的 =once= 命令，方
+式如下
+
+#+BEGIN_EXAMPLE
+  lein cljsbuild once
+
+  Compiling ClojureScript.
+  WARNING: It appears your project does not contain a ClojureScript
+  dependency. One will be provided for you by lein-cljsbuild, but it is
+  strongly recommended that you add your own. You can find a list of all
+  ClojureScript releases here:
+  http://search.maven.org/#search|gav|1|g%3A%22org.clojure%22%20AND%20a%3A%22clojurescript%22
+  You're using [lein-cljsbuild "1.0.0"], which is known to work well
+  with ClojureScript 0.0-2014 - *.
+
+  Compiling "resources/public/js/modern.js" from ["src/cljs"]...
+  Successfully compiled "resources/public/js/modern.js" in 12.146675 seconds.
+#+END_EXAMPLE
+
+就如同你看到的，即使 =cljsbuild= 可以提供給你 CLJS 釋出的版本，你還是
+會得到關於你的專案並未包含 ClojureScript 依賴的抱怨。我們強烈推薦你將
+完整的 CLJS 版本資訊加入到 =project.clj= 的 =:dependencies= 欄位。
+
+讓我們將 CLJS 釋出的版本加入到這個專案的 =:dependancies= 欄位好讓
+=cljsbuild= 開心一點。
+
+#+BEGIN_SRC clojurescript
+  (defproject modern-cljs "0.1.0-SNAPSHOT"
+    ...
+    :dependencies [[org.clojure/clojure "1.5.1"]
+                   [org.clojure/clojurescript "0.0-2069"]]
+    ...)
+#+END_SRC
+
+接著使用 =lein cljsbuild clean= 命令將前一次編譯出來的檔案清除，並再一
+次使用 =lein cljsbuild once= 。
+
+#+BEGIN_EXAMPLE
+  lein cljsbuild clean
+  Deleting files generated by lein-cljsbuild.
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+  lein cljsbuild once
+  Compiling ClojureScript.
+  Retrieving org/clojure/clojurescript/0.0-2069/clojurescript-0.0-2069.pom from central
+  Retrieving org/clojure/clojurescript/0.0-2069/clojurescript-0.0-2069.jar from central
+  Compiling "resources/public/js/modern.js" from ["src/cljs"]...
+  Successfully compiled "resources/public/js/modern.js" in 10.109162 seconds.
+#+END_EXAMPLE
+
+** 瀏覽 simple.html
+
+打開瀏覽器並瀏覽你本地端的 =simple.html= . 如果你沒有做錯任何步驟，你
+會看到 "Hello, ClojureScript!"。
+
+[[file:files/modern_cljs/hellocljs.png]]
+
+** License
+
+Copyright © Mimmo Cosenza, 2012-2013. Released under the Eclipse
+Public License, the same as Clojure.
+
+* 教學 02 - 瀏覽器上的 CLJS REPL (bREPL)
+
+在這篇教學中你將使用額外的 http-server 來建立連接瀏覽器的 CLJS REPL (bREPL)。
+
+** 前言
+
+之所以會使用像是 CLJ 之類的 LISP 方言的其中一個原因是因為 [[http://en.wikipedia.org/wiki/Read%25E2%2580%2593eval%25E2%2580%2593print_loop][REPL]] (Read Eval
+Print Loop)，這項功能可以提高寫程式的有趣度。CLJ 社群仍舊非常努力的嘗試
+讓 CLJS 的 REPL 使用體驗能夠像 CLJ 一樣，並建立一條通路讓 CLJS 可以和嵌入瀏覽
+器的 JS 引擎溝通。這樣子的程式方式可以讓你在 REPL 裡面進行求值，並且馬上
+就可以在瀏覽器上面看到結果。
+
+由於瀏覽器都有加入一些限制，來避免 [[http://zh.wikipedia.org/wiki/%25E8%25B7%25A8%25E7%25B6%25B2%25E7%25AB%2599%25E6%258C%2587%25E4%25BB%25A4%25E7%25A2%25BC][跨網站指令碼]] (cross site scripting)
+的攻擊，使用 REPL 必須遵守 [[http://en.wikipedia.org/wiki/Same_origin_policy][Same-origin policy]] 。
+
+
+
+** License
+
+Copyright © Mimmo Cosenza, 2012-2013. Released under the Eclipse
+Public License, the same as Clojure.

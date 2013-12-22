@@ -1,0 +1,85 @@
+#+TITLE: 使用 PIC16F84A 打造自動斷路裝置
+#+AUTHOR: coldnew
+#+EMAIL:  coldnew.tw@gmail.com
+#+DATE:   2013-12-06 10:09:51
+#+LANGUAGE: zh_TW
+#+URL:    using_pic16f84a_create_rebooter_circuit
+#+OPTIONS: num:nil ^:nil
+#+BLOGIT_TYPE: note
+
+#+ATTR_HTML: :class alert-danger
+#+BEGIN_ALERT
+This document is still under development.
+#+END_ALERT
+
+#+ATTR_HTML: :class alert-info
+#+BEGIN_ALERT
+這是我的筆記版本，紀錄關於如何使用 PIC16F84A 製作自動斷路裝置。為了讓
+自己能夠更好的理解 PIC16F84A 的使用，我儘可能將整個文章寫的非常詳細，
+若有錯誤歡迎告知，謝謝。
+#+END_ALERT
+
+* 緣起
+
+#+INCLUDE: "~/SparkleShare/blog-src/blog/使用 PIC16F84A 打造自動斷路裝置.org" :lines "11-37"
+
+* 使用材料
+
+我使用的零件列表如下，有些零件是從報廢的電子設備中取得，有些是用 SMD
+元件，因此無法在圖片正面中看到。
+
+#+ATTR_HTML: :class table table-hover
+| 名稱             | 數量 | 名稱            | 數量 | 名稱            | 數量 |
+|------------------+------+-----------------+------+-----------------+------|
+| 電阻 10kΩ        |      | 電容 0.1μF      |    1 | 有段開關        |    1 |
+| 電阻 470Ω        |    1 | 電容 10μF       |    1 | 排針 5p         |    1 |
+| PIC16F84A        |    1 | 電容 22pF       |    2 | LED 3\phi          |    1 |
+| IC 腳座 (18-pin) |    1 | 端子座 2p       |    2 | 繼電器 LU-5     |    1 |
+| 陶瓷振盪器 6MHz  |    1 | 指撥開關 4p     |    1 | 2N3904 NPN      |    3 |
+| 二極體 1N4006    |    2 | 線性穩壓 LM7812 |    1 | 線性穩壓 LM7805 |    1 |
+
+
+* 電路說明
+
+要了解一個電路，最簡單的方式就是將該電路切成各個模組再來進行理解，這裡
+我將我的電路細分成以下幾個模組：
+
+- ICSP 燒錄電路
+
+  這個電路是用來透過 [[http://usbpicprog.org/][usbpicprog]] 對 PIC16F84A 進行燒錄新的 Firmware。
+
+- RA4 輸出電路
+
+  在大多數 Microchip 的 PIC 產品中，RA4 進行輸出時都是 =Open-drain= 的
+  形式，因此電路需要稍微修改，才能讓 RA4 的輸出正常。
+
+- 24V to 5V 電源模組
+
+  我使用的輸入電源是 24V，這邊透過簡單的線性穩壓電路將 24V 轉換成 5V。
+
+- 繼電器 (relay) 控制模組
+
+  控制 24V 電源的輸出。
+
+- 指撥開關 (DIP Switch) 輸入電路
+
+  使用指撥開關切換不同的模式。
+
+** ICSP 燒錄電路
+
+我使用的燒錄器是 [[http://usbpicprog.org/][usbpicprog]] ，這是一個 Open Source 的 PIC 微控器燒錄器，
+而我使用的版本則是以前在帶大學部時所製作的課堂教材，若您有興趣想自己作
+一個，請參考我以前寫的 [[http://zh.scribd.com/doc/71776685/usbpicprog%25E7%2587%2592%25E9%258C%2584%25E5%2599%25A8%25E8%25A3%25BD%25E4%25BD%259C%25E8%25AA%25AA%25E6%2598%258E][usbpicprog 製作說明]]。
+
+** RA4 輸出電路
+
+** 24V to 5V 電源模組
+** 繼電器 (relay) 控制電路
+** 指撥開關 (DIP Switch) 輸入電路
+
+* 程式流程
+* 參考連結
+
+~[1]~ [[http://www.microcontrollerboard.com/pic-timer0-tutorial.html][PIC16F877 Timer Modules tutorials - Timer0]]
+
+~[2]~ [[http://ibrahimlabs.blogspot.tw/2013/06/this-post-is-all-about-how-tointerface.html][How to Interface 7 segment display with Microcontroller.]]
