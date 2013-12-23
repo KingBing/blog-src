@@ -169,5 +169,3 @@ Memory Map 來看，ROM 是從 0x00000000 開始，並且有 128K 大小，RAM �
 ~[10]~ [[http://fun-tech.se/stm32/index.php][STM32/ARM Cortex-M3 HOWTO: Development under Ubuntu (Debian)]]
 
 ~[11]~ [[http://home.educities.edu.tw/fushiyun2000/index.htm][司徒的教學網站]]
-
-~[12]~ [[http://www.jollen.org/EmbeddedLinux/Program_Loading.html][Jollen's Blog - Program Loading 觀念介紹]]
