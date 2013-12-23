@@ -94,7 +94,7 @@ Linker Script。在嵌入式系統下，大部分整合開發環境 (IDE) 會提
   ENTRY(main)
 #+END_SRC
 
-
+接著來看看 MEMORY 區段
 
 #+BEGIN_SRC ld-script
   MEMORY
