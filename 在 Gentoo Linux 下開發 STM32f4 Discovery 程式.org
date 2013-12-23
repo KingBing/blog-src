@@ -55,10 +55,8 @@ Linker Script。在嵌入式系統下，大部分整合開發環境 (IDE) 會提
 名為 =stm32.ld= 的檔案，並添加以下內容：
 
 #+BEGIN_SRC ld-script
-  /* This will work with STM32 type of microcontrollers.    *
-   ,* The sizes of RAM and flash are specified smaller than  *
-   ,* what most of the STM32 provide to ensure that the demo *
-   ,* program will run on ANY STM32.                         */
+  ENTRY(main)
+
   MEMORY
   {
           ROM (rx)  : ORIGIN = 0x00000000, LENGTH = 128K
