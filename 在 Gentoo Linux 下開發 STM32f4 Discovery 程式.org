@@ -98,8 +98,9 @@ Linker Script。在嵌入式系統下，大部分整合開發環境 (IDE) 會提
   }
 #+END_SRC
 
-MEMORY 區段告訴了 linker 說我這個
-
+MEMORY 區段告訴了 linker 說我目標的系統具有 ROM 以及 RAM 可以使用，從
+Memory Map 來看，ROM 是從 0x00000000 開始，並且有 128K 大小，RAM 則是從
+0x20000000 開始，並且有 20K 大小。
 
 了解了 MEMORY 區段後，讓我們來看看 SECTION 區段，SECTION 區段是用來描述
 輸出文件的記憶體佈局，在這邊的範例裡面，我們將他分為以下幾個區段。
