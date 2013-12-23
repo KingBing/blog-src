@@ -89,6 +89,12 @@ Linker Script。在嵌入式系統下，大部分整合開發環境 (IDE) 會提
 要怎樣了解這個 Linker Script 呢? 首先我們先來看 ENTRY 這個區段
 
 #+BEGIN_SRC ld-script
+  ENTRY(main)
+#+END_SRC
+
+
+
+#+BEGIN_SRC ld-script
   MEMORY
   {
           ROM (rx)  : ORIGIN = 0x00000000, LENGTH = 128K
