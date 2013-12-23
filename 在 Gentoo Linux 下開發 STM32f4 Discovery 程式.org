@@ -10,7 +10,7 @@
 #+BLOGIT_TYPE: draft
 
 STM32f4 Discovery 是 STMicro 所推出的 32-bit ARM Cortex-M4 基礎開發板，
-市面上售價約為 NT $700 元左右。為何要選用 32-bit ARM 微控器來進行開發，
+市面上售價約為 NT $700 元左右。
 
 
 * 建立 STM32 微控器 toolchain
