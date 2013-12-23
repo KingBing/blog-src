@@ -98,7 +98,7 @@ Linker Script。在嵌入式系統下，大部分整合開發環境 (IDE) 會提
   }
 #+END_SRC
 
-MEMORY 區段告訴了 linker 說我這個程式共有
+MEMORY 區段告訴了 linker 說我這個
 
 
 了解了 MEMORY 區段後，讓我們來看看 SECTION 區段，SECTION 區段是用來描述
