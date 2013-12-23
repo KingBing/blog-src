@@ -86,7 +86,9 @@ Linker Script。在嵌入式系統下，大部分整合開發環境 (IDE) 會提
   }
 #+END_SRC
 
-要怎樣了解這個 Linker Script 呢? 首先我們先來看 ENTRY 這個區段
+要怎樣了解這個 Linker Script 呢? 首先我們先來看 ENTRY 這個區段，這個區
+段定義了程式的進入點，若你不指派，則預設則為 =main= ，你也可以將他改成
+其他的 function 名稱，這樣就可以修改你程式的進入點。
 
 #+BEGIN_SRC ld-script
   ENTRY(main)
