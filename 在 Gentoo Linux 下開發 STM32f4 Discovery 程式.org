@@ -127,6 +127,9 @@ MEMORY 區段告訴了 linker 說我要把
 
 - bss (未初始化資料區段)
 
+  bss (Block Started by Symbol) 是用來儲存未初始化全域變數的區段。
+
+
   #+BEGIN_SRC ld-script
     .bss :
     {
