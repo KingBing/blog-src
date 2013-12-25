@@ -1,0 +1,8 @@
+#+TITLE: 在 Linux 下使用 Qt5 開發 Android 程式
+#+AUTHOR: coldnew
+#+EMAIL:  coldnew.tw@gmail.com
+#+DATE:   2013-12-25 23:34:16
+#+LANGUAGE: zh_TW
+#+URL:    686_l
+#+OPTIONS: num:nil ^:nil
+#+TAGS: android qt linux
