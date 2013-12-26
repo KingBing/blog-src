@@ -116,3 +116,20 @@
   # destination  git@github.com:user/repo.git (fetch)
   # destination  git@github.com:user/repo.git (push)
 #+END_SRC
+
+** 移除遠端 repo 的分支
+
+移除遠端的分支，可以使用以下兩種方式
+#+begin_src sh
+  git push origin --delete <branchName>
+#+end_src
+
+或是以下簡化的方式
+
+#+begin_src sh
+  git push origin :<branchName>
+#+end_src
+
+** 移除未被追蹤的檔案
+
+: git clean -f
