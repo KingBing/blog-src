@@ -99,6 +99,11 @@
 
 從上面的例子，可以看到我測試用的這台機器，glibc 最多只支援到 2.11 版。
 * git 使用筆記                                                          :git:
+** 重新命名本地端 branch
+
+#+BEGIN_SRC sh
+git branch -m <oldname> <newname>
+#+END_SRC
 
 ** 重新命名遠端 repo
 
