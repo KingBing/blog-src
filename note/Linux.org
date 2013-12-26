@@ -173,6 +173,9 @@
 
 ** 產生兩個 commit 之間不同的檔案列表
 
+#+BEGIN_SRC sh
+  git diff --name-only SHA1 SHA2
+#+END_SRC
 
 * dmesg: klogctl failed: Bad address                                   :misc:
 
