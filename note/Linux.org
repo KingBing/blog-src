@@ -73,7 +73,7 @@
   coldnew@Rosia ~ $ ssh-copy-id -i ~/.ssh/id_rsa.pub pi@192.168.1.21
 #+END_EXAMPLE
 
-* 檢查 glibc 的相容狀況
+* 檢查 glibc 的相容狀況                                                :misc:
 
 若要檢查 glibc 可以相容的版本，可以透過以下命令取得
 
