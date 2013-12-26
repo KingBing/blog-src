@@ -6,3 +6,10 @@
 #+URL:    android
 #+OPTIONS: num:nil ^:nil
 #+BLOGIT_TYPE: note
+
+
+* 使用 adb 重新掛載 /system 資料夾
+
+#+BEGIN_SRC sh
+  mount -o rw, remount /system
+#+END_SRC
