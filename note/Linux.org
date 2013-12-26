@@ -101,9 +101,11 @@
 * git 使用筆記                                                          :git:
 ** 重新命名本地端 branch
 
-#+BEGIN_SRC sh
-git branch -m <oldname> <newname>
-#+END_SRC
+- 通用作法
+
+  #+BEGIN_SRC sh
+  git branch -m <oldname> <newname>
+  #+END_SRC
 
 ** 重新命名遠端 repo
 
