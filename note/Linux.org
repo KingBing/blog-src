@@ -133,3 +133,26 @@
 ** 移除未被追蹤的檔案
 
 : git clean -f
+
+** 修正 git repo 錯誤 : Cannot obtain needed object
+
+在使用 git 來下載 repo 的時候，如過遇到以下錯誤
+
+#+BEGIN_EXAMPLE
+  Fetching projects: 96% (78/81) error: Unable to find
+  93784f3b5e153c90a138783162ed794bc9ffea88 under
+  http://android.git.linaro.org/git-ro/platform/prebuilt Cannot obtain
+  needed object 93784f3b5e153c90a138783162ed794bc9ffea88 while
+  processing commit a1e60337875460ecba8bc770da2aa3414068c253. error:
+  Fetch failed.
+#+END_EXAMPLE
+
+首先使用
+
+: git fsck
+
+接著在使用
+
+: git gc
+
+來修正這個有問題的 repo
