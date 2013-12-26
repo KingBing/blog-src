@@ -104,7 +104,13 @@
 - 通用作法
 
   #+BEGIN_SRC sh
-  git branch -m <oldname> <newname>
+    git branch -m <oldname> <newname>
+  #+END_SRC
+
+- 用於目前的 branch 上
+
+  #+BEGIN_SRC sh
+    git branch -m <newname>
   #+END_SRC
 
 ** 重新命名遠端 repo
