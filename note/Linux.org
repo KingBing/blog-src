@@ -179,6 +179,8 @@
   git diff --name-only SHA1 SHA2
 #+END_SRC
 
+也可以用以下方式看有哪些檔案增加/減少
+
 #+BEGIN_SRC sh
   git diff --name-status SHA1 SHA2
 #+END_SRC
