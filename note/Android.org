@@ -1,0 +1,8 @@
+#+TITLE: Android 筆記
+#+AUTHOR: coldnew
+#+EMAIL:  coldnew.tw@gmail.com
+#+DATE:   2013-12-06 17:09:51
+#+LANGUAGE: zh_TW
+#+URL:    android
+#+OPTIONS: num:nil ^:nil
+#+BLOGIT_TYPE: note
