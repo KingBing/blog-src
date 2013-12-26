@@ -99,3 +99,19 @@
 
 從上面的例子，可以看到我測試用的這台機器，glibc 最多只支援到 2.11 版。
 * git 使用筆記                                                          :git:
+** 重新命名遠端 repo
+
+#+BEGIN_SRC sh
+  git remote -v
+  # View existing remotes
+  # origin  git@github.com:user/repo.git (fetch)
+  # origin  git@github.com:user/repo.git (push)
+
+  git remote rename origin destination
+  # Change remote name from 'origin' to 'destination'
+
+  git remote -v
+  # Verify remote's new name
+  # destination  git@github.com:user/repo.git (fetch)
+  # destination  git@github.com:user/repo.git (push)
+#+END_SRC
