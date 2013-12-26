@@ -156,3 +156,5 @@
 : git gc
 
 來修正這個有問題的 repo
+
+* dmesg: klogctl failed: Bad address
