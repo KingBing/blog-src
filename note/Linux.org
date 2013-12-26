@@ -188,3 +188,9 @@
     done
     DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
   #+end_src
+
+** 將所有的空資料夾加上 .gitkeep
+
+#+BEGIN_SRC sh
+  for i in $(find . -type d -empty); do touch $i/.gitkeep; done
+#+END_SRC
