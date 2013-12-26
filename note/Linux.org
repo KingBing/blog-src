@@ -173,6 +173,8 @@
 
 ** 產生兩個 commit 之間不同的檔案列表
 
+如果只是要看兩個 commit 有哪些檔案不一樣，只要這樣做就好
+
 #+BEGIN_SRC sh
   git diff --name-only SHA1 SHA2
 #+END_SRC
