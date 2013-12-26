@@ -6,8 +6,10 @@
 #+URL:    686_l
 #+OPTIONS: num:nil ^:nil
 #+TAGS: android qt linux
-
+#+BLOGIT_TYPE: draft
 
 * 取得 Qt5 和 Android
 
 - 下載 Qt 5.2
+
+  http://qt-project.org/downloads
