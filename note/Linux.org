@@ -171,6 +171,7 @@
 
 來修正這個有問題的 repo
 
+** 產生兩個 commit 之間不同的檔案列表
 * dmesg: klogctl failed: Bad address                                   :misc:
 
 如果使用 dmesg 時，遇到
