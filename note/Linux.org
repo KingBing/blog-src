@@ -164,3 +164,5 @@
 : dmesg: klogctl failed: Bad address
 
 這種情況有可能是 rootfs 空間不夠，檢查一下吧 ~
+
+* Bash 筆記
