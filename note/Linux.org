@@ -7,7 +7,7 @@
 #+OPTIONS: num:nil ^:nil
 #+BLOGIT_TYPE: note
 
-* 透過 sysfs 控制 CPU
+* 透過 sysfs 控制 CPU                                                 :sysfs:
 
 - 關閉/打開 CPU
 
