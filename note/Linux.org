@@ -179,6 +179,10 @@
   git diff --name-only SHA1 SHA2
 #+END_SRC
 
+#+BEGIN_SRC sh
+  git diff --name-status SHA1 SHA2
+#+END_SRC
+
 * dmesg: klogctl failed: Bad address                                   :misc:
 
 如果使用 dmesg 時，遇到
