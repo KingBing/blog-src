@@ -10,6 +10,8 @@
 
 * 使用 adb 重新掛載 /system 資料夾
 
+adb 必須要擁有 root 權限
+
 #+BEGIN_SRC sh
   mount -o rw, remount /system
 #+END_SRC
