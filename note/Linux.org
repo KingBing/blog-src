@@ -159,6 +159,6 @@
 
 * dmesg: klogctl failed: Bad address
 
-如果遇到
+如果使用 dmesg 時，遇到
 
 : dmesg: klogctl failed: Bad address
