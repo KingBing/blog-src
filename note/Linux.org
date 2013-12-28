@@ -187,6 +187,12 @@
 
 ** 修改本地分之追蹤的遠端 repo
 
+#+BEGIN_SRC sh
+  git branch <branch name> --set-upstream-to <remote>/<branch name>
+  # or
+  git branch <branch name> -u <remote>/<branch name>
+#+END_SRC
+
 * dmesg: klogctl failed: Bad address                                   :misc:
 
 如果使用 dmesg 時，遇到
