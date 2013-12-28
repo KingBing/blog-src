@@ -6,3 +6,9 @@
 #+URL:    46ac3
 #+OPTIONS: num:nil ^:nil
 #+TAGS: android cyanogenmod htc_one_x endeavoru
+
+CyanogenMod]] 是目前最為風行的 Android 第三方改版，原本由 Steve Kondik 創
+辦開發，並加入了許多 [[http://www.xda-developers.com][xda]] 社群的改版，該團隊也在最近成立了公司 CyanogenMod Inc.
+
+本篇文章以 =CyanogenMod 10.2= (簡稱 =CM10=) 為主，並使用 =HTC One X
+(Endeavoru)= 作為編譯的目標機型。
