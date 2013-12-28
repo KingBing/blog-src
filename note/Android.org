@@ -55,3 +55,22 @@
 #+BEGIN_SRC sh
   screencap -p /data/screenshot.png
 #+END_SRC
+
+* 更新 HTC 手機的 HBOOT
+
+1. 首先使用以下方式刷上你的 HBOOT
+
+   #+BEGIN_SRC sh
+     # Optional
+     fastboot erase cache
+     # Enter HTC balck screen
+     fastboot oem rebootRUU
+     # Flash your hboot.zip file
+     fastboot flash zip [zipname.zip]
+   #+END_SRC
+
+2. 接著使用命令回到你的 bootloader
+
+   #+BEGIN_SRC sh
+     fastboot reboot-bootloader
+   #+END_SRC
