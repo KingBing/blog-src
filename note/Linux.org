@@ -185,6 +185,8 @@
   git diff --name-status SHA1 SHA2
 #+END_SRC
 
+** 修改本地分之追蹤的遠端 repo
+
 * dmesg: klogctl failed: Bad address                                   :misc:
 
 如果使用 dmesg 時，遇到
