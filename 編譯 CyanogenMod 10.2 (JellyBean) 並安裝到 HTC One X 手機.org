@@ -12,3 +12,5 @@ CyanogenMod]] 是目前最為風行的 Android 第三方改版，原本由 Steve
 
 本篇文章以 =CyanogenMod 10.2= (簡稱 =CM10=) 為主，並使用 =HTC One X
 (Endeavoru)= 作為編譯的目標機型。
+
+若您有興趣的是如何編譯 =CM9= 到你的 HTC OneX，請參考拙作:
