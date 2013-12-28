@@ -5,4 +5,4 @@
 #+LANGUAGE: zh_TW
 #+URL:    46ac3
 #+OPTIONS: num:nil ^:nil
-#+TAGS:
+#+TAGS: android cyanogenmod htc_one_x endeavoru
