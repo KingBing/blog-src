@@ -14,3 +14,111 @@ CyanogenMod]] 是目前最為風行的 Android 第三方改版，原本由 Steve
 (Endeavoru)= 作為編譯的目標機型。
 
 若您有興趣的是如何編譯 =CM9= 到你的 HTC OneX，請參考拙作:
+
+* 建立你的開發環境
+
+要能夠編譯 CyanogenMod, 首先要先把開發環境建立好，才能夠在編譯的過程中
+順順利利的，以下列出幾個常用的 Linux 建立編譯環境所需要額外安裝的套件。
+
+#+ATTR_HTML: :class alert-warning
+#+BEGIN_ALERT
+為了能夠正確編譯你的 CyanogenMod 或是 Android，請使用 *64-bit*
+的 Linux 系統。
+#+END_ALERT
+
+- Debian /Ubuntu Linux
+
+  #+BEGIN_SRC sh
+    sudo apt-get install                                            \
+        build-essential pkg-config zlib1g-dev libusb-dev libqt4-dev \
+        autoconf libtool git-core gnupg sun-java6-jdk flex bison    \
+        gperf libsdl-dev libesd0-dev libwxgtk2.6-dev zip curl       \
+        libncurses5-dev ia32-libs lib32z1-dev lib32ncurses5-dev     \
+        gcc-multilib g++-multilib
+  #+END_SRC
+
+- Gentoo Linux
+
+  #+BEGIN_SRC sh
+    emerge -v                                              \
+        schedtool cmake bison curl git sun-jdk             \
+        gnupg flex bison gperf libsdl squashfs-tools       \
+        ncurses zlib perl-Switch zip unzip wxGTK           \
+        emul-linux-x86-baselibs emul-linux-x86-compat emul-linux-x86-cpplibs
+  #+END_SRC
+
+* 取得 repo 工具
+
+不論你是要編譯 Android、CyanogenMod 或是 Firefox OS、Ubuntu Touch，你都
+會需要 =repo= 這個命令，因此若你沒有這個命令的話，趕快安裝他吧 :)
+
+下面的指令會將 repo 放到 =~/bin= 下
+
+#+BEGIN_SRC sh
+  curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+  chmod a+x ~/bin/repo
+  export PATH="${PATH}:~/bin"
+#+END_SRC
+
+* 取得必須的原始碼
+
+- 建立編譯用的目錄 =cm10.2= 並切換進去
+
+  #+BEGIN_SRC sh
+    mkdir cm10.2 && cd cm10.2
+  #+END_SRC
+
+- 取得 manifest
+
+  #+BEGIN_SRC sh
+    repo init -u git://github.com/CyanogenMod/android.git -b cm-10.2
+  #+END_SRC
+
+- 下載程式碼
+
+  #+BEGIN_SRC sh
+    repo sync
+  #+END_SRC
+
+- 取得預先編譯好的 app
+
+  #+BEGIN_SRC sh
+    cd vendor/cm && ./get-prebuilts
+  #+END_SRC
+
+- 取得 HTC One X kernel 和其他可能需要的原始碼
+
+  #+BEGIN_SRC sh
+    source build/envsetup.sh
+    breakfast endeavoru
+  #+END_SRC
+* 取得官方提供的二進制檔案
+
+要取得手機裡面特殊的二進制文件有兩種作法，一個是從你的手機裡面取出，另
+外一個則是使用別人已經 *備份* 在網路上的檔案。由於我們這次要編譯的是比
+較過時的 CM9，建議使用網路上的檔案，才不會出現 firmware 和 ROM 不批配的狀況。
+
+- 下載別人整理好的二進制檔案
+
+  在 Github 上可以找到一些已經整理好 HTC One X 二進制檔的 repo，
+  修改 =.repo/local_manifest.xml= ，讓他變成下面這樣
+
+  #+BEGIN_SRC xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <manifest>
+      <project name="CyanogenMod/android_device_htc_endeavoru" path="device/htc/endeavoru" remote="github" revision="ics" />
+      <project name="coldnew/android_vendor_htc_endeavoru" path="vendor/htc/endeavoru" remote="github" revision="ics" />
+    </manifest>
+  #+END_SRC
+
+  接著再使用 repo 命令來取得原始碼
+
+  #+BEGIN_SRC sh
+    repo sync
+  #+END_SRC
+
+- 直接從手機裡面取得二進制檔案
+
+  #+BEGIN_SRC sh
+    cd device/htc/endeavoru && ./extract-files.sh
+  #+END_SRC
