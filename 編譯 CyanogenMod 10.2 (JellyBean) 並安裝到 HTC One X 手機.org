@@ -123,7 +123,19 @@ CyanogenMod]] 是目前最為風行的 Android 第三方改版，原本由 Steve
 
   若你的手機已經是 Android 4.2 or 以上的版本，你可以透過
   =extract-files.sh= 腳本建立 =vendor/htc= 資料夾。由於必須的腳本並未
-  被包含在 CM10.2 的 android_device_htc_endeavoru
+  被包含在 CM10.2 的 =android_device_htc_endeavoru= 裡面，因此我們要從
+  CM9 repo 取得必須的腳本
+
+  #+BEGIN_SRC sh
+    cd device/htc/endeavoru
+    wget https://raw.github.com/CyanogenMod/android_device_htc_endeavoru/ics/extract_files.sh
+    chmod +x extract_files.sh
+    wget https://raw.github.com/CyanogenMod/android_device_htc_endeavoru/ics/setup-makefiles.sh
+    chmod +x setup-makefiles.sh
+  #+END_SRC
+
+  接著在使用 =extract-files.sh= 取得必須的二進制文件，完成後還要執行
+  =setup-makefiles.sh= 去建立相對應的 Makefile
 
   #+BEGIN_SRC sh
     cd device/htc/endeavoru && ./extract-files.sh
