@@ -194,3 +194,6 @@ CyanogenMod]] 是目前最為風行的 Android 第三方改版，原本由 Steve
   #+BEGIN_SRC sh
     fastboot reboot
   #+END_SRC
+* 參考資料
+
+~[1]~ [[http://wiki.cyanogenmod.org/w/Build_for_endeavoru][How To Build CyanogenMod Android for HTC One X ("endeavoru") ]]
