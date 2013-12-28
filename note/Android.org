@@ -8,9 +8,9 @@
 #+BLOGIT_TYPE: note
 
 
-* 使用 adb 重新掛載 /system 資料夾
+* 掛載 /system 資料夾成 RW 模式
 
-adb 必須要擁有 root 權限
+*必須要擁有 root 權限*
 
 #+BEGIN_SRC sh
   mount -o rw, remount /system
