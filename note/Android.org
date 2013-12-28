@@ -7,7 +7,6 @@
 #+OPTIONS: num:nil ^:nil
 #+BLOGIT_TYPE: note
 
-
 * 掛載 /system 資料夾成 RW 模式
 
 *必須要擁有 root 權限*
