@@ -100,7 +100,7 @@ CyanogenMod]] 是目前最為風行的 Android 第三方改版，原本由 Steve
 - 下載別人整理好的二進制檔案
 
   在 Github 上可以找到一些已經整理好 HTC One X 二進制檔的 repo，
-  修改 =.repo/local_manifest.xml= ，讓他變成下面這樣
+  修改 =.repo/local_manifest/roomservice.xml= ，讓他變成下面這樣
 
   #+BEGIN_SRC xml
     <?xml version="1.0" encoding="UTF-8"?>
