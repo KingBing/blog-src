@@ -105,8 +105,11 @@ CyanogenMod]] 是目前最為風行的 Android 第三方改版，原本由 Steve
   #+BEGIN_SRC xml
     <?xml version="1.0" encoding="UTF-8"?>
     <manifest>
-      <project name="CyanogenMod/android_device_htc_endeavoru" path="device/htc/endeavoru" remote="github" revision="ics" />
-      <project name="coldnew/android_vendor_htc_endeavoru" path="vendor/htc/endeavoru" remote="github" revision="ics" />
+      <project name="CyanogenMod/android_device_htc_endeavoru" path="device/htc/endeavoru" remote="github" />
+      <project name="CyanogenMod/android_device_htc_tegra3-common" path="device/htc/tegra3-common" remote="github" />
+      <project name="CyanogenMod/android_kernel_htc_endeavoru" path="kernel/htc/endeavoru" remote="github" />
+      <project path="vendor/htc/endeavoru"
+               name="coldnew/android_vendor_htc_endeavoru" remote="github" revision="refs/heads/cm-10.2" />
     </manifest>
   #+END_SRC
 
