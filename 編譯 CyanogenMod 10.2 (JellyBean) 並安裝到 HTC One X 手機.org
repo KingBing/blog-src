@@ -139,4 +139,5 @@ CyanogenMod]] 是目前最為風行的 Android 第三方改版，原本由 Steve
 
   #+BEGIN_SRC sh
     cd device/htc/endeavoru && ./extract-files.sh
+    ./setup-makefiles.sh
   #+END_SRC
