@@ -121,6 +121,9 @@ CyanogenMod]] 是目前最為風行的 Android 第三方改版，原本由 Steve
 
 - 直接從手機裡面取得二進制檔案
 
+  若你的手機已經是 Android 4.2 or 以上的版本，你可以透過
+  =extract-files.sh= 腳本建立 =vendor/htc= 資料夾。
+
   #+BEGIN_SRC sh
     cd device/htc/endeavoru && ./extract-files.sh
   #+END_SRC
