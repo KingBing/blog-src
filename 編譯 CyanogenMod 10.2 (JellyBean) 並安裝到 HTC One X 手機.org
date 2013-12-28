@@ -10,7 +10,7 @@
 CyanogenMod]] 是目前最為風行的 Android 第三方改版，原本由 Steve Kondik 創
 辦開發，並加入了許多 [[http://www.xda-developers.com][xda]] 社群的改版，該團隊也在最近成立了公司 CyanogenMod Inc.
 
-本篇文章以 =CyanogenMod 10.2= (簡稱 =CM10=) 為主，並使用 =HTC One X
+本篇文章以 =CyanogenMod 10.2= (簡稱 =CM10.2=) 為主，並使用 =HTC One X
 (Endeavoru)= 作為編譯的目標機型。
 
 若您有興趣的是如何編譯 =CM9= 到你的 HTC OneX，請參考拙作:
@@ -122,7 +122,8 @@ CyanogenMod]] 是目前最為風行的 Android 第三方改版，原本由 Steve
 - 直接從手機裡面取得二進制檔案
 
   若你的手機已經是 Android 4.2 or 以上的版本，你可以透過
-  =extract-files.sh= 腳本建立 =vendor/htc= 資料夾。
+  =extract-files.sh= 腳本建立 =vendor/htc= 資料夾。由於必須的腳本並未
+  被包含在 CM10.2
 
   #+BEGIN_SRC sh
     cd device/htc/endeavoru && ./extract-files.sh
