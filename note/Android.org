@@ -52,3 +52,7 @@
    #+END_SRC
 
 * 使用命令行進行截圖
+
+#+BEGIN_SRC sh
+  screencap -p /data/screenshot.png
+#+END_SRC
