@@ -14,7 +14,7 @@
 本篇文章以 =CyanogenMod 10.2= (簡稱 =CM10.2=) 為主，並使用 =HTC One X
 (Endeavoru)= 作為編譯的目標機型。
 
-若您有興趣的是如何編譯 =CM9= 到你的 HTC OneX，請參考拙作:
+若您有興趣的是如何編譯 =CM9= 到你的 HTC OneX，請參考拙作: [[file:%E7%B7%A8%E8%AD%AF%20CyanogenMod%209%20(ICS)%20%E4%B8%A6%E5%AE%89%E8%A3%9D%E5%88%B0%20HTC%20One%20X%20%E6%89%8B%E6%A9%9F.org][編譯 CyanogenMod 9 (ICS) 並安裝到 HTC One X 手機]]
 
 * 建立你的開發環境
 
