@@ -50,3 +50,5 @@
    #+BEGIN_SRC sh
      fastboot reboot
    #+END_SRC
+
+* 使用命令行進行截圖
