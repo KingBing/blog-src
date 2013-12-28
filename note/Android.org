@@ -56,23 +56,29 @@
   screencap -p /data/screenshot.png
 #+END_SRC
 
-* 更新 HTC 手機的 HBOOT
+* 更新 HTC ONEX 手機的 HBOOT
 
+- 1. 下載需要的 firmware
 
+  台灣使用的 CID 是 HTC__621，因此要到這邊下載 [[http://arhd.onedroid.net/db_mirror/Firmware/index.php?dir%3DHTC%252FHTC_One_X%252F709%252F][firmware]] ，下載完成後，
+  將檔案改名為 firmware.zip
 
+- 2. 將手機上鎖
 
-1. 首先使用以下方式刷上你的 HBOOT
+  #+BEGIN_SRC sh
+    fastboot oem lock
+  #+END_SRC
 
-   #+BEGIN_SRC sh
-     # Optional
-     fastboot erase cache
-     # Enter HTC balck screen
-     fastboot oem rebootRUU
-     # Flash your hboot.zip file
-     fastboot flash zip [zipname.zip]
-   #+END_SRC
+- 3. 更新 firmware
 
-2. 接著使用命令回到你的 bootloader
+  #+BEGIN_SRC sh
+    # Enter HTC balck screen
+    fastboot oem rebootRUU
+    # Flash your hboot.zip file
+    fastboot flash zip [zipname.zip]
+  #+END_SRC
+
+- 4. 重新開機回 bootloader
 
    #+BEGIN_SRC sh
      fastboot reboot-bootloader
