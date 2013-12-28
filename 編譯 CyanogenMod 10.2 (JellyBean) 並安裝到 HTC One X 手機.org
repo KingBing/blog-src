@@ -150,3 +150,53 @@ CyanogenMod]] 是目前最為風行的 Android 第三方改版，原本由 Steve
   croot
   brunch endeavoru
 #+END_SRC
+
+* 下載到 HTC One X
+
+#+HTML: <div class="alert alert-info">
+本篇文章所編譯的 CyanogenMod 版本為 *CM9* ，實際上相對應的 Android 版本
+即為 *Android 4.0 (ICS)* ，因為 HTC 在 Android 4.0 與 4.2 上面的 HBOOT 有差
+異，你必須將你的 HBOOT 降版，才能夠將 CM9 裝到你的手機，並成功開機。
+#+HTML: </div>
+
+若你的 HTC 手機裡面已經將 recovery 更改為 [[http://teamw.in/project/twrp2/95][TWRP]] 或是 [[http://www.clockworkmod.com/rommanager][CWM]] 的話，你可以直
+接複製編譯好的 ROM 檔案到你的手機裡面，並使用這些 recovery tool 來
+安裝新的 image (HBOOT 要先降版本)，具體的檔案路徑如下:
+
+#+BEGIN_EXAMPLE
+  out/target/product/endeavoru/cm-9-20131027-UNOFFICIAL-endeavoru.zip
+#+END_EXAMPLE
+
+除此之外，你也可以使用 fastboot 命令來燒錄新的 image，以下是操作流程
+
+- 1. 重新開機到 bootloader
+
+  #+BEGIN_SRC sh
+    adb reboot-bootloader
+  #+END_SRC
+
+- 2. 查看是否有找到裝置
+
+  #+BEGIN_SRC sh
+    fastboot devices
+  #+END_SRC
+
+- 3. 燒錄你的新的 image
+
+  #+BEGIN_SRC sh
+    fastboot flash boot boot.img
+    fastboot flash system system.img
+  #+END_SRC
+
+- 4. 清除 cache 和 user-data
+
+  #+BEGIN_SRC sh
+    fastboot erase userdata
+    fastboot erase cache
+  #+END_SRC
+
+- 5. 重新啟動你的手機
+
+  #+BEGIN_SRC sh
+    fastboot reboot
+  #+END_SRC
