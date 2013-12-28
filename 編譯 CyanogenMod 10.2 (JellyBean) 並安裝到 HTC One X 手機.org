@@ -1,0 +1,8 @@
+#+TITLE: 編譯 CyanogenMod 10
+#+AUTHOR: coldnew
+#+EMAIL:  coldnew.tw@gmail.com
+#+DATE:   2013-12-29 00:06:28
+#+LANGUAGE: zh_TW
+#+URL:    46ac3
+#+OPTIONS: num:nil ^:nil
+#+TAGS:
