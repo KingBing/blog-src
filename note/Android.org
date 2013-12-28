@@ -58,6 +58,9 @@
 
 * 更新 HTC 手機的 HBOOT
 
+
+
+
 1. 首先使用以下方式刷上你的 HBOOT
 
    #+BEGIN_SRC sh
