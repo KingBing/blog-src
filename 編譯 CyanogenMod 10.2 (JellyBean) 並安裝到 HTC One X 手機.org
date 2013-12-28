@@ -92,6 +92,7 @@ CyanogenMod]] 是目前最為風行的 Android 第三方改版，原本由 Steve
     source build/envsetup.sh
     breakfast endeavoru
   #+END_SRC
+
 * 取得官方提供的二進制檔案
 
 要取得手機裡面特殊的二進制文件有兩種作法，一個是從你的手機裡面取出，另
