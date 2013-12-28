@@ -123,7 +123,7 @@ CyanogenMod]] 是目前最為風行的 Android 第三方改版，原本由 Steve
 
   若你的手機已經是 Android 4.2 or 以上的版本，你可以透過
   =extract-files.sh= 腳本建立 =vendor/htc= 資料夾。由於必須的腳本並未
-  被包含在 CM10.2
+  被包含在 CM10.2 的 android_device_htc_endeavoru
 
   #+BEGIN_SRC sh
     cd device/htc/endeavoru && ./extract-files.sh
