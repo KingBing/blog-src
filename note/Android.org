@@ -15,3 +15,38 @@
 #+BEGIN_SRC sh
   mount -o rw, remount /system
 #+END_SRC
+
+* 使用 fastboot 命令將新的 image 燒錄到系統
+
+1. 重新開機到 bootloader
+
+   #+BEGIN_SRC sh
+     adb reboot-bootloader
+   #+END_SRC
+
+2. 查看是否有找到裝置
+
+   #+BEGIN_SRC sh
+     fastboot devices
+   #+END_SRC
+
+3. 燒錄你的新的 image
+
+   #+BEGIN_SRC sh
+     fastboot flash boot boot.img
+     fastboot flash system system.img
+   #+END_SRC
+
+
+4. 清除 cache 和 user-data
+
+   #+BEGIN_SRC sh
+     fastboot erase userdata
+     fastboot erase cache
+   #+END_SRC
+
+5. 重新啟動你的手機
+
+   #+BEGIN_SRC sh
+     fastboot reboot
+   #+END_SRC
