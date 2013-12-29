@@ -49,7 +49,10 @@ HTC One X 手機使用，但是並未提及最關鍵的步驟: =如何升級/降
 
 下載位址：[[http://www.androidfiles.org/ruu/?developer%3DEndeavor][AndroidFiles RUU (endeavor)]]
 
-* 將手機重開機到 fastboot 下
+* 更新你的 HBOOT 或是 RUU
+
+
+** 將手機重開機到 fastboot 下
 
 你可以使用 adb 命令，來讓你的手機切換到 bootloader 下，或者是按下 =聲
 音縮小= 按鍵，並進行重開機。
@@ -58,7 +61,7 @@ HTC One X 手機使用，但是並未提及最關鍵的步驟: =如何升級/降
   coldnew@Rosia ~/endeavoru $ adb reboot-bootloader
 #+END_EXAMPLE
 
-* 將手機上鎖回去
+** 將手機上鎖回去
 
 要更新 RUU 或是 HBOOT 之前，必須要將已經解鎖的手機上所回去，因此請保留
 好你解鎖用的 =Unlocked_code.bin= 檔案。
@@ -71,7 +74,7 @@ HTC One X 手機使用，但是並未提及最關鍵的步驟: =如何升級/降
   finished. total time: 5.113s
 #+END_EXAMPLE
 
-* 進入到燒錄 RUU 模式
+** 進入到燒錄 RUU 模式
 
 燒錄 RUU 會切換到另外一種 bootloader 下，使用以下命令進行切換。
 
@@ -79,7 +82,7 @@ HTC One X 手機使用，但是並未提及最關鍵的步驟: =如何升級/降
   coldnew@Rosia ~/endeavoru $ fastboot oem rebootRUU
 #+END_EXAMPLE
 
-* 將 firmware 燒錄進去
+** 將 firmware 燒錄進去
 
 假設你要燒錄的 RUU 檔案名稱為 =firmware.zip= ，則使用如以下的命令進
 行燒錄。
@@ -103,7 +106,7 @@ HTC One X 手機使用，但是並未提及最關鍵的步驟: =如何升級/降
   finished. total time: 4.302s
 #+END_EXAMPLE
 
-* 重新開機
+** 重新開機
 
 #+BEGIN_EXAMPLE
   coldnew@Rosia ~/endeavoru $ fastboot reboot
@@ -112,9 +115,7 @@ HTC One X 手機使用，但是並未提及最關鍵的步驟: =如何升級/降
   finished. total time: 0.134s
 #+END_EXAMPLE
 
-
-
-* 重新解鎖
+** 重新解鎖
 
 #+BEGIN_EXAMPLE
   coldnew@Rosia ~/endeavoru $ fastboot flash unlocktoken Unlock_code.bin
@@ -126,7 +127,7 @@ HTC One X 手機使用，但是並未提及最關鍵的步驟: =如何升級/降
   finished. total time: 39.451s
 #+END_EXAMPLE
 
-* 將 recovery 燒上去
+** 將 recovery 燒上去
 
 #+BEGIN_EXAMPLE
   coldnew@Rosia ~/endeavoru $ fastboot flash recovery openrecovery-twrp-2.6.3.0-endeavoru.img
@@ -137,9 +138,5 @@ HTC One X 手機使用，但是並未提及最關鍵的步驟: =如何升級/降
   OKAY [  0.602s]
   finished. total time: 1.649s
 #+END_EXAMPLE
-
-
-
-
 
 * 參考連結
