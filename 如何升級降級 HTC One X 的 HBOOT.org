@@ -60,7 +60,8 @@ HTC One X 手機使用，但是並未提及最關鍵的步驟: =如何升級/降
 
 * 將手機上鎖回去
 
-要更新 RUU 或是 HBOOT 之前，必須要將已經解鎖的手機上所回去。
+要更新 RUU 或是 HBOOT 之前，必須要將已經解鎖的手機上所回去，因此請保留
+好你解鎖用的 =Unlocked_code.bin=
 
 #+BEGIN_EXAMPLE
   coldnew@Rosia ~/endeavoru $ fastboot oem lock
