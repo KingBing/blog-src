@@ -81,7 +81,7 @@ HTC One X 手機使用，但是並未提及最關鍵的步驟: =如何升級/降
   14 directories, 7 files
 #+END_EXAMPLE
 
-裡面的 =firmware.zip= 就是 RUU 檔案，在解開來可以看到
+裡面的 =firmware.zip= 就是 RUU 檔案，再解開來可以看到
 
 #+BEGIN_EXAMPLE
   coldnew@Sara ~/ota_endeavoru/firmware $ tree -n
