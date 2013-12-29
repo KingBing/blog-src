@@ -83,3 +83,10 @@
    #+BEGIN_SRC sh
      fastboot reboot-bootloader
    #+END_SRC
+* 解鎖 HTC 手機
+
+取得 Unlocked_code.bin 後，進到 fasboot 下，使用
+
+#+BEGIN_SRC sh
+   fastboot flash unlocktoken Unlock_code.bin
+#+END_SRC
