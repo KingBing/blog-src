@@ -10,4 +10,4 @@
 
 * 取得必須的 RUU
 
-http://www.androidfiles.org/ruu/?developer=Endeavor
+[[http://www.androidfiles.org/ruu/?developer%3DEndeavor][AndroidFiles RUU (endeavor)]]
