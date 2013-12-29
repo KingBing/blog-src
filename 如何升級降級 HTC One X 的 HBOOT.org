@@ -22,6 +22,10 @@
 
 - 將手機上鎖回去
 
+  #+BEGIN_EXAMPLE
+    fastboot oem lock
+  #+END_EXAMPLE
+
 
 * 參考連結
 
