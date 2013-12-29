@@ -1,0 +1,8 @@
+#+TITLE: 如何升級/降級 HTC One X 的 HBOOT
+#+AUTHOR: coldnew
+#+EMAIL:  coldnew.tw@gmail.com
+#+DATE:   2013-12-29 17:55:37
+#+LANGUAGE: zh_TW
+#+URL:    76c4a
+#+OPTIONS: num:nil ^:nil
+#+TAGS:
