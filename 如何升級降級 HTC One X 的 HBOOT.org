@@ -71,13 +71,17 @@ HTC One X 手機使用，但是並未提及最關鍵的步驟: =如何升級/降
   finished. total time: 5.113s
 #+END_EXAMPLE
 
+* 進入到燒錄 RUU 模式
+
+#+BEGIN_EXAMPLE
+  coldnew@Rosia ~/endeavoru $ fastboot oem rebootRUU
+#+END_EXAMPLE
+
 * 將 firmware 燒錄到你的 HTC One X
 
-- 進入到燒錄 RUU 模式
 
-  #+BEGIN_EXAMPLE
-    coldnew@Rosia ~/endeavoru $ fastboot oem rebootRUU
-  #+END_EXAMPLE
+
+
 
 - 將 firmware 燒錄進去
 
