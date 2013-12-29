@@ -185,7 +185,7 @@
   git diff --name-status SHA1 SHA2
 #+END_SRC
 
-** 修改本地分之追蹤的遠端 repo
+** 修改本地分支追蹤的遠端 repo
 
 #+BEGIN_SRC sh
   git branch <branch name> --set-upstream-to <remote>/<branch name>
