@@ -40,7 +40,7 @@ HTC One X 手機使用，但是並未提及最關鍵的步驟: =如何升級/降
 - 將手機上鎖回去
 
   #+BEGIN_EXAMPLE
-    fastboot oem lock
+    coldnew@Rosia ~/endeavoru $ fastboot oem lock
   #+END_EXAMPLE
 
 - 進入到燒錄 RUU 模式
