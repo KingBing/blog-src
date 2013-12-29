@@ -86,14 +86,13 @@ HTC One X 手機使用，但是並未提及最關鍵的步驟: =如何升級/降
 - 解鎖
 
   #+BEGIN_EXAMPLE
-    coldnew@Rosia /run/media/coldnew/DATA/onex $ fastboot flash unlocktoken Unlock_code.bin
+    coldnew@Rosia ~/onex $ fastboot flash unlocktoken Unlock_code.bin
     sending 'unlocktoken' (0 KB)...
     OKAY [  0.035s]
     writing 'unlocktoken'...
     (bootloader) unlock token check successfully
     FAILED (status read failed (No such device))
     finished. total time: 39.451s
-
   #+END_EXAMPLE
 
 - recovery
