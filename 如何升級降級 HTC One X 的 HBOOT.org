@@ -36,11 +36,9 @@ HTC One X 手機使用，但是並未提及最關鍵的步驟: =如何升級/降
 
 ~[1]~ [[http://www.hk-android.info/archives/27933][HTC One X Root 機教學 (含解鎖 Bootloader)]]
 
-下面這兩個連結是和 *如何更新 HBOOT* 、*RUU* 相關的:
+下面這個連結講解了關於 HTC OneX 更新 RUU 必備的資訊 *必看*
 
 ~[2]~ [[http://www.mobile01.com/topicdetail.php?f%3D566&t%3D2692027][One X RUU 回覆 /Recovery/OTA 相關教學與疑難排解]]
-
-~[3]~ [[http://forum.xda-developers.com/showthread.php?t%3D1957376&highlight%3Dsearch%2Bthis%2Bforum][{PLACEHOLDER} {01.10.2013} HTC One X firmware collection for different CID/MID]]
 
 * 從 OTA檔案 中取得 RUU 以及 HBOOT
 
