@@ -35,7 +35,22 @@
 - 將 firmware 燒錄進去
 
   #+BEGIN_EXAMPLE
-    fastboot flash zip firmware.zip
+    coldnew@Rosia /run/media/coldnew/DATA/onex $ fastboot flash zip firmware.zip
+    sending 'zip' (12878 KB)...
+    OKAY [  1.833s]
+    writing 'zip'...
+    (bootloader) shift signature_size for header checking...
+    (bootloader) checking model ID...
+    (bootloader) checking custom ID...
+    (bootloader) start image[boot] unzipping & flushing...
+    (bootloader) Format partition LNX done
+    (bootloader) [RUU]WP,boot,100
+    (bootloader) start image[recovery] unzipping & flushing...
+    (bootloader) Format partition SOS done
+    (bootloader) [RUU]WP,recovery,100
+    (bootloader) ERASE backup cid
+    OKAY [  2.469s]
+    finished. total time: 4.302s
   #+END_EXAMPLE
 
 
