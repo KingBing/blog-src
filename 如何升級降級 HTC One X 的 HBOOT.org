@@ -99,7 +99,6 @@ HTC One X 手機使用，但是並未提及最關鍵的步驟: =如何升級/降
 
 裡頭的 =hboot_1.31.0000.img= 就是我們所需要的 HBOOT。
 
-
 * 更新你的 HBOOT 或是 RUU
 
 ** 將手機重開機到 fastboot 下
