@@ -29,7 +29,6 @@ HTC One X 手機使用，但是並未提及最關鍵的步驟: =如何升級/降
 事實上，更改手機的 bootloader 是最危險的事情，沒弄好的話，你的手機很可
 能就會無法使用，像個磚塊一樣。
 
-
 * 取得必須的 RUU
 
 下載位址：[[http://www.androidfiles.org/ruu/?developer%3DEndeavor][AndroidFiles RUU (endeavor)]]
