@@ -44,7 +44,6 @@ HTC One X 手機使用，但是並未提及最關鍵的步驟: =如何升級/降
 
 * 取得必須的 RUU
 
-
 刷機用的 HBOOT 可以從 OTA 的檔案中取得，以 [[http://www.androidfiles.org/ruu/?developer%3DEndeavor][AndroidFiles RUU (endeavor)]]
 裡面的
 
