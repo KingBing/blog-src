@@ -12,6 +12,16 @@
 
 下載位址：[[http://www.androidfiles.org/ruu/?developer%3DEndeavor][AndroidFiles RUU (endeavor)]]
 
+* 將 firmware 燒錄到你的 HTC One X
+
+- 將手機重開機到 fastboot 下
+
+  #+BEGIN_EXAMPLE
+    adb reboot-bootloader
+  #+END_EXAMPLE
+
+- 將手機上鎖回去
+
 
 * 參考連結
 
