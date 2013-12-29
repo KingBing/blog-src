@@ -79,32 +79,32 @@ HTC One X 手機使用，但是並未提及最關鍵的步驟: =如何升級/降
   coldnew@Rosia ~/endeavoru $ fastboot oem rebootRUU
 #+END_EXAMPLE
 
+* 將 firmware 燒錄進去
+
+假設你要燒錄的 RUU 檔案名稱為 =firmware.zip= ，則使用如以下的命令進
+行燒錄。
+
+#+BEGIN_EXAMPLE
+  coldnew@Rosia ~/endeavoru $ fastboot flash zip firmware.zip
+  sending 'zip' (12878 KB)...
+  OKAY [  1.833s]
+  writing 'zip'...
+  (bootloader) shift signature_size for header checking...
+  (bootloader) checking model ID...
+  (bootloader) checking custom ID...
+  (bootloader) start image[boot] unzipping & flushing...
+  (bootloader) Format partition LNX done
+  (bootloader) [RUU]WP,boot,100
+  (bootloader) start image[recovery] unzipping & flushing...
+  (bootloader) Format partition SOS done
+  (bootloader) [RUU]WP,recovery,100
+  (bootloader) ERASE backup cid
+  OKAY [  2.469s]
+  finished. total time: 4.302s
+#+END_EXAMPLE
+
+
 * 將 firmware 燒錄到你的 HTC One X
-
-
-- 將 firmware 燒錄進去
-
-  假設你要燒錄的 RUU 檔案名稱為 =firmware.zip= ，則使用如以下的命令進
-  行燒錄。
-
-  #+BEGIN_EXAMPLE
-    coldnew@Rosia ~/endeavoru $ fastboot flash zip firmware.zip
-    sending 'zip' (12878 KB)...
-    OKAY [  1.833s]
-    writing 'zip'...
-    (bootloader) shift signature_size for header checking...
-    (bootloader) checking model ID...
-    (bootloader) checking custom ID...
-    (bootloader) start image[boot] unzipping & flushing...
-    (bootloader) Format partition LNX done
-    (bootloader) [RUU]WP,boot,100
-    (bootloader) start image[recovery] unzipping & flushing...
-    (bootloader) Format partition SOS done
-    (bootloader) [RUU]WP,recovery,100
-    (bootloader) ERASE backup cid
-    OKAY [  2.469s]
-    finished. total time: 4.302s
-  #+END_EXAMPLE
 
 - 重新開機
 
