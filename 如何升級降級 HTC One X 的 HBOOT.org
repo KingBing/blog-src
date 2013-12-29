@@ -42,9 +42,9 @@ HTC One X 手機使用，但是並未提及最關鍵的步驟: =如何升級/降
 
 ~[3]~ [[http://forum.xda-developers.com/showthread.php?t%3D1957376&highlight%3Dsearch%2Bthis%2Bforum][{PLACEHOLDER} {01.10.2013} HTC One X firmware collection for different CID/MID]]
 
-* 取得必須的 RUU
+* 從 RUU 中取得 HBOOT
 
-刷機用的 HBOOT 可以從 OTA 的檔案中取得，以 [[http://www.androidfiles.org/ruu/?developer%3DEndeavor][AndroidFiles RUU (endeavor)]]
+刷機用的 HBOOT 以及 RUU 可以從 OTA 的檔案中取得，以 [[http://www.androidfiles.org/ruu/?developer%3DEndeavor][AndroidFiles RUU (endeavor)]]
 裡面的
 
 : OTA_ENDEAVOR_U_JB_45_S_hTC_Asia_TW_3.14.709.16-2.17.709.7_release_290501b59ldhm19jb48jdy.zip
