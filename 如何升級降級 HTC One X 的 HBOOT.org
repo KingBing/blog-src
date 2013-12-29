@@ -32,6 +32,9 @@ HTC One X 手機使用，但是並未提及最關鍵的步驟: =如何升級/降
 本篇文章是我自己的筆記，用於我的HTC One X上面是可以使用的，但是若你因
 此將你的手機變成磚塊，請自行負責。
 
+* 行動前必看的幾個連結
+
+
 * 取得必須的 RUU
 
 下載位址：[[http://www.androidfiles.org/ruu/?developer%3DEndeavor][AndroidFiles RUU (endeavor)]]
