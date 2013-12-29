@@ -26,11 +26,13 @@
     fastboot oem lock
   #+END_EXAMPLE
 
-- 將 firmware 燒錄進去
+- 進入到燒錄 RUU 模式
 
   #+BEGIN_EXAMPLE
     fastboot oem rebootRUU
   #+END_EXAMPLE
+
+- 將 firmware 燒錄進去
 
 
 * 參考連結
