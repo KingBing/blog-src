@@ -53,6 +53,16 @@
     finished. total time: 4.302s
   #+END_EXAMPLE
 
+- 重新開機
+
+  #+BEGIN_EXAMPLE
+    coldnew@Rosia /run/media/coldnew/DATA/onex $ fastboot reboot
+    rebooting...
+
+    finished. total time: 0.134s
+
+  #+END_EXAMPLE
+
 
 * 參考連結
 
