@@ -9,9 +9,10 @@
 
 #+ATTR_HTML: :class alert-warning
 #+BEGIN_ALERT
-*警告*
+*WARNING: Any brick or fail it's not my resopnsibility. Proceed with
+caution.*
 
-*刷機有絕對的風險，請自行負責刷機失敗的責任。*
+*警告: 刷機有絕對的風險，請自行負責刷機失敗的責任。*
 #+END_ALERT
 
 在前面的文章中，曾經提到了如何自己動手建立 CM9 或是 CM10.2 的 image 給
