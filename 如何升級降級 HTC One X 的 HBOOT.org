@@ -49,13 +49,16 @@ HTC One X 手機使用，但是並未提及最關鍵的步驟: =如何升級/降
 
 下載位址：[[http://www.androidfiles.org/ruu/?developer%3DEndeavor][AndroidFiles RUU (endeavor)]]
 
+* 將手機重開機到 fastboot 下
+
+你可以使用 adb 命令，來讓你的手機切換到 bootloader 下，或者是按下 =聲
+音縮小= 按鍵，並進行重開機。
+
+#+BEGIN_EXAMPLE
+  coldnew@Rosia ~/endeavoru $ adb reboot-bootloader
+#+END_EXAMPLE
+
 * 將 firmware 燒錄到你的 HTC One X
-
-- 將手機重開機到 fastboot 下
-
-  #+BEGIN_EXAMPLE
-    coldnew@Rosia ~/endeavoru $ adb reboot-bootloader
-  #+END_EXAMPLE
 
 - 將手機上鎖回去
 
