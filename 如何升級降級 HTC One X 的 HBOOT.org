@@ -52,7 +52,37 @@ HTC One X 手機使用，但是並未提及最關鍵的步驟: =如何升級/降
 
 : OTA_ENDEAVOR_U_JB_45_S_hTC_Asia_TW_3.14.709.16-2.17.709.7_release_290501b59ldhm19jb48jdy.zip
 
-檔案為例，可以看到這是一個提供給版本為 JellyBean 用的 OTA 檔案
+檔案為例，可以看到這是一個提供給版本為 JellyBean 用的 OTA 檔案，因此裡
+面的 HBOOT 也只能用在 JellyBean 上面，若將該 ZIP 檔案解開，可以獲得下
+面的資料夾結構
+
+#+BEGIN_EXAMPLE
+  coldnew@Sara ~/ota_endeavor $ tree -n -L 2
+  .
+  ├── META-INF
+  │   ├── CERT.RSA
+  │   ├── CERT.SF
+  │   ├── MANIFEST.MF
+  │   └── com
+  ├── firmware.zip
+  ├── fotaBoot
+  ├── patch
+  │   └── system
+  ├── skin_fota
+  ├── system
+  │   ├── app
+  │   ├── bin
+  │   ├── customize
+  │   ├── etc
+  │   ├── fonts
+  │   ├── framework
+  │   ├── lib
+  │   ├── usr
+  │   └── vendor
+  └── version.txt
+
+  14 directories, 7 files
+#+END_EXAMPLE
 
 
 * 更新你的 HBOOT 或是 RUU
