@@ -79,7 +79,7 @@
 - recovery
 
 #+BEGIN_EXAMPLE
-  coldnew@Rosia /run/media/coldnew/DATA/onex $ fastboot flash recovery recovery/openrecovery-twrp-2.6.3.0-endeavoru.img
+  coldnew@Rosia ~/endeavoru $ fastboot flash recovery openrecovery-twrp-2.6.3.0-endeavoru.img
   sending 'recovery' (6972 KB)...
   OKAY [  1.046s]
   writing 'recovery'...
@@ -87,7 +87,6 @@
   OKAY [  0.602s]
   finished. total time: 1.649s
 #+END_EXAMPLE
-
 
 * 參考連結
 
