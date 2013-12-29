@@ -11,3 +11,8 @@
 * 取得必須的 RUU
 
 下載位址：[[http://www.androidfiles.org/ruu/?developer%3DEndeavor][AndroidFiles RUU (endeavor)]]
+
+
+* 參考連結
+
+~[1]~ [[http://www.mobile01.com/topicdetail.php?f%3D566&t%3D2692027][One X RUU 回覆 /Recovery/OTA 相關教學與疑難排解]]
