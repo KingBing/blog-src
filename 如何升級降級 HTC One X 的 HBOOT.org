@@ -35,7 +35,7 @@
 - 將 firmware 燒錄進去
 
   #+BEGIN_EXAMPLE
-
+    fastboot flash zip firmware.zip
   #+END_EXAMPLE
 
 
