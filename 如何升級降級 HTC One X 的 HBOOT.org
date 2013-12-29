@@ -126,11 +126,7 @@ HTC One X 手機使用，但是並未提及最關鍵的步驟: =如何升級/降
   finished. total time: 39.451s
 #+END_EXAMPLE
 
-
-* 將 firmware 燒錄到你的 HTC One X
-
-
-- recovery
+* 將 recovery 燒上去
 
 #+BEGIN_EXAMPLE
   coldnew@Rosia ~/endeavoru $ fastboot flash recovery openrecovery-twrp-2.6.3.0-endeavoru.img
@@ -141,5 +137,9 @@ HTC One X 手機使用，但是並未提及最關鍵的步驟: =如何升級/降
   OKAY [  0.602s]
   finished. total time: 1.649s
 #+END_EXAMPLE
+
+
+* 將 firmware 燒錄到你的 HTC One X
+
 
 * 參考連結
