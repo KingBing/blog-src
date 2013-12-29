@@ -11,8 +11,7 @@
 #+BEGIN_ALERT
 *WARNING*
 
-*Any brick or fail it's not my resopnsibility. Proceed with
-caution.*
+*Any brick or fail it's not my resopnsibility. Proceed with caution.*
 
 *警告*
 
