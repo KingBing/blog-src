@@ -55,7 +55,7 @@ HTC One X 手機使用，但是並未提及最關鍵的步驟: =如何升級/降
   行燒錄。
 
   #+BEGIN_EXAMPLE
-    coldnew@Rosia /run/media/coldnew/DATA/onex $ fastboot flash zip firmware.zip
+    coldnew@Rosia ~/onex $ fastboot flash zip firmware.zip
     sending 'zip' (12878 KB)...
     OKAY [  1.833s]
     writing 'zip'...
