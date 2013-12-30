@@ -1,0 +1,8 @@
+#+TITLE: 使用 ClojureScript 來寫 Brainfuck 的直譯器
+#+AUTHOR: coldnew
+#+EMAIL:  coldnew.tw@gmail.com
+#+DATE:   2013-12-30 22:04:02
+#+LANGUAGE: zh_TW
+#+URL:    f6961
+#+OPTIONS: num:nil ^:nil
+#+TAGS: clojurescript clojure
