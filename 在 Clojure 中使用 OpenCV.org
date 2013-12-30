@@ -7,6 +7,8 @@
 #+OPTIONS: num:nil ^:nil
 #+TAGS: clojure opencv
 
+OpenCV 是一套非常強大且好用的影像處理函式庫，在 2013 年的時候，
+
 
 * 下載 OpenCV 原始碼並編譯
 
