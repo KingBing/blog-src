@@ -118,11 +118,14 @@ Brainfuck 共包含有八種指令，其中兩個是 I/O 動作，其他的部�
 
 #+HTML: <div class="row "><div class="col-md-6 col-md-4">
 #+BEGIN_HTML
-    <!-- Button to trigger modal -->
-    <a href="#clojurescript_example" role="button" class="btn btn-danger" data-toggle="modal">Brainfuck Interpreter in ClojureScript</a>
+  <!-- Button to trigger modal -->
+  <button class="btn btn-danger" data-toggle="modal" data-target="#clojurescript_example">
+    Brainfuck Interpreter in ClojureScript
+  </button>
 
-    <!-- Modal -->
-    <div id="clojurescript_example" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <!-- Modal -->
+  <div id="clojurescript_example" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <h3 id="myModalLabel">Brainfuck Interpreter in ClojureScript</h3>
@@ -186,7 +189,9 @@ Brainfuck 共包含有八種指令，其中兩個是 I/O 動作，其他的部�
     <div class="modal-footer">
       <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Close</button>
     </div>
-    </div></div></div>
+  </div>  <!-- /.modal-content -->
+  </div>  <!-- /.modal-dialog -->
+  </div>  <!-- /.modal -->
 #+END_HTML
 
 * 透過 node.js 對檔案進行讀取
