@@ -7,8 +7,13 @@
 #+OPTIONS: num:nil ^:nil
 #+TAGS: clojure opencv
 
-OpenCV 是一套非常強大且好用的影像處理函式庫，在 2013 年的時候，
+OpenCV 是一套非常強大且好用的影像處理函式庫，一開始使用 C 語言來進行開
+發，後來移植到 C++ 上面，並提供了 Python 的綁定。在 2013 年的 2.4 版本
+時，OpenCV 開始提供了 JAVA 的 wrpaaer，也因此使用 JAVA 或是 Clojure 的
+人都可以輕鬆愉快的使用 OpenCV 了。
 
+為什麼要用 Clojure 來開發 OpenCV 呢？Clojure 是一套非常強大的 Lisp 方言，可運
+行在 JVM 上面，並可直接使用 JAVA 的函式庫。身為 Lisp 愛好者，
 
 * 下載 OpenCV 原始碼並編譯
 
