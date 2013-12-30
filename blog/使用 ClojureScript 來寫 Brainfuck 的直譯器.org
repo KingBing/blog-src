@@ -113,8 +113,7 @@ Brainfuck 共包含有八種指令，其中兩個是 I/O 動作，其他的部�
 
 * 概覽整個程式碼
 
-如果您想先看一下用 ClojureScript 寫 Brainfuck 的直譯器，其程式碼長的什
-麼樣子，可以點選下面的按鈕來觀看完整程式，  我們將會在後面文章來講述這整個程式的運作與原理。。
+本篇文章完整的程式碼如下，我們將在後面進行說明:
 
 #+BEGIN_SRC clojurescript :tangle "files/2013/brainfuck.cljs"
     (ns cljs-brainfuck.core
