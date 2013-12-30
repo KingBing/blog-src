@@ -19,12 +19,12 @@
   </button>
 
   <!-- Modal -->
-  <div id="clojurescript_example" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal hide fade" id="clojurescript_example" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-          <h3 id="myModalLabel">Brainfuck Interpreter in ClojureScript</h3>
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h3 class="modal-title" id="myModalLabel">Brainfuck Interpreter in ClojureScript</h3>
         </div>
         <div class="modal-body">
 #+END_HTML
