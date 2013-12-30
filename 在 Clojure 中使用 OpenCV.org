@@ -6,3 +6,11 @@
 #+URL:    686_c
 #+OPTIONS: num:nil ^:nil
 #+TAGS: clojure opencv
+
+
+* 下載 OpenCV 原始碼並編譯
+
+OpenCV 官網上面並未提供 Linux 或是 Mac OSX 的二進制檔案，所以就讓我們
+自己動手編譯吧 ~
+
+首先到 [[http://opencv.org/downloads.html][OpenCV 官方網站]] 去下載
