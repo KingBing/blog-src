@@ -185,7 +185,7 @@ Brainfuck 共包含有八種指令，其中兩個是 I/O 動作，其他的部�
 #+BEGIN_HTML
     </div>
     <div class="modal-footer">
-      <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+      <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Close</button>
     </div>
     </div></div></div>
 #+END_HTML
