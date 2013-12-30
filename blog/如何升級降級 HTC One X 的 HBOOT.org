@@ -7,7 +7,7 @@
 #+OPTIONS: num:nil ^:nil
 #+TAGS: android cyanogenmod htc_one_x endeavoru
 
-#+ATTR_HTML: :class alert-warning
+#+ATTR_HTML: :class alert-danger
 #+BEGIN_ALERT
 *WARNING*
 
@@ -21,9 +21,9 @@
 在前面的文章中，曾經提到了如何自己動手建立 CM9 或是 CM10.2 的 image 給
 HTC One X 手機使用，但是並未提及最關鍵的步驟: =如何升級/降級 HBOOT= 。
 
-為何或說升級/降級HBOOT是非常關鍵的步驟呢？事實上，HTC 提供的firmware裡
-面，用於 Android 4.0 (ICS) 和 Android 4.2 or 4.3 (JellyBean) 的HBOOT是
-不相容的，因此若你想要使用 ICS的版本，你就必須使用舊一點的 HBOOT，反之，
+為何或說升級/降級 HBOOT 是非常關鍵的步驟呢？事實上，HTC 提供的 firmware 裡
+面，用於 Android 4.0 (ICS) 和 Android 4.2 or 4.3 (JellyBean) 的 HBOOT 是
+不相容的，因此若你想要使用 ICS 的版本，你就必須使用舊一點的 HBOOT，反之，
 若你要使用 JellyBean，你就需要比較新的 HBOOT，兩者只能取其一。
 
 除此之外，更改手機的 bootloader 是最危險的事情，沒弄好的話，你的手機很可
@@ -40,7 +40,7 @@ HTC One X 手機使用，但是並未提及最關鍵的步驟: =如何升級/降
 
 [[http://www.mobile01.com/topicdetail.php?f%3D566&t%3D2692027][One X RUU 回覆 /Recovery/OTA 相關教學與疑難排解]]
 
-* 從 OTA檔案 中取得 RUU 以及 HBOOT
+* 從 OTA 檔案 中取得 RUU 以及 HBOOT
 
 刷機用的 HBOOT 以及 RUU 可以從 OTA 的檔案中取得，以 [[http://www.androidfiles.org/ruu/?developer%3DEndeavor][AndroidFiles RUU (endeavor)]]
 裡面的
@@ -100,7 +100,7 @@ HTC One X 手機使用，但是並未提及最關鍵的步驟: =如何升級/降
 * 更新你的 HBOOT 或是 RUU
 
 網路上可以看到很多懶人刷機用的工具，但是透過這類工具無法理解怎樣才能更
-新HBOOT，就讓我們用指令來處理吧 ~
+新 HBOOT，就讓我們用指令來處理吧 ~
 
 以下命令按照順序進行:
 
