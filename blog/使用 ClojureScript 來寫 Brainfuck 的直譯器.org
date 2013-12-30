@@ -120,7 +120,7 @@ Brainfuck 共包含有八種指令，其中兩個是 I/O 動作，其他的部�
 
 #+BEGIN_HTML
   <!-- Button trigger modal -->
-  <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  <button class="btn btn-danger" data-toggle="modal" data-target="#myModal">
     Brainfuck Interpreter in ClojureScript
   </button>
 
