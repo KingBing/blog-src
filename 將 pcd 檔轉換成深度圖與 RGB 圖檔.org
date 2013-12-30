@@ -130,15 +130,16 @@
 
 透過這個程式，你就可以將 [[file:files/2013/room.pcd][room.pcd]] 轉換成以下兩張圖形
 
-#+begin_o_blog_row 6 0 show-grid
+#+HTML: <div class="row "><div class="col-md-6 ">
+
 *RGB 彩圖*
 
 [[file:files/2013/room.png]]
 
-#+o_blog_row_column 6
+#+HTML: </div><div class="col-md-5">
 
 *深度圖*
 
 [[file:files/2013/room_depth.png]]
 
-#+end_o_blog_row
+#+HTML: </div> </div>
