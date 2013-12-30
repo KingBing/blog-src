@@ -1,0 +1,42 @@
+#+TITLE: test
+#+AUTHOR: coldnew
+#+EMAIL:  coldnew.tw@gmail.com
+#+DATE:   2013-12-30 22:23:52
+#+LANGUAGE: zh_TW
+#+URL:    test
+#+OPTIONS: num:nil ^:nil
+#+TAGS:
+
+* 概覽整個程式碼
+
+如果您想先看一下用 ClojureScript 寫 Brainfuck 的直譯器，其程式碼長的什
+麼樣子，可以點選下面的按鈕來觀看完整程式，  我們將會在後面文章來講述這整個程式的運作與原理。。
+
+#+BEGIN_HTML
+  <!-- Button to trigger modal -->
+  <button class="btn btn-danger" data-toggle="modal" data-target="#clojurescript_example">
+    Brainfuck Interpreter in ClojureScript
+  </button>
+
+  <!-- Modal -->
+  <div id="clojurescript_example" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h3 id="myModalLabel">Brainfuck Interpreter in ClojureScript</h3>
+        </div>
+        <div class="modal-body">
+#+END_HTML
+#+BEGIN_SRC clojurescript
+    (ns cljs-brainfuck.core)
+#+END_SRC
+#+BEGIN_HTML
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Close</button>
+    </div>
+  </div>  <!-- /.modal-content -->
+  </div>  <!-- /.modal-dialog -->
+  </div>  <!-- /.modal -->
+#+END_HTML
