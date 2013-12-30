@@ -239,6 +239,6 @@ ClojureScript 程式，你可以使用
 
 * 參考連結
 
-~[1]~ [[https://github.com/chjj/tty.js][tty.js GitHub]]
+~[1]~ [[https://github.com/chjj/tty.js][GitHub - tty.js]]
 
-~[2]~ [[https://github.com/michaelsbradleyjr/node-clojurescript][node-clojurecript GitHub]]
+~[2]~ [[https://github.com/michaelsbradleyjr/node-clojurescript][GitHub - node-clojurecript]]
