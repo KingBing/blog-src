@@ -7,7 +7,6 @@
 #+OPTIONS: num:nil ^:nil
 #+TAGS: clojurescript clojure
 
-
 * 關於 Brainfuck
 
 [[https://zh.wikipedia.org/wiki/Brainfuck][Brainfuck]] 是一個只具有 8 個指令的神奇語言，其程式碼如其名，以各程式
@@ -45,7 +44,7 @@ Brainfuck 共包含有八種指令，其中兩個是 I/O 動作，其他的部�
 以上面的 Brainfuck vs. C 的對應表來看，我們可以將左邊的 Brainfuck 語言轉
 換成右邊的 C 語言。
 
-#+HTML: <div class="row show-grid"><div class="span5 ">
+#+HTML: <div class="row show-grid"><div class="col-md-6 ">
 
 *Brainfuck*
 
@@ -55,7 +54,7 @@ Brainfuck 共包含有八種指令，其中兩個是 I/O 動作，其他的部�
    -
   ]
 #+END_SRC
-#+HTML: </div><div class="span6 ">
+#+HTML: </div><div class="col-md-6 ">
 
 *C*
 
