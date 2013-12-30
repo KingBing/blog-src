@@ -7,8 +7,6 @@
 #+OPTIONS: num:nil ^:nil
 #+TAGS: clojurescript clojure
 
-
-
 * 關於 Brainfuck
 
 [[https://zh.wikipedia.org/wiki/Brainfuck][Brainfuck]] 是一個只具有 8 個指令的神奇語言，其程式碼如其名，以各程式
