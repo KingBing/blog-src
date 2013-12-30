@@ -3,7 +3,7 @@
 #+EMAIL:  coldnew.tw@gmail.com
 #+DATE:   2013-01-27 13:00:52
 #+LANGUAGE: zh_TW
-#+URL:    c56b5
+#+URL:    3c2c1
 #+OPTIONS: num:nil ^:nil
 #+TAGS: linux
 
