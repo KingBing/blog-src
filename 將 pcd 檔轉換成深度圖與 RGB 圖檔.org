@@ -1,7 +1,7 @@
 #+TITLE: 將 pcd 檔轉換成深度圖與 RGB 圖檔
 #+AUTHOR: coldnew
 #+EMAIL:  coldnew.tw@gmail.com
-#+DATE:   2013-12-30 22:56:25
+#+DATE:   2013-05-06 23:54:25
 #+LANGUAGE: zh_TW
 #+URL:    70d34
 #+OPTIONS: num:nil ^:nil
