@@ -168,7 +168,7 @@ Brainfuck 共包含有八種指令，其中兩個是 I/O 動作，其他的部�
 
     (set! *main-cli-fn* -main)
 #+END_SRC
-#+blogit_source: :file files/2013/brainfuck.cljs :mode clojurescript
+#+blogit_source: :title "Brainfuck Interpreter in ClojureScript" :file files/2013/brainfuck.cljs :mode clojurescript
 
 * 透過 node.js 對檔案進行讀取
 
