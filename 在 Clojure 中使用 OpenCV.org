@@ -18,3 +18,8 @@ OpenCV 官網上面並未提供 Linux 或是 Mac OSX 的二進制檔案，所以
 #+BEGIN_EXAMPLE
   coldnew@Rosia ~/Workspace $ tar xvf opencv-2.4.7.tar.gz
 #+END_EXAMPLE
+
+
+* 參考連結
+
+~[1]~ [[http://docs.opencv.org/2.4/doc/tutorials/introduction/clojure_dev_intro/clojure_dev_intro.html][Introduction to OpenCV Development with Clojure]]
