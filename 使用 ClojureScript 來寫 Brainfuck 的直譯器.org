@@ -3,7 +3,7 @@
 #+EMAIL:  coldnew.tw@gmail.com
 #+DATE:   2013-07-06 13:12:02
 #+LANGUAGE: zh_TW
-#+URL:    f6961
+#+URL:    a7b2d
 #+OPTIONS: num:nil ^:nil
 #+TAGS: clojurescript clojure
 
