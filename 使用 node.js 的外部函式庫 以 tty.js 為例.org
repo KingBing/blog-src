@@ -83,7 +83,7 @@ node.js 程式。
 可以將他和左邊的 javascript 程式碼來對照看看 (tty.js 提供的範例程式)，
 我們將在後面說明這些程式碼的用途。
 
-#+HTML: <div class="row show-grid"><div class="span6">
+#+HTML: <div class="row show-grid"><div class="col-md-6">
   *javascript*
 
 #+BEGIN_SRC js
@@ -105,7 +105,7 @@ node.js 程式。
 
 #+END_SRC
 
-#+HTML: </div><div class="span6 ">
+#+HTML: </div><div class="col-md-6 ">
   *ClojureScript*
 
   #+BEGIN_SRC clojurescript
