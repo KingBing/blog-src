@@ -5,10 +5,7 @@
 #+LANGUAGE: zh_TW
 #+URL:    70d34
 #+OPTIONS: num:nil ^:nil
-#+TAGS:
-
-
-CLOSED: [2013-05-06 Mon 23:54]
+#+TAGS: pcl
 
 當我們好不容易產生了一個 pcd 模型後，突然發現到忘記儲存原始的 RGB 影像以及深度影像，
 這個時候要怎辦呢？你可以選擇重新使用 kinect 建立新的模型並拍下影像以及深度，也可以用
@@ -19,7 +16,6 @@ CLOSED: [2013-05-06 Mon 23:54]
 #+BEGIN_SRC c++
   void pcl::io::savePNGFile (const std::string &file_name, const pcl::PointCloud< T > &cloud);
 #+END_SRC
-
 
 但是如果我們使用的是 pcl 1.6 或者以下的版本呢？這時候就得手動增加這部份的 code。
 
