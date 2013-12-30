@@ -9,9 +9,9 @@
 
 * 關於 leiningen
 
-  lein 已經成為開發 Clojure 程式的必備工具，最近在 GitHub 看到很方便的
-  lein 擴展 [[https://github.com/kumarshantanu/lein-localrepo][lein-localrepo]] ，使用他可以很簡單的將需要的 Java
-  Libraries 加入到本地的 Maven repo
+lein 已經成為開發 Clojure 程式的必備工具，最近在 GitHub 看到很方便的
+lein 擴展 [[https://github.com/kumarshantanu/lein-localrepo][lein-localrepo]] ，使用他可以很簡單的將需要的 Java
+Libraries 加入到本地的 Maven repo
 
 * 來複習一下傳統的作法
 
