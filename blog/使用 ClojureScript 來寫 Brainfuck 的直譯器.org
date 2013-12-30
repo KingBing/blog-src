@@ -116,7 +116,6 @@ Brainfuck 共包含有八種指令，其中兩個是 I/O 動作，其他的部�
 如果您想先看一下用 ClojureScript 寫 Brainfuck 的直譯器，其程式碼長的什
 麼樣子，可以點選下面的按鈕來觀看完整程式，  我們將會在後面文章來講述這整個程式的運作與原理。。
 
-#+HTML: <div class="row "><div class="col-md-6 col-md-4">
 #+BEGIN_HTML
   <!-- Button to trigger modal -->
   <button class="btn btn-danger" data-toggle="modal" data-target="#clojurescript_example">
@@ -193,7 +192,6 @@ Brainfuck 共包含有八種指令，其中兩個是 I/O 動作，其他的部�
   </div>  <!-- /.modal-content -->
   </div>  <!-- /.modal-dialog -->
   </div>  <!-- /.modal -->
-</div></div>
 #+END_HTML
 
 * 透過 node.js 對檔案進行讀取
