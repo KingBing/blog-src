@@ -1,0 +1,8 @@
+#+TITLE: 讀取 pcd 檔並顯示三維影像
+#+AUTHOR: coldnew
+#+EMAIL:  coldnew.tw@gmail.com
+#+DATE:   2013-12-30 22:55:15
+#+LANGUAGE: zh_TW
+#+URL:    c6491
+#+OPTIONS: num:nil ^:nil
+#+TAGS: pcl
