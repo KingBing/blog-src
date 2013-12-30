@@ -1,16 +1,13 @@
 #+TITLE: 使用 node.js 的外部函式庫，以 tty.js 為例
 #+AUTHOR: coldnew
 #+EMAIL:  coldnew.tw@gmail.com
-#+DATE:   2013-12-30 22:00:08
+#+DATE:   2013-06-30 11:33:08
 #+LANGUAGE: zh_TW
 #+URL:    f6961
 #+OPTIONS: num:nil ^:nil
-#+TAGS: node.js clojure
+#+TAGS: node.js clojurescript
 
-** DONE [ClojureScript] 使用 node.js 的外部函式庫，以 tty.js 為例 :nodejs:clojurescript:
-CLOSED: [2013-06-30 Sun 11:33]
-
-*** 關於本篇文章
+* 關於本篇文章
 
 在 [[http://coldnew.github.io/blog/2013/06/29_82531.html][使用 ClojureScript 來寫 node.js 程式]] 一文當中，我們提到了可以用
 ClojureScript 來寫 node.js 的程式，可是如果要引用 node.js 的外部函式，比
@@ -22,13 +19,13 @@ ClojureScript 來寫 node.js 的程式，可是如果要引用 node.js 的外部
 本篇文章將描述如何在 ClojureScript 裏面呼叫 tty.js 的函式來建立我們的
 node.js 程式。
 
-*** 建立新的專案
+* 建立新的專案
 
 我們首先先來建立一個新的開發環境，就叫他為 ~cljs-tty~ 好了
 
 : lein new cljs-tty
 
-*** 加入 cljsbuild 到你的專案
+* 加入 cljsbuild 到你的專案
 
 接下來，編輯 ~project.clj~ 將他變成下面這樣，注意到在這篇範例中，我
 們還是使用 src 作為 ClojureScript 程式的資料夾。
@@ -57,7 +54,7 @@ node.js 程式。
 使用 *Advanced* 的最佳化格式，則會使我們的變數或是函式名稱和 tty.js 的
 不同，導致執行程式時出錯。
 
-*** 使用 npm 來加入 node.js 套件
+* 使用 npm 來加入 node.js 套件
 
 畢竟我們是要透過 ClojureScript 來呼叫 node.js 的函式庫，自然需要使用 npm
 來安裝需要的套件，因此你必須先在專案的頂層目錄加上 *package.json* ，
@@ -80,7 +77,7 @@ node.js 程式。
 
 來下載 tty.js 程式，他會被放到 node_modules 下。
 
-*** 改程式碼的時間到了
+* 改程式碼的時間到了
 
 在我們的主程式 core.cljs 裏面，要添加下面的 ClojureScript 程式碼，你
 可以將他和左邊的 javascript 程式碼來對照看看 (tty.js 提供的範例程式)，
@@ -215,7 +212,7 @@ bar 訊息，相對應的，在 ClojureScript 裏面我們可以這樣寫
 
   若你無法理解為什麼要這樣寫，請參考 [[http://coldnew.github.io/blog/2013/06/29_82531.html][使用 ClojureScript 來寫 node.js 程式]] 一文。
 
-*** 編譯我們的程式
+* 編譯我們的程式
 
 在 [[http://coldnew.github.io/blog/2013/06/29_82531.html][使用 ClojureScript 來寫 node.js 程式]] 一文說過要怎樣編譯我們的
 ClojureScript 程式，你可以使用
@@ -228,7 +225,7 @@ ClojureScript 程式，你可以使用
 
 他會在你每次儲存你的 ClojureScript 程式碼時，幫你進行編譯的動作。
 
-*** 執行程式看看結果
+* 執行程式看看結果
 
 我們可以用以下命令來執行我們的程式
 
@@ -240,7 +237,7 @@ ClojureScript 程式，你可以使用
 
 [[file:files/2013/ttyjs.png]]
 
-*** 參考連結
+* 參考連結
 
 ~[1]~ [[https://github.com/chjj/tty.js][tty.js GitHub]]
 
