@@ -123,12 +123,12 @@ Brainfuck 共包含有八種指令，其中兩個是 I/O 動作，其他的部�
   </button>
 
   <!-- Modal -->
-  <div id="clojurescript_example" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal hide fade" id="clojurescript_example" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-          <h3 id="myModalLabel">Brainfuck Interpreter in ClojureScript</h3>
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h3 class="modal-title" id="myModalLabel">Brainfuck Interpreter in ClojureScript</h3>
         </div>
         <div class="modal-body">
 #+END_HTML
@@ -185,13 +185,13 @@ Brainfuck 共包含有八種指令，其中兩個是 I/O 動作，其他的部�
     (set! *main-cli-fn* -main)
 #+END_SRC
 #+BEGIN_HTML
-    </div>
-    <div class="modal-footer">
-      <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Close</button>
-    </div>
-  </div>  <!-- /.modal-content -->
-  </div>  <!-- /.modal-dialog -->
-  </div>  <!-- /.modal -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" >Close</button>
+      </div>
+    </div>  <!-- /.modal-content -->
+    </div>  <!-- /.modal-dialog -->
+    </div>  <!-- /.modal -->
 #+END_HTML
 
 * 透過 node.js 對檔案進行讀取
