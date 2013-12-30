@@ -229,3 +229,24 @@
 #+BEGIN_SRC sh
   for i in $(find . -type d -empty); do touch $i/.gitkeep; done
 #+END_SRC
+* 限定 linux 密碼的最小長度
+
+#+BEGIN_EXAMPLE
+/etc/login.defs 是設定關於登入的設定檔
+
+(/etc/login.defs - Configuration control definitions for the login package.)
+
+在這個設定檔中，包含了密碼最小長度、最大長度、保留天數等設定
+
+如果想要限制新使用者最少的密碼長度，請編輯 /etc/login.defs
+
+sudo vi /etc/login.defs
+
+修改裡面的 PASS_MIN_LEN 的值
+
+比如想要限制密碼最短要 6 個字，將他改成
+
+PASS_MIN_LEN 6
+
+這樣用戶再設置密碼的時候，如果密碼長度少於 6 個字，就無法設定了
+#+END_EXAMPLE
