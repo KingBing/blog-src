@@ -1,11 +1,11 @@
 #+TITLE: 關閉 ext4 的 journal 功能
 #+AUTHOR: coldnew
 #+EMAIL:  coldnew.tw@gmail.com
-#+DATE:   2013-12-30 22:51:52
+#+DATE:   2013-01-27 13:00:52
 #+LANGUAGE: zh_TW
 #+URL:    c56b5
 #+OPTIONS: num:nil ^:nil
-#+TAGS:
+#+TAGS: linux
 
 ext4 是 Linux 下非常好的硬碟格式，但是若想要將 ext4 用於 sdcard
 或是 SSD 上時，關閉 journal(日誌) 功能則可以更好的保護硬碟，
