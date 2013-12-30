@@ -3,7 +3,7 @@
 #+EMAIL:  coldnew.tw@gmail.com
 #+DATE:   2013-12-30 22:56:25
 #+LANGUAGE: zh_TW
-#+URL:    a84_p
+#+URL:    70d34
 #+OPTIONS: num:nil ^:nil
 #+TAGS:
 
