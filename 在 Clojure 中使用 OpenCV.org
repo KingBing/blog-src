@@ -28,6 +28,9 @@ OpenCV 官網上面並未提供 Linux 或是 Mac OSX 的二進制檔案，所以
 
 : tar xvf opencv-2.4.7.tar.gz && cd opencv-2.4.7
 
+建立一個 build 資料夾，這個資料夾
+
+
 * 參考連結
 
 ~[1]~ [[http://docs.opencv.org/2.4/doc/tutorials/introduction/clojure_dev_intro/clojure_dev_intro.html][Introduction to OpenCV Development with Clojure]]
