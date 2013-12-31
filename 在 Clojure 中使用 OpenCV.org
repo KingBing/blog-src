@@ -37,6 +37,13 @@ OpenCV 官網上面並未提供 Linux 或是 Mac OSX 的二進制檔案，所以
   make -j8
 #+END_EXAMPLE
 
+當編譯完成後，你可以找到以下兩個我們需要的 libraries
+
+#+BEGIN_EXAMPLE
+
+#+END_EXAMPLE
+
+
 * 參考連結
 
 ~[1]~ [[http://docs.opencv.org/2.4/doc/tutorials/introduction/clojure_dev_intro/clojure_dev_intro.html][Introduction to OpenCV Development with Clojure]]
