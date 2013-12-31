@@ -7,6 +7,9 @@
 #+OPTIONS: num:nil ^:nil
 #+TAGS: clojure opencv
 
+#+BLOGIT_TYPE: draft
+
+
 OpenCV 是一套非常強大且好用的影像處理函式庫，一開始使用 C 語言來進行開
 發，後來移植到 C++ 上面，並提供了 Python 的綁定。在 2013 年的 2.4 版本
 時，OpenCV 開始提供了 JAVA 的 wrpaaer，也因此使用 JAVA 或是 Clojure 的
