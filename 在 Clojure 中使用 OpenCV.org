@@ -26,8 +26,7 @@ OpenCV 官網上面並未提供 Linux 或是 Mac OSX 的二進制檔案，所以
   coldnew@Rosia ~/Workspace $ tar xvf opencv-2.4.7.tar.gz
 #+END_EXAMPLE
 
-: tar xvf opencv-2.4.7.tar.gz
-
+: tar xvf opencv-2.4.7.tar.gz && cd opencv-2.4.7
 
 * 參考連結
 
