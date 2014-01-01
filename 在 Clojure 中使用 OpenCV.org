@@ -38,7 +38,7 @@ OpenCV 官網上面並未提供 Linux 或是 Mac OSX 的二進制檔案，所以
   make -j4
 #+END_EXAMPLE
 
-當編譯完成後，你可以找到以下兩個我們需要的 libraries
+當編譯完成後，你可以在 bin/ 下找到以下兩個我們需要的 libraries
 
 #+BEGIN_EXAMPLE
 
