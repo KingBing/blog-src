@@ -46,6 +46,15 @@ OpenCV 官網上面並未提供 Linux 或是 Mac OSX 的二進制檔案，所以
 
 #+END_EXAMPLE
 
+如果你沒有看到 .jar 檔案，請確認在使用 cmake 的時候有通過 JAVA test
+
+#+BEGIN_EXAMPLE
+  --   Java:
+  --     ant:                         /usr/local/bin/ant (ver 1.9.3)
+  --     JNI:                         /System/Library/Frameworks/JavaVM.framework/Headers /System/Library/Frameworks/JavaVM.framework/Headers /System/Library/Frameworks/JavaVM.framework/Headers
+  --     Java tests:                  YES
+#+END_EXAMPLE
+
 
 * 參考連結
 
