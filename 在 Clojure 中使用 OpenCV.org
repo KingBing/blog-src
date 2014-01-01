@@ -9,7 +9,6 @@
 
 #+BLOGIT_TYPE: draft
 
-
 OpenCV 是一套非常強大且好用的影像處理函式庫，一開始使用 C 語言來進行開
 發，後來移植到 C++ 上面，並提供了 Python 的綁定。在 2013 年的 2.4 版本
 時，OpenCV 開始提供了 JAVA 的 wrpaaer，也因此使用 JAVA 或是 Clojure 的
@@ -31,7 +30,7 @@ OpenCV 官網上面並未提供 Linux 或是 Mac OSX 的二進制檔案，所以
 
 : tar xvf opencv-2.4.7.tar.gz && cd opencv-2.4.7
 
-建立一個 build 資料夾，這個資料夾
+建立一個 build 資料夾，這個資料夾將用來存放編譯出來的檔案以及暫存檔
 
 #+BEGIN_EXAMPLE
   mkdir build && cd build
