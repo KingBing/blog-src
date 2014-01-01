@@ -33,11 +33,10 @@ OpenCV 官網上面並未提供 Linux 或是 Mac OSX 的二進制檔案，所以
 
 建立一個 build 資料夾，這個資料夾
 
-
 #+BEGIN_EXAMPLE
   mkdir build && cd build
   cmake -DBUILD_SHARED_LIBS=OFF ..
-  make -j8
+  make -j4
 #+END_EXAMPLE
 
 當編譯完成後，你可以找到以下兩個我們需要的 libraries
