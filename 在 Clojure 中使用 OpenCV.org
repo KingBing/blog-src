@@ -46,7 +46,8 @@ OpenCV 官網上面並未提供 Linux 或是 Mac OSX 的二進制檔案，所以
 
 #+END_EXAMPLE
 
-如果你沒有看到 .jar 檔案，請確認在使用 cmake 的時候有通過 JAVA test
+如果你沒有看到 .jar 檔案，請確認在使用 cmake 的時候有通過 JAVA test，
+以下為我在 Mac OSX 下編譯的範例
 
 #+BEGIN_EXAMPLE
   --   Java:
