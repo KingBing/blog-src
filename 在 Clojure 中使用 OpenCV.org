@@ -50,10 +50,12 @@ OpenCV 官網上面並未提供 Linux 或是 Mac OSX 的二進制檔案，所以
 以下為我在 Mac OSX 下編譯的範例
 
 #+BEGIN_EXAMPLE
+  coldnew@Sara ~/opencv/build $ cmake -DBUILD_SHARED_LIBS=OFF ..
+  (略)
   --   Java:
-  --     ant:                         /usr/local/bin/ant (ver 1.9.3)
-  --     JNI:                         /System/Library/Frameworks/JavaVM.framework/Headers /System/Library/Frameworks/JavaVM.framework/Headers /System/Library/Frameworks/JavaVM.framework/Headers
-  --     Java tests:                  YES
+  --     ant:           /usr/local/bin/ant (ver 1.9.3)
+  --     JNI:           /System/Library/Frameworks/JavaVM.framework/Headers /System/Library/Frameworks/JavaVM.framework/Headers /System/Library/Frameworks/JavaVM.framework/Headers
+  --     Java tests:    YES
 #+END_EXAMPLE
 
 
