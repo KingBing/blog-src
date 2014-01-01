@@ -56,6 +56,7 @@ OpenCV 官網上面並未提供 Linux 或是 Mac OSX 的二進制檔案，所以
   --     ant:           /usr/local/bin/ant (ver 1.9.3)
   --     JNI:           /System/Library/Frameworks/JavaVM.framework/Headers
   --     Java tests:    YES
+  (略)
 #+END_EXAMPLE
 
 
