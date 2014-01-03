@@ -1,4 +1,4 @@
-#+TITLE: Clojurescript 使用 node.js 的外部函式庫，以 tty.js 為例
+#+TITLE: [Clojurescript] 使用 node.js 的外部函式庫，以 tty.js 為例
 #+AUTHOR: coldnew
 #+EMAIL:  coldnew.tw@gmail.com
 #+DATE:   2013-06-30 11:33:08
