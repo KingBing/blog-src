@@ -15,3 +15,5 @@
 ~[1]~ [[http://blog.krdai.info/post/17647635162/introduction-to-trello][練習是不會騙人的 - 讓 Trello 變成你的工作管理工具]]
 
 ~[2]~ [[https://github.com/ardumont/org-trello][GitHub - org-trello]]
+
+~[3]~ [[http://eugg.blogspot.tw/2013/06/trello.html][如何使用 Trello 來規劃自助旅行]]
