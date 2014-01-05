@@ -1,0 +1,10 @@
+#+TITLE: 使用 org-mode 和 trello 來管理你的工作
+#+AUTHOR: coldnew
+#+EMAIL:  coldnew.tw@gmail.com
+#+DATE:   2014-01-05 22:47:49
+#+LANGUAGE: zh_TW
+#+URL:    f6961
+#+OPTIONS: num:nil ^:nil
+#+TAGS:
+
+#+BLOGIT_TYPE: draft
