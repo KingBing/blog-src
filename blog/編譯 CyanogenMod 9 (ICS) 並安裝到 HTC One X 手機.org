@@ -343,7 +343,7 @@ CyanogenMod 9 以及 Android ICS 時，遇到問題以及解決方案的整理�
   修改 =external/oprofile/libpp/format_output.h= 成如下
 
   #+BEGIN_SRC diff
-      diff --git a/libpp/format_output.h b/libpp/format_output.h
+    diff --git a/libpp/format_output.h b/libpp/format_output.h
     index b6c4592..8e527d5 100644
     --- a/libpp/format_output.h
     +++ b/libpp/format_output.h
@@ -365,6 +365,8 @@ CyanogenMod 9 以及 Android ICS 時，遇到問題以及解決方案的整理�
   #+BEGIN_SRC sh
     external/gtest/src/../include/gtest/internal/gtest-param-util.h:122:11: error: 「ptrdiff_t」does not name a ty
   #+END_SRC
+
+  修改
 
   #+BEGIN_SRC diff
     diff --git a/include/gtest/internal/gtest-param-util.h b/include/gtest/internal/gtest-param-util.h
