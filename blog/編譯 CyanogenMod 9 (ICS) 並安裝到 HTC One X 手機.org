@@ -391,6 +391,8 @@ CyanogenMod 9 以及 Android ICS 時，遇到問題以及解決方案的整理�
     frameworks/compile/slang/slang_rs_export_foreach.cpp:249:23: error: variable 『 ParamName' set but not used [-Werror=unused-but-set-variable]
   #+END_SRC
 
+  修改 =frameworks/compile/slang/slang_rs_export_foreach.cpp= 成如下
+
   #+BEGIN_SRC diff
     diff --git a/slang_rs_export_foreach.cpp b/slang_rs_export_foreach.cpp
     index a4025ca..0dbf954 100644
