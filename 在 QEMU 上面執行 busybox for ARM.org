@@ -17,6 +17,13 @@
 
 - 取得 busybox
 
+  你可以透過 git 直接取得 busybox 的原始碼，方法如下
+
+  #+BEGIN_EXAMPLE
+    git clone git://busybox.net/busybox.git
+  #+END_EXAMPLE
+
+
 * 建立 ramdisk
 
 
