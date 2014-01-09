@@ -361,6 +361,36 @@
     external/gtest/src/../include/gtest/internal/gtest-param-util.h:122:11: error: 「ptrdiff_t」does not name a ty
   #+END_SRC
 
+  #+BEGIN_SRC diff
+    diff --git a/include/gtest/internal/gtest-param-util.h b/include/gtest/internal/gtest-param-util.h
+    index 5559ab4..405dc4d 100644
+    --- a/include/gtest/internal/gtest-param-util.h
+    +++ b/include/gtest/internal/gtest-param-util.h
+    @@ -37,6 +37,7 @@
+     #include <iterator>
+     #include <utility>
+     #include <vector>
+    +#include <cstddef>
+
+     #include <gtest/internal/gtest-port.h>
+  #+END_SRC
+
+- sda
+
+  #+BEGIN_SRC diff
+    diff --git a/slang_rs_export_foreach.cpp b/slang_rs_export_foreach.cpp
+    index a4025ca..0dbf954 100644
+    --- a/slang_rs_export_foreach.cpp
+    +++ b/slang_rs_export_foreach.cpp
+    @@ -246,7 +246,6 @@ RSExportForEach *RSExportForEach::Create(RSContext *Context,
+                                         clang::SourceLocation(),
+                                         &Ctx.Idents.get(Id));
+
+    -      llvm::StringRef ParamName = PVD->getName();
+           clang::FieldDecl *FD =
+               clang::FieldDecl::Create(Ctx,
+                                        RD,
+  #+END_SRC
 
 
 * 後記
