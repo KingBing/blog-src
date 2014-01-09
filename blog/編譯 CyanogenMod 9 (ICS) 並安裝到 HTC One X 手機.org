@@ -329,6 +329,31 @@
      extern "C" {
   #+END_SRC
 
+- 編譯 oprofile 時出錯
+
+  在編譯 oprofile 時，如果遇到以下錯誤
+
+  #+BEGIN_SRC sh
+    external/oprofile/libpp/format_output.h:94:22: error：reference「counts」cannot be declared「mutable」 [-fpermissive]
+  #+END_SRC
+
+  修改 =external/oprofile/libpp/format_output.h= 成如下
+
+  #+BEGIN_SRC diff
+      diff --git a/libpp/format_output.h b/libpp/format_output.h
+    index b6c4592..8e527d5 100644
+    --- a/libpp/format_output.h
+    +++ b/libpp/format_output.h
+    @@ -91,7 +91,7 @@ protected:
+                    symbol_entry const & symbol;
+                    sample_entry const & sample;
+                    size_t pclass;
+    -               mutable counts_t & counts;
+    +               counts_t & counts;
+                    extra_images const & extra;
+                    double diff;
+            };
+  #+END_SRC
 
 
 * 後記
