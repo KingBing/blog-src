@@ -297,6 +297,19 @@
      HOST_NO_UNDEFINED_LDFLAGS := -Wl,--no-undefined
   #+END_SRC
 
+- 編譯 mesa3d 出錯
+
+  #+BEGIN_SRC sh
+    external/mesa3d/src/glsl/linker.cpp:623:33: warning:   by 『 virtual ir_visitor_status remap_variables(ir_instruction*, gl_shader*, hash_table*)::remap_visitor::visit(ir_dereference_variable*)』 [-Woverloaded-virtual]
+    external/mesa3d/src/glsl/linker.cpp: In function 『 void assign_varying_locations(gl_shader_program*, gl_shader*, gl_shader*)』:
+    external/mesa3d/src/glsl/linker.cpp:1394:49: error: expected primary-expression before 『,』 token
+    external/mesa3d/src/glsl/linker.cpp:1394:50: error: 『 varyings' was not declared in this scope
+    external/mesa3d/src/glsl/linker.cpp:1394:58: error: 『 offsetof' was not declared in this scope
+    external/mesa3d/src/glsl/linker.cpp:1395:48: error: expected primary-expression before 『,』 token
+    external/mesa3d/src/glsl/linker.cpp:1412:47: error: expected primary-expression before 『,』 token
+  #+END_SRC
+
+
 * 後記
 
 最近一直在嘗試移植 Firefox OS 給我的 HTC One X 使用，為了能更加了解整
