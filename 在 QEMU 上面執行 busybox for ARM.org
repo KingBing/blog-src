@@ -9,6 +9,10 @@
 
 #+BLOGIT_TYPE: draft
 
+* 編譯 QEMU 上可執行的 Linux Kernel
+
+* 編譯 Busybox
+
 
 * 參考連結
 
