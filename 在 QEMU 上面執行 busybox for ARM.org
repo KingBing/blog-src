@@ -23,6 +23,8 @@
     git clone git://busybox.net/busybox.git
   #+END_EXAMPLE
 
+  下載完最新的程式碼後，接著根據你的需求切換至需要的 branch 上，這邊以
+
 
 * 建立 ramdisk
 
