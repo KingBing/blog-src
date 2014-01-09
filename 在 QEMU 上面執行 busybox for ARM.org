@@ -9,6 +9,8 @@
 
 #+BLOGIT_TYPE: draft
 
+* 取得 toolchain
+
 * 編譯 QEMU 上可執行的 Linux Kernel
 
 * 編譯 Busybox
