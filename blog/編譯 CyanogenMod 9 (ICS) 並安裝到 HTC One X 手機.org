@@ -360,6 +360,8 @@ CyanogenMod 9 以及 Android ICS 時，遇到問題以及解決方案的整理�
 
 - 編譯 gtest 時出錯
 
+  如果遇到以下錯誤
+
   #+BEGIN_SRC sh
     external/gtest/src/../include/gtest/internal/gtest-param-util.h:122:11: error: 「ptrdiff_t」does not name a ty
   #+END_SRC
