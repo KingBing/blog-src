@@ -24,6 +24,12 @@
   #+END_EXAMPLE
 
   下載完最新的程式碼後，接著根據你的需求切換至需要的 branch 上，這邊以
+  =1_21_stable= 為例
+
+  #+BEGIN_EXAMPLE
+    cd busybox
+    git checkout -b 1_21_stable origin/1_21_stable
+  #+END_EXAMPLE
 
 
 * 建立 ramdisk
