@@ -385,6 +385,8 @@ CyanogenMod 9 以及 Android ICS 時，遇到問題以及解決方案的整理�
 
 - 遇到 ParamName 錯誤
 
+  如果遇到以下問題
+
   #+BEGIN_SRC sh
     frameworks/compile/slang/slang_rs_export_foreach.cpp:249:23: error: variable 『 ParamName' set but not used [-Werror=unused-but-set-variable]
   #+END_SRC
