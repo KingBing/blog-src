@@ -272,6 +272,18 @@
     repo sync prebuilt
   #+END_EXAMPLE
 
+- 遇到 _FORTIFY_SOURCE 這樣的問題
+
+  如果你有遇到如以下的錯誤訊息
+
+  #+BEGIN_SRC sh
+    error: "_FORTIFY_SOURCE" redefined [-Werror]
+  #+END_SRC
+
+  按照以下patch 去修改 =build/core/combo/HOST_linux-x86.mk=
+
+
+
 * 後記
 
 最近一直在嘗試移植 Firefox OS 給我的 HTC One X 使用，為了能更加了解整
