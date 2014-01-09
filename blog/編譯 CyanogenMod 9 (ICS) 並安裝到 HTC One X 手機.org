@@ -366,7 +366,8 @@ CyanogenMod 9 以及 Android ICS 時，遇到問題以及解決方案的整理�
     external/gtest/src/../include/gtest/internal/gtest-param-util.h:122:11: error: 「ptrdiff_t」does not name a ty
   #+END_SRC
 
-  修改
+  修改 =external/gtest/include/gtest/internal/gtest-param-util.h= 成如
+  下
 
   #+BEGIN_SRC diff
     diff --git a/include/gtest/internal/gtest-param-util.h b/include/gtest/internal/gtest-param-util.h
