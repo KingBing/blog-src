@@ -377,6 +377,10 @@
 
 - sda
 
+  #+BEGIN_SRC sh
+    frameworks/compile/slang/slang_rs_export_foreach.cpp:249:23: error: variable 『 ParamName' set but not used [-Werror=unused-but-set-variable]
+  #+END_SRC
+
   #+BEGIN_SRC diff
     diff --git a/slang_rs_export_foreach.cpp b/slang_rs_export_foreach.cpp
     index a4025ca..0dbf954 100644
