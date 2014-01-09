@@ -1,0 +1,10 @@
+#+TITLE: 在 QEMU 上面執行 busybox for ARM
+#+AUTHOR: coldnew
+#+EMAIL:  coldnew.tw@gmail.com
+#+DATE:   2014-01-09 21:54:52
+#+LANGUAGE: zh_TW
+#+URL:    686_q
+#+OPTIONS: num:nil ^:nil
+#+TAGS:
+
+#+BLOGIT_TYPE: draft
