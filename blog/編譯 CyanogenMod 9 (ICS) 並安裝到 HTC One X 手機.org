@@ -311,6 +311,25 @@
     external/mesa3d/src/glsl/linker.cpp:1412:47: error: expected primary-expression before 『,』 token
   #+END_SRC
 
+  修改 =external/mesa3d/src/glsl/linker.cpp= 成如下
+
+  #+BEGIN_SRC diff
+    diff --git a/src/glsl/linker.cpp b/src/glsl/linker.cpp
+    index f8b6962..cfdd3d3 100644
+    --- a/src/glsl/linker.cpp
+    +++ b/src/glsl/linker.cpp
+    @@ -67,7 +67,7 @@
+     #include <cstdio>
+     #include <cstdarg>
+     #include <climits>
+    -
+    +#include <stddef.h>
+     #include <pixelflinger2/pixelflinger2_interface.h>
+
+     extern "C" {
+  #+END_SRC
+
+
 
 * 後記
 
