@@ -299,6 +299,8 @@
 
 - 編譯 mesa3d 出錯
 
+  如果編譯 mesa3d 下的 linker.cpp 產生如以下的錯誤
+
   #+BEGIN_SRC sh
     external/mesa3d/src/glsl/linker.cpp:623:33: warning:   by 『 virtual ir_visitor_status remap_variables(ir_instruction*, gl_shader*, hash_table*)::remap_visitor::visit(ir_dereference_variable*)』 [-Woverloaded-virtual]
     external/mesa3d/src/glsl/linker.cpp: In function 『 void assign_varying_locations(gl_shader_program*, gl_shader*, gl_shader*)』:
