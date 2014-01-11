@@ -94,7 +94,7 @@
 
 * 增加 system/core/init/ubi-user.h 檔案
 
-由於我們待會進行一些 ubifs 相關函式的定義時，需要用到 ubifs 的結構，因此
+由於我們進行一些 ubifs 相關函式的定義時，需要用到 ubifs 的結構，因此
 需要增加相關 structure 的資訊。 =ubi-user.h= 這個檔案取自於 Linux Kernel
 的 =include/mtd/ubi-user.h=
 
