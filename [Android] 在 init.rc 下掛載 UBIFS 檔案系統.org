@@ -519,6 +519,9 @@
 
 * 修改 system/core/init/util.c
 
+由於我們增加了一些 ubifs 相關的函式
+
+
 * 參考連結
 
 ~[1]~ [[http://blog.chinaunix.net/uid-22028680-id-3015767.html][採用 UBIFS 製作 Android 的文件系統]]
