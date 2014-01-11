@@ -36,6 +36,10 @@ Android ICS 以及 JB 在 =system/core/init= 裡面的程式碼，要加上 ubif
 
 - 修改 =system/core/init/builtins.c=
 
+  #+BEGIN_SRC sh
+    mount ubi mtd@system /system
+  #+END_SRC
+
   #+BEGIN_SRC diff
     diff --git a/init/builtins.c b/init/builtins.c
     index b0a97ae..d8066a2 100644
