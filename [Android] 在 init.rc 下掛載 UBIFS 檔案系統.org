@@ -19,7 +19,16 @@
   mount yaffs2 mtd@system /system
 #+END_SRC
 
-為什麼
+為什麼理應效能比較好的 ubifs 卻未被 Android 系統廣泛使用？個人推測有以下原
+因
+
+- 1. Android 採用 yaffs2 作為 MTD NAND Flash 檔案系統
+
+- 2. 大多數的 Android 設備 (ex:手機) 都內建有 emmc 作為儲存空間
+
+實際上在我下載到的 AOSP 原始碼中，init 也看不到有支援 ubifs 的影子，那
+我們想讓 Android 的 init 掛載 ubifs 要怎麼辦? 這時候只好自己來了 ~
+
 
 
 * 參考連結
