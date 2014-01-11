@@ -77,6 +77,22 @@ Android ICS 以及 JB 在 =system/core/init= 裡面的程式碼，要加上 ubif
 
   #+END_SRC
 
+** 修改 system/core/init/util.h
+
+#+BEGIN_SRC diff
+  diff --git a/init/util.h b/init/util.h
+  index 45905b6..09aa574 100644
+  --- a/init/util.h
+  +++ b/init/util.h
+  @@ -41,4 +41,7 @@ void get_hardware_name(char *hardware, unsigned int *revision);
+   void import_kernel_cmdline(int in_qemu, void (*import_kernel_nv)(char *name, int in_qemu));
+   int make_dir(const char *path, mode_t mode);
+   int restorecon(const char *pathname);
+  +
+  +int ubi_attach_mtd(const char *name);
+  +int ubi_detach_dev(int dev);
+   #endif
+#+END_SRC
 
 * 讓 Android 4.0.4 (ICS) 支援 ubifs
 
