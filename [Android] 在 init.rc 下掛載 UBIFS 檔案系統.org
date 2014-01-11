@@ -29,8 +29,8 @@
 實際上在我下載到的 AOSP 原始碼中，init 也看不到有支援 ubifs 的影子，那
 我們想讓 Android 的 init 掛載 ubifs 要怎麼辦? 這時候只好自己動手了~
 
-
 * 讓 Android 4.0.4 (ICS) 支援 ubifs
+
 
 * 讓 Android 4.2 (JB) 支援 ubifs
 
