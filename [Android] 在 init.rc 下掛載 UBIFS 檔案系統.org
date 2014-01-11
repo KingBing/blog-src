@@ -29,12 +29,7 @@
 實際上在我下載到的 AOSP 原始碼中，init 也看不到有支援 ubifs 的影子，那
 我們想讓 Android 的 init 掛載 ubifs 要怎麼辦? 這時候只好自己動手了~
 
-* ICS 與 JB 共通的修改部分
-
-Android ICS 以及 JB 在 =system/core/init= 裡面的程式碼，要加上 ubifs 功
-能有部分程式碼是相同的，在此將他先列出來。
-
-** 修改 system/core/init/builtins.c
+* 修改 system/core/init/builtins.c
 
   我們所希望的是可以在 init.rc 增加下面這樣的描述，讓 init 可以掛載 ubifs
 
@@ -77,7 +72,7 @@ Android ICS 以及 JB 在 =system/core/init= 裡面的程式碼，要加上 ubif
 
   #+END_SRC
 
-** 修改 system/core/init/util.h
+* 修改 system/core/init/util.h
 
 我們在 =system/core/init/builtins.c= 使用到一些和 ubifs 相關的函式，這
 些函式並未被宣告以及定義，因此我們宣告在 util.h 裡面。
@@ -96,11 +91,6 @@ Android ICS 以及 JB 在 =system/core/init= 裡面的程式碼，要加上 ubif
   +int ubi_detach_dev(int dev);
    #endif
 #+END_SRC
-
-* 讓 Android 4.0.4 (ICS) 支援 ubifs
-
-
-* 讓 Android 4.2 (JB) 支援 ubifs
 
 
 * 參考連結
