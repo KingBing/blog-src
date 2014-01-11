@@ -42,6 +42,10 @@ Android ICS 以及 JB 在 =system/core/init= 裡面的程式碼，要加上 ubif
     mount ubifs ubi@system /system
   #+END_SRC
 
+  要辦到這項功能，我們必須在 =system/core/init/builtins.c= 裡面加入一
+  些程式，讓 init 遇到了 =ubi@= 這樣的語句時，會去使用 ubi_attach 來去掛載
+  mtd 設備。
+
   #+BEGIN_SRC diff
     diff --git a/init/builtins.c b/init/builtins.c
     index b0a97ae..d8066a2 100644
