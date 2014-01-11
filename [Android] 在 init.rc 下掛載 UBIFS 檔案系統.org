@@ -36,6 +36,37 @@ Android ICS 以及 JB 在 =system/core/init= 裡面的程式碼，要加上 ubif
 
 - 修改 =system/core/init/builtins.c=
 
+  #+BEGIN_SRC diff
+    diff --git a/init/builtins.c b/init/builtins.c
+    index b0a97ae..d8066a2 100644
+    --- a/init/builtins.c
+    +++ b/init/builtins.c
+    @@ -325,6 +325,22 @@ int do_mount(int nargs, char **args)
+             }
+
+             goto exit_success;
+    +    } else if (!strncmp(source, "ubi@", 4)) {
+    +        n = ubi_attach_mtd(source + 4);
+    +        if (n < 0) {
+    +            return -1;
+    +        }
+    +
+    +        sprintf(tmp, "/dev/ubi%d_0", n);
+    +
+    +        if (wait)
+    +            wait_for_file(tmp, COMMAND_RETRY_TIMEOUT);
+    +        if (mount(tmp, target, system, flags, options) < 0) {
+    +            ubi_detach_dev(n);
+    +            return -1;
+    +        }
+    +
+    +        goto exit_success;
+         } else if (!strncmp(source, "loop@", 5)) {
+             int mode, loop, fd;
+             struct loop_info info;
+
+  #+END_SRC
+
 
 * 讓 Android 4.0.4 (ICS) 支援 ubifs
 
