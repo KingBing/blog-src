@@ -13,7 +13,7 @@
 這命令和我們一般在 Linux 下使用的 mount 命令不同，是個提供給 init 運作的描
 述句，你可以在 =system/core/init/builtins.c= 找到他的實現。
 
-在大多數的 Android 設備中，常常可以看到掛載 yaffs 的描述，如下
+在大多數的 Android 設備中，常常可以看到掛載 yaffs 的描述
 
 #+BEGIN_SRC sh
   mount yaffs2 mtd@system /system
