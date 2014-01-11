@@ -34,10 +34,10 @@
 Android 的 init 原始碼位於 =system/core/init= 裡面，為了增加 ubifs 的功
 能，我們將針對以下檔案進行修改
 
-- init/builtins.c
-- init/util.h
-- init/util.c
-- init/ubi-user.h
+- 1. init/builtins.c
+- 2. init/util.h
+- 3. init/util.c
+- 4. init/ubi-user.h
 
 ** 修改 init/builtins.c
 
