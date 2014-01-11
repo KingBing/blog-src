@@ -30,6 +30,13 @@
 我們想讓 Android 的 init 掛載 ubifs 要怎麼辦? 這時候只好自己動手了~
 
 
+* 讓 Android 4.0.4 (ICS) 支援 ubifs
+
+* 讓 Android 4.2 (JB) 支援 ubifs
+
+* ICS 與 JB 共通的修改部分
+
+
 * 參考連結
 
 ~[1]~ [[http://blog.chinaunix.net/uid-22028680-id-3015767.html][採用 UBIFS 製作 Android 的文件系統]]
