@@ -518,7 +518,7 @@
 #+END_SRC
 
 
-*  修改 system/core/init/util.h
+* 修改 system/core/init/util.c
 
 * 參考連結
 
