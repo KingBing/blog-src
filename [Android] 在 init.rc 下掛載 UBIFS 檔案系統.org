@@ -657,6 +657,8 @@ Android 的 init 原始碼位於 =system/core/init= 裡面，為了增加 ubifs 
 
 * 其他相關設定
 
+* 讓 Android 使用 ubifs 格式建立 system.img
+
 * 參考連結
 
 ~[1]~ [[http://blog.chinaunix.net/uid-22028680-id-3015767.html][採用 UBIFS 製作 Android 的文件系統]]
