@@ -9,7 +9,9 @@
 
 #+BLOGIT_TYPE: draft
 
-在各 Android 產品的 init.rc 中，常常可以看到掛載 yaffs 或是 emmc 的描速，如下
+在 Android 的 init.rc 中，可以看到掛載檔案系統使用的 =mount= 命令，而
+這命令和我們一般在 Linux 下使用的 mount 命令不同，是個提供給 init 運作的描
+述句。
 
 #+BEGIN_SRC sh
   mount yaffs2 mtd@system /system
