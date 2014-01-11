@@ -515,7 +515,6 @@
   }  __packed;
 
   #endif /* __UBI_USER_H__ */
-
 #+END_SRC
 
 
