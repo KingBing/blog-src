@@ -108,7 +108,7 @@ Android 的 init 原始碼位於 =system/core/init= 裡面，為了增加 ubifs 
 需要增加相關結構的資訊。 =ubi-user.h= 這個檔案取自於 Linux Kernel
 的 =include/mtd/ubi-user.h=
 
-複製 =include/mtd/ubi-user.h= 到 =init= 目錄裡面
+請將 Linux Kernel 的 =include/mtd/ubi-user.h= 複製到 =init= 目錄裡面
 
 #+BEGIN_SRC c
   /*
