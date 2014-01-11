@@ -27,8 +27,7 @@
 - 2. 大多數的 Android 設備 (ex:手機) 都內建有 emmc 作為儲存空間
 
 實際上在我下載到的 AOSP 原始碼中，init 也看不到有支援 ubifs 的影子，那
-我們想讓 Android 的 init 掛載 ubifs 要怎麼辦? 這時候只好自己來了 ~
-
+我們想讓 Android 的 init 掛載 ubifs 要怎麼辦? 這時候只好自己動手了~
 
 
 * 參考連結
