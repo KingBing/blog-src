@@ -29,6 +29,8 @@
 實際上在我下載到的 AOSP 原始碼中，init 也看不到有支援 ubifs 的影子，那
 我們想讓 Android 的 init 掛載 ubifs 要怎麼辦? 這時候只好自己動手了~
 
+* 讓 init 可以掛載 ubifs 所進行的修改
+
 * 修改 system/core/init/builtins.c
 
   我們所希望的是可以在 init.rc 增加下面這樣的描述，讓 init 可以掛載 ubifs
