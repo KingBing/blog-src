@@ -100,7 +100,7 @@
 
 複製 =include/mtd/ubi-user.h= 到 =system/core/init= 裡面
 
-#+BEGIN_SRC diff
+#+BEGIN_SRC c
   /*
    ,* Copyright © International Business Machines Corp., 2006
    ,*
