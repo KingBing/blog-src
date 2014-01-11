@@ -5,7 +5,7 @@
 #+LANGUAGE: zh_TW
 #+URL:    andro
 #+OPTIONS: num:nil ^:nil
-#+TAGS:
+#+TAGS: android
 
 #+BLOGIT_TYPE: draft
 
