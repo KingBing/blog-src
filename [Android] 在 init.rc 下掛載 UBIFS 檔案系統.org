@@ -19,6 +19,8 @@
   mount yaffs2 mtd@system /system
 #+END_SRC
 
+為什麼
+
 
 * 參考連結
 
