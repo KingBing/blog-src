@@ -79,6 +79,9 @@ Android ICS 以及 JB 在 =system/core/init= 裡面的程式碼，要加上 ubif
 
 ** 修改 system/core/init/util.h
 
+我們在 =system/core/init/builtins.c= 使用到一些和 ubifs 相關的函式，這
+些函式並未被宣告以及定義，因此我們宣告在 util.h 裡面。
+
 #+BEGIN_SRC diff
   diff --git a/init/util.h b/init/util.h
   index 45905b6..09aa574 100644
