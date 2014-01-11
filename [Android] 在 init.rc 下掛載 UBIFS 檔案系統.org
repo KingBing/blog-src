@@ -655,7 +655,7 @@ Android 的 init 原始碼位於 =system/core/init= 裡面，為了增加 ubifs 
   +}
 #+END_SRC
 
-* 其他相關設定
+* ramdisk 修改
 
 * 讓 Android 使用 ubifs 格式建立 system.img
 
