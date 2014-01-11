@@ -34,7 +34,7 @@
 Android ICS 以及 JB 在 =system/core/init= 裡面的程式碼，要加上 ubifs 功
 能有部分程式碼是相同的，在此將他先列出來。
 
-- 修改 =system/core/init/builtins.c=
+** 修改 =system/core/init/builtins.c=
 
   我們所希望的是可以在 init.rc 增加下面這樣的描述，讓 init 可以掛載 ubifs
 
