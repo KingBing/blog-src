@@ -1,0 +1,10 @@
+#+TITLE: [Android] 在 init.rc 下掛載 UBIFS 檔案系統
+#+AUTHOR: coldnew
+#+EMAIL:  coldnew.tw@gmail.com
+#+DATE:   2014-01-11 10:08:51
+#+LANGUAGE: zh_TW
+#+URL:    andro
+#+OPTIONS: num:nil ^:nil
+#+TAGS:
+
+#+BLOGIT_TYPE: draft
