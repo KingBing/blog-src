@@ -12,6 +12,7 @@
 在各 Android 產品的 init.rc 中，常常可以看到掛載 yaffs 或是 emmc 的描速，如下
 
 #+BEGIN_SRC sh
+  mount yaffs2 mtd@system /system
 
 #+END_SRC
 
