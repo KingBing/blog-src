@@ -31,7 +31,8 @@
 
 * ICS 與 JB 共通的修改部分
 
-對於 Android ICS 以及 JB 在 =system/core/init= 裡面的程式碼，要加上
+Android ICS 以及 JB 在 =system/core/init= 裡面的程式碼，要加上 ubifs 功
+能有部分程式碼是相同的，在此將他先列出來。
 
 
 * 讓 Android 4.0.4 (ICS) 支援 ubifs
