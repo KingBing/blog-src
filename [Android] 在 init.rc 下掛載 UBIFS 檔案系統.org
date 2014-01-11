@@ -8,3 +8,10 @@
 #+TAGS:
 
 #+BLOGIT_TYPE: draft
+
+
+* 參考連結
+
+~[1]~ [[http://blog.chinaunix.net/uid-22028680-id-3015767.html][採用 UBIFS 製作 Android 的文件系統]]
+
+~[2]~ [[http://www.cnblogs.com/linucos/p/3279381.html][android 和 ubifs]]
