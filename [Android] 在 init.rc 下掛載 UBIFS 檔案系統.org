@@ -31,7 +31,7 @@
 
 * 讓 init 可以掛載 ubifs 所進行的修改
 
-** 修改 system/core/init/builtins.c
+** 修改 init/builtins.c
 
   我們所希望的是可以在 init.rc 增加下面這樣的描述，讓 init 可以掛載 ubifs
 
@@ -74,7 +74,7 @@
 
   #+END_SRC
 
-** 修改 system/core/init/util.h
+** 修改 init/util.h
 
 我們在 =system/core/init/builtins.c= 使用到一些和 ubifs 相關的函式，這
 些函式並未被宣告以及定義，因此我們宣告在 util.h 裡面。
@@ -94,7 +94,7 @@
    #endif
 #+END_SRC
 
-** 增加 system/core/init/ubi-user.h 檔案
+** 增加 init/ubi-user.h 檔案
 
 由於我們進行一些 ubifs 相關函式的定義時，需要用到 ubifs 的結構，因此
 需要增加相關結構的資訊。 =ubi-user.h= 這個檔案取自於 Linux Kernel
@@ -519,7 +519,7 @@
   #endif /* __UBI_USER_H__ */
 #+END_SRC
 
-** 修改 system/core/init/util.c
+** 修改 init/util.c
 
 由於我們增加了一些 ubifs 相關的函式，因此必須自己來實現他。
 
