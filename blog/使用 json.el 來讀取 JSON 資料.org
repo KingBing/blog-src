@@ -1,4 +1,4 @@
-#+TITLE: 使用 json.el 來讀取 JSON 資料
+#+TITLE: [emacs] 使用 json.el 來讀取 JSON 資料
 #+AUTHOR: coldnew
 #+EMAIL:  coldnew.tw@gmail.com
 #+DATE:   2013-06-29 13:49:33
