@@ -5,7 +5,7 @@
 #+LANGUAGE: zh_TW
 #+URL:    17398
 #+OPTIONS: num:nil ^:nil
-#+TAGS: linux
+#+TAGS: linux qemu
 
 * 關於 binfmt_misc
 
