@@ -546,7 +546,7 @@ Android 的 init 原始碼位於 =system/core/init= 裡面，為了增加 ubifs 
 
    /* for ANDROID_SOCKET_* */
    #include <cutils/sockets.h>
-  @@ -40,6 +42,7 @@
+  @@ -40,3 +42,4 @@
    #include "init.h"
    #include "log.h"
    #include "util.h"
